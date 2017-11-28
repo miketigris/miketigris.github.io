@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang=ja>
+<html lang=zh>
 <head>
     <meta charset="utf-8">
     
-    <title>Hello World | 许贵荣的博客</title>
+    <title>Hello World | 许贵荣的个人博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troublesho">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hello World">
 <meta property="og:url" content="http://yoursite.com/2017/11/27/hello-world/index.html">
-<meta property="og:site_name" content="许贵荣的博客">
+<meta property="og:site_name" content="许贵荣的个人博客">
 <meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:locale" content="java">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-27T12:42:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello World">
@@ -19,22 +19,24 @@
     
 
     
-        <link rel="alternate" href="/" title="许贵荣的博客" type="application/atom+xml" />
+        <link rel="alternate" href="/" title="许贵荣的个人博客" type="application/atom+xml" />
     
 
     
 
-    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
-    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
     <link rel="stylesheet" href="/css/style.css">
 
-    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
     
     
-        <link rel="stylesheet" href="/vendor/lightgallery/css/lightgallery.min.css">
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
     
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
     
     
     
@@ -50,17 +52,21 @@
         <div class="outer">
             <a href="/" id="logo">
                 <i class="logo"></i>
-                <span class="site-title">许贵荣的博客</span>
+                <span class="site-title">许贵荣的个人博客</span>
             </a>
             <nav id="main-nav">
                 
-                    <a class="main-nav-link" href="/">java</a>
+                    <a class="main-nav-link" href="/.">首页</a>
                 
-                    <a class="main-nav-link" href="/">Spring</a>
+                    <a class="main-nav-link" href="/archives">文章</a>
                 
-                    <a class="main-nav-link" href="/">人工智能</a>
+                    <a class="main-nav-link" href="/categories">人工智能</a>
                 
-                    <a class="main-nav-link" href="/">移动研发</a>
+                    <a class="main-nav-link" href="/archives">移动研发</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
                 
             </nav>
             
@@ -68,7 +74,7 @@
                 <nav id="sub-nav">
                     <div class="profile" id="profile-nav">
                         <a id="profile-anchor" href="javascript:;">
-                            <img class="avatar" src="https://www.gravatar.com/avatar/767bbdf4f09238dd44108b2482a5342a" />
+                            <img class="avatar" src="/css/images/avatar.png" />
                             <i class="fa fa-caret-down"></i>
                         </a>
                     </div>
@@ -77,7 +83,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -96,10 +102,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -117,18 +123,22 @@
         <table class="menu outer">
             <tr>
                 
-                    <td><a class="main-nav-link" href="/">java</a></td>
+                    <td><a class="main-nav-link" href="/.">首页</a></td>
                 
-                    <td><a class="main-nav-link" href="/">Spring</a></td>
+                    <td><a class="main-nav-link" href="/archives">文章</a></td>
                 
-                    <td><a class="main-nav-link" href="/">人工智能</a></td>
+                    <td><a class="main-nav-link" href="/categories">人工智能</a></td>
                 
-                    <td><a class="main-nav-link" href="/">移动研发</a></td>
+                    <td><a class="main-nav-link" href="/archives">移动研发</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
                 
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -144,20 +154,20 @@
 <aside id="profile">
     <div class="inner profile-inner">
         <div class="base-info profile-block">
-            <img id="avatar" src="https://www.gravatar.com/avatar/767bbdf4f09238dd44108b2482a5342a?s=128" />
+            <img id="avatar" src="/css/images/avatar.png" />
             <h2 id="name">许贵荣</h2>
-            <h3 id="title">互联网金融软件工程师，现就职于美团点评金融创新部门。</h3>
+            <h3 id="title">互联网金融从业者，现任职于美团创新金融部门</h3>
             <span id="location"><i class="fa fa-map-marker"></i>上海, 中国</span>
-            <a id="follow" target="_blank" href="">SEGUIR</a>
+            <a id="follow" target="_blank" href="https://github.com/miketigris/">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 1
-                <span>Entrada</span>
+                <span>post</span>
             </div>
             <div class="article-info-block">
                 0
-                <span>Etiqueta</span>
+                <span>tag</span>
             </div>
         </div>
         
@@ -167,14 +177,14 @@
                     
                     
                     <td>
-                        <a href="http://github.com/miketigris" target="_blank" title="github" class=tooltip>
+                        <a href="http://github.com/miketigris/" target="_blank" title="github" class=tooltip>
                             <i class="fa fa-github"></i>
                         </a>
                     </td>
                     
                     <td>
-                        <a href="/xgr712@126.com" target="_blank" title="qq" class=tooltip>
-                            <i class="fa fa-qq"></i>
+                        <a href="/" target="_blank" title="weibo" class=tooltip>
+                            <i class="fa fa-weibo"></i>
                         </a>
                     </td>
                     
@@ -185,8 +195,8 @@
                     </td>
                     
                     <td>
-                        <a href="/" target="_blank" title="weibo" class=tooltip>
-                            <i class="fa fa-weibo"></i>
+                        <a href="/xgr712@126.com" target="_blank" title="envelope" class=tooltip>
+                            <i class="fa fa-envelope"></i>
                         </a>
                     </td>
                     
@@ -256,7 +266,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/11/27/hello-world/" data-id="cjaje2zqe0000sg78ip2vz8g3" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://yoursite.com/2017/11/27/hello-world/" data-id="cjaji774700002u78buba3g2o" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -324,8 +334,6 @@
 
             
     
-        <a href="http://yoursite.com/2017/11/27/hello-world/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2017/11/27/hello-world/">Comentarios</a>
-    
 
         </footer>
     </div>
@@ -337,23 +345,16 @@
 
 
     
-    <section id="comments">
     
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-
-    
-    </section>
 
 </section>
             
-                <aside id="sidebar">
+                
+<aside id="sidebar">
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Recientes</h3>
+        <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
                 
@@ -385,7 +386,7 @@
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Archivos</h3>
+        <h3 class="widget-title">archives</h3>
         <div class="widget">
             <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li></ul>
         </div>
@@ -398,12 +399,12 @@
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">Links</h3>
+        <h3 class="widget-title">links</h3>
         <div class="widget">
             <ul>
                 
                     <li>
-                        <a href="http://hexo.io">Hexo</a>
+                        <a href="http://www.wanjiaxinwen.cn">博客</a>
                     </li>
                 
             </ul>
@@ -414,6 +415,7 @@
     
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
+
             
         </div>
         <footer id="footer">
@@ -425,34 +427,21 @@
     </div>
 </footer>
         
-    
-    <script>
-    var disqus_config = function () {
-        
-            this.page.url = 'http://yoursite.com/2017/11/27/hello-world/';
-        
-        this.page.identifier = 'hello-world';
-    };
-    (function() { 
-        var d = document, s = d.createElement('script');  
-        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-
 
 
     
-        <script src="/vendor/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/vendor/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/vendor/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/vendor/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/vendor/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/vendor/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/vendor/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/vendor/lightgallery/js/lg-share.min.js"></script>
-        <script src="/vendor/lightgallery/js/lg-video.min.js"></script>
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
     
     
 
