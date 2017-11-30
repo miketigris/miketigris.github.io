@@ -3,18 +3,20 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档: 2017/11 | 博客</title>
+    <title>创建和销毁对象 | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="许贵荣">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://yoursite.com/archives/2017/11/index.html">
+    <meta name="description" content="我的读书笔记">
+<meta name="keywords" content="Effective Java,读书笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="创建和销毁对象">
+<meta property="og:url" content="http://yoursite.com/2017/11/30/创建和销毁对象/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="许贵荣">
+<meta property="og:description" content="我的读书笔记">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-30T11:49:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:description" content="许贵荣">
+<meta name="twitter:title" content="创建和销毁对象">
+<meta name="twitter:description" content="我的读书笔记">
     
 
     
@@ -213,25 +215,21 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2017</h1>
-            </div>
+            <section id="main"><article id="post-创建和销毁对象" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/30/创建和销毁对象/">创建和销毁对象</a>
+        <h1 class="article-title" itemprop="name">
+            创建和销毁对象
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2017/11/30/创建和销毁对象/">
@@ -240,121 +238,155 @@
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Effective-Java/">Effective Java</a>, <a class="tag-link" href="/tags/读书笔记/">读书笔记</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/29/Mark-Down语法/">Mark Down语法</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="1-考虑用静态工厂方法代替构造器"><a href="#1-考虑用静态工厂方法代替构造器" class="headerlink" title="1.考虑用静态工厂方法代替构造器"></a>1.考虑用静态工厂方法代替构造器</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><h4 id="它们有名称"><a href="#它们有名称" class="headerlink" title="它们有名称"></a>它们有名称</h4><ul>
+<li>指的是方法的名称，能够准确描述返回的对象，对于多个构造方法的类可以使用不同的名称来描述返回对象</li>
+<li>对于构造方法参数的含义需要结合注释才能明白用哪一个构造器</li>
+</ul>
+<h4 id="不必每次调用的时候都创建一个新对象"><a href="#不必每次调用的时候都创建一个新对象" class="headerlink" title="不必每次调用的时候都创建一个新对象"></a>不必每次调用的时候都创建一个新对象</h4><ul>
+<li>单例，内部控制</li>
+</ul>
+<h4 id="可以返回原返回类型的任何子类型的对象"><a href="#可以返回原返回类型的任何子类型的对象" class="headerlink" title="可以返回原返回类型的任何子类型的对象"></a>可以返回原返回类型的任何子类型的对象</h4><ul>
+<li>文章中是以Collections为例的，一开始没有太理解，Collections是一个工具类，构造私有化的，不能直接实例化，Collection本身是接口，不能有静态工厂方法，所以委托给Collections这个工具类来提供生产构造.</li>
+<li>对于下面的例子Animal即为接口，提供类可以为Animals</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">public interface Animal &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="title">implements</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">Animals</span></span>&#123;</span><br><span class="line"></span><br><span class="line">   private Animals()&#123;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">	public <span class="keyword">static</span> Animal getInstance(<span class="built_in">String</span> type)&#123;</span><br><span class="line">	   <span class="keyword">if</span>(<span class="string">"dog"</span>.equals())&#123;</span><br><span class="line">    		<span class="keyword">return</span> <span class="keyword">new</span> Dog();</span><br><span class="line">    	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    	   <span class="keyword">return</span> <span class="keyword">new</span> Cat();</span><br><span class="line">    	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#### 在创建参数化类型实例的时候，使代码更加简洁</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span> js</span><br><span class="line"><span class="comment">// 当前做法</span></span><br><span class="line"><span class="built_in">Map</span>&lt;<span class="built_in">String</span>, List&lt;<span class="built_in">String</span>&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;<span class="built_in">String</span>, List&lt;<span class="built_in">String</span>&gt;&gt;();</span><br><span class="line"><span class="comment">// 举例这样做会更简洁</span></span><br><span class="line"><span class="built_in">Map</span>&lt;<span class="built_in">String</span>, List&lt;<span class="built_in">String</span>&gt;&gt; map = HashMap.newInstance();</span><br><span class="line"><span class="comment">// java8已经可以直接这样写了</span></span><br><span class="line"><span class="built_in">Map</span>&lt;<span class="built_in">String</span>, List&lt;<span class="built_in">String</span>&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><h4 id="类如果不含public或者protected的构造器-就不能被子类化"><a href="#类如果不含public或者protected的构造器-就不能被子类化" class="headerlink" title="类如果不含public或者protected的构造器, 就不能被子类化"></a>类如果不含public或者protected的构造器, 就不能被子类化</h4><ul>
+<li>例如Collections类和上面的Animals类，不能被子类化，另一面就是需要复合（Composition）</li>
+</ul>
+<h4 id="无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势"><a href="#无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势" class="headerlink" title="无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势"></a>无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势</h4><ul>
+<li>valueOf(): 类型转换方法, 返回的实例与参数具有相同的值.</li>
+<li>of(): valueOf()的一种更简洁的替代.</li>
+<li>getInstance(): 返回的实例通过参数来描述, 对于单例来说, 该方法没有参数, 返回唯一的实例.</li>
+<li>newInstance(): 像getInstance()一样, 但newInstance()能确保返回的每个实例都与其他实例不同.</li>
+<li>getType(): 像getInstance()一样, Type表示返回的对象类型, 在工厂方法处于不同的类中的时候使用.</li>
+<li>newType(): 和newInstance()一样, Type表示返回类型, 在工厂方法处于不同的类中的时候使用.</li>
+</ul>
+<h2 id="2-考虑使用构建器"><a href="#2-考虑使用构建器" class="headerlink" title="2.考虑使用构建器"></a>2.考虑使用构建器</h2><p>这个比较好理解，能够解决多参数构造器的复杂性，相对于getset的JavaBean来说也有线程安全性的优势，个人倾向于使用lombok的@Builder注解<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Builder</span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	private <span class="built_in">String</span> name;</span><br><span class="line">	</span><br><span class="line">	private int age;</span><br><span class="line">	</span><br><span class="line">	public <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="built_in">String</span>[] args) &#123;</span><br><span class="line">    </span><br><span class="line">    	Person p = Person.builder().age(<span class="number">15</span>).build();</span><br><span class="line">   </span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="用私有构造器或者枚举强化单例"><a href="#用私有构造器或者枚举强化单例" class="headerlink" title="用私有构造器或者枚举强化单例"></a>用私有构造器或者枚举强化单例</h2><ul>
+<li>单例构造函数必须private</li>
+<li>枚举实现单例</li>
+</ul>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/11/29/Mark-Down语法/">
-            <time datetime="2017-11-29T09:39:59.000Z" itemprop="datePublished">2017-11-29</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/随笔/">随笔</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/书籍/">书籍</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/28/开篇：2018年寄语/">开篇：2018年寄语</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/11/28/开篇：2018年寄语/">
-            <time datetime="2017-11-28T11:58:47.000Z" itemprop="datePublished">2017-11-28</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/随笔/">随笔</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/书籍/">书籍</a>, <a class="tag-link" href="/tags/感悟/">感悟</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/27/hello-world/">Hello World</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/11/27/hello-world/">
-            <time datetime="2017-11-27T12:42:25.000Z" itemprop="datePublished">2017-11-27</time>
-        </a>
-    </div>
-
-
-                    
-                    
-                </div>
-            </div>
-        </div>
-    
 </div>
+
+    <a data-url="http://yoursite.com/2017/11/30/创建和销毁对象/" data-id="cjamf4zkm0001vy786kxf1p5g" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/11/29/Mark-Down语法/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Mark Down语法</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
 </section>
             
                 
