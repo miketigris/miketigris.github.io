@@ -3,20 +3,20 @@
 <head>
     <meta charset="utf-8">
     
-    <title>开篇：2018年寄语 | 博客</title>
+    <title>考虑使用静态工厂方法代替构造器（一） | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="“天下武功唯快不破”  在过去的2017年忙碌充实，收获满满2017年主要的工作经历都在拍拍贷，在拍拍贷期间完成了整个资金中台的支付核心和支付网关的研发，使用了很多新的技术，Springboot，SpringCloud，Git 很多东西都是第一次接触，一边学习，一边工作，收获满满。再次致谢原阿里“青蜂侠”杨志宏先生带给">
-<meta name="keywords" content="随笔">
+    <meta name="description" content="1.考虑用静态工厂方法代替构造器优点它们有名称 指的是方法的名称，能够准确描述返回的对象，对于多个构造方法的类可以使用不同的名称来描述返回对象 对于构造方法参数的含义需要结合注释才能明白用哪一个构造器，并且多构造器的时候无法确切知道使用哪个构造器  12345678910111213141516171819202122">
+<meta name="keywords" content="Effective Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开篇：2018年寄语">
-<meta property="og:url" content="http://yoursite.com/2017/11/28/开篇：2018年寄语/index.html">
+<meta property="og:title" content="考虑使用静态工厂方法代替构造器（一）">
+<meta property="og:url" content="http://yoursite.com/2017/11/30/考虑使用静态工厂方法代替构造器/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="“天下武功唯快不破”  在过去的2017年忙碌充实，收获满满2017年主要的工作经历都在拍拍贷，在拍拍贷期间完成了整个资金中台的支付核心和支付网关的研发，使用了很多新的技术，Springboot，SpringCloud，Git 很多东西都是第一次接触，一边学习，一边工作，收获满满。再次致谢原阿里“青蜂侠”杨志宏先生带给我的技术视野，让我重新认知了“程序员”的定义，在技术的道路上不仅要拓展深度，还">
+<meta property="og:description" content="1.考虑用静态工厂方法代替构造器优点它们有名称 指的是方法的名称，能够准确描述返回的对象，对于多个构造方法的类可以使用不同的名称来描述返回对象 对于构造方法参数的含义需要结合注释才能明白用哪一个构造器，并且多构造器的时候无法确切知道使用哪个构造器  12345678910111213141516171819202122232425262728293031323334package com.star">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-03T06:29:04.000Z">
+<meta property="og:updated_time" content="2017-12-03T08:46:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开篇：2018年寄语">
-<meta name="twitter:description" content="“天下武功唯快不破”  在过去的2017年忙碌充实，收获满满2017年主要的工作经历都在拍拍贷，在拍拍贷期间完成了整个资金中台的支付核心和支付网关的研发，使用了很多新的技术，Springboot，SpringCloud，Git 很多东西都是第一次接触，一边学习，一边工作，收获满满。再次致谢原阿里“青蜂侠”杨志宏先生带给我的技术视野，让我重新认知了“程序员”的定义，在技术的道路上不仅要拓展深度，还">
+<meta name="twitter:title" content="考虑使用静态工厂方法代替构造器（一）">
+<meta name="twitter:description" content="1.考虑用静态工厂方法代替构造器优点它们有名称 指的是方法的名称，能够准确描述返回的对象，对于多个构造方法的类可以使用不同的名称来描述返回对象 对于构造方法参数的含义需要结合注释才能明白用哪一个构造器，并且多构造器的时候无法确切知道使用哪个构造器  12345678910111213141516171819202122232425262728293031323334package com.star">
     
 
     
@@ -215,7 +215,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-开篇：2018年寄语" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-考虑使用静态工厂方法代替构造器" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -223,7 +223,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            开篇：2018年寄语
+            考虑使用静态工厂方法代替构造器（一）
         </h1>
     
 
@@ -232,8 +232,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/11/28/开篇：2018年寄语/">
-            <time datetime="2017-11-28T11:58:47.000Z" itemprop="datePublished">2017-11-28</time>
+        <a href="/2017/11/30/考虑使用静态工厂方法代替构造器/">
+            <time datetime="2017-11-30T11:58:47.000Z" itemprop="datePublished">2017-11-30</time>
         </a>
     </div>
 
@@ -241,13 +241,13 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/随笔/">随笔</a>
+        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/随笔/">随笔</a>
+        <a class="tag-link" href="/tags/Effective-Java/">Effective Java</a>
     </div>
 
                     </div>
@@ -258,16 +258,29 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <blockquote>
-<p>“天下武功唯快不破”</p>
-</blockquote>
-<p>在过去的2017年忙碌充实，收获满满2017年主要的工作经历都在拍拍贷，在拍拍贷期间完成了整个资金中台的支付核心和支付网关的研发，使用了很多新的技术，Springboot，SpringCloud，Git 很多东西都是第一次接触，一边学习，一边工作，收获满满。再次致谢原阿里“青蜂侠”杨志宏先生带给我的技术视野，让我重新认知了“程序员”的定义，在技术的道路上不仅要拓展深度，还需要要广度，对新技术充满着热情，不断的学习充实自己。当在9月份因为一些原因不得不离开的时候也无太多遗憾。</p>
-<hr>
-<p>9月和10月为了面试看了好多书，阿里方腾飞的《并发编程的艺术》，周志明的《深入理解JVM虚拟机》，Eric Evans的《领域驱动设计》，《Springboot实战》《java8实战》《Spring In Action》，《java核心卷一》，翟永超的blog还有他的《Spring Cloud微服务实践》，《微服务设计》等等。这些书籍让我无比充实，越是阅读越是发现自己的鄙陋与无知。对于2018年也定了一些新的书单，坚定不移的用知识和前沿的技术武装自己。</p>
-<hr>
-<p>各类武侠小说中都有一句：天下武功唯快不破。<br>这句用在科技行业真是非常恰当的，技术发展日新月异，当一些公司还沾沾自喜于已有的市场，已有的技术时，殊不知新的技术革命已经启程，互联网充满了无尽的想象，绝不止于BAT，新的技术的产生，必会有更多优秀的公司，通过新的技术，对一些庞大的运作效率低下的，一些固守于已有技术的公司进行“降维”打击。我非常幸运的从事着互联网行业，又能接触到诸多的金融知识，希望自己在2018能够把握机遇，事业和理想都能更前一步！</p>
-<hr>
-<p>10月底来到美团，感受到美团强大的技术氛围，在美团这片战场上开启一段新的旅程。<br>最后搭建博客的想法主要还是看了翟永超的博客，做的很不错，创作总是从模仿开始吧，页面的主题等等都是学习借鉴于他的博客。@翟永超的blog ：<a href="http://blog.didispace.com/" target="_blank" rel="noopener">http://blog.didispace.com/</a></p>
+            <h2 id="1-考虑用静态工厂方法代替构造器"><a href="#1-考虑用静态工厂方法代替构造器" class="headerlink" title="1.考虑用静态工厂方法代替构造器"></a>1.考虑用静态工厂方法代替构造器</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><h4 id="它们有名称"><a href="#它们有名称" class="headerlink" title="它们有名称"></a>它们有名称</h4><ul>
+<li>指的是方法的名称，能够准确描述返回的对象，对于多个构造方法的类可以使用不同的名称来描述返回对象</li>
+<li>对于构造方法参数的含义需要结合注释才能明白用哪一个构造器，并且多构造器的时候无法确切知道使用哪个构造器</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">package com.stardust.effective.role1;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by mike on 2017/12/3.</span><br><span class="line"> * 它们有名称</span><br><span class="line"> */</span><br><span class="line">public class Fruit &#123;</span><br><span class="line"></span><br><span class="line">    private String color;</span><br><span class="line"></span><br><span class="line">    private String size;</span><br><span class="line"></span><br><span class="line">    private Fruit(String color,String size)&#123;</span><br><span class="line">        this.color=color;</span><br><span class="line">        this.size=size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 通过方法名可以知道要构造什么样的对象</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static Fruit <span class="function"><span class="title">getBigGreenFruit</span></span>()&#123;</span><br><span class="line">        <span class="built_in">return</span> new Fruit(<span class="string">"green"</span>,<span class="string">"big"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static Fruit <span class="function"><span class="title">getSmallRedFruit</span></span>()&#123;</span><br><span class="line">        <span class="built_in">return</span> new Fruit(<span class="string">"red"</span>,<span class="string">"small"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static Fruit <span class="function"><span class="title">getApple</span></span>()&#123;</span><br><span class="line">        <span class="built_in">return</span> new Fruit(<span class="string">"red"</span>,<span class="string">"middle"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="不必每次调用的时候都创建一个新对象"><a href="#不必每次调用的时候都创建一个新对象" class="headerlink" title="不必每次调用的时候都创建一个新对象"></a>不必每次调用的时候都创建一个新对象</h4><p>单例模式，对于一些不可变类可以使用这种方式，在上面那个例子中我对构造函数进行了私有化，可以认为是一个简单的单例，但还是需要升级优化，在后面单例的几种写法中展开说。<br>这种方式的一个优势即不必重复创建对象，在spring中大量使用单例这种设计模式来创建单一不可变对象。<br>书中还提到一个如果实例受控则可以通过==来判定是否为同一实例，这种写法比equals提升了性能。</p>
+<p>术语：<br>实例受控的类(instance-controlled)：在某个时刻只能有某些规定的该类的实例存在。</p>
+<h4 id="可以返回原返回类型的任何子类型的对象"><a href="#可以返回原返回类型的任何子类型的对象" class="headerlink" title="可以返回原返回类型的任何子类型的对象"></a>可以返回原返回类型的任何子类型的对象</h4><ul>
+<li>文章中是以Collections为例的，一开始没有太理解，Collections是一个工具类，构造私有化的，不能直接实例化，Collection本身是接口，不能有静态工厂方法，所以委托给Collections这个工具类来提供生产构造.</li>
+<li>对于下面的例子Animal即为接口，提供类可以为Animals</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">public interface Animal &#123;</span><br><span class="line">    Animal getAnimal(String <span class="built_in">type</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Dog implements Animal&#123;</span><br><span class="line">    Animal getAnimal(String <span class="built_in">type</span>)&#123;</span><br><span class="line">    		<span class="built_in">return</span> new Dog();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Animals&#123;</span><br><span class="line"></span><br><span class="line">   private <span class="function"><span class="title">Animals</span></span>()&#123;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">	public static Animal getInstance(String <span class="built_in">type</span>)&#123;</span><br><span class="line">	   <span class="keyword">if</span>(<span class="string">"dog"</span>.equals(<span class="built_in">type</span>))&#123;</span><br><span class="line">    		<span class="built_in">return</span> new Dog();</span><br><span class="line">    	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    	   <span class="built_in">return</span> new Cat();</span><br><span class="line">    	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">基于接口的框架(interface-based framework)：框架的对外访问与接入渠道是基于接口实现的。</span><br><span class="line"></span><br><span class="line"><span class="comment">#### 在创建参数化类型实例的时候，使代码更加简洁</span></span><br><span class="line">``` js</span><br><span class="line">// 当前做法</span><br><span class="line">Map&lt;String, List&lt;String&gt;&gt; map = new HashMap&lt;String, List&lt;String&gt;&gt;();</span><br><span class="line">// 举例这样做会更简洁</span><br><span class="line">Map&lt;String, List&lt;String&gt;&gt; map = HashMap.newInstance();</span><br><span class="line">// java8已经可以直接这样写了</span><br><span class="line">Map&lt;String, List&lt;String&gt;&gt; map = new HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><h4 id="类如果不含public或者protected的构造器-就不能被子类化"><a href="#类如果不含public或者protected的构造器-就不能被子类化" class="headerlink" title="类如果不含public或者protected的构造器, 就不能被子类化"></a>类如果不含public或者protected的构造器, 就不能被子类化</h4><ul>
+<li>例如Collections类和上面的Animals类，不能被子类化，另一面就是需要复合（Composition）</li>
+</ul>
+<h4 id="无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势"><a href="#无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势" class="headerlink" title="无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势"></a>无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势</h4><ul>
+<li>valueOf(): 类型转换方法, 返回的实例与参数具有相同的值.</li>
+<li>of(): valueOf()的一种更简洁的替代.</li>
+<li>getInstance(): 返回的实例通过参数来描述, 对于单例来说, 该方法没有参数, 返回唯一的实例.</li>
+<li>newInstance(): 像getInstance()一样, 但newInstance()能确保返回的每个实例都与其他实例不同.</li>
+<li>getType(): 像getInstance()一样, Type表示返回的对象类型, 在工厂方法处于不同的类中的时候使用.</li>
+<li>newType(): 和newInstance()一样, Type表示返回类型, 在工厂方法处于不同的类中的时候使用.</li>
+</ul>
 
         
         </div>
@@ -278,7 +291,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/11/28/开篇：2018年寄语/" data-id="cjaqj28q30004fy78d9hyrfjt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/11/30/考虑使用静态工厂方法代替构造器/" data-id="cjaqj28q60006fy78c68zvtq3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -353,19 +366,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2017/11/29/Markdown语法/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/12/03/考虑使用构建器/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    Mark Down语法
+                    考虑使用构建器（二）
                 
             </div>
         </a>
     
     
-        <a href="/2017/11/27/博客使用说明/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/11/29/Markdown语法/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">博客使用示例</div>
+            <div class="article-nav-title">Mark Down语法</div>
         </a>
     
 </nav>

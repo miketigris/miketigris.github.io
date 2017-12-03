@@ -161,7 +161,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                4
+                5
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -214,7 +214,7 @@
 
             
             <section id="main">
-    <article id="post-创建和销毁对象" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-考虑使用构建器" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -222,7 +222,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/11/30/创建和销毁对象/">创建和销毁对象</a>
+            <a class="article-title" href="/2017/12/03/考虑使用构建器/">考虑使用构建器（二）</a>
         </h1>
     
 
@@ -231,8 +231,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/11/30/创建和销毁对象/">
-            <time datetime="2017-11-30T11:58:47.000Z" itemprop="datePublished">2017-11-30</time>
+        <a href="/2017/12/03/考虑使用构建器/">
+            <time datetime="2017-12-03T06:58:47.000Z" itemprop="datePublished">2017-12-03</time>
         </a>
     </div>
 
@@ -257,30 +257,7 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="1-考虑用静态工厂方法代替构造器"><a href="#1-考虑用静态工厂方法代替构造器" class="headerlink" title="1.考虑用静态工厂方法代替构造器"></a>1.考虑用静态工厂方法代替构造器</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><h4 id="它们有名称"><a href="#它们有名称" class="headerlink" title="它们有名称"></a>它们有名称</h4><ul>
-<li>指的是方法的名称，能够准确描述返回的对象，对于多个构造方法的类可以使用不同的名称来描述返回对象</li>
-<li>对于构造方法参数的含义需要结合注释才能明白用哪一个构造器</li>
-</ul>
-<h4 id="不必每次调用的时候都创建一个新对象"><a href="#不必每次调用的时候都创建一个新对象" class="headerlink" title="不必每次调用的时候都创建一个新对象"></a>不必每次调用的时候都创建一个新对象</h4><ul>
-<li>单例，内部控制</li>
-</ul>
-<h4 id="可以返回原返回类型的任何子类型的对象"><a href="#可以返回原返回类型的任何子类型的对象" class="headerlink" title="可以返回原返回类型的任何子类型的对象"></a>可以返回原返回类型的任何子类型的对象</h4><ul>
-<li>文章中是以Collections为例的，一开始没有太理解，Collections是一个工具类，构造私有化的，不能直接实例化，Collection本身是接口，不能有静态工厂方法，所以委托给Collections这个工具类来提供生产构造.</li>
-<li>对于下面的例子Animal即为接口，提供类可以为Animals</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public interface Animal &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="title">implements</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">Animals</span></span>&#123;</span><br><span class="line"></span><br><span class="line">   private Animals()&#123;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">	public <span class="keyword">static</span> Animal getInstance(<span class="built_in">String</span> type)&#123;</span><br><span class="line">	   <span class="keyword">if</span>(<span class="string">"dog"</span>.equals())&#123;</span><br><span class="line">    		<span class="keyword">return</span> <span class="keyword">new</span> Dog();</span><br><span class="line">    	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    	   <span class="keyword">return</span> <span class="keyword">new</span> Cat();</span><br><span class="line">    	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#### 在创建参数化类型实例的时候，使代码更加简洁</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span> js</span><br><span class="line"><span class="comment">// 当前做法</span></span><br><span class="line"><span class="built_in">Map</span>&lt;<span class="built_in">String</span>, List&lt;<span class="built_in">String</span>&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;<span class="built_in">String</span>, List&lt;<span class="built_in">String</span>&gt;&gt;();</span><br><span class="line"><span class="comment">// 举例这样做会更简洁</span></span><br><span class="line"><span class="built_in">Map</span>&lt;<span class="built_in">String</span>, List&lt;<span class="built_in">String</span>&gt;&gt; map = HashMap.newInstance();</span><br><span class="line"><span class="comment">// java8已经可以直接这样写了</span></span><br><span class="line"><span class="built_in">Map</span>&lt;<span class="built_in">String</span>, List&lt;<span class="built_in">String</span>&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><h4 id="类如果不含public或者protected的构造器-就不能被子类化"><a href="#类如果不含public或者protected的构造器-就不能被子类化" class="headerlink" title="类如果不含public或者protected的构造器, 就不能被子类化"></a>类如果不含public或者protected的构造器, 就不能被子类化</h4><ul>
-<li>例如Collections类和上面的Animals类，不能被子类化，另一面就是需要复合（Composition）</li>
-</ul>
-<h4 id="无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势"><a href="#无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势" class="headerlink" title="无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势"></a>无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势</h4><ul>
-<li>valueOf(): 类型转换方法, 返回的实例与参数具有相同的值.</li>
-<li>of(): valueOf()的一种更简洁的替代.</li>
-<li>getInstance(): 返回的实例通过参数来描述, 对于单例来说, 该方法没有参数, 返回唯一的实例.</li>
-<li>newInstance(): 像getInstance()一样, 但newInstance()能确保返回的每个实例都与其他实例不同.</li>
-<li>getType(): 像getInstance()一样, Type表示返回的对象类型, 在工厂方法处于不同的类中的时候使用.</li>
-<li>newType(): 和newInstance()一样, Type表示返回类型, 在工厂方法处于不同的类中的时候使用.</li>
-</ul>
-<h2 id="2-考虑使用构建器"><a href="#2-考虑使用构建器" class="headerlink" title="2.考虑使用构建器"></a>2.考虑使用构建器</h2><p>这个比较好理解，能够解决多参数构造器的复杂性，相对于getset的JavaBean来说也有线程安全性的优势，个人倾向于使用lombok的@Builder注解<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Builder</span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	private <span class="built_in">String</span> name;</span><br><span class="line">	</span><br><span class="line">	private int age;</span><br><span class="line">	</span><br><span class="line">	public <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="built_in">String</span>[] args) &#123;</span><br><span class="line">    </span><br><span class="line">    	Person p = Person.builder().age(<span class="number">15</span>).build();</span><br><span class="line">   </span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <h2 id="2-考虑使用构建器"><a href="#2-考虑使用构建器" class="headerlink" title="2.考虑使用构建器"></a>2.考虑使用构建器</h2><p>这个比较好理解，能够解决多参数构造器的复杂性，相对于getset的JavaBean来说也有线程安全性的优势，个人倾向于使用lombok的@Builder注解<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Builder</span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	private <span class="built_in">String</span> name;</span><br><span class="line">	</span><br><span class="line">	private int age;</span><br><span class="line">	</span><br><span class="line">	public <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="built_in">String</span>[] args) &#123;</span><br><span class="line">    </span><br><span class="line">    	Person p = Person.builder().age(<span class="number">15</span>).build();</span><br><span class="line">   </span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="用私有构造器或者枚举强化单例"><a href="#用私有构造器或者枚举强化单例" class="headerlink" title="用私有构造器或者枚举强化单例"></a>用私有构造器或者枚举强化单例</h2><ul>
 <li>单例构造函数必须private,并且通过static公有方法得到实例对象，若仅通过域静态变量来获得单例有可能被反射获取新的单例</li>
 <li>枚举实现单例</li>
@@ -299,7 +276,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/11/30/创建和销毁对象/" data-id="cjaninf2b0000fp78v3tjyuid" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/12/03/考虑使用构建器/" data-id="cjaqj28q40005fy78y0s1rcbn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -375,7 +352,7 @@
 
 
 
-    <article id="post-Mark-Down语法" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-考虑使用静态工厂方法代替构造器" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -383,7 +360,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/11/29/Mark-Down语法/">Mark Down语法</a>
+            <a class="article-title" href="/2017/11/30/考虑使用静态工厂方法代替构造器/">考虑使用静态工厂方法代替构造器（一）</a>
         </h1>
     
 
@@ -392,7 +369,159 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/11/29/Mark-Down语法/">
+        <a href="/2017/11/30/考虑使用静态工厂方法代替构造器/">
+            <time datetime="2017-11-30T11:58:47.000Z" itemprop="datePublished">2017-11-30</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Effective-Java/">Effective Java</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="1-考虑用静态工厂方法代替构造器"><a href="#1-考虑用静态工厂方法代替构造器" class="headerlink" title="1.考虑用静态工厂方法代替构造器"></a>1.考虑用静态工厂方法代替构造器</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><h4 id="它们有名称"><a href="#它们有名称" class="headerlink" title="它们有名称"></a>它们有名称</h4><ul>
+<li>指的是方法的名称，能够准确描述返回的对象，对于多个构造方法的类可以使用不同的名称来描述返回对象</li>
+<li>对于构造方法参数的含义需要结合注释才能明白用哪一个构造器，并且多构造器的时候无法确切知道使用哪个构造器</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">package com.stardust.effective.role1;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by mike on 2017/12/3.</span><br><span class="line"> * 它们有名称</span><br><span class="line"> */</span><br><span class="line">public class Fruit &#123;</span><br><span class="line"></span><br><span class="line">    private String color;</span><br><span class="line"></span><br><span class="line">    private String size;</span><br><span class="line"></span><br><span class="line">    private Fruit(String color,String size)&#123;</span><br><span class="line">        this.color=color;</span><br><span class="line">        this.size=size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 通过方法名可以知道要构造什么样的对象</span><br><span class="line">     * @<span class="built_in">return</span></span><br><span class="line">     */</span><br><span class="line">    public static Fruit <span class="function"><span class="title">getBigGreenFruit</span></span>()&#123;</span><br><span class="line">        <span class="built_in">return</span> new Fruit(<span class="string">"green"</span>,<span class="string">"big"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static Fruit <span class="function"><span class="title">getSmallRedFruit</span></span>()&#123;</span><br><span class="line">        <span class="built_in">return</span> new Fruit(<span class="string">"red"</span>,<span class="string">"small"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static Fruit <span class="function"><span class="title">getApple</span></span>()&#123;</span><br><span class="line">        <span class="built_in">return</span> new Fruit(<span class="string">"red"</span>,<span class="string">"middle"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="不必每次调用的时候都创建一个新对象"><a href="#不必每次调用的时候都创建一个新对象" class="headerlink" title="不必每次调用的时候都创建一个新对象"></a>不必每次调用的时候都创建一个新对象</h4><p>单例模式，对于一些不可变类可以使用这种方式，在上面那个例子中我对构造函数进行了私有化，可以认为是一个简单的单例，但还是需要升级优化，在后面单例的几种写法中展开说。<br>这种方式的一个优势即不必重复创建对象，在spring中大量使用单例这种设计模式来创建单一不可变对象。<br>书中还提到一个如果实例受控则可以通过==来判定是否为同一实例，这种写法比equals提升了性能。</p>
+<p>术语：<br>实例受控的类(instance-controlled)：在某个时刻只能有某些规定的该类的实例存在。</p>
+<h4 id="可以返回原返回类型的任何子类型的对象"><a href="#可以返回原返回类型的任何子类型的对象" class="headerlink" title="可以返回原返回类型的任何子类型的对象"></a>可以返回原返回类型的任何子类型的对象</h4><ul>
+<li>文章中是以Collections为例的，一开始没有太理解，Collections是一个工具类，构造私有化的，不能直接实例化，Collection本身是接口，不能有静态工厂方法，所以委托给Collections这个工具类来提供生产构造.</li>
+<li>对于下面的例子Animal即为接口，提供类可以为Animals</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">public interface Animal &#123;</span><br><span class="line">    Animal getAnimal(String <span class="built_in">type</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Dog implements Animal&#123;</span><br><span class="line">    Animal getAnimal(String <span class="built_in">type</span>)&#123;</span><br><span class="line">    		<span class="built_in">return</span> new Dog();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Animals&#123;</span><br><span class="line"></span><br><span class="line">   private <span class="function"><span class="title">Animals</span></span>()&#123;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">	public static Animal getInstance(String <span class="built_in">type</span>)&#123;</span><br><span class="line">	   <span class="keyword">if</span>(<span class="string">"dog"</span>.equals(<span class="built_in">type</span>))&#123;</span><br><span class="line">    		<span class="built_in">return</span> new Dog();</span><br><span class="line">    	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    	   <span class="built_in">return</span> new Cat();</span><br><span class="line">    	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">基于接口的框架(interface-based framework)：框架的对外访问与接入渠道是基于接口实现的。</span><br><span class="line"></span><br><span class="line"><span class="comment">#### 在创建参数化类型实例的时候，使代码更加简洁</span></span><br><span class="line">``` js</span><br><span class="line">// 当前做法</span><br><span class="line">Map&lt;String, List&lt;String&gt;&gt; map = new HashMap&lt;String, List&lt;String&gt;&gt;();</span><br><span class="line">// 举例这样做会更简洁</span><br><span class="line">Map&lt;String, List&lt;String&gt;&gt; map = HashMap.newInstance();</span><br><span class="line">// java8已经可以直接这样写了</span><br><span class="line">Map&lt;String, List&lt;String&gt;&gt; map = new HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><h4 id="类如果不含public或者protected的构造器-就不能被子类化"><a href="#类如果不含public或者protected的构造器-就不能被子类化" class="headerlink" title="类如果不含public或者protected的构造器, 就不能被子类化"></a>类如果不含public或者protected的构造器, 就不能被子类化</h4><ul>
+<li>例如Collections类和上面的Animals类，不能被子类化，另一面就是需要复合（Composition）</li>
+</ul>
+<h4 id="无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势"><a href="#无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势" class="headerlink" title="无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势"></a>无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势</h4><ul>
+<li>valueOf(): 类型转换方法, 返回的实例与参数具有相同的值.</li>
+<li>of(): valueOf()的一种更简洁的替代.</li>
+<li>getInstance(): 返回的实例通过参数来描述, 对于单例来说, 该方法没有参数, 返回唯一的实例.</li>
+<li>newInstance(): 像getInstance()一样, 但newInstance()能确保返回的每个实例都与其他实例不同.</li>
+<li>getType(): 像getInstance()一样, Type表示返回的对象类型, 在工厂方法处于不同的类中的时候使用.</li>
+<li>newType(): 和newInstance()一样, Type表示返回类型, 在工厂方法处于不同的类中的时候使用.</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2017/11/30/考虑使用静态工厂方法代替构造器/" data-id="cjaqj28q60006fy78c68zvtq3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-Markdown语法" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/11/29/Markdown语法/">Mark Down语法</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/11/29/Markdown语法/">
             <time datetime="2017-11-29T09:39:59.000Z" itemprop="datePublished">2017-11-29</time>
         </a>
     </div>
@@ -465,7 +594,7 @@
 <h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>Markdown 语法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">email &lt;example@example.com&gt;</span><br><span class="line">[GitHub](http://github.com)</span><br><span class="line">自动生成连接  &lt;http://www.github.com/&gt;</span><br></pre></td></tr></table></figure>
 <p><code>Control + Shift + L</code> 可插入Markdown语法。<br>如果是 MWeb 的文档库中的文档，拖放或<code>CMD + Option + I</code> 导入非图片时，会生成连接。<br>效果如下：</p>
-<p>Email 连接： <a href="&#x6d;&#97;&#x69;&#108;&#116;&#111;&#58;&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#101;&#64;&#x65;&#120;&#97;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#109;">&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#101;&#64;&#x65;&#120;&#97;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#109;</a><br><a href="http://github.com" target="_blank" rel="noopener">连接标题Github网站</a><br>自动生成连接像： <a href="http://www.github.com/" target="_blank" rel="noopener">http://www.github.com/</a> 这样</p>
+<p>Email 连接： <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#58;&#x65;&#120;&#97;&#109;&#112;&#x6c;&#101;&#64;&#101;&#120;&#97;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#111;&#109;">&#x65;&#120;&#97;&#109;&#112;&#x6c;&#101;&#64;&#101;&#120;&#97;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#111;&#109;</a><br><a href="http://github.com" target="_blank" rel="noopener">连接标题Github网站</a><br>自动生成连接像： <a href="http://www.github.com/" target="_blank" rel="noopener">http://www.github.com/</a> 这样</p>
 <h2 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h2><p>Markdown 语法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">某某说:</span><br><span class="line">&gt; 第一行引用</span><br><span class="line">&gt; 第二行费用文字</span><br></pre></td></tr></table></figure>
 <p><code>CMD + Shift + B</code> 可插入Markdown语法。<br>效果如下：</p>
@@ -534,7 +663,7 @@
 <p>这是一个脚注：<a href="这里是脚注信息">^sample_footnote</a></p>
 <h2 id="注释和阅读更多"><a href="#注释和阅读更多" class="headerlink" title="注释和阅读更多"></a>注释和阅读更多</h2><!-- comment --></p>
             <p class="article-more-link">
-                <a href="/2017/11/29/Mark-Down语法/#more">查看更多</a>
+                <a href="/2017/11/29/Markdown语法/#more">查看更多</a>
             </p>
         
         </div>
@@ -545,7 +674,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/11/29/Mark-Down语法/" data-id="cjaninf2g0001fp789ftpjpjd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/11/29/Markdown语法/" data-id="cjaqj28pt0000fy780ytzhxl5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -653,7 +782,7 @@
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/书籍/">书籍</a>, <a class="tag-link" href="/tags/感悟/">感悟</a>
+        <a class="tag-link" href="/tags/随笔/">随笔</a>
     </div>
 
                     </div>
@@ -665,11 +794,15 @@
         
             
             <blockquote>
-<p>“有些事情不是看到希望才去坚持，而是坚持了才会看到希望”</p>
+<p>“天下武功唯快不破”</p>
 </blockquote>
-<p>在过去的2017年忙碌充实，收获满满<br>2017年主要的工作经历都在拍拍贷，在拍拍贷期间完成了整个资金中台的支付核心和支付网关的研发，使用了很多新的技术，Springboot，SpringCloud，Git 很多东西都是第一次接触，一边学习，一边工作，收获满满。<br>在9月份不得不离开的时候也无太多遗憾。<br>9月和10月为了面试看了好多书，阿里方腾飞的《并发编程的艺术》，周志明的《深入理解JVM虚拟机》，Eric Evans的《领域驱动设计DDD》，《Springboot实战》《java8实战》《Spring In Action》，《java核心卷一》，翟永超的blog还有他的《Spring Cloud微服务实践》，《微服务设计》等等。。</p>
-<p>10月底来到美团，感受到美团强大的技术氛围，在这要开启一段新的旅程。 又一堆新的书单等待着我啦，呵呵。<br><code>a new world</code><br>实验一下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class MyNewWorld&#123;</span><br><span class="line">	private String me;</span><br><span class="line">	public static void firstMethd(String para)&#123;</span><br><span class="line">	       //nothing</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>搭建博客的想法主要还是看了翟永超的博客，做的很不错，创作总是从模仿开始吧，新的旅程由此开启。</p>
+<p>在过去的2017年忙碌充实，收获满满2017年主要的工作经历都在拍拍贷，在拍拍贷期间完成了整个资金中台的支付核心和支付网关的研发，使用了很多新的技术，Springboot，SpringCloud，Git 很多东西都是第一次接触，一边学习，一边工作，收获满满。再次致谢原阿里“青蜂侠”杨志宏先生带给我的技术视野，让我重新认知了“程序员”的定义，在技术的道路上不仅要拓展深度，还需要要广度，对新技术充满着热情，不断的学习充实自己。当在9月份因为一些原因不得不离开的时候也无太多遗憾。</p>
+<hr>
+<p>9月和10月为了面试看了好多书，阿里方腾飞的《并发编程的艺术》，周志明的《深入理解JVM虚拟机》，Eric Evans的《领域驱动设计》，《Springboot实战》《java8实战》《Spring In Action》，《java核心卷一》，翟永超的blog还有他的《Spring Cloud微服务实践》，《微服务设计》等等。这些书籍让我无比充实，越是阅读越是发现自己的鄙陋与无知。对于2018年也定了一些新的书单，坚定不移的用知识和前沿的技术武装自己。</p>
+<hr>
+<p>各类武侠小说中都有一句：天下武功唯快不破。<br>这句用在科技行业真是非常恰当的，技术发展日新月异，当一些公司还沾沾自喜于已有的市场，已有的技术时，殊不知新的技术革命已经启程，互联网充满了无尽的想象，绝不止于BAT，新的技术的产生，必会有更多优秀的公司，通过新的技术，对一些庞大的运作效率低下的，一些固守于已有技术的公司进行“降维”打击。我非常幸运的从事着互联网行业，又能接触到诸多的金融知识，希望自己在2018能够把握机遇，事业和理想都能更前一步！</p>
+<hr>
+<p>10月底来到美团，感受到美团强大的技术氛围，在美团这片战场上开启一段新的旅程。<br>最后搭建博客的想法主要还是看了翟永超的博客，做的很不错，创作总是从模仿开始吧，页面的主题等等都是学习借鉴于他的博客。@翟永超的blog ：<a href="http://blog.didispace.com/" target="_blank" rel="noopener">http://blog.didispace.com/</a></p>
 
         
         </div>
@@ -680,7 +813,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/11/28/开篇：2018年寄语/" data-id="cjaninf2m0005fp78zrvljymv" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/11/28/开篇：2018年寄语/" data-id="cjaqj28q30004fy78d9hyrfjt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -756,7 +889,7 @@
 
 
 
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-博客使用说明" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -764,7 +897,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/11/27/hello-world/">Hello World</a>
+            <a class="article-title" href="/2017/11/27/博客使用说明/">博客使用示例</a>
         </h1>
     
 
@@ -773,7 +906,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/11/27/hello-world/">
+        <a href="/2017/11/27/博客使用说明/">
             <time datetime="2017-11-27T12:42:25.000Z" itemprop="datePublished">2017-11-27</time>
         </a>
     </div>
@@ -792,11 +925,11 @@
             <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
         
@@ -808,7 +941,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/11/27/hello-world/" data-id="cjaninf2l0004fp78q2njrt8e" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/11/27/博客使用说明/" data-id="cjaqj28py0001fy78avvycx7e" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -897,7 +1030,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2017/11/30/创建和销毁对象/" class="thumbnail">
+                            <a href="/2017/12/03/考虑使用构建器/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -908,7 +1041,26 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
-                            <p class="item-title"><a href="/2017/11/30/创建和销毁对象/" class="title">创建和销毁对象</a></p>
+                            <p class="item-title"><a href="/2017/12/03/考虑使用构建器/" class="title">考虑使用构建器（二）</a></p>
+                            <p class="item-date"><time datetime="2017-12-03T06:58:47.000Z" itemprop="datePublished">2017-12-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/11/30/考虑使用静态工厂方法代替构造器/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2017/11/30/考虑使用静态工厂方法代替构造器/" class="title">考虑使用静态工厂方法代替构造器（一）</a></p>
                             <p class="item-date"><time datetime="2017-11-30T11:58:47.000Z" itemprop="datePublished">2017-11-30</time></p>
                         </div>
                     </li>
@@ -916,7 +1068,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2017/11/29/Mark-Down语法/" class="thumbnail">
+                            <a href="/2017/11/29/Markdown语法/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -927,7 +1079,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/随笔/">随笔</a></p>
-                            <p class="item-title"><a href="/2017/11/29/Mark-Down语法/" class="title">Mark Down语法</a></p>
+                            <p class="item-title"><a href="/2017/11/29/Markdown语法/" class="title">Mark Down语法</a></p>
                             <p class="item-date"><time datetime="2017-11-29T09:39:59.000Z" itemprop="datePublished">2017-11-29</time></p>
                         </div>
                     </li>
@@ -954,7 +1106,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2017/11/27/hello-world/" class="thumbnail">
+                            <a href="/2017/11/27/博客使用说明/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -965,7 +1117,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/11/27/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-title"><a href="/2017/11/27/博客使用说明/" class="title">博客使用示例</a></p>
                             <p class="item-date"><time datetime="2017-11-27T12:42:25.000Z" itemprop="datePublished">2017-11-27</time></p>
                         </div>
                     </li>
@@ -979,7 +1131,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -988,7 +1140,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">4</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -997,7 +1149,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/感悟/">感悟</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1006,7 +1158,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Effective-Java/" style="font-size: 10px;">Effective Java</a> <a href="/tags/书籍/" style="font-size: 20px;">书籍</a> <a href="/tags/感悟/" style="font-size: 10px;">感悟</a>
+            <a href="/tags/Effective-Java/" style="font-size: 20px;">Effective Java</a> <a href="/tags/书籍/" style="font-size: 10px;">书籍</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
         </div>
     </div>
 
