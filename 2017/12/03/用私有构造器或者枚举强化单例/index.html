@@ -3,19 +3,20 @@
 <head>
     <meta charset="utf-8">
     
-    <title>博客使用示例 | 博客</title>
+    <title>用私有构造器或者枚举强化单例（三） | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troublesho">
+    <meta name="description" content="用私有构造器或者枚举强化单例首先对单单例，构造函数需要私有化，这样能够极大的保障外部无法直接实例化该对象单例在面试中经常会有面试官要求写，下面列出几种常用的写法： 懒汉式（线程不安全写法，与之相对的还有线程安全的写法不赘述） 12345678910 public class Singleton &amp;#123;  ">
+<meta name="keywords" content="Effective Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="博客使用示例">
-<meta property="og:url" content="http://yoursite.com/2017/11/27/博客使用说明/index.html">
+<meta property="og:title" content="用私有构造器或者枚举强化单例（三）">
+<meta property="og:url" content="http://yoursite.com/2017/12/03/用私有构造器或者枚举强化单例/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="用私有构造器或者枚举强化单例首先对单单例，构造函数需要私有化，这样能够极大的保障外部无法直接实例化该对象单例在面试中经常会有面试官要求写，下面列出几种常用的写法： 懒汉式（线程不安全写法，与之相对的还有线程安全的写法不赘述） 12345678910 public class Singleton &amp;#123;      private static Singleton instance;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-03T06:15:22.000Z">
+<meta property="og:updated_time" content="2017-12-03T16:02:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客使用示例">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="用私有构造器或者枚举强化单例（三）">
+<meta name="twitter:description" content="用私有构造器或者枚举强化单例首先对单单例，构造函数需要私有化，这样能够极大的保障外部无法直接实例化该对象单例在面试中经常会有面试官要求写，下面列出几种常用的写法： 懒汉式（线程不安全写法，与之相对的还有线程安全的写法不赘述） 12345678910 public class Singleton &amp;#123;      private static Singleton instance;">
     
 
     
@@ -214,7 +215,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-博客使用说明" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-用私有构造器或者枚举强化单例" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -222,7 +223,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            博客使用示例
+            用私有构造器或者枚举强化单例（三）
         </h1>
     
 
@@ -231,14 +232,24 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/11/27/博客使用说明/">
-            <time datetime="2017-11-27T12:42:25.000Z" itemprop="datePublished">2017-11-27</time>
+        <a href="/2017/12/03/用私有构造器或者枚举强化单例/">
+            <time datetime="2017-12-03T14:58:47.000Z" itemprop="datePublished">2017-12-03</time>
         </a>
     </div>
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+    </div>
+
                         
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Effective-Java/">Effective Java</a>
+    </div>
+
                     </div>
                 
             </header>
@@ -247,16 +258,18 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+            <h2 id="用私有构造器或者枚举强化单例"><a href="#用私有构造器或者枚举强化单例" class="headerlink" title="用私有构造器或者枚举强化单例"></a>用私有构造器或者枚举强化单例</h2><p>首先对单单例，构造函数需要私有化，这样能够极大的保障外部无法直接实例化该对象<br>单例在面试中经常会有面试官要求写，下面列出几种常用的写法：</p>
+<p>懒汉式（线程不安全写法，与之相对的还有线程安全的写法不赘述）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance;  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span> <span class="params">()</span></span>&#123;&#125;   </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">     <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;  </span><br><span class="line">          instance = <span class="keyword">new</span> Singleton();  </span><br><span class="line">      &#125;  </span><br><span class="line">      <span class="keyword">return</span> instance;  </span><br><span class="line">      &#125;  </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>饿汉式（线程不安全写法，与之相对的还有线程安全的写法不赘述）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;  </span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">new</span> Singleton();  </span><br><span class="line">     <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span> <span class="params">()</span></span>&#123;&#125;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">     <span class="keyword">return</span> instance;  </span><br><span class="line">     &#125;  </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>对于上面这种写法，在书中有提到如果首行代码是public的话可以通过反射机制多实例化对象。如下举例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.stardust.effective.role3;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Constructor;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationTargetException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by mike on 2017/12/3.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">new</span> Singleton();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Singleton s1 = <span class="keyword">null</span>;</span><br><span class="line">        Singleton s2 = <span class="keyword">null</span>;</span><br><span class="line">        Singleton s3 = Singleton.getInstance();</span><br><span class="line">        Singleton s4 = Singleton.getInstance();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (s3==s4)&#123;</span><br><span class="line">            System.out.println(<span class="string">"通过静态工厂获取到的单例是唯一的"</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"静态工厂获取的单例不唯一"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Constructor&lt;?&gt; constructor = Singleton.class.getDeclaredConstructors()[<span class="number">0</span>];</span><br><span class="line">        constructor.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">             s1 = (Singleton) constructor.newInstance();</span><br><span class="line">             s2 = (Singleton) constructor.newInstance();</span><br><span class="line">             <span class="keyword">if</span>(s1!=s2)&#123;</span><br><span class="line">                 System.out.println(<span class="string">"构造出两个不同的实例"</span>);</span><br><span class="line">             &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                 System.out.println(<span class="string">"始终为单例"</span>);</span><br><span class="line">             &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InstantiationException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InvocationTargetException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>枚举实现单例，这个是effective java书中推荐的实现方式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Singletons &#123;</span><br><span class="line">    INSTANCE;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"animal say"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="通过私有化构造函数强化不可实例化的类"><a href="#通过私有化构造函数强化不可实例化的类" class="headerlink" title="通过私有化构造函数强化不可实例化的类"></a>通过私有化构造函数强化不可实例化的类</h2><ul>
+<li>这个个人理解就是因为有默认构造函数的原因，如果是显示声明私有化的话则不可实例化，或者只能通过本身来提供实例</li>
+</ul>
+<h2 id="避免创建不必要的对象"><a href="#避免创建不必要的对象" class="headerlink" title="避免创建不必要的对象"></a>避免创建不必要的对象</h2>
         
         </div>
         <footer class="article-footer">
@@ -266,7 +279,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/11/27/博客使用说明/" data-id="cjaqyhc2r0004pq78vo8yp06l" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/12/03/用私有构造器或者枚举强化单例/" data-id="cjaqyhc2n0001pq78vipcylit" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -341,15 +354,11 @@
         
 <nav id="article-nav">
     
-        <a href="/2017/11/28/开篇：2018年寄语/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    开篇：2018年寄语
-                
-            </div>
-        </a>
     
+        <a href="/2017/12/03/考虑使用构建器/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">考虑使用构建器（二）</div>
+        </a>
     
 </nav>
 

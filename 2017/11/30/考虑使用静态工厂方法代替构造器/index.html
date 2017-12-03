@@ -5,18 +5,18 @@
     
     <title>考虑使用静态工厂方法代替构造器（一） | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1.考虑用静态工厂方法代替构造器优点它们有名称 指的是方法的名称，能够准确描述返回的对象，对于多个构造方法的类可以使用不同的名称来描述返回对象 对于构造方法参数的含义需要结合注释才能明白用哪一个构造器，并且多构造器的时候无法确切知道使用哪个构造器  12345678910111213141516171819202122">
+    <meta name="description" content="考虑用静态工厂方法代替构造器优点它们有名称 指的是方法的名称，能够准确描述返回的对象，对于多个构造方法的类可以使用不同的名称来描述返回对象 对于构造方法参数的含义需要结合注释才能明白用哪一个构造器，并且多构造器的时候无法确切知道使用哪个构造器  1234567891011121314151617181920212223">
 <meta name="keywords" content="Effective Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="考虑使用静态工厂方法代替构造器（一）">
 <meta property="og:url" content="http://yoursite.com/2017/11/30/考虑使用静态工厂方法代替构造器/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="1.考虑用静态工厂方法代替构造器优点它们有名称 指的是方法的名称，能够准确描述返回的对象，对于多个构造方法的类可以使用不同的名称来描述返回对象 对于构造方法参数的含义需要结合注释才能明白用哪一个构造器，并且多构造器的时候无法确切知道使用哪个构造器  12345678910111213141516171819202122232425262728293031323334package com.star">
+<meta property="og:description" content="考虑用静态工厂方法代替构造器优点它们有名称 指的是方法的名称，能够准确描述返回的对象，对于多个构造方法的类可以使用不同的名称来描述返回对象 对于构造方法参数的含义需要结合注释才能明白用哪一个构造器，并且多构造器的时候无法确切知道使用哪个构造器  12345678910111213141516171819202122232425262728293031323334package com.stardu">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-03T08:55:16.000Z">
+<meta property="og:updated_time" content="2017-12-03T14:23:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="考虑使用静态工厂方法代替构造器（一）">
-<meta name="twitter:description" content="1.考虑用静态工厂方法代替构造器优点它们有名称 指的是方法的名称，能够准确描述返回的对象，对于多个构造方法的类可以使用不同的名称来描述返回对象 对于构造方法参数的含义需要结合注释才能明白用哪一个构造器，并且多构造器的时候无法确切知道使用哪个构造器  12345678910111213141516171819202122232425262728293031323334package com.star">
+<meta name="twitter:description" content="考虑用静态工厂方法代替构造器优点它们有名称 指的是方法的名称，能够准确描述返回的对象，对于多个构造方法的类可以使用不同的名称来描述返回对象 对于构造方法参数的含义需要结合注释才能明白用哪一个构造器，并且多构造器的时候无法确切知道使用哪个构造器  12345678910111213141516171819202122232425262728293031323334package com.stardu">
     
 
     
@@ -163,7 +163,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                5
+                6
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -258,28 +258,25 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="1-考虑用静态工厂方法代替构造器"><a href="#1-考虑用静态工厂方法代替构造器" class="headerlink" title="1.考虑用静态工厂方法代替构造器"></a>1.考虑用静态工厂方法代替构造器</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><h4 id="它们有名称"><a href="#它们有名称" class="headerlink" title="它们有名称"></a>它们有名称</h4><ul>
+            <h2 id="考虑用静态工厂方法代替构造器"><a href="#考虑用静态工厂方法代替构造器" class="headerlink" title="考虑用静态工厂方法代替构造器"></a>考虑用静态工厂方法代替构造器</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><h4 id="它们有名称"><a href="#它们有名称" class="headerlink" title="它们有名称"></a>它们有名称</h4><ul>
 <li>指的是方法的名称，能够准确描述返回的对象，对于多个构造方法的类可以使用不同的名称来描述返回对象</li>
 <li>对于构造方法参数的含义需要结合注释才能明白用哪一个构造器，并且多构造器的时候无法确切知道使用哪个构造器</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.stardust.effective.role1;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by mike on 2017/12/3.</span></span><br><span class="line"><span class="comment"> * 它们有名称</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Fruit</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String color;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String size;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Fruit</span><span class="params">(String color,String size)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.color=color;</span><br><span class="line">        <span class="keyword">this</span>.size=size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通过方法名可以知道要构造什么样的对象</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Fruit <span class="title">getBigGreenFruit</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Fruit(<span class="string">"green"</span>,<span class="string">"big"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Fruit <span class="title">getSmallRedFruit</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Fruit(<span class="string">"red"</span>,<span class="string">"small"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Fruit <span class="title">getApple</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Fruit(<span class="string">"red"</span>,<span class="string">"middle"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="不必每次调用的时候都创建一个新对象"><a href="#不必每次调用的时候都创建一个新对象" class="headerlink" title="不必每次调用的时候都创建一个新对象"></a>不必每次调用的时候都创建一个新对象</h4><p>单例模式，对于一些不可变类可以使用这种方式，在上面那个例子中我对构造函数进行了私有化，可以认为是一个简单的单例，但还是需要升级优化，在后面单例的几种写法中展开说。<br>这种方式的一个优势即不必重复创建对象，在spring中大量使用单例这种设计模式来创建单一不可变对象。<br>书中还提到一个如果实例受控则可以通过==来判定是否为同一实例，这种写法比equals提升了性能。</p>
 <p>术语：<br>实例受控的类(instance-controlled)：在某个时刻只能有某些规定的该类的实例存在。</p>
-<h4 id="可以返回原返回类型的任何子类型的对象"><a href="#可以返回原返回类型的任何子类型的对象" class="headerlink" title="可以返回原返回类型的任何子类型的对象"></a>可以返回原返回类型的任何子类型的对象</h4><ul>
-<li>文章中是以Collections为例的，一开始没有太理解，Collections是一个工具类，构造私有化的，不能直接实例化，Collection本身是接口，不能有静态工厂方法，所以委托给Collections这个工具类来提供生产构造.</li>
-<li>对于下面的例子Animal即为接口，提供类可以为Animals</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="function">Animal <span class="title">getAnimal</span><span class="params">(String type)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="function">Animal <span class="title">getAnimal</span><span class="params">(String type)</span></span>&#123;</span><br><span class="line">    		<span class="keyword">return</span> <span class="keyword">new</span> Dog();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animals</span></span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="title">Animals</span><span class="params">()</span></span>&#123;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Animal <span class="title">getInstance</span><span class="params">(String type)</span></span>&#123;</span><br><span class="line">	   <span class="keyword">if</span>(<span class="string">"dog"</span>.equals(type))&#123;</span><br><span class="line">    		<span class="keyword">return</span> <span class="keyword">new</span> Dog();</span><br><span class="line">    	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    	   <span class="keyword">return</span> <span class="keyword">new</span> Cat();</span><br><span class="line">    	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">基于接口的框架(<span class="class"><span class="keyword">interface</span>-<span class="title">based</span> <span class="title">framework</span>)：框架的对外访问与接入渠道是基于接口实现的。</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">#### 在创建参数化类型实例的时候，使代码更加简洁</span></span><br><span class="line"><span class="class">``` <span class="title">java</span></span></span><br><span class="line"><span class="class">// 当前做法</span></span><br><span class="line"><span class="class"><span class="title">Map</span>&lt;<span class="title">String</span>, <span class="title">List</span>&lt;<span class="title">String</span>&gt;&gt; <span class="title">map</span> </span>= <span class="keyword">new</span> HashMap&lt;String, List&lt;String&gt;&gt;();</span><br><span class="line"><span class="comment">// 举例这样做会更简洁</span></span><br><span class="line">Map&lt;String, List&lt;String&gt;&gt; map = HashMap.newInstance();</span><br><span class="line"><span class="comment">// java8已经可以直接这样写了</span></span><br><span class="line">Map&lt;String, List&lt;String&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<h4 id="可以返回原返回类型的任何子类型的对象"><a href="#可以返回原返回类型的任何子类型的对象" class="headerlink" title="可以返回原返回类型的任何子类型的对象"></a>可以返回原返回类型的任何子类型的对象</h4><p>文章中是以Collections为例的，一开始没有太理解，Collections是一个工具类，构造私有化的，不能直接实例化，Collection本身是接口，不能有静态工厂方法，所以委托给Collections这个工具类来提供生产构造.<br>下面贴一段Collection中静态工厂的例子，以List为例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Returns an immutable list containing only the specified object.</span></span><br><span class="line"><span class="comment"> * The returned list is serializable.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>  &lt;T&gt; the class of the objects in the list</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> o the sole object to be stored in the returned list.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> an immutable list containing only the specified object.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span> 1.3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">singletonList</span><span class="params">(T o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> SingletonList&lt;&gt;(o);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@serial</span> include</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">RandomAccess</span>, <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">3093736618740652951L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> E element;</span><br><span class="line"></span><br><span class="line">    SingletonList(E obj)                &#123;element = obj;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> singletonIterator(element);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span>                   </span>&#123;<span class="keyword">return</span> <span class="number">1</span>;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object obj)</span> </span>&#123;<span class="keyword">return</span> eq(obj, element);&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (index != <span class="number">0</span>)</span><br><span class="line">          <span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(<span class="string">"Index: "</span>+index+<span class="string">", Size: 1"</span>);</span><br><span class="line">        <span class="keyword">return</span> element;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Override default methods for Collection</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">forEach</span><span class="params">(Consumer&lt;? <span class="keyword">super</span> E&gt; action)</span> </span>&#123;</span><br><span class="line">        action.accept(element);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">removeIf</span><span class="params">(Predicate&lt;? <span class="keyword">super</span> E&gt; filter)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">replaceAll</span><span class="params">(UnaryOperator&lt;E&gt; operator)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparator&lt;? <span class="keyword">super</span> E&gt; c)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Spliterator&lt;E&gt; <span class="title">spliterator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> singletonSpliterator(element);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">术语：基于接口的框架(<span class="class"><span class="keyword">interface</span>-<span class="title">based</span> <span class="title">framework</span>)：框架的对外访问与接入渠道是基于接口实现的。</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">#### 在创建参数化类型实例的时候，使代码更加简洁</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">``` <span class="title">java</span></span></span><br><span class="line"><span class="class">// 当前做法</span></span><br><span class="line"><span class="class"><span class="title">Map</span>&lt;<span class="title">String</span>, <span class="title">List</span>&lt;<span class="title">String</span>&gt;&gt; <span class="title">map</span> </span>= <span class="keyword">new</span> HashMap&lt;String, List&lt;String&gt;&gt;();</span><br><span class="line"><span class="comment">// 举例这样做会更简洁</span></span><br><span class="line">Map&lt;String, List&lt;String&gt;&gt; map = HashMap.newInstance();</span><br><span class="line"><span class="comment">// java8已经可以直接这样写了</span></span><br><span class="line">Map&lt;String, List&lt;String&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
 <h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><h4 id="类如果不含public或者protected的构造器-就不能被子类化"><a href="#类如果不含public或者protected的构造器-就不能被子类化" class="headerlink" title="类如果不含public或者protected的构造器, 就不能被子类化"></a>类如果不含public或者protected的构造器, 就不能被子类化</h4><ul>
-<li>例如Collections类和上面的Animals类，不能被子类化，另一面就是需要复合（Composition）</li>
+<li>例如Collections类，不能被子类化，另一方面就是相当于鼓励复合（Composition），类似于用Collections这类的写法</li>
 </ul>
 <h4 id="无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势"><a href="#无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势" class="headerlink" title="无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势"></a>无法与其他静态方法区分，不像构造方法名称必须为类名，可以使用一些惯用的名称来弥补这一劣势</h4><ul>
-<li>valueOf(): 类型转换方法, 返回的实例与参数具有相同的值.</li>
-<li>of(): valueOf()的一种更简洁的替代.</li>
+<li>valueOf()    : 类型转换方法, 返回的实例与参数具有相同的值.</li>
+<li>of()         : valueOf()的一种更简洁的替代.</li>
 <li>getInstance(): 返回的实例通过参数来描述, 对于单例来说, 该方法没有参数, 返回唯一的实例.</li>
 <li>newInstance(): 像getInstance()一样, 但newInstance()能确保返回的每个实例都与其他实例不同.</li>
-<li>getType(): 像getInstance()一样, Type表示返回的对象类型, 在工厂方法处于不同的类中的时候使用.</li>
-<li>newType(): 和newInstance()一样, Type表示返回类型, 在工厂方法处于不同的类中的时候使用.</li>
+<li>getType()    : 像getInstance()一样, Type表示返回的对象类型, 在工厂方法处于不同的类中的时候使用.</li>
+<li>newType()    : 和newInstance()一样, Type表示返回类型, 在工厂方法处于不同的类中的时候使用.</li>
 </ul>
 
         
@@ -291,7 +288,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/11/30/考虑使用静态工厂方法代替构造器/" data-id="cjaqj7fzw0004gu78vynaewbg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/11/30/考虑使用静态工厂方法代替构造器/" data-id="cjaqyhc2v000apq78cbnqwd8s" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -405,6 +402,25 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2017/12/03/用私有构造器或者枚举强化单例/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2017/12/03/用私有构造器或者枚举强化单例/" class="title">用私有构造器或者枚举强化单例（三）</a></p>
+                            <p class="item-date"><time datetime="2017-12-03T14:58:47.000Z" itemprop="datePublished">2017-12-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2017/12/03/考虑使用构建器/" class="thumbnail">
     
     
@@ -478,25 +494,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/11/27/博客使用说明/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/11/27/博客使用说明/" class="title">博客使用示例</a></p>
-                            <p class="item-date"><time datetime="2017-11-27T12:42:25.000Z" itemprop="datePublished">2017-11-27</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -506,7 +503,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -515,7 +512,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">4</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -524,7 +521,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
