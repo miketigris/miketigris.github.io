@@ -14,7 +14,7 @@
 <meta property="og:description" content="消除过期的对象引用书中的例子如下:问题出在pop方法上，pop出去以后，stack的size本身减少1，size–，外部会持有该对象的引用，但是即便外部释放掉该element的引用，stack本身还有一个“保护机制”，栈内部会维护着这个对象的过期引用。为什么呢？这个是数组的特性，好比创建了一个16大小的数组，调用pop方法相当于这时候对第16个数组对象创建一个外部引用，这个对象本身还是在内存中有空">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://s1.wailian.download/2017/11/28/app.jpg">
-<meta property="og:updated_time" content="2017-12-04T14:53:55.000Z">
+<meta property="og:updated_time" content="2017-12-04T15:27:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="消除过期的对象引用（六）">
 <meta name="twitter:description" content="消除过期的对象引用书中的例子如下:问题出在pop方法上，pop出去以后，stack的size本身减少1，size–，外部会持有该对象的引用，但是即便外部释放掉该element的引用，stack本身还有一个“保护机制”，栈内部会维护着这个对象的过期引用。为什么呢？这个是数组的特性，好比创建了一个16大小的数组，调用pop方法相当于这时候对第16个数组对象创建一个外部引用，这个对象本身还是在内存中有空">
@@ -165,7 +165,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                9
+                10
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -261,44 +261,9 @@
         
             
             <h2 id="消除过期的对象引用"><a href="#消除过期的对象引用" class="headerlink" title="消除过期的对象引用"></a>消除过期的对象引用</h2><p>书中的例子如下:问题出在pop方法上，pop出去以后，stack的size本身减少1，size–，外部会持有该对象的引用，但是即便外部释放掉该element的引用，stack本身还有一个“保护机制”，栈内部会维护着这个对象的过期引用。<br>为什么呢？<br>这个是数组的特性，好比创建了一个16大小的数组，调用pop方法相当于这时候对第16个数组对象创建一个外部引用，这个对象本身还是在内存中有空间的。换而言之，这个第16个对象此时此刻即被外部调用的一个引用持有，也同时被stack本身的数组持有，也许有人认为–size了，现在应该变为15大小的数组了，为什么还持有第16个呢？<br>这里首先要理解数组对象创建的时候内存的变化。声明数组过程中，变量保存在栈中，创建并进行初始化时，数组元素是保存在堆中，数组通过引用指针指向数组元素。<br>对于基本类型数组的初始化，程序直接先为数组分配内存空间，再将数组元素的值存入对应的内存里。<br>对于引用类型数组的数组元素依然是引用类型，因此数组元素里存储的还是引用，它指向另一块内存，该内在里存储了该引用变量所引用的对象。<br>这里的size其实只是栈中一个域变量的变化，而非真正数组的变化，原来作为基本类型的引用依然存在于第16个数组的位置上。</p>
-<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span> </span>{
-    pprivate Object[] elements;
-    <span class="keyword">private</span> <span class="keyword">int</span> size = <span class="number">0</span>;
-    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_INITAL_CAPACITY = <span class="number">16</span>;
-
-    <span class="function"><span class="keyword">public</span> <span class="title">Stack</span><span class="params">()</span> </span>{
-        elements = <span class="keyword">new</span> Object[DEFAULT_INITAL_CAPACITY];
-    }
-
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(Object e)</span> </span>{
-        ensureCapacity();
-        elements[size++] = e;
-    }
-
-    <span class="function"><span class="keyword">public</span> Object <span class="title">pop</span><span class="params">()</span> </span>{
-        <span class="keyword">if</span>(size == <span class="number">0</span>) {
-            <span class="keyword">throw</span> <span class="keyword">new</span> EmptyStackException();
-        }
-        <span class="keyword">return</span> elements[--size];
-    }
-
-    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">()</span> </span>{
-        <span class="keyword">if</span>(elements.length == size)
-            elements = Arrays.copyOf(elements, <span class="number">2</span> * size + <span class="number">1</span>);
-    }
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span> </span>&#123;</span><br><span class="line">    pprivate Object[] elements;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_INITAL_CAPACITY = <span class="number">16</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        elements = <span class="keyword">new</span> Object[DEFAULT_INITAL_CAPACITY];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(Object e)</span> </span>&#123;</span><br><span class="line">        ensureCapacity();</span><br><span class="line">        elements[size++] = e;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(size == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> EmptyStackException();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> elements[--size];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(elements.length == size)</span><br><span class="line">            elements = Arrays.copyOf(elements, <span class="number">2</span> * size + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>术语：过期引用（obsolete reference) ，指永远不会被解除的引用。</p>
-<p>书中也给了修改得方式如下：</p>
-<pre><code class="java"><span class="function"><span class="keyword">public</span> Object <span class="title">pop</span><span class="params">()</span></span>{
-    <span class="keyword">if</span>(size == <span class="number">0</span>){
-        <span class="keyword">throw</span> <span class="keyword">new</span> EmptyStackException();
-    }
-    Object result = elements[--size];
-    elements[size] = <span class="keyword">null</span>;
-    <span class="keyword">return</span> result;
-}
-</code></pre>
+<p>书中也给了修改得方式如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">pop</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(size == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> EmptyStackException();</span><br><span class="line">    &#125;</span><br><span class="line">    Object result = elements[--size];</span><br><span class="line">    elements[size] = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -384,11 +349,11 @@
         
 <nav id="article-nav">
     
-        <a href="/2017/12/04/覆盖equals时请遵守通用约定/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/12/04/避免使用终结方法/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    覆盖equals时请遵守通用约定（八）
+                    避免使用终结方法（七）
                 
             </div>
         </a>
@@ -423,7 +388,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2017/12/04/覆盖equals时请遵守通用约定/" class="thumbnail">
+                            <a href="/2017/12/04/覆盖equals时请遵守通用约定md/" class="thumbnail">
     
     
         <span style="background-image:url(http://s1.wailian.download/2017/11/28/app.jpg)" alt="覆盖equals时请遵守通用约定（八）" class="thumbnail-image"></span>
@@ -434,8 +399,27 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
-                            <p class="item-title"><a href="/2017/12/04/覆盖equals时请遵守通用约定/" class="title">覆盖equals时请遵守通用约定（八）</a></p>
+                            <p class="item-title"><a href="/2017/12/04/覆盖equals时请遵守通用约定md/" class="title">覆盖equals时请遵守通用约定（八）</a></p>
                             <p class="item-date"><time datetime="2017-12-04T15:11:47.000Z" itemprop="datePublished">2017-12-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/12/04/避免使用终结方法/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://s1.wailian.download/2017/11/28/app.jpg)" alt="避免使用终结方法（七）" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2017/12/04/避免使用终结方法/" class="title">避免使用终结方法（七）</a></p>
+                            <p class="item-date"><time datetime="2017-12-04T14:55:47.000Z" itemprop="datePublished">2017-12-04</time></p>
                         </div>
                     </li>
                 
@@ -496,25 +480,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/12/03/考虑使用构建器/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
-                            <p class="item-title"><a href="/2017/12/03/考虑使用构建器/" class="title">考虑使用构建器（二）</a></p>
-                            <p class="item-date"><time datetime="2017-12-03T06:58:47.000Z" itemprop="datePublished">2017-12-03</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -524,7 +489,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -533,7 +498,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">4</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -542,7 +507,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
