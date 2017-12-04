@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>分类: 随笔 | 博客</title>
+    <title>私有化构造函数强化不可实例化的类，避免创建不必要的对象（四，五） | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="许贵荣">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://yoursite.com/categories/随笔/index.html">
+    <meta name="description" content="通过私有化构造函数强化不可实例化的类这个个人理解就是因为有默认构造函数的原因，如果是显示声明私有化的话则不可实例化，或者只能通过本身来提供实例。但是对于某些工具类，如Collections，更希望即便在内部也不要私有化，书中给出一种方案，我们一Collections类为例 // Suppresses default c">
+<meta name="keywords" content="Effective Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="私有化构造函数强化不可实例化的类，避免创建不必要的对象（四，五）">
+<meta property="og:url" content="http://yoursite.com/2017/12/04/通过私有化构造函数强化不可实例化的类/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="许贵荣">
+<meta property="og:description" content="通过私有化构造函数强化不可实例化的类这个个人理解就是因为有默认构造函数的原因，如果是显示声明私有化的话则不可实例化，或者只能通过本身来提供实例。但是对于某些工具类，如Collections，更希望即便在内部也不要私有化，书中给出一种方案，我们一Collections类为例 // Suppresses default constructor, ensuring non-instantiability">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://s1.wailian.download/2017/11/28/app.jpg">
+<meta property="og:updated_time" content="2017-12-04T12:19:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:description" content="许贵荣">
+<meta name="twitter:title" content="私有化构造函数强化不可实例化的类，避免创建不必要的对象（四，五）">
+<meta name="twitter:description" content="通过私有化构造函数强化不可实例化的类这个个人理解就是因为有默认构造函数的原因，如果是显示声明私有化的话则不可实例化，或者只能通过本身来提供实例。但是对于某些工具类，如Collections，更希望即便在内部也不要私有化，书中给出一种方案，我们一Collections类为例 // Suppresses default constructor, ensuring non-instantiability">
+<meta name="twitter:image" content="http://s1.wailian.download/2017/11/28/app.jpg">
     
 
     
@@ -213,86 +217,199 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title">随笔</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-通过私有化构造函数强化不可实例化的类" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/29/Markdown语法/">Mark Down语法</a>
+        <h1 class="article-title" itemprop="name">
+            私有化构造函数强化不可实例化的类，避免创建不必要的对象（四，五）
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/11/29/Markdown语法/">
-            <time datetime="2017-11-29T09:39:59.000Z" itemprop="datePublished">2017-11-29</time>
+        <a href="/2017/12/04/通过私有化构造函数强化不可实例化的类/">
+            <time datetime="2017-12-04T11:19:47.000Z" itemprop="datePublished">2017-12-04</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/随笔/">随笔</a>
+        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/书籍/">书籍</a>
+        <a class="tag-link" href="/tags/Effective-Java/">Effective Java</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/28/开篇：2018年寄语/">开篇：2018年寄语</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="通过私有化构造函数强化不可实例化的类"><a href="#通过私有化构造函数强化不可实例化的类" class="headerlink" title="通过私有化构造函数强化不可实例化的类"></a>通过私有化构造函数强化不可实例化的类</h2><p>这个个人理解就是因为有默认构造函数的原因，如果是显示声明私有化的话则不可实例化，或者只能通过本身来提供实例。但是对于某些工具类，如Collections，更希望即便在内部也不要私有化，书中给出一种方案，我们一Collections类为例</p>
+<pre><code class="java"><span class="comment">// Suppresses default constructor, ensuring non-instantiability.</span>
+<span class="function"><span class="keyword">private</span> <span class="title">Collections</span><span class="params">()</span> </span>{
+    <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError();<span class="comment">//可有可以无，但是有的情况下，可以有效防止内部不小心实例化</span>
+}
+</code></pre>
+<h2 id="避免创建不必要的对象"><a href="#避免创建不必要的对象" class="headerlink" title="避免创建不必要的对象"></a>避免创建不必要的对象</h2><p>其实鼓励能够使用单例的或者静态工厂的尽量使用，这样可以少创建无用对象，这样能减轻垃圾回收的压力，可以很好的提升性能。</p>
+<pre><code class="java">String s = <span class="keyword">new</span> String(<span class="string">"stringette"</span>);<span class="comment">//这种写法会制造不必要的String实例,"stringette"本身就是一个实例，再使用new会再创建一个实例</span>
+String ss = <span class="string">"stringette"</span>; <span class="comment">//这种写法会复用一个实例，即便在多次调用的情况下，该实例被保存在字符串常量池中</span>
+</code></pre>
+<p>可以参考下这篇文章：<a href="https://www.cnblogs.com/ydpvictor/archive/2012/09/09/2677260.html" target="_blank" rel="noopener">https://www.cnblogs.com/ydpvictor/archive/2012/09/09/2677260.html</a></p>
+<p>优先使用基本类型，而非装箱类型，这里装箱的时候回产生新的对象。<br>下面这个例子测试时间分别为8483ms和775ms相差有10倍之多</p>
+<pre><code class="java"><span class="keyword">package</span> com.stardust.effective.role4And5;
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/11/28/开篇：2018年寄语/">
-            <time datetime="2017-11-28T11:58:47.000Z" itemprop="datePublished">2017-11-28</time>
-        </a>
-    </div>
+<span class="comment">/**</span>
+<span class="comment"> * Created by mike on 2017/12/4.</span>
+<span class="comment"> */</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LongTest</span> </span>{
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        <span class="keyword">long</span> start = System.currentTimeMillis();    <span class="comment">//获取开始时间</span>
+        Long sum = <span class="number">0L</span>;
+        <span class="keyword">for</span> (<span class="keyword">long</span> i = <span class="number">0</span>; i &lt; Integer.MAX_VALUE; i++) {
+            sum += i;
+        }
+        <span class="keyword">long</span> middle = System.currentTimeMillis();    <span class="comment">//获取中间时间</span>
+        System.out.println(middle-start);
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/随笔/">随笔</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/随笔/">随笔</a>
-    </div>
+        <span class="keyword">long</span> sum2 = <span class="number">0L</span>;
+        <span class="keyword">for</span> (<span class="keyword">long</span> i = <span class="number">0</span>; i &lt; Integer.MAX_VALUE; i++) {
+            sum2 += i;
+        }
+        <span class="keyword">long</span> end = System.currentTimeMillis();    <span class="comment">//获取结束时间</span>
+        System.out.println(end-middle);
+    }
 
-                </div>
-            </div>
+}
+</code></pre>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://yoursite.com/2017/12/04/通过私有化构造函数强化不可实例化的类/" data-id="cjasc7x3p00036k78u0ar1wcx" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/12/04/消除过期的对象引用/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    消除过期的对象引用（六）
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/12/03/用私有构造器或者枚举强化单例/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">用私有构造器或者枚举强化单例（三）</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
 </section>
             
                 
