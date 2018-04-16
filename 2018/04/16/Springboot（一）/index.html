@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>消除过期的对象引用（六） | 博客</title>
+    <title>SpringBoot入门（一） | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="消除过期的对象引用书中的例子如下:问题出在pop方法上，pop出去以后，stack的size本身减少1，size–，外部会持有该对象的引用，但是即便外部释放掉该element的引用，stack本身还有一个“保护机制”，栈内部会维护着这个对象的过期引用。为什么呢？这个是数组的特性，好比创建了一个16大小的数组，调用pop">
-<meta name="keywords" content="Effective Java">
+    <meta name="description" content="Part II. Getting Started篇章二. 开始123456If you are getting started with Spring Boot,or “Spring” in general, start by reading this section. It answers the basic “wh">
+<meta name="keywords" content="SpringBoot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="消除过期的对象引用（六）">
-<meta property="og:url" content="http://yoursite.com/2017/12/04/消除过期的对象引用/index.html">
+<meta property="og:title" content="SpringBoot入门（一）">
+<meta property="og:url" content="http://yoursite.com/2018/04/16/Springboot（一）/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="消除过期的对象引用书中的例子如下:问题出在pop方法上，pop出去以后，stack的size本身减少1，size–，外部会持有该对象的引用，但是即便外部释放掉该element的引用，stack本身还有一个“保护机制”，栈内部会维护着这个对象的过期引用。为什么呢？这个是数组的特性，好比创建了一个16大小的数组，调用pop方法相当于这时候对第16个数组对象创建一个外部引用，这个对象本身还是在内存中有空">
+<meta property="og:description" content="Part II. Getting Started篇章二. 开始123456If you are getting started with Spring Boot,or “Spring” in general, start by reading this section. It answers the basic “what?”, “how?”    and “why?” questions.It">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://s1.wailian.download/2017/11/28/app.jpg">
-<meta property="og:updated_time" content="2017-12-04T15:27:51.000Z">
+<meta property="og:updated_time" content="2018-04-16T12:56:44.828Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="消除过期的对象引用（六）">
-<meta name="twitter:description" content="消除过期的对象引用书中的例子如下:问题出在pop方法上，pop出去以后，stack的size本身减少1，size–，外部会持有该对象的引用，但是即便外部释放掉该element的引用，stack本身还有一个“保护机制”，栈内部会维护着这个对象的过期引用。为什么呢？这个是数组的特性，好比创建了一个16大小的数组，调用pop方法相当于这时候对第16个数组对象创建一个外部引用，这个对象本身还是在内存中有空">
+<meta name="twitter:title" content="SpringBoot入门（一）">
+<meta name="twitter:description" content="Part II. Getting Started篇章二. 开始123456If you are getting started with Spring Boot,or “Spring” in general, start by reading this section. It answers the basic “what?”, “how?”    and “why?” questions.It">
 <meta name="twitter:image" content="http://s1.wailian.download/2017/11/28/app.jpg">
     
 
@@ -217,7 +217,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-消除过期的对象引用" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Springboot（一）" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -225,7 +225,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            消除过期的对象引用（六）
+            SpringBoot入门（一）
         </h1>
     
 
@@ -234,8 +234,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/12/04/消除过期的对象引用/">
-            <time datetime="2017-12-04T14:19:47.000Z" itemprop="datePublished">2017-12-04</time>
+        <a href="/2018/04/16/Springboot（一）/">
+            <time datetime="2018-04-16T14:58:47.000Z" itemprop="datePublished">2018-04-16</time>
         </a>
     </div>
 
@@ -243,13 +243,13 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+        <a class="article-category-link" href="/categories/SpringBoot/">SpringBoot</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Effective-Java/">Effective Java</a>
+        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
     </div>
 
                     </div>
@@ -260,10 +260,12 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="消除过期的对象引用"><a href="#消除过期的对象引用" class="headerlink" title="消除过期的对象引用"></a>消除过期的对象引用</h2><p>书中的例子如下:问题出在pop方法上，pop出去以后，stack的size本身减少1，size–，外部会持有该对象的引用，但是即便外部释放掉该element的引用，stack本身还有一个“保护机制”，栈内部会维护着这个对象的过期引用。<br>为什么呢？<br>这个是数组的特性，好比创建了一个16大小的数组，调用pop方法相当于这时候对第16个数组对象创建一个外部引用，这个对象本身还是在内存中有空间的。换而言之，这个第16个对象此时此刻即被外部调用的一个引用持有，也同时被stack本身的数组持有，也许有人认为–size了，现在应该变为15大小的数组了，为什么还持有第16个呢？<br>这里首先要理解数组对象创建的时候内存的变化。声明数组过程中，变量保存在栈中，创建并进行初始化时，数组元素是保存在堆中，数组通过引用指针指向数组元素。<br>对于基本类型数组的初始化，程序直接先为数组分配内存空间，再将数组元素的值存入对应的内存里。<br>对于引用类型数组的数组元素依然是引用类型，因此数组元素里存储的还是引用，它指向另一块内存，该内在里存储了该引用变量所引用的对象。<br>这里的size其实只是栈中一个域变量的变化，而非真正数组的变化，原来作为基本类型的引用依然存在于第16个数组的位置上。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span> </span>&#123;</span><br><span class="line">    pprivate Object[] elements;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_INITAL_CAPACITY = <span class="number">16</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        elements = <span class="keyword">new</span> Object[DEFAULT_INITAL_CAPACITY];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(Object e)</span> </span>&#123;</span><br><span class="line">        ensureCapacity();</span><br><span class="line">        elements[size++] = e;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(size == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> EmptyStackException();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> elements[--size];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(elements.length == size)</span><br><span class="line">            elements = Arrays.copyOf(elements, <span class="number">2</span> * size + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>术语：过期引用（obsolete reference) ，指永远不会被解除的引用。</p>
-<p>书中也给了修改得方式如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">pop</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(size == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> EmptyStackException();</span><br><span class="line">    &#125;</span><br><span class="line">    Object result = elements[--size];</span><br><span class="line">    elements[size] = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <h1 id="Part-II-Getting-Started"><a href="#Part-II-Getting-Started" class="headerlink" title="Part II. Getting Started"></a>Part II. Getting Started</h1><h1 id="篇章二-开始"><a href="#篇章二-开始" class="headerlink" title="篇章二. 开始"></a>篇章二. 开始</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">If you are getting started with Spring Boot,or “Spring” in general, </span><br><span class="line">start by reading this section. It answers the basic “what?”, “how?”    </span><br><span class="line">and “why?” questions.It includes an introduction to Spring Boot,     </span><br><span class="line">along with installation instructions.We then walk you through     </span><br><span class="line">building your first Spring Boot application, discussing some core     </span><br><span class="line">principles as we go.</span><br></pre></td></tr></table></figure>
+<p>一般来说，您可以从阅读本章节开始学习Spring Boot 或者Spring。本节回答了最基础的“什么？”，“如何？”，“为何？”等问题。它包括了介绍Spring Boot如何独立部署的说明。我们将带领您建设您得第一个SpringBoot应用，跟随我们一起去探讨一些Spring Boot的核心价值。</p>
+<h2 id="8-Introducing-Spring-Boot"><a href="#8-Introducing-Spring-Boot" class="headerlink" title="8 . Introducing Spring Boot"></a>8 . Introducing Spring Boot</h2><h2 id="8-介绍-Spring-Boot"><a href="#8-介绍-Spring-Boot" class="headerlink" title="8 . 介绍 Spring Boot"></a>8 . 介绍 Spring Boot</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot makes it easy to create stand-alone, production-grade     </span><br><span class="line">Spring-based Applications that you can run. We take an opinionated    </span><br><span class="line">view of the Spring platform and third-party libraries, so that you    </span><br><span class="line">can get started with minimum fuss. Most Spring Boot applications     </span><br><span class="line">need very little Spring configuration.</span><br></pre></td></tr></table></figure>
+<p>Spring Boot使您能够非常简单的创建一个可运行的基于Spring的，产品级别的，独立部署应用。我们用我们自己认为的观点来处理Spring平台和第三方库，以便于您能够以最小的代价开始您的应用。所有的Spring Boot应用都只需要很少的Spring配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">You can use Spring Boot to create Java applications that can    </span><br><span class="line"> be started by using java -jar or more traditional war deployments.    </span><br><span class="line">  We also provide a command line tool that runs “spring scripts”.</span><br></pre></td></tr></table></figure></p>
+<p>你能够在Spring Boot 中使用java -jar 或者更为传统的 war包去创建java应用。我们同样提供了命令行工具去运行“Spring脚本”。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Our primary goals are:</span><br><span class="line">* Provide a radically faster and widely accessible     </span><br><span class="line">	getting-started experience for all Spring development.</span><br><span class="line">* Be opinionated out of the box but get out of the way     </span><br><span class="line">	quickly as requirements start to diverge from the defaults.</span><br><span class="line">* Provide a range of non-functional features that are     </span><br><span class="line">	common to large classes of projects (such as embedded servers,     </span><br><span class="line">	security, metrics, health checks, and externalized configuration).</span><br><span class="line">* Absolutely no code generation and no requirement for XML    </span><br><span class="line">	configuration.</span><br></pre></td></tr></table></figure></p>
+<p>我们的主要目标<br>    •    为所有的基于Spring的开发提供一个更快的，更广泛的入门级体验。<br>    •    以自我认为的方式通过一些默认的最快速基本的配置实现开箱即用的体验。<br>    •  提供大型项目（如内置服务器，安全性，埋点，运行状况检查和外部配置）通用的一系列非产品功能性的功能。<br>    •  绝对不需要生成代码或者xml的配置。</p>
 
         
         </div>
@@ -274,7 +276,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/12/04/消除过期的对象引用/" data-id="cjg28f0sz00058278kidnbqsz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/16/Springboot（一）/" data-id="cjg28f0st000182789pggl1sy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -349,19 +351,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/04/16/Springboot（一）/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    SpringBoot入门（一）
-                
-            </div>
-        </a>
     
-    
-        <a href="/2017/12/04/通过私有化构造函数强化不可实例化的类/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/12/04/消除过期的对象引用/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">私有化构造函数强化不可实例化的类，避免创建不必要的对象（四，五）</div>
+            <div class="article-nav-title">消除过期的对象引用（六）</div>
         </a>
     
 </nav>
