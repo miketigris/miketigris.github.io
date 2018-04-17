@@ -13,12 +13,12 @@
 <meta property="og:site_name" content="博客">
 <meta property="og:description" content="10.2 Installing the Spring Boot CLI（安装Spring Boot命令行界面）1234567The Spring Boot CLI (Command Line Interface) is a command line tool    that you can use to quickly prototype with Spring. It lets you">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523932533990.jpg">
-<meta property="og:updated_time" content="2018-04-17T08:03:59.399Z">
+<meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523962692577.jpg">
+<meta property="og:updated_time" content="2018-04-17T11:05:12.991Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot官方文档翻译（四）：安装Spring Boot命令行界面">
 <meta name="twitter:description" content="10.2 Installing the Spring Boot CLI（安装Spring Boot命令行界面）1234567The Spring Boot CLI (Command Line Interface) is a command line tool    that you can use to quickly prototype with Spring. It lets you">
-<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/17/1523932533990.jpg">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/17/1523962692577.jpg">
     
 
     
@@ -235,7 +235,7 @@
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2018/04/17/SpringBoot翻译（四）安装部署Spring Boot CLI/">
-            <time datetime="2018-04-17T02:58:47.000Z" itemprop="datePublished">2018-04-17</time>
+            <time datetime="2018-04-17T11:58:47.000Z" itemprop="datePublished">2018-04-17</time>
         </a>
     </div>
 
@@ -282,7 +282,22 @@
 <h2 id="10-2-4-MacPorts-Installation（以MacPorts安装方式）"><a href="#10-2-4-MacPorts-Installation（以MacPorts安装方式）" class="headerlink" title="10.2.4 MacPorts Installation（以MacPorts安装方式）"></a>10.2.4 MacPorts Installation（以MacPorts安装方式）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">If you are on a Mac and use MacPorts, you can install the     </span><br><span class="line">Spring Boot CLI by using the following command:</span><br></pre></td></tr></table></figure>
 <p>如果您使用Mac，并且使用MacPorts，您可以通过以下命令安装Spring Boot CLI<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo port install spring-boot-cli</span><br></pre></td></tr></table></figure></p>
 <h2 id="10-2-5-Command-line-Completion（命令行完成）"><a href="#10-2-5-Command-line-Completion（命令行完成）" class="headerlink" title="10.2.5 Command-line Completion（命令行完成）"></a>10.2.5 Command-line Completion（命令行完成）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">The Spring Boot CLI includes scripts that provide command     </span><br><span class="line">completion for the BASH and zsh shells. You can source     </span><br><span class="line">the script (also named spring) in any shell or put it in     </span><br><span class="line">your personal or system-wide bash completion initialization.     </span><br><span class="line">On a Debian system, the system-wide scripts are in     </span><br><span class="line">/shell-completion/bash and all scripts in that directory     </span><br><span class="line">are executed when a new shell starts. For example, to run     </span><br><span class="line">the script manually if you have installed by using SDKMAN!,      </span><br><span class="line">use the following commands:</span><br></pre></td></tr></table></figure>
-<p>Spring Boot CLI为BASH和zsh shells提供了命令行完成脚本。</p>
+<p>Spring Boot CLI为BASH和zsh shells提供了命令行完成脚本。您可以在任何shell或者您个人的或者系统范围内的bash中初始化source该脚本。在Debian系统，全系统脚本在/shell-completion/bash，并且所有新建的可执行脚本都在该路径下。比如说，在您已经安装使用SDKMAN的情况下，去手动运行该脚本，使用如下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ . ~/.sdkman/candidates/springboot/current/shell-completion/bash/spring</span><br><span class="line">$ spring &lt;HIT TAB HERE&gt;</span><br><span class="line">  grab  help  jar  run  test  version</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If you install the Spring Boot CLI by using Homebrew or MacPorts,     </span><br><span class="line">the command-line completion scripts are automatically registered     </span><br><span class="line">with your shell.</span><br></pre></td></tr></table></figure>
+<p>如果您使用Homebrew或者MacPorts安装Spring Boot CLI命令行初始化完成，那么它会自动注册到您的shell当中。</p>
+<h2 id="10-2-6-Quick-start-Spring-CLI-Example（快速开始Spring-CLI-示例）"><a href="#10-2-6-Quick-start-Spring-CLI-Example（快速开始Spring-CLI-示例）" class="headerlink" title="10.2.6 Quick-start Spring CLI Example（快速开始Spring CLI 示例）"></a>10.2.6 Quick-start Spring CLI Example（快速开始Spring CLI 示例）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">You can use the following web application to test your installation.     </span><br><span class="line">To start, create a file called app.groovy, as follows:</span><br></pre></td></tr></table></figure>
+<p>您可以使用如下的web应用去测试您的安装情况。首先，创建一个如下的app.groovy：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">class ThisWillActuallyRun &#123;</span><br><span class="line"></span><br><span class="line">	@RequestMapping(&quot;/&quot;)</span><br><span class="line">	String home() &#123;</span><br><span class="line">		&quot;Hello World!&quot;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Then run it from a shell, as follows:</span><br></pre></td></tr></table></figure>
+<p>然后在shell中运行它，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ spring run app.groovy</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The first run of your application is slow, as dependencies     </span><br><span class="line">are downloaded. Subsequent runs are much quicker.</span><br></pre></td></tr></table></figure>
+<p>首次运行您的应用会比较慢，因为依赖库需要被下载，以后每次运行会比较快<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Open localhost:8080 in your favorite web browser.     </span><br><span class="line">You should see the following output:</span><br></pre></td></tr></table></figure></p>
+<p>在您喜爱的浏览器中打开 localhost:8080 ，您将会看到如下的输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
+<h2 id="10-3-Upgrading-from-an-Earlier-Version-of-Spring-Boot（从一个旧版本升级Spring-Boot）"><a href="#10-3-Upgrading-from-an-Earlier-Version-of-Spring-Boot（从一个旧版本升级Spring-Boot）" class="headerlink" title="10.3 Upgrading from an Earlier Version of Spring Boot（从一个旧版本升级Spring Boot）"></a>10.3 Upgrading from an Earlier Version of Spring Boot（从一个旧版本升级Spring Boot）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If you are upgrading from an earlier release of Spring Boot, check     </span><br><span class="line">the “migration guide” on the project wiki that provides detailed     </span><br><span class="line">upgrade instructions. Check also the“release notes” for a list of     </span><br><span class="line">“new and noteworthy” features for each release.</span><br></pre></td></tr></table></figure>
+<p>如果您想从以前的版本中升级Spring Boot 请核对该项目在wiki上的“migration guide”，它提供了详细的升级说明。并且从列表中核对“relese notes”，每个relese版本都有新的值得注意的功能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">To upgrade an existing CLI installation, use the appropriate     </span><br><span class="line">package manager command (for example, brew upgrade) or, if     </span><br><span class="line">you manually installed the CLI, follow thestandard instructions,     </span><br><span class="line">remembering to update your PATH environment variable to     </span><br><span class="line">remove any older references.</span><br></pre></td></tr></table></figure>
+<p>去升级一个已有的CLI安装程序，推荐使用打包工具命令（比如 brew upgrage），如果您手动安装了CLI，根据标准的说明，记得更新您的环境变量去移除任何旧的关联</p>
 
         
         </div>
@@ -293,7 +308,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/17/SpringBoot翻译（四）安装部署Spring Boot CLI/" data-id="cjg3504l20003j778d8vzx0nb" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/17/SpringBoot翻译（四）安装部署Spring Boot CLI/" data-id="cjg3juhkj0006y178sef3llah" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -401,7 +416,7 @@
                             <a href="/2018/04/17/SpringBoot翻译（四）安装部署Spring Boot CLI/" class="thumbnail">
     
     
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523932533990.jpg)" alt="SpringBoot官方文档翻译（四）：安装Spring Boot命令行界面" class="thumbnail-image"></span>
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962692577.jpg)" alt="SpringBoot官方文档翻译（四）：安装Spring Boot命令行界面" class="thumbnail-image"></span>
     
 </a>
 
@@ -410,7 +425,7 @@
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
                             <p class="item-title"><a href="/2018/04/17/SpringBoot翻译（四）安装部署Spring Boot CLI/" class="title">SpringBoot官方文档翻译（四）：安装Spring Boot命令行界面</a></p>
-                            <p class="item-date"><time datetime="2018-04-17T02:58:47.000Z" itemprop="datePublished">2018-04-17</time></p>
+                            <p class="item-date"><time datetime="2018-04-17T11:58:47.000Z" itemprop="datePublished">2018-04-17</time></p>
                         </div>
                     </li>
                 
@@ -429,7 +444,7 @@
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
                             <p class="item-title"><a href="/2018/04/17/SpringBoot翻译（三）安装部署Spring Boot/" class="title">SpringBoot官方文档翻译（三）：安装部署Spring Boot</a></p>
-                            <p class="item-date"><time datetime="2018-04-17T02:58:47.000Z" itemprop="datePublished">2018-04-17</time></p>
+                            <p class="item-date"><time datetime="2018-04-17T02:59:47.000Z" itemprop="datePublished">2018-04-17</time></p>
                         </div>
                     </li>
                 
@@ -439,7 +454,7 @@
                             <a href="/2018/04/17/SpringBoot翻译（二）系统依赖/" class="thumbnail">
     
     
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523931297126.jpg)" alt="SpringBoot官方文档翻译（二）：系统依赖" class="thumbnail-image"></span>
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962638880.jpg)" alt="SpringBoot官方文档翻译（二）：系统依赖" class="thumbnail-image"></span>
     
 </a>
 
