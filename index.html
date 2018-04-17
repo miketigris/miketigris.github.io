@@ -161,7 +161,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                8
+                10
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -214,7 +214,7 @@
 
             
             <section id="main">
-    <article id="post-Springboot（一）" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBoot翻译（三）安装部署Spring Boot" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -222,7 +222,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/16/Springboot（一）/">SpringBoot入门（一）</a>
+            <a class="article-title" href="/2018/04/17/SpringBoot翻译（三）安装部署Spring Boot/">SpringBoot官方文档翻译（三）：以java的方式安装部署Spring Boot</a>
         </h1>
     
 
@@ -231,7 +231,312 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/16/Springboot（一）/">
+        <a href="/2018/04/17/SpringBoot翻译（三）安装部署Spring Boot/">
+            <time datetime="2018-04-17T02:58:47.000Z" itemprop="datePublished">2018-04-17</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="10-Installing-Spring-Boot（安装部署Spring-Boot）"><a href="#10-Installing-Spring-Boot（安装部署Spring-Boot）" class="headerlink" title="10. Installing Spring Boot（安装部署Spring Boot）"></a>10. Installing Spring Boot（安装部署Spring Boot）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot can be used with “classic” Java development tools     </span><br><span class="line">or installed as a command line tool. Either way, you need     </span><br><span class="line">Java SDK v1.8 or higher. Before you begin, you should check     </span><br><span class="line">your current Java installation by using the following command:    </span><br><span class="line">$ java -version    </span><br><span class="line">If you are new to Java development or if you want to experiment     </span><br><span class="line">with Spring Boot, you might want to try the Spring Boot CLI     </span><br><span class="line">(Command Line Interface) first. Otherwise, read on for “classic”     </span><br><span class="line">installation instructions.</span><br></pre></td></tr></table></figure>
+<p>Spring Boot 可以被传统的java部署工具部署，也可以被安装为命令行工具。同样的，您需要java1.8或更高的版本支持。在您开始之前，您可以使用如下命令检查一下您的JDK版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -version</span><br></pre></td></tr></table></figure></p>
+<p>如果您是新部署一个应用或者您想尝试下Spring Boot ，您可以首先尝试使用Spring Boot CLI（命令行接口）。否则，请阅读“传统”安装介绍。</p>
+<h2 id="10-1-Installation-Instructions-for-the-Java-Developer（针对java开发者的安装介绍）"><a href="#10-1-Installation-Instructions-for-the-Java-Developer（针对java开发者的安装介绍）" class="headerlink" title="10.1 Installation Instructions for the Java Developer（针对java开发者的安装介绍）"></a>10.1 Installation Instructions for the Java Developer（针对java开发者的安装介绍）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">You can use Spring Boot in the same way as any standard Java library.    </span><br><span class="line">To do so, include the appropriate spring-boot-*.jar files on your    </span><br><span class="line">classpath. Spring Boot does not require any special tools integration,    </span><br><span class="line">so you can use any IDE or text editor. Also, there is nothing special    </span><br><span class="line">about a Spring Boot application, so you can run and debug a     </span><br><span class="line">Spring Boot application as you would any other Java program.</span><br><span class="line">    </span><br><span class="line">Although you could copy Spring Boot jars, we generally recommend     </span><br><span class="line">that you use a build tool that supports dependency management (such     </span><br><span class="line">as Maven or Gradle).</span><br></pre></td></tr></table></figure>
+<p>您可以同样的使用Spring Boot作为一个标准的Java库。因此，您可以讲spring-boot-*.jar适当的引入到您的类路径下。Spring Boot不需要任何特殊的工具集成，因此您可以使用任何IDE或文本编辑器。并且，Spring Boot应用没有任何特殊之处，因此您可以像运行其他任何Java程序一样运行和调试Spring Boot应用程序。尽管您可以拷贝Spring Boot jar包，但我们通常建议您使用支持依赖管理的构建工具（如Maven或Gradle）。</p>
+<h2 id="10-1-1-Maven-Installation（Maven下的安装）"><a href="#10-1-1-Maven-Installation（Maven下的安装）" class="headerlink" title="10.1.1 Maven Installation（Maven下的安装）"></a>10.1.1 Maven Installation（Maven下的安装）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot is compatible with Apache Maven 3.2 or above. If you do    </span><br><span class="line">not already have Maven installed, you can follow the instructions at maven.apache.org.</span><br></pre></td></tr></table></figure>
+<p>Spring Boot与Apache Maven 3.2或更高版本兼容。 如果你<br>尚未安装Maven，您可以按照maven.apache.org上的说明进行操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">On many operating systems, Maven can be installed with a package manager. If you use OSX Homebrew, try brew install maven. Ubuntu users can run sudo apt-get install maven. Windows users with Chocolatey can run choco install maven from an elevated (administrator) prompt.</span><br></pre></td></tr></table></figure>
+<p>在很多系统中，Maven可以使用包管理器进行安装。如果您使用OSX系统的Homebrew，尝试<br><strong>brew install maven</strong>。Ubuntu用户可以运行 <strong>sudo apt-get</strong> 安装maven。 具有Chocolatey命令行管理包的Window用户可以以管理员的身份在示框中运行<strong>choco install maven</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot dependencies use the org.springframework.boot groupId. Typically, your Maven POM file inherits from the spring-boot-starter-parentproject and declares dependencies to one or more “Starters”. Spring Boot also provides an optional Maven plugin to create executable jars.</span><br><span class="line">The following listing shows a typical pom.xml file:</span><br></pre></td></tr></table></figure>
+<p>Spring Boot 依赖使用 <strong>org.springframework.boot</strong> 作为groupId。通常，您的Maven POM文件继承于<strong>spring-boot-starter-parentproject</strong> 并且声明依赖于一个或者多个“Straters”。Sring Boot同样提供了可选的Maven插件去创建可运行jars包。以下列表展示了一个通常使用的pom.xml文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">	xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">	&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line"></span><br><span class="line">	&lt;groupId&gt;com.example&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;myproject&lt;/artifactId&gt;</span><br><span class="line">	&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- Inherit defaults from Spring Boot --&gt;</span><br><span class="line">	&lt;parent&gt;</span><br><span class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">		&lt;version&gt;2.1.0.BUILD-SNAPSHOT&lt;/version&gt;</span><br><span class="line">	&lt;/parent&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- Add typical dependencies for a web application --&gt;</span><br><span class="line">	&lt;dependencies&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">	&lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- Package as an executable jar --&gt;</span><br><span class="line">	&lt;build&gt;</span><br><span class="line">		&lt;plugins&gt;</span><br><span class="line">			&lt;plugin&gt;</span><br><span class="line">				&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">				&lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">			&lt;/plugin&gt;</span><br><span class="line">		&lt;/plugins&gt;</span><br><span class="line">	&lt;/build&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- Add Spring repositories --&gt;</span><br><span class="line">	&lt;!-- (you don&apos;t need this if you are using a .RELEASE version) --&gt;</span><br><span class="line">	&lt;repositories&gt;</span><br><span class="line">		&lt;repository&gt;</span><br><span class="line">			&lt;id&gt;spring-snapshots&lt;/id&gt;</span><br><span class="line">			&lt;url&gt;https://repo.spring.io/snapshot&lt;/url&gt;</span><br><span class="line">			&lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/snapshots&gt;</span><br><span class="line">		&lt;/repository&gt;</span><br><span class="line">		&lt;repository&gt;</span><br><span class="line">			&lt;id&gt;spring-milestones&lt;/id&gt;</span><br><span class="line">			&lt;url&gt;https://repo.spring.io/milestone&lt;/url&gt;</span><br><span class="line">		&lt;/repository&gt;</span><br><span class="line">	&lt;/repositories&gt;</span><br><span class="line">	&lt;pluginRepositories&gt;</span><br><span class="line">		&lt;pluginRepository&gt;</span><br><span class="line">			&lt;id&gt;spring-snapshots&lt;/id&gt;</span><br><span class="line">			&lt;url&gt;https://repo.spring.io/snapshot&lt;/url&gt;</span><br><span class="line">		&lt;/pluginRepository&gt;</span><br><span class="line">		&lt;pluginRepository&gt;</span><br><span class="line">			&lt;id&gt;spring-milestones&lt;/id&gt;</span><br><span class="line">			&lt;url&gt;https://repo.spring.io/milestone&lt;/url&gt;</span><br><span class="line">		&lt;/pluginRepository&gt;</span><br><span class="line">	&lt;/pluginRepositories&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="10-1-2-Gradle-Installation（Gradle下的安装）"><a href="#10-1-2-Gradle-Installation（Gradle下的安装）" class="headerlink" title="10.1.2 Gradle Installation（Gradle下的安装）"></a>10.1.2 Gradle Installation（Gradle下的安装）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot is compatible with Gradle 4. If you do not already    </span><br><span class="line"> have Gradle installed, you can follow the instructions at gradle.org.</span><br><span class="line">Spring Boot dependencies can be declared by using the org.springframework.boot group.     </span><br><span class="line">Typically, your project declares dependencies to one or     </span><br><span class="line">more“Starters”. Spring Boot provides a useful Gradle plugin     </span><br><span class="line">that can be used to simplify dependency declarations and to     </span><br><span class="line">create executable jars.</span><br></pre></td></tr></table></figure>
+<p>Spring Boot 兼容Gradle 4. 如果您还没有安装Gradle，您可以从 gradle.org中获取介绍文档。<br>Spring Boot依赖可以被声明为<strong>org.springframework.boot</strong> group。通常，您的项目被声明依赖于一个或者多个“Strarters”。Spring Boot 提供可用的Gradle 插件用于简化依赖声明和创建可执行jars包。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Gradle Wrapper</span><br><span class="line">The Gradle Wrapper provides a nice way of “obtaining” Gradle when     </span><br><span class="line">you need to build a project. It is a small script and library that    </span><br><span class="line"> you commit alongside your code to bootstrap the build process.     </span><br><span class="line"> See docs.gradle.org/4.2.1/userguide/gradle_wrapper.html for details.</span><br></pre></td></tr></table></figure>
+<p>Gradle 包装<br>当您去构建您的应用时，Gradle 包装提供了一个优雅的路径去“获得”Gradle。他提供了一个小脚本和库似的您的提交和构建同步进行。具体参见：docs.gradle.org/4.2.1/userguide/gradle_wrapper.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The following example shows a typical build.gradle file:</span><br></pre></td></tr></table></figure>
+<p>以下为一个通常的build.gradle文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">	repositories &#123;</span><br><span class="line">		jcenter()</span><br><span class="line">		maven &#123; url &apos;https://repo.spring.io/snapshot&apos; &#125;</span><br><span class="line">		maven &#123; url &apos;https://repo.spring.io/milestone&apos; &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	dependencies &#123;</span><br><span class="line">		classpath &apos;org.springframework.boot:spring-boot-gradle-plugin:2.1.0.BUILD-SNAPSHOT&apos;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">apply plugin: &apos;java&apos;</span><br><span class="line">apply plugin: &apos;org.springframework.boot&apos;</span><br><span class="line">apply plugin: &apos;io.spring.dependency-management&apos;</span><br><span class="line"></span><br><span class="line">jar &#123;</span><br><span class="line">	baseName = &apos;myproject&apos;</span><br><span class="line">	version =  &apos;0.0.1-SNAPSHOT&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">repositories &#123;</span><br><span class="line">	jcenter()</span><br><span class="line">	maven &#123; url &quot;https://repo.spring.io/snapshot&quot; &#125;</span><br><span class="line">	maven &#123; url &quot;https://repo.spring.io/milestone&quot; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">	compile(&quot;org.springframework.boot:spring-boot-starter-web&quot;)</span><br><span class="line">	testCompile(&quot;org.springframework.boot:spring-boot-starter-test&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2018/04/17/SpringBoot翻译（三）安装部署Spring Boot/" data-id="cjg34aud00001ie789d7wgyo9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-SpringBoot翻译（二）系统依赖" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/04/17/SpringBoot翻译（二）系统依赖/">SpringBoot官方文档翻译（二）：系统依赖</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/04/17/SpringBoot翻译（二）系统依赖/">
+            <time datetime="2018-04-17T02:58:47.000Z" itemprop="datePublished">2018-04-17</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="9-System-Requirements（系统依赖）"><a href="#9-System-Requirements（系统依赖）" class="headerlink" title="9 . System Requirements（系统依赖）"></a>9 . System Requirements（系统依赖）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot 2.1.0.BUILD-SNAPSHOT requires Java 8 or 9 and     </span><br><span class="line">Spring Framework 5.0.5.RELEASE or above. Explicit build     </span><br><span class="line">support is provided for Maven 3.2+ and Gradle 4.</span><br></pre></td></tr></table></figure>
+<p>Spring Boot 2.1。0.BUILD-SNAPSHOT 需要java8或者java9版本，以及Spring Framework 5.0.5.RELEASE 或更高版本。为Maven 3.2+和Gradle 4提供了明确的支持。</p>
+<h2 id="9-1-Servlet-Containers（Servlet-容器）"><a href="#9-1-Servlet-Containers（Servlet-容器）" class="headerlink" title="9.1 Servlet Containers（Servlet 容器）"></a>9.1 Servlet Containers（Servlet 容器）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot supports the following embedded servlet containers:</span><br></pre></td></tr></table></figure>
+<p>Spring Boot支持如下内置容器</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Servlet Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tomcat 8.5</td>
+<td>3.1</td>
+</tr>
+<tr>
+<td>Jetty 9.4</td>
+<td>3.1</td>
+</tr>
+<tr>
+<td>Undertow 1.4</td>
+<td>3.1</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You can also deploy Spring Boot applications to any Servlet 3.1+ compatible container.</span><br></pre></td></tr></table></figure>
+<p>您也可以部署Spring Boot应用在任何的基于Servlet 3.1+版本的容器中</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2018/04/17/SpringBoot翻译（二）系统依赖/" data-id="cjg34aud40004ie78eotxvf2v" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-SpringBoot翻译（一）介绍 Spring Boot" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/04/16/SpringBoot翻译（一）介绍 Spring Boot/">SpringBoot官方文档翻译（一）：介绍 Spring Boot</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/04/16/SpringBoot翻译（一）介绍 Spring Boot/">
             <time datetime="2018-04-16T14:58:47.000Z" itemprop="datePublished">2018-04-16</time>
         </a>
     </div>
@@ -240,7 +545,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot/">SpringBoot</a>
+        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
     </div>
 
                         
@@ -259,7 +564,7 @@
             
             <h1 id="Part-II-Getting-Started"><a href="#Part-II-Getting-Started" class="headerlink" title="Part II. Getting Started"></a>Part II. Getting Started</h1><h1 id="篇章二-开始"><a href="#篇章二-开始" class="headerlink" title="篇章二. 开始"></a>篇章二. 开始</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">If you are getting started with Spring Boot,or “Spring” in general, </span><br><span class="line">start by reading this section. It answers the basic “what?”, “how?”    </span><br><span class="line">and “why?” questions.It includes an introduction to Spring Boot,     </span><br><span class="line">along with installation instructions.We then walk you through     </span><br><span class="line">building your first Spring Boot application, discussing some core     </span><br><span class="line">principles as we go.</span><br></pre></td></tr></table></figure>
 <p>一般来说，您可以从阅读本章节开始学习Spring Boot 或者Spring。本节回答了最基础的“什么？”，“如何？”，“为何？”等问题。它包括了介绍Spring Boot如何独立部署的说明。我们将带领您建设您得第一个SpringBoot应用，跟随我们一起去探讨一些Spring Boot的核心价值。</p>
-<h2 id="8-Introducing-Spring-Boot"><a href="#8-Introducing-Spring-Boot" class="headerlink" title="8 . Introducing Spring Boot"></a>8 . Introducing Spring Boot</h2><h2 id="8-介绍-Spring-Boot"><a href="#8-介绍-Spring-Boot" class="headerlink" title="8 . 介绍 Spring Boot"></a>8 . 介绍 Spring Boot</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot makes it easy to create stand-alone, production-grade     </span><br><span class="line">Spring-based Applications that you can run. We take an opinionated    </span><br><span class="line">view of the Spring platform and third-party libraries, so that you    </span><br><span class="line">can get started with minimum fuss. Most Spring Boot applications     </span><br><span class="line">need very little Spring configuration.</span><br></pre></td></tr></table></figure>
+<h2 id="8-Introducing-Spring-Boot（介绍-Spring-Boot）"><a href="#8-Introducing-Spring-Boot（介绍-Spring-Boot）" class="headerlink" title="8 . Introducing Spring Boot（介绍 Spring Boot）"></a>8 . Introducing Spring Boot（介绍 Spring Boot）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot makes it easy to create stand-alone, production-grade     </span><br><span class="line">Spring-based Applications that you can run. We take an opinionated    </span><br><span class="line">view of the Spring platform and third-party libraries, so that you    </span><br><span class="line">can get started with minimum fuss. Most Spring Boot applications     </span><br><span class="line">need very little Spring configuration.</span><br></pre></td></tr></table></figure>
 <p>Spring Boot使您能够非常简单的创建一个可运行的基于Spring的，产品级别的，独立部署应用。我们用我们自己认为的观点来处理Spring平台和第三方库，以便于您能够以最小的代价开始您的应用。所有的Spring Boot应用都只需要很少的Spring配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">You can use Spring Boot to create Java applications that can    </span><br><span class="line"> be started by using java -jar or more traditional war deployments.    </span><br><span class="line">  We also provide a command line tool that runs “spring scripts”.</span><br></pre></td></tr></table></figure></p>
 <p>你能够在Spring Boot 中使用java -jar 或者更为传统的 war包去创建java应用。我们同样提供了命令行工具去运行“Spring脚本”。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Our primary goals are:</span><br><span class="line">* Provide a radically faster and widely accessible     </span><br><span class="line">	getting-started experience for all Spring development.</span><br><span class="line">* Be opinionated out of the box but get out of the way     </span><br><span class="line">	quickly as requirements start to diverge from the defaults.</span><br><span class="line">* Provide a range of non-functional features that are     </span><br><span class="line">	common to large classes of projects (such as embedded servers,     </span><br><span class="line">	security, metrics, health checks, and externalized configuration).</span><br><span class="line">* Absolutely no code generation and no requirement for XML    </span><br><span class="line">	configuration.</span><br></pre></td></tr></table></figure></p>
 <p>我们的主要目标<br>    •    为所有的基于Spring的开发提供一个更快的，更广泛的入门级体验。<br>    •    以自我认为的方式通过一些默认的最快速基本的配置实现开箱即用的体验。<br>    •  提供大型项目（如内置服务器，安全性，埋点，运行状况检查和外部配置）通用的一系列非产品功能性的功能。<br>    •  绝对不需要生成代码或者xml的配置。</p>
@@ -273,7 +578,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/16/Springboot（一）/" data-id="cjg28f0st000182789pggl1sy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/16/SpringBoot翻译（一）介绍 Spring Boot/" data-id="cjg34aucw0000ie78va0dtrkj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -406,7 +711,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/12/04/消除过期的对象引用/" data-id="cjg28f0sz00058278kidnbqsz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/12/04/消除过期的对象引用/" data-id="cjg34aud9000aie78p6eq69xa" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -541,7 +846,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/12/04/通过私有化构造函数强化不可实例化的类/" data-id="cjg28f0t5000f82785n8dxycw" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/12/04/通过私有化构造函数强化不可实例化的类/" data-id="cjg34audd000gie78nn2sobbf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -679,7 +984,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/12/03/用私有构造器或者枚举强化单例/" data-id="cjg28f0t000068278iyruoo7l" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/12/03/用私有构造器或者枚举强化单例/" data-id="cjg34aude000hie78v8q2mvx0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -814,7 +1119,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/12/03/考虑使用构建器/" data-id="cjg28f0t2000a8278ht31azbd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/12/03/考虑使用构建器/" data-id="cjg34audg000mie789ki8e3si" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -963,7 +1268,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/11/30/考虑使用静态工厂方法代替构造器/" data-id="cjg28f0t4000b827870ma9nic" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/11/30/考虑使用静态工厂方法代替构造器/" data-id="cjg34audb000bie7868zwse4d" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1129,7 +1434,7 @@
 <h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>Markdown 语法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">email &lt;example@example.com&gt;</span><br><span class="line">[GitHub](http://github.com)</span><br><span class="line">自动生成连接  &lt;http://www.github.com/&gt;</span><br></pre></td></tr></table></figure>
 <p><code>Control + Shift + L</code> 可插入Markdown语法。<br>如果是 MWeb 的文档库中的文档，拖放或<code>CMD + Option + I</code> 导入非图片时，会生成连接。<br>效果如下：</p>
-<p>Email 连接： <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x65;&#x78;&#97;&#109;&#x70;&#108;&#101;&#64;&#101;&#x78;&#97;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#99;&#111;&#109;">&#x65;&#x78;&#97;&#109;&#x70;&#108;&#101;&#64;&#101;&#x78;&#97;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#99;&#111;&#109;</a><br><a href="http://github.com" target="_blank" rel="noopener">连接标题Github网站</a><br>自动生成连接像： <a href="http://www.github.com/" target="_blank" rel="noopener">http://www.github.com/</a> 这样</p>
+<p>Email 连接： <a href="&#109;&#x61;&#x69;&#108;&#x74;&#x6f;&#58;&#101;&#x78;&#x61;&#109;&#112;&#108;&#101;&#64;&#101;&#x78;&#97;&#109;&#112;&#108;&#101;&#46;&#x63;&#111;&#109;">&#101;&#x78;&#x61;&#109;&#112;&#108;&#101;&#64;&#101;&#x78;&#97;&#109;&#112;&#108;&#101;&#46;&#x63;&#111;&#109;</a><br><a href="http://github.com" target="_blank" rel="noopener">连接标题Github网站</a><br>自动生成连接像： <a href="http://www.github.com/" target="_blank" rel="noopener">http://www.github.com/</a> 这样</p>
 <h2 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h2><p>Markdown 语法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">某某说:</span><br><span class="line">&gt; 第一行引用</span><br><span class="line">&gt; 第二行费用文字</span><br></pre></td></tr></table></figure>
 <p><code>CMD + Shift + B</code> 可插入Markdown语法。<br>效果如下：</p>
@@ -1209,7 +1514,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/11/29/Markdown语法/" data-id="cjg28f0sp00008278nn55l8aw" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/11/29/Markdown语法/" data-id="cjg34aud50005ie783py2esvk" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1337,7 +1642,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/11/27/博客使用说明/" data-id="cjg28f0sx00048278n7dhg9sd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/11/27/博客使用说明/" data-id="cjg34aud60006ie789k293jrr" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1426,18 +1731,56 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/04/16/Springboot（一）/" class="thumbnail">
+                            <a href="/2018/04/17/SpringBoot翻译（三）安装部署Spring Boot/" class="thumbnail">
     
     
-        <span style="background-image:url(http://s1.wailian.download/2017/11/28/app.jpg)" alt="SpringBoot入门（一）" class="thumbnail-image"></span>
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523932533990.jpg)" alt="SpringBoot官方文档翻译（三）：以java的方式安装部署Spring Boot" class="thumbnail-image"></span>
     
 </a>
 
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot/">SpringBoot</a></p>
-                            <p class="item-title"><a href="/2018/04/16/Springboot（一）/" class="title">SpringBoot入门（一）</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
+                            <p class="item-title"><a href="/2018/04/17/SpringBoot翻译（三）安装部署Spring Boot/" class="title">SpringBoot官方文档翻译（三）：以java的方式安装部署Spring Boot</a></p>
+                            <p class="item-date"><time datetime="2018-04-17T02:58:47.000Z" itemprop="datePublished">2018-04-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/17/SpringBoot翻译（二）系统依赖/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523931297126.jpg)" alt="SpringBoot官方文档翻译（二）：系统依赖" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
+                            <p class="item-title"><a href="/2018/04/17/SpringBoot翻译（二）系统依赖/" class="title">SpringBoot官方文档翻译（二）：系统依赖</a></p>
+                            <p class="item-date"><time datetime="2018-04-17T02:58:47.000Z" itemprop="datePublished">2018-04-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/16/SpringBoot翻译（一）介绍 Spring Boot/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523931297126.jpg)" alt="SpringBoot官方文档翻译（一）：介绍 Spring Boot" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
+                            <p class="item-title"><a href="/2018/04/16/SpringBoot翻译（一）介绍 Spring Boot/" class="title">SpringBoot官方文档翻译（一）：介绍 Spring Boot</a></p>
                             <p class="item-date"><time datetime="2018-04-16T14:58:47.000Z" itemprop="datePublished">2018-04-16</time></p>
                         </div>
                     </li>
@@ -1480,44 +1823,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/12/03/用私有构造器或者枚举强化单例/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://s1.wailian.download/2017/11/28/app.jpg)" alt="用私有构造器或者枚举强化单例（三）" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
-                            <p class="item-title"><a href="/2017/12/03/用私有构造器或者枚举强化单例/" class="title">用私有构造器或者枚举强化单例（三）</a></p>
-                            <p class="item-date"><time datetime="2017-12-03T14:58:47.000Z" itemprop="datePublished">2017-12-03</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/12/03/考虑使用构建器/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
-                            <p class="item-title"><a href="/2017/12/03/考虑使用构建器/" class="title">考虑使用构建器（二）</a></p>
-                            <p class="item-date"><time datetime="2017-12-03T06:58:47.000Z" itemprop="datePublished">2017-12-03</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1527,7 +1832,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot/">SpringBoot</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1536,7 +1841,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1545,7 +1850,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/">SpringBoot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/">SpringBoot</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1554,7 +1859,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Effective-Java/" style="font-size: 20px;">Effective Java</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/书籍/" style="font-size: 10px;">书籍</a>
+            <a href="/tags/Effective-Java/" style="font-size: 20px;">Effective Java</a> <a href="/tags/SpringBoot/" style="font-size: 15px;">SpringBoot</a> <a href="/tags/书籍/" style="font-size: 10px;">书籍</a>
         </div>
     </div>
 
