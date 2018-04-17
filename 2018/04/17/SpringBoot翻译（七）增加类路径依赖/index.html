@@ -3,22 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>SpringBoot官方文档翻译（二）：系统依赖 | 博客</title>
+    <title>SpringBoot官方文档翻译（七）：增加类路径依赖 | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="9 . System Requirements（系统依赖）123Spring Boot 2.1.0.BUILD-SNAPSHOT requires Java 8 or 9 and     Spring Framework 5.0.5.RELEASE or above. Explicit build     suppor">
+    <meta name="description" content="11.2 Adding Classpath Dependencies（增加类路径依赖）123456Spring Boot provides a number of “Starters” that let you add     jars to your classpath. Our sample application">
 <meta name="keywords" content="SpringBoot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot官方文档翻译（二）：系统依赖">
-<meta property="og:url" content="http://yoursite.com/2018/04/17/SpringBoot翻译（二）系统依赖/index.html">
+<meta property="og:title" content="SpringBoot官方文档翻译（七）：增加类路径依赖">
+<meta property="og:url" content="http://yoursite.com/2018/04/17/SpringBoot翻译（七）增加类路径依赖/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="9 . System Requirements（系统依赖）123Spring Boot 2.1.0.BUILD-SNAPSHOT requires Java 8 or 9 and     Spring Framework 5.0.5.RELEASE or above. Explicit build     support is provided for Maven 3.2+ and Gradle">
+<meta property="og:description" content="11.2 Adding Classpath Dependencies（增加类路径依赖）123456Spring Boot provides a number of “Starters” that let you add     jars to your classpath. Our sample application has already     used spring-boot-starte">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523962638880.jpg">
-<meta property="og:updated_time" content="2018-04-17T11:02:03.244Z">
+<meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523962714052.jpg">
+<meta property="og:updated_time" content="2018-04-17T12:54:24.825Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot官方文档翻译（二）：系统依赖">
-<meta name="twitter:description" content="9 . System Requirements（系统依赖）123Spring Boot 2.1.0.BUILD-SNAPSHOT requires Java 8 or 9 and     Spring Framework 5.0.5.RELEASE or above. Explicit build     support is provided for Maven 3.2+ and Gradle">
-<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/17/1523962638880.jpg">
+<meta name="twitter:title" content="SpringBoot官方文档翻译（七）：增加类路径依赖">
+<meta name="twitter:description" content="11.2 Adding Classpath Dependencies（增加类路径依赖）123456Spring Boot provides a number of “Starters” that let you add     jars to your classpath. Our sample application has already     used spring-boot-starte">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/17/1523962714052.jpg">
     
 
     
@@ -217,7 +217,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-SpringBoot翻译（二）系统依赖" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-SpringBoot翻译（七）增加类路径依赖" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -225,7 +225,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            SpringBoot官方文档翻译（二）：系统依赖
+            SpringBoot官方文档翻译（七）：增加类路径依赖
         </h1>
     
 
@@ -234,8 +234,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBoot翻译（二）系统依赖/">
-            <time datetime="2018-04-17T02:58:47.000Z" itemprop="datePublished">2018-04-17</time>
+        <a href="/2018/04/17/SpringBoot翻译（七）增加类路径依赖/">
+            <time datetime="2018-04-17T12:35:47.000Z" itemprop="datePublished">2018-04-17</time>
         </a>
     </div>
 
@@ -260,34 +260,14 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="9-System-Requirements（系统依赖）"><a href="#9-System-Requirements（系统依赖）" class="headerlink" title="9 . System Requirements（系统依赖）"></a>9 . System Requirements（系统依赖）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot 2.1.0.BUILD-SNAPSHOT requires Java 8 or 9 and     </span><br><span class="line">Spring Framework 5.0.5.RELEASE or above. Explicit build     </span><br><span class="line">support is provided for Maven 3.2+ and Gradle 4.</span><br></pre></td></tr></table></figure>
-<p>Spring Boot 2.1。0.BUILD-SNAPSHOT 需要java8或者java9版本，以及Spring Framework 5.0.5.RELEASE 或更高版本。为Maven 3.2+和Gradle 4提供了明确的支持。</p>
-<h2 id="9-1-Servlet-Containers（Servlet-容器）"><a href="#9-1-Servlet-Containers（Servlet-容器）" class="headerlink" title="9.1 Servlet Containers（Servlet 容器）"></a>9.1 Servlet Containers（Servlet 容器）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot supports the following embedded servlet containers:</span><br></pre></td></tr></table></figure>
-<p>Spring Boot支持如下内置容器</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Servlet Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Tomcat 8.5</td>
-<td>3.1</td>
-</tr>
-<tr>
-<td>Jetty 9.4</td>
-<td>3.1</td>
-</tr>
-<tr>
-<td>Undertow 1.4</td>
-<td>3.1</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You can also deploy Spring Boot applications to any Servlet 3.1+ compatible container.</span><br></pre></td></tr></table></figure>
-<p>您也可以部署Spring Boot应用在任何的基于Servlet 3.1+版本的容器中</p>
+            <h2 id="11-2-Adding-Classpath-Dependencies（增加类路径依赖）"><a href="#11-2-Adding-Classpath-Dependencies（增加类路径依赖）" class="headerlink" title="11.2 Adding Classpath Dependencies（增加类路径依赖）"></a>11.2 Adding Classpath Dependencies（增加类路径依赖）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot provides a number of “Starters” that let you add     </span><br><span class="line">jars to your classpath. Our sample application has already     </span><br><span class="line">used spring-boot-starter-parent in the parent section of the POM.     </span><br><span class="line">The spring-boot-starter-parent is a special starter that provides     </span><br><span class="line">useful Maven defaults. It also provides a dependency-management     </span><br><span class="line">section so that you can omit version tags for “blessed” dependencies.</span><br></pre></td></tr></table></figure>
+<p>Spring Boot 提供了一些“Starters”用于您增加一些jars包到您的类路径下。我们的示例应用已经使用了<strong>spring-boot-starter-parent</strong>在上一节的POM文件中。<strong>spring-boot-starter-parent</strong>是一个提供了非常有用的Maven默认的特殊的starter。它同样提供了一个<strong>dependency-management</strong>部分，以便于您可以为一些“幸福”依赖忽略版本标签。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Other “Starters” provide dependencies that you are likely to need     </span><br><span class="line">when developing a specific type of application. Since we are     </span><br><span class="line">developing a web application, we add a spring-boot-starter-web     </span><br><span class="line">dependency. Before that, we can look at what we currently have     </span><br><span class="line">by running the following command:</span><br></pre></td></tr></table></figure>
+<p>其他“Starters”提供了一些依赖，以便于您可以在开发一些特殊模式的应用，如果我们需要部署一个web应用，我们需要增加 <strong>spring-boot-starter-web</strong>的依赖。在此之前，我们可以使用以下命令寻找我们目前已有的依赖：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mvn dependency:tree</span><br><span class="line"></span><br><span class="line">[INFO] com.example:myproject:jar:0.0.1-SNAPSHOT</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">The mvn dependency:tree command prints a tree representation of     </span><br><span class="line">your project dependencies. You can see that spring-boot-starter-parent     </span><br><span class="line">provides no dependencies by itself. To add the necessary dependencies,     </span><br><span class="line">edit your pom.xml and add the spring-boot-starter-web dependency     </span><br><span class="line">immediately below the parent section:</span><br></pre></td></tr></table></figure>
+<p><strong>mvn dependency:tree</strong>命令会将您的应用依赖以树形展示。您可以发现<strong>spring-boot-starter-parent</strong>本身并不提供任何依赖。如果需要增加必要的依赖，更改您的pom.xml，增加<strong>spring-boot-starter-web</strong>依赖紧接在父节点下面：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">	&lt;dependency&gt;</span><br><span class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">	&lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If you run mvn dependency:tree again, you see that there are now a     </span><br><span class="line">number of additional dependencies, including the Tomcat web server     </span><br><span class="line">and Spring Boot itself.</span><br></pre></td></tr></table></figure>
+<p>如果您再次运行<strong>mvn dependency:tree</strong>，您将会看到一系列的新增的依赖，包括tomcat服务器和Spring Boot本身</p>
 
         
         </div>
@@ -298,7 +278,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/17/SpringBoot翻译（二）系统依赖/" data-id="cjg3o75ah00064578r5t4o5st" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/17/SpringBoot翻译（七）增加类路径依赖/" data-id="cjg3o75af000445782oeeo766" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -373,19 +353,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/04/17/SpringBoot翻译（三）安装部署Spring Boot/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    SpringBoot官方文档翻译（三）：安装部署Spring Boot
-                
-            </div>
-        </a>
     
-    
-        <a href="/2018/04/16/SpringBoot翻译（一）介绍 Spring Boot/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/04/17/SpringBoot翻译（六）创建POM文件/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">SpringBoot官方文档翻译（一）：介绍 Spring Boot</div>
+            <div class="article-nav-title">SpringBoot官方文档翻译（六）：创建POM文件</div>
         </a>
     
 </nav>

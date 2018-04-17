@@ -3,22 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>SpringBoot官方文档翻译（二）：系统依赖 | 博客</title>
+    <title>SpringBoot官方文档翻译（六）：创建POM文件 | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="9 . System Requirements（系统依赖）123Spring Boot 2.1.0.BUILD-SNAPSHOT requires Java 8 or 9 and     Spring Framework 5.0.5.RELEASE or above. Explicit build     suppor">
+    <meta name="description" content="11.1 Creating the POM(创建POM文件)123We need to start by creating a Maven pom.xml file. The pom.xml is     the recipe that is used to build your project. Open your ">
 <meta name="keywords" content="SpringBoot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot官方文档翻译（二）：系统依赖">
-<meta property="og:url" content="http://yoursite.com/2018/04/17/SpringBoot翻译（二）系统依赖/index.html">
+<meta property="og:title" content="SpringBoot官方文档翻译（六）：创建POM文件">
+<meta property="og:url" content="http://yoursite.com/2018/04/17/SpringBoot翻译（六）创建POM文件/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="9 . System Requirements（系统依赖）123Spring Boot 2.1.0.BUILD-SNAPSHOT requires Java 8 or 9 and     Spring Framework 5.0.5.RELEASE or above. Explicit build     support is provided for Maven 3.2+ and Gradle">
+<meta property="og:description" content="11.1 Creating the POM(创建POM文件)123We need to start by creating a Maven pom.xml file. The pom.xml is     the recipe that is used to build your project. Open your favorite     text editor and add the fol">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523962638880.jpg">
-<meta property="og:updated_time" content="2018-04-17T11:02:03.244Z">
+<meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523962729983.jpg">
+<meta property="og:updated_time" content="2018-04-17T12:24:42.453Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot官方文档翻译（二）：系统依赖">
-<meta name="twitter:description" content="9 . System Requirements（系统依赖）123Spring Boot 2.1.0.BUILD-SNAPSHOT requires Java 8 or 9 and     Spring Framework 5.0.5.RELEASE or above. Explicit build     support is provided for Maven 3.2+ and Gradle">
-<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/17/1523962638880.jpg">
+<meta name="twitter:title" content="SpringBoot官方文档翻译（六）：创建POM文件">
+<meta name="twitter:description" content="11.1 Creating the POM(创建POM文件)123We need to start by creating a Maven pom.xml file. The pom.xml is     the recipe that is used to build your project. Open your favorite     text editor and add the fol">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/17/1523962729983.jpg">
     
 
     
@@ -217,7 +217,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-SpringBoot翻译（二）系统依赖" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-SpringBoot翻译（六）创建POM文件" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -225,7 +225,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            SpringBoot官方文档翻译（二）：系统依赖
+            SpringBoot官方文档翻译（六）：创建POM文件
         </h1>
     
 
@@ -234,8 +234,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBoot翻译（二）系统依赖/">
-            <time datetime="2018-04-17T02:58:47.000Z" itemprop="datePublished">2018-04-17</time>
+        <a href="/2018/04/17/SpringBoot翻译（六）创建POM文件/">
+            <time datetime="2018-04-17T12:15:47.000Z" itemprop="datePublished">2018-04-17</time>
         </a>
     </div>
 
@@ -260,34 +260,12 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="9-System-Requirements（系统依赖）"><a href="#9-System-Requirements（系统依赖）" class="headerlink" title="9 . System Requirements（系统依赖）"></a>9 . System Requirements（系统依赖）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot 2.1.0.BUILD-SNAPSHOT requires Java 8 or 9 and     </span><br><span class="line">Spring Framework 5.0.5.RELEASE or above. Explicit build     </span><br><span class="line">support is provided for Maven 3.2+ and Gradle 4.</span><br></pre></td></tr></table></figure>
-<p>Spring Boot 2.1。0.BUILD-SNAPSHOT 需要java8或者java9版本，以及Spring Framework 5.0.5.RELEASE 或更高版本。为Maven 3.2+和Gradle 4提供了明确的支持。</p>
-<h2 id="9-1-Servlet-Containers（Servlet-容器）"><a href="#9-1-Servlet-Containers（Servlet-容器）" class="headerlink" title="9.1 Servlet Containers（Servlet 容器）"></a>9.1 Servlet Containers（Servlet 容器）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot supports the following embedded servlet containers:</span><br></pre></td></tr></table></figure>
-<p>Spring Boot支持如下内置容器</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Servlet Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Tomcat 8.5</td>
-<td>3.1</td>
-</tr>
-<tr>
-<td>Jetty 9.4</td>
-<td>3.1</td>
-</tr>
-<tr>
-<td>Undertow 1.4</td>
-<td>3.1</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You can also deploy Spring Boot applications to any Servlet 3.1+ compatible container.</span><br></pre></td></tr></table></figure>
-<p>您也可以部署Spring Boot应用在任何的基于Servlet 3.1+版本的容器中</p>
+            <h2 id="11-1-Creating-the-POM-创建POM文件"><a href="#11-1-Creating-the-POM-创建POM文件" class="headerlink" title="11.1 Creating the POM(创建POM文件)"></a>11.1 Creating the POM(创建POM文件)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">We need to start by creating a Maven pom.xml file. The pom.xml is     </span><br><span class="line">the recipe that is used to build your project. Open your favorite     </span><br><span class="line">text editor and add the following:</span><br></pre></td></tr></table></figure>
+<p>我们需要以创建一个pom.xml文件开始。pom.xml是用于构建项目的配方。 打开您最喜欢的文本编辑器并添加以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">	xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">	&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line"></span><br><span class="line">	&lt;groupId&gt;com.example&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;myproject&lt;/artifactId&gt;</span><br><span class="line">	&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line"></span><br><span class="line">	&lt;parent&gt;</span><br><span class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">		&lt;version&gt;2.1.0.BUILD-SNAPSHOT&lt;/version&gt;</span><br><span class="line">	&lt;/parent&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- Additional lines to be added here... --&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- (you don&apos;t need this if you are using a .RELEASE version) --&gt;</span><br><span class="line">	&lt;repositories&gt;</span><br><span class="line">		&lt;repository&gt;</span><br><span class="line">			&lt;id&gt;spring-snapshots&lt;/id&gt;</span><br><span class="line">			&lt;url&gt;https://repo.spring.io/snapshot&lt;/url&gt;</span><br><span class="line">			&lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/snapshots&gt;</span><br><span class="line">		&lt;/repository&gt;</span><br><span class="line">		&lt;repository&gt;</span><br><span class="line">			&lt;id&gt;spring-milestones&lt;/id&gt;</span><br><span class="line">			&lt;url&gt;https://repo.spring.io/milestone&lt;/url&gt;</span><br><span class="line">		&lt;/repository&gt;</span><br><span class="line">	&lt;/repositories&gt;</span><br><span class="line">	&lt;pluginRepositories&gt;</span><br><span class="line">		&lt;pluginRepository&gt;</span><br><span class="line">			&lt;id&gt;spring-snapshots&lt;/id&gt;</span><br><span class="line">			&lt;url&gt;https://repo.spring.io/snapshot&lt;/url&gt;</span><br><span class="line">		&lt;/pluginRepository&gt;</span><br><span class="line">		&lt;pluginRepository&gt;</span><br><span class="line">			&lt;id&gt;spring-milestones&lt;/id&gt;</span><br><span class="line">			&lt;url&gt;https://repo.spring.io/milestone&lt;/url&gt;</span><br><span class="line">		&lt;/pluginRepository&gt;</span><br><span class="line">	&lt;/pluginRepositories&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The preceding listing should give you a working build. You can     </span><br><span class="line">test it by running mvn package (for now, you can ignore the “jar     </span><br><span class="line">will be empty - no content was marked for inclusion!” warning).</span><br></pre></td></tr></table></figure>
+<p>上面的列表应该已经给了您一个可工作的构建。您可以使用mvn package来运行测试它（现在，你可以忽略“jar will be empty - no content was marked for inclusion!“的警告）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">At this point, you could import the project into an IDE (most     </span><br><span class="line">modern Java IDEs include built-in support for Maven). For simplicity,     </span><br><span class="line">we continue to use a plain text editor for this example.</span><br></pre></td></tr></table></figure></p>
+<p>在此刻，您可以导入该工程到IDE（所有的流行的javaIDE都支持导入Maven项目）。为了简化，我们继续使用纯文本编辑器编辑示例。</p>
 
         
         </div>
@@ -298,7 +276,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/17/SpringBoot翻译（二）系统依赖/" data-id="cjg3o75ah00064578r5t4o5st" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/17/SpringBoot翻译（六）创建POM文件/" data-id="cjg3o75ak000b4578m51w6wb9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -373,19 +351,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/04/17/SpringBoot翻译（三）安装部署Spring Boot/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2018/04/17/SpringBoot翻译（七）增加类路径依赖/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    SpringBoot官方文档翻译（三）：安装部署Spring Boot
+                    SpringBoot官方文档翻译（七）：增加类路径依赖
                 
             </div>
         </a>
     
     
-        <a href="/2018/04/16/SpringBoot翻译（一）介绍 Spring Boot/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/04/17/SpringBoot翻译（四）安装部署Spring Boot CLI/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">SpringBoot官方文档翻译（一）：介绍 Spring Boot</div>
+            <div class="article-nav-title">SpringBoot官方文档翻译（四）：安装Spring Boot命令行界面</div>
         </a>
     
 </nav>
