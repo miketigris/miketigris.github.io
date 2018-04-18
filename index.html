@@ -161,7 +161,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                14
+                15
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -214,7 +214,7 @@
 
             
             <section id="main">
-    <article id="post-SpringBoot翻译（七）增加类路径依赖" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBootDoc/SpringBoot翻译（八）开始写代码" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -222,7 +222,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/17/SpringBoot翻译（七）增加类路径依赖/">SpringBoot官方文档翻译（七）：增加类路径依赖</a>
+            <a class="article-title" href="/2018/04/18/SpringBootDoc/SpringBoot翻译（八）开始写代码/">SpringBoot官方文档翻译（八）：开始写代码</a>
         </h1>
     
 
@@ -231,7 +231,152 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBoot翻译（七）增加类路径依赖/">
+        <a href="/2018/04/18/SpringBootDoc/SpringBoot翻译（八）开始写代码/">
+            <time datetime="2018-04-18T03:56:47.000Z" itemprop="datePublished">2018-04-18</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="11-3-Writing-the-Code（开始写代码）"><a href="#11-3-Writing-the-Code（开始写代码）" class="headerlink" title="11.3 Writing the Code（开始写代码）"></a>11.3 Writing the Code（开始写代码）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">To finish our application, we need to create a single Java file.     </span><br><span class="line">By default, Maven compiles sources from src/main/java, so you need     </span><br><span class="line">to create that folder structure and then add a file named     </span><br><span class="line">src/main/java/Example.java to contain the following code:</span><br></pre></td></tr></table></figure>
+<p>为了完成我们的应用，我们需要创建一个单独的java文件夹。默认情况下，maven从<strong>src/main/java</strong>中编译源码，因此，您需要创建一个类似于此的文件结构目录并加入您的示例类<strong>src/main/java/Example.java</strong>并包含以下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.boot.*;</span><br><span class="line">import org.springframework.boot.autoconfigure.*;</span><br><span class="line">import org.springframework.web.bind.annotation.*;</span><br><span class="line"></span><br><span class="line">@RestController</span><br><span class="line">@EnableAutoConfiguration</span><br><span class="line">public class Example &#123;</span><br><span class="line"></span><br><span class="line">	@RequestMapping(&quot;/&quot;)</span><br><span class="line">	String home() &#123;</span><br><span class="line">		return &quot;Hello World!&quot;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		SpringApplication.run(Example.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Although there is not much code here, quite a lot is going on.     </span><br><span class="line">We step through the important parts in the next few sections.</span><br></pre></td></tr></table></figure>
+<p>尽管并没有多少代码，但很多事情静静的发生了。我们将在接下来的章节，带您一步一步解开它的神秘面纱。</p>
+<h2 id="11-3-1-The-RestController-and-RequestMapping-Annotations"><a href="#11-3-1-The-RestController-and-RequestMapping-Annotations" class="headerlink" title="11.3.1 The @RestController and @RequestMapping Annotations"></a>11.3.1 The @RestController and @RequestMapping Annotations</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">The first annotation on our Example class is @RestController.     </span><br><span class="line">This is known as a stereotype annotation. It provides hints     </span><br><span class="line">for people reading the code and for Spring that the class plays     </span><br><span class="line">a specific role. In this case, our class is a web @Controller,     </span><br><span class="line">so Spring considers it when handling incoming web requests.</span><br></pre></td></tr></table></figure>
+<p>在我们Example类的第一个注解是<strong>@RestController</strong>。这被认为是一个刻板的注解。它为大家提供了直接的提示，并且告诉Spring容器，被注解的这个类扮演了一个特殊的角色。在这个例子李，我们的类是一个web类型的@Controller，所以Spring会注意到这点，并将web请求交给该类来处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The @RequestMapping annotation provides “routing” information.     </span><br><span class="line">It tells Spring that any HTTP request with the / path should be     </span><br><span class="line">mapped to the home method. The@RestController annotation tells     </span><br><span class="line">Spring to render the resulting string directly back to the caller.</span><br></pre></td></tr></table></figure>
+<p>@RequestMapping注解提供了“路由”信息。它告诉Sring，任何的HTTP以<strong>/</strong>结尾的请求需要映射到<strong>home</strong>方法上。@RestController注解告诉Spring将结果字符串直接返回给调用方。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The @RestController and @RequestMapping annotations are Spring     </span><br><span class="line">MVC annotations. (They are not specific to Spring Boot.) See     </span><br><span class="line">the MVC sectionin the Spring Reference Documentation for more details.</span><br></pre></td></tr></table></figure>
+<p>@RestController和@RequestMapping这两个注解是Spring MVC的注解，并非专门为Spring Boot提供的。您可以到Spring官方文档的MVC相关的章节去获取更多的信息。</p>
+<h2 id="11-3-2-The-EnableAutoConfiguration-Annotation"><a href="#11-3-2-The-EnableAutoConfiguration-Annotation" class="headerlink" title="11.3.2 The @EnableAutoConfiguration Annotation"></a>11.3.2 The @EnableAutoConfiguration Annotation</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">The second class-level annotation is @EnableAutoConfiguration.     </span><br><span class="line">This annotation tells Spring Boot to “guess” how you want to     </span><br><span class="line">configure Spring, based on the jar dependencies that you have added.     </span><br><span class="line">Since spring-boot-starter-web added Tomcat and Spring MVC,     </span><br><span class="line">the auto-configuration assumes that you are developing a web     </span><br><span class="line">application and sets up Spring accordingly.</span><br></pre></td></tr></table></figure>
+<p>第二个类级别注解<strong>@EnableAutoConfiguration</strong>，这个注解告诉Spring Boot 去“猜”您是想怎样配置Spring，基于您已经添加的jar包依赖。因为<strong>spring-boot-starter-web</strong>包含了Tomcat和Spring MVC，<strong>auto-configuration</strong>自动配置会推断您想开发一个web应用并据此设定Spring相关配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Starters and Auto-Configuration</span><br><span class="line">Auto-configuration is designed to work well with “Starters”, but     </span><br><span class="line">the two concepts are not directly tied. You are free to pick and     </span><br><span class="line">choose jar dependencies outside of the starters. Spring Boot still     </span><br><span class="line">does its best to auto-configure your application.</span><br></pre></td></tr></table></figure></p>
+<p>“Starters”和“Auto-Configuration”<br>自动配置的设计是为了更好的配合“Starters”运作，但是两个概念并不直接相关。您可以自由的挑选不在“Starters”中的jar依赖。Spring Boot依然尽最大努力为您的应用做自动配置。</p>
+<h2 id="11-3-3-The-“main”-Method-（”main“方法）"><a href="#11-3-3-The-“main”-Method-（”main“方法）" class="headerlink" title="11.3.3 The “main” Method （”main“方法）"></a>11.3.3 The “main” Method （”main“方法）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">The final part of our application is the main method. This is     </span><br><span class="line">just a standard method that follows the Java convention for an     </span><br><span class="line">application entry point. Our main method delegates to Spring    </span><br><span class="line">Boot’s SpringApplication class by calling run. SpringApplication     </span><br><span class="line">bootstraps our application, starting Spring, which, in turn,     </span><br><span class="line">starts the auto-configured Tomcat web server. We need to pass     </span><br><span class="line">Example.class as an argument to the run method to tell     </span><br><span class="line">SpringApplication which is the primary Spring component. The     </span><br><span class="line">args array is also passed through to expose any command-line arguments.</span><br></pre></td></tr></table></figure>
+<p>本节的最后一部分介绍我们应用的”main“方法。这只是遵循Java约定的标准方法应用程序入口点。<br>我们的main方法会调用给Spring Boot的<strong>SpringApplication</strong>类的<strong>run</strong>方法。SpringApplication引导我们的应用程序，从Spring开始，启动自动配置的Tomcat Web服务器。我们需要将<strong>Example.class</strong>作为<strong>run</strong>方法的一个参数，去通知<strong>SpringApplication</strong>，这是Spring的主要组件。该参数数组同样可以通过任何暴露的命令行参数进行传递。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2018/04/18/SpringBootDoc/SpringBoot翻译（八）开始写代码/" data-id="cjg4kew0i0000bw7832oqnfv3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-SpringBootDoc/SpringBoot翻译（七）增加类路径依赖" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（七）增加类路径依赖/">SpringBoot官方文档翻译（七）：增加类路径依赖</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（七）增加类路径依赖/">
             <time datetime="2018-04-17T12:35:47.000Z" itemprop="datePublished">2018-04-17</time>
         </a>
     </div>
@@ -275,7 +420,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/17/SpringBoot翻译（七）增加类路径依赖/" data-id="cjg3o75af000445782oeeo766" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc/SpringBoot翻译（七）增加类路径依赖/" data-id="cjg4gqpm0000s7z780svxminb" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -351,7 +496,7 @@
 
 
 
-    <article id="post-SpringBoot翻译（六）创建POM文件" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBootDoc/SpringBoot翻译（六）创建POM文件" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -359,7 +504,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/17/SpringBoot翻译（六）创建POM文件/">SpringBoot官方文档翻译（六）：创建POM文件</a>
+            <a class="article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（六）创建POM文件/">SpringBoot官方文档翻译（六）：创建POM文件</a>
         </h1>
     
 
@@ -368,7 +513,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBoot翻译（六）创建POM文件/">
+        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（六）创建POM文件/">
             <time datetime="2018-04-17T12:15:47.000Z" itemprop="datePublished">2018-04-17</time>
         </a>
     </div>
@@ -410,7 +555,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/17/SpringBoot翻译（六）创建POM文件/" data-id="cjg3o75ak000b4578m51w6wb9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc/SpringBoot翻译（六）创建POM文件/" data-id="cjg4gqpm500117z78kqixqoi6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -486,7 +631,7 @@
 
 
 
-    <article id="post-SpringBoot翻译（四）安装部署Spring Boot CLI" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBootDoc/SpringBoot翻译（四）安装部署Spring Boot CLI" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -494,7 +639,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/17/SpringBoot翻译（四）安装部署Spring Boot CLI/">SpringBoot官方文档翻译（四）：安装Spring Boot命令行界面</a>
+            <a class="article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（四）安装部署Spring Boot CLI/">SpringBoot官方文档翻译（四）：安装Spring Boot命令行界面</a>
         </h1>
     
 
@@ -503,7 +648,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBoot翻译（四）安装部署Spring Boot CLI/">
+        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（四）安装部署Spring Boot CLI/">
             <time datetime="2018-04-17T11:58:47.000Z" itemprop="datePublished">2018-04-17</time>
         </a>
     </div>
@@ -577,7 +722,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/17/SpringBoot翻译（四）安装部署Spring Boot CLI/" data-id="cjg3o75an000g4578enyuku4f" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc/SpringBoot翻译（四）安装部署Spring Boot CLI/" data-id="cjg4gqpm600137z78iesu8kf0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -653,7 +798,7 @@
 
 
 
-    <article id="post-SpringBoot翻译（五）部署你的第一个Spring Boot应用" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBootDoc/SpringBoot翻译（五）部署你的第一个Spring Boot应用" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -661,7 +806,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/17/SpringBoot翻译（五）部署你的第一个Spring Boot应用/">SpringBoot官方文档翻译（五）：部署你的第一个Spring Boot应用</a>
+            <a class="article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（五）部署你的第一个Spring Boot应用/">SpringBoot官方文档翻译（五）：部署你的第一个Spring Boot应用</a>
         </h1>
     
 
@@ -670,7 +815,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBoot翻译（五）部署你的第一个Spring Boot应用/">
+        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（五）部署你的第一个Spring Boot应用/">
             <time datetime="2018-04-17T11:50:47.000Z" itemprop="datePublished">2018-04-17</time>
         </a>
     </div>
@@ -717,7 +862,7 @@ that it is your current directory.
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/17/SpringBoot翻译（五）部署你的第一个Spring Boot应用/" data-id="cjg3o75ai000a4578sefd8duc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc/SpringBoot翻译（五）部署你的第一个Spring Boot应用/" data-id="cjg4gqpm3000x7z78cprubhv2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -793,7 +938,7 @@ that it is your current directory.
 
 
 
-    <article id="post-SpringBoot翻译（三）安装部署Spring Boot" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBootDoc/SpringBoot翻译（三）安装部署Spring Boot" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -801,7 +946,7 @@ that it is your current directory.
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/17/SpringBoot翻译（三）安装部署Spring Boot/">SpringBoot官方文档翻译（三）：安装部署Spring Boot</a>
+            <a class="article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（三）安装部署Spring Boot/">SpringBoot官方文档翻译（三）：安装部署Spring Boot</a>
         </h1>
     
 
@@ -810,7 +955,7 @@ that it is your current directory.
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBoot翻译（三）安装部署Spring Boot/">
+        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（三）安装部署Spring Boot/">
             <time datetime="2018-04-17T02:59:47.000Z" itemprop="datePublished">2018-04-17</time>
         </a>
     </div>
@@ -865,7 +1010,7 @@ that it is your current directory.
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/17/SpringBoot翻译（三）安装部署Spring Boot/" data-id="cjg3o75ag00054578313gpwk5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc/SpringBoot翻译（三）安装部署Spring Boot/" data-id="cjg4gqpm2000w7z78alimsagx" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -941,7 +1086,7 @@ that it is your current directory.
 
 
 
-    <article id="post-SpringBoot翻译（二）系统依赖" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBootDoc/SpringBoot翻译（二）系统依赖" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -949,7 +1094,7 @@ that it is your current directory.
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/17/SpringBoot翻译（二）系统依赖/">SpringBoot官方文档翻译（二）：系统依赖</a>
+            <a class="article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（二）系统依赖/">SpringBoot官方文档翻译（二）：系统依赖</a>
         </h1>
     
 
@@ -958,7 +1103,7 @@ that it is your current directory.
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBoot翻译（二）系统依赖/">
+        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（二）系统依赖/">
             <time datetime="2018-04-17T02:58:47.000Z" itemprop="datePublished">2018-04-17</time>
         </a>
     </div>
@@ -1022,7 +1167,7 @@ that it is your current directory.
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/17/SpringBoot翻译（二）系统依赖/" data-id="cjg3o75ah00064578r5t4o5st" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc/SpringBoot翻译（二）系统依赖/" data-id="cjg4gqpm1000v7z78u3g59m0o" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1098,7 +1243,7 @@ that it is your current directory.
 
 
 
-    <article id="post-SpringBoot翻译（一）介绍 Spring Boot" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBootDoc/SpringBoot翻译（一）介绍 Spring Boot" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1106,7 +1251,7 @@ that it is your current directory.
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/16/SpringBoot翻译（一）介绍 Spring Boot/">SpringBoot官方文档翻译（一）：介绍 Spring Boot</a>
+            <a class="article-title" href="/2018/04/16/SpringBootDoc/SpringBoot翻译（一）介绍 Spring Boot/">SpringBoot官方文档翻译（一）：介绍 Spring Boot</a>
         </h1>
     
 
@@ -1115,7 +1260,7 @@ that it is your current directory.
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/16/SpringBoot翻译（一）介绍 Spring Boot/">
+        <a href="/2018/04/16/SpringBootDoc/SpringBoot翻译（一）介绍 Spring Boot/">
             <time datetime="2018-04-16T14:58:47.000Z" itemprop="datePublished">2018-04-16</time>
         </a>
     </div>
@@ -1157,7 +1302,7 @@ that it is your current directory.
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/16/SpringBoot翻译（一）介绍 Spring Boot/" data-id="cjg3o75ab00014578x5cl0hc3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/16/SpringBootDoc/SpringBoot翻译（一）介绍 Spring Boot/" data-id="cjg4gqply000r7z78klw8yans" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1233,7 +1378,7 @@ that it is your current directory.
 
 
 
-    <article id="post-消除过期的对象引用" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-读书笔记/消除过期的对象引用" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1241,7 +1386,7 @@ that it is your current directory.
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/12/04/消除过期的对象引用/">消除过期的对象引用（六）</a>
+            <a class="article-title" href="/2017/12/04/读书笔记/消除过期的对象引用/">消除过期的对象引用（六）</a>
         </h1>
     
 
@@ -1250,7 +1395,7 @@ that it is your current directory.
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/12/04/消除过期的对象引用/">
+        <a href="/2017/12/04/读书笔记/消除过期的对象引用/">
             <time datetime="2017-12-04T14:19:47.000Z" itemprop="datePublished">2017-12-04</time>
         </a>
     </div>
@@ -1290,7 +1435,7 @@ that it is your current directory.
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/12/04/消除过期的对象引用/" data-id="cjg3o75ar000n45787yju0jk7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/12/04/读书笔记/消除过期的对象引用/" data-id="cjg4kew0o0001bw789dyvqslk" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1366,7 +1511,7 @@ that it is your current directory.
 
 
 
-    <article id="post-通过私有化构造函数强化不可实例化的类" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-读书笔记/通过私有化构造函数强化不可实例化的类" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1374,7 +1519,7 @@ that it is your current directory.
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/12/04/通过私有化构造函数强化不可实例化的类/">私有化构造函数强化不可实例化的类，避免创建不必要的对象（四，五）</a>
+            <a class="article-title" href="/2017/12/04/读书笔记/通过私有化构造函数强化不可实例化的类/">私有化构造函数强化不可实例化的类，避免创建不必要的对象（四，五）</a>
         </h1>
     
 
@@ -1383,7 +1528,7 @@ that it is your current directory.
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/12/04/通过私有化构造函数强化不可实例化的类/">
+        <a href="/2017/12/04/读书笔记/通过私有化构造函数强化不可实例化的类/">
             <time datetime="2017-12-04T11:19:47.000Z" itemprop="datePublished">2017-12-04</time>
         </a>
     </div>
@@ -1425,145 +1570,7 @@ that it is your current directory.
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/12/04/通过私有化构造函数强化不可实例化的类/" data-id="cjg3o75aw00124578z207ct60" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-用私有构造器或者枚举强化单例" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/12/03/用私有构造器或者枚举强化单例/">用私有构造器或者枚举强化单例（三）</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/12/03/用私有构造器或者枚举强化单例/">
-            <time datetime="2017-12-03T14:58:47.000Z" itemprop="datePublished">2017-12-03</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Effective-Java/">Effective Java</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="用私有构造器或者枚举强化单例"><a href="#用私有构造器或者枚举强化单例" class="headerlink" title="用私有构造器或者枚举强化单例"></a>用私有构造器或者枚举强化单例</h2><p>首先对单单例，构造函数需要私有化，这样能够极大的保障外部无法直接实例化该对象<br>单例在面试中经常会有面试官要求写，下面列出几种常用的写法：</p>
-<p>懒汉式（线程不安全写法，与之相对的还有线程安全的写法不赘述）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance;  </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span> <span class="params">()</span></span>&#123;&#125;   </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">     <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;  </span><br><span class="line">          instance = <span class="keyword">new</span> Singleton();  </span><br><span class="line">      &#125;  </span><br><span class="line">      <span class="keyword">return</span> instance;  </span><br><span class="line">      &#125;  </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>饿汉式（线程不安全写法，与之相对的还有线程安全的写法不赘述）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;  </span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">new</span> Singleton();  </span><br><span class="line">     <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span> <span class="params">()</span></span>&#123;&#125;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">     <span class="keyword">return</span> instance;  </span><br><span class="line">     &#125;  </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>对于上面这种写法，在书中有提到如果首行代码是public的话可以通过反射机制多实例化对象。如下举例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.stardust.effective.role3;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Constructor;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationTargetException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by mike on 2017/12/3.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">new</span> Singleton();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Singleton s1 = <span class="keyword">null</span>;</span><br><span class="line">        Singleton s2 = <span class="keyword">null</span>;</span><br><span class="line">        Singleton s3 = Singleton.getInstance();</span><br><span class="line">        Singleton s4 = Singleton.getInstance();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (s3==s4)&#123;</span><br><span class="line">            System.out.println(<span class="string">"通过静态工厂获取到的单例是唯一的"</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"静态工厂获取的单例不唯一"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Constructor&lt;?&gt; constructor = Singleton.class.getDeclaredConstructors()[<span class="number">0</span>];</span><br><span class="line">        constructor.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">             s1 = (Singleton) constructor.newInstance();</span><br><span class="line">             s2 = (Singleton) constructor.newInstance();</span><br><span class="line">             <span class="keyword">if</span>(s1!=s2)&#123;</span><br><span class="line">                 System.out.println(<span class="string">"构造出两个不同的实例"</span>);</span><br><span class="line">             &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                 System.out.println(<span class="string">"始终为单例"</span>);</span><br><span class="line">             &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InstantiationException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InvocationTargetException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>枚举实现单例，这个是effective java书中推荐的实现方式，枚举天然私有构造，final，static等特性，可以生产一个懒加载的单例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Singletons &#123;</span><br><span class="line">    INSTANCE;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"animal say"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>从网上找的一个具体的例子，SomeThing.INSTANCE.getInstance() 即可获得所要实例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Resource</span></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> SomeThing &#123;</span><br><span class="line">    INSTANCE;</span><br><span class="line">    <span class="keyword">private</span> Resource instance;</span><br><span class="line">    SomeThing() &#123;</span><br><span class="line">        instance = <span class="keyword">new</span> Resource();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Resource <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2017/12/03/用私有构造器或者枚举强化单例/" data-id="cjg3o75as000q4578v7a0wvq0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/12/04/读书笔记/通过私有化构造函数强化不可实例化的类/" data-id="cjg4kew0z000bbw78gwq50x2z" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1656,7 +1663,26 @@ that it is your current directory.
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/04/17/SpringBoot翻译（七）增加类路径依赖/" class="thumbnail">
+                            <a href="/2018/04/18/SpringBootDoc/SpringBoot翻译（八）开始写代码/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523931297126.jpg)" alt="SpringBoot官方文档翻译（八）：开始写代码" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
+                            <p class="item-title"><a href="/2018/04/18/SpringBootDoc/SpringBoot翻译（八）开始写代码/" class="title">SpringBoot官方文档翻译（八）：开始写代码</a></p>
+                            <p class="item-date"><time datetime="2018-04-18T03:56:47.000Z" itemprop="datePublished">2018-04-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（七）增加类路径依赖/" class="thumbnail">
     
     
         <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962714052.jpg)" alt="SpringBoot官方文档翻译（七）：增加类路径依赖" class="thumbnail-image"></span>
@@ -1667,7 +1693,7 @@ that it is your current directory.
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/17/SpringBoot翻译（七）增加类路径依赖/" class="title">SpringBoot官方文档翻译（七）：增加类路径依赖</a></p>
+                            <p class="item-title"><a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（七）增加类路径依赖/" class="title">SpringBoot官方文档翻译（七）：增加类路径依赖</a></p>
                             <p class="item-date"><time datetime="2018-04-17T12:35:47.000Z" itemprop="datePublished">2018-04-17</time></p>
                         </div>
                     </li>
@@ -1675,7 +1701,7 @@ that it is your current directory.
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/04/17/SpringBoot翻译（六）创建POM文件/" class="thumbnail">
+                            <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（六）创建POM文件/" class="thumbnail">
     
     
         <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962729983.jpg)" alt="SpringBoot官方文档翻译（六）：创建POM文件" class="thumbnail-image"></span>
@@ -1686,7 +1712,7 @@ that it is your current directory.
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/17/SpringBoot翻译（六）创建POM文件/" class="title">SpringBoot官方文档翻译（六）：创建POM文件</a></p>
+                            <p class="item-title"><a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（六）创建POM文件/" class="title">SpringBoot官方文档翻译（六）：创建POM文件</a></p>
                             <p class="item-date"><time datetime="2018-04-17T12:15:47.000Z" itemprop="datePublished">2018-04-17</time></p>
                         </div>
                     </li>
@@ -1694,7 +1720,7 @@ that it is your current directory.
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/04/17/SpringBoot翻译（四）安装部署Spring Boot CLI/" class="thumbnail">
+                            <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（四）安装部署Spring Boot CLI/" class="thumbnail">
     
     
         <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962692577.jpg)" alt="SpringBoot官方文档翻译（四）：安装Spring Boot命令行界面" class="thumbnail-image"></span>
@@ -1705,7 +1731,7 @@ that it is your current directory.
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/17/SpringBoot翻译（四）安装部署Spring Boot CLI/" class="title">SpringBoot官方文档翻译（四）：安装Spring Boot命令行界面</a></p>
+                            <p class="item-title"><a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（四）安装部署Spring Boot CLI/" class="title">SpringBoot官方文档翻译（四）：安装Spring Boot命令行界面</a></p>
                             <p class="item-date"><time datetime="2018-04-17T11:58:47.000Z" itemprop="datePublished">2018-04-17</time></p>
                         </div>
                     </li>
@@ -1713,7 +1739,7 @@ that it is your current directory.
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/04/17/SpringBoot翻译（五）部署你的第一个Spring Boot应用/" class="thumbnail">
+                            <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（五）部署你的第一个Spring Boot应用/" class="thumbnail">
     
     
         <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962773687.jpg)" alt="SpringBoot官方文档翻译（五）：部署你的第一个Spring Boot应用" class="thumbnail-image"></span>
@@ -1724,27 +1750,8 @@ that it is your current directory.
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/17/SpringBoot翻译（五）部署你的第一个Spring Boot应用/" class="title">SpringBoot官方文档翻译（五）：部署你的第一个Spring Boot应用</a></p>
+                            <p class="item-title"><a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（五）部署你的第一个Spring Boot应用/" class="title">SpringBoot官方文档翻译（五）：部署你的第一个Spring Boot应用</a></p>
                             <p class="item-date"><time datetime="2018-04-17T11:50:47.000Z" itemprop="datePublished">2018-04-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/17/SpringBoot翻译（三）安装部署Spring Boot/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523932533990.jpg)" alt="SpringBoot官方文档翻译（三）：安装部署Spring Boot" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/17/SpringBoot翻译（三）安装部署Spring Boot/" class="title">SpringBoot官方文档翻译（三）：安装部署Spring Boot</a></p>
-                            <p class="item-date"><time datetime="2018-04-17T02:59:47.000Z" itemprop="datePublished">2018-04-17</time></p>
                         </div>
                     </li>
                 
@@ -1757,7 +1764,7 @@ that it is your current directory.
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1766,7 +1773,7 @@ that it is your current directory.
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1775,7 +1782,7 @@ that it is your current directory.
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/">SpringBoot</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/">SpringBoot</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 

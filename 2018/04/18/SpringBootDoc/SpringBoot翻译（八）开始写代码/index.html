@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档: 2018 | 博客</title>
+    <title>SpringBoot官方文档翻译（八）：开始写代码 | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="许贵荣">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+    <meta name="description" content="11.3 Writing the Code（开始写代码）1234To finish our application, we need to create a single Java file.     By default, Maven compiles sources from src/main/java, so y">
+<meta name="keywords" content="SpringBoot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot官方文档翻译（八）：开始写代码">
+<meta property="og:url" content="http://yoursite.com/2018/04/18/SpringBootDoc/SpringBoot翻译（八）开始写代码/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="许贵荣">
+<meta property="og:description" content="11.3 Writing the Code（开始写代码）1234To finish our application, we need to create a single Java file.     By default, Maven compiles sources from src/main/java, so you need     to create that folder struct">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523931297126.jpg">
+<meta property="og:updated_time" content="2018-04-18T03:56:10.562Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:description" content="许贵荣">
+<meta name="twitter:title" content="SpringBoot官方文档翻译（八）：开始写代码">
+<meta name="twitter:description" content="11.3 Writing the Code（开始写代码）1234To finish our application, we need to create a single Java file.     By default, Maven compiles sources from src/main/java, so you need     to create that folder struct">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/17/1523931297126.jpg">
     
 
     
@@ -213,25 +217,21 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2018</h1>
-            </div>
+            <section id="main"><article id="post-SpringBootDoc/SpringBoot翻译（八）开始写代码" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/18/SpringBootDoc/SpringBoot翻译（八）开始写代码/">SpringBoot官方文档翻译（八）：开始写代码</a>
+        <h1 class="article-title" itemprop="name">
+            SpringBoot官方文档翻译（八）：开始写代码
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2018/04/18/SpringBootDoc/SpringBoot翻译（八）开始写代码/">
@@ -240,275 +240,143 @@
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（七）增加类路径依赖/">SpringBoot官方文档翻译（七）：增加类路径依赖</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="11-3-Writing-the-Code（开始写代码）"><a href="#11-3-Writing-the-Code（开始写代码）" class="headerlink" title="11.3 Writing the Code（开始写代码）"></a>11.3 Writing the Code（开始写代码）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">To finish our application, we need to create a single Java file.     </span><br><span class="line">By default, Maven compiles sources from src/main/java, so you need     </span><br><span class="line">to create that folder structure and then add a file named     </span><br><span class="line">src/main/java/Example.java to contain the following code:</span><br></pre></td></tr></table></figure>
+<p>为了完成我们的应用，我们需要创建一个单独的java文件夹。默认情况下，maven从<strong>src/main/java</strong>中编译源码，因此，您需要创建一个类似于此的文件结构目录并加入您的示例类<strong>src/main/java/Example.java</strong>并包含以下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.boot.*;</span><br><span class="line">import org.springframework.boot.autoconfigure.*;</span><br><span class="line">import org.springframework.web.bind.annotation.*;</span><br><span class="line"></span><br><span class="line">@RestController</span><br><span class="line">@EnableAutoConfiguration</span><br><span class="line">public class Example &#123;</span><br><span class="line"></span><br><span class="line">	@RequestMapping(&quot;/&quot;)</span><br><span class="line">	String home() &#123;</span><br><span class="line">		return &quot;Hello World!&quot;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		SpringApplication.run(Example.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Although there is not much code here, quite a lot is going on.     </span><br><span class="line">We step through the important parts in the next few sections.</span><br></pre></td></tr></table></figure>
+<p>尽管并没有多少代码，但很多事情静静的发生了。我们将在接下来的章节，带您一步一步解开它的神秘面纱。</p>
+<h2 id="11-3-1-The-RestController-and-RequestMapping-Annotations"><a href="#11-3-1-The-RestController-and-RequestMapping-Annotations" class="headerlink" title="11.3.1 The @RestController and @RequestMapping Annotations"></a>11.3.1 The @RestController and @RequestMapping Annotations</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">The first annotation on our Example class is @RestController.     </span><br><span class="line">This is known as a stereotype annotation. It provides hints     </span><br><span class="line">for people reading the code and for Spring that the class plays     </span><br><span class="line">a specific role. In this case, our class is a web @Controller,     </span><br><span class="line">so Spring considers it when handling incoming web requests.</span><br></pre></td></tr></table></figure>
+<p>在我们Example类的第一个注解是<strong>@RestController</strong>。这被认为是一个刻板的注解。它为大家提供了直接的提示，并且告诉Spring容器，被注解的这个类扮演了一个特殊的角色。在这个例子李，我们的类是一个web类型的@Controller，所以Spring会注意到这点，并将web请求交给该类来处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The @RequestMapping annotation provides “routing” information.     </span><br><span class="line">It tells Spring that any HTTP request with the / path should be     </span><br><span class="line">mapped to the home method. The@RestController annotation tells     </span><br><span class="line">Spring to render the resulting string directly back to the caller.</span><br></pre></td></tr></table></figure>
+<p>@RequestMapping注解提供了“路由”信息。它告诉Sring，任何的HTTP以<strong>/</strong>结尾的请求需要映射到<strong>home</strong>方法上。@RestController注解告诉Spring将结果字符串直接返回给调用方。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The @RestController and @RequestMapping annotations are Spring     </span><br><span class="line">MVC annotations. (They are not specific to Spring Boot.) See     </span><br><span class="line">the MVC sectionin the Spring Reference Documentation for more details.</span><br></pre></td></tr></table></figure>
+<p>@RestController和@RequestMapping这两个注解是Spring MVC的注解，并非专门为Spring Boot提供的。您可以到Spring官方文档的MVC相关的章节去获取更多的信息。</p>
+<h2 id="11-3-2-The-EnableAutoConfiguration-Annotation"><a href="#11-3-2-The-EnableAutoConfiguration-Annotation" class="headerlink" title="11.3.2 The @EnableAutoConfiguration Annotation"></a>11.3.2 The @EnableAutoConfiguration Annotation</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">The second class-level annotation is @EnableAutoConfiguration.     </span><br><span class="line">This annotation tells Spring Boot to “guess” how you want to     </span><br><span class="line">configure Spring, based on the jar dependencies that you have added.     </span><br><span class="line">Since spring-boot-starter-web added Tomcat and Spring MVC,     </span><br><span class="line">the auto-configuration assumes that you are developing a web     </span><br><span class="line">application and sets up Spring accordingly.</span><br></pre></td></tr></table></figure>
+<p>第二个类级别注解<strong>@EnableAutoConfiguration</strong>，这个注解告诉Spring Boot 去“猜”您是想怎样配置Spring，基于您已经添加的jar包依赖。因为<strong>spring-boot-starter-web</strong>包含了Tomcat和Spring MVC，<strong>auto-configuration</strong>自动配置会推断您想开发一个web应用并据此设定Spring相关配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Starters and Auto-Configuration</span><br><span class="line">Auto-configuration is designed to work well with “Starters”, but     </span><br><span class="line">the two concepts are not directly tied. You are free to pick and     </span><br><span class="line">choose jar dependencies outside of the starters. Spring Boot still     </span><br><span class="line">does its best to auto-configure your application.</span><br></pre></td></tr></table></figure></p>
+<p>“Starters”和“Auto-Configuration”<br>自动配置的设计是为了更好的配合“Starters”运作，但是两个概念并不直接相关。您可以自由的挑选不在“Starters”中的jar依赖。Spring Boot依然尽最大努力为您的应用做自动配置。</p>
+<h2 id="11-3-3-The-“main”-Method-（”main“方法）"><a href="#11-3-3-The-“main”-Method-（”main“方法）" class="headerlink" title="11.3.3 The “main” Method （”main“方法）"></a>11.3.3 The “main” Method （”main“方法）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">The final part of our application is the main method. This is     </span><br><span class="line">just a standard method that follows the Java convention for an     </span><br><span class="line">application entry point. Our main method delegates to Spring    </span><br><span class="line">Boot’s SpringApplication class by calling run. SpringApplication     </span><br><span class="line">bootstraps our application, starting Spring, which, in turn,     </span><br><span class="line">starts the auto-configured Tomcat web server. We need to pass     </span><br><span class="line">Example.class as an argument to the run method to tell     </span><br><span class="line">SpringApplication which is the primary Spring component. The     </span><br><span class="line">args array is also passed through to expose any command-line arguments.</span><br></pre></td></tr></table></figure>
+<p>本节的最后一部分介绍我们应用的”main“方法。这只是遵循Java约定的标准方法应用程序入口点。<br>我们的main方法会调用给Spring Boot的<strong>SpringApplication</strong>类的<strong>run</strong>方法。SpringApplication引导我们的应用程序，从Spring开始，启动自动配置的Tomcat Web服务器。我们需要将<strong>Example.class</strong>作为<strong>run</strong>方法的一个参数，去通知<strong>SpringApplication</strong>，这是Spring的主要组件。该参数数组同样可以通过任何暴露的命令行参数进行传递。</p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（七）增加类路径依赖/">
-            <time datetime="2018-04-17T12:35:47.000Z" itemprop="datePublished">2018-04-17</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（六）创建POM文件/">SpringBoot官方文档翻译（六）：创建POM文件</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（六）创建POM文件/">
-            <time datetime="2018-04-17T12:15:47.000Z" itemprop="datePublished">2018-04-17</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（四）安装部署Spring Boot CLI/">SpringBoot官方文档翻译（四）：安装Spring Boot命令行界面</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（四）安装部署Spring Boot CLI/">
-            <time datetime="2018-04-17T11:58:47.000Z" itemprop="datePublished">2018-04-17</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（五）部署你的第一个Spring Boot应用/">SpringBoot官方文档翻译（五）：部署你的第一个Spring Boot应用</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（五）部署你的第一个Spring Boot应用/">
-            <time datetime="2018-04-17T11:50:47.000Z" itemprop="datePublished">2018-04-17</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（三）安装部署Spring Boot/">SpringBoot官方文档翻译（三）：安装部署Spring Boot</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（三）安装部署Spring Boot/">
-            <time datetime="2018-04-17T02:59:47.000Z" itemprop="datePublished">2018-04-17</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（二）系统依赖/">SpringBoot官方文档翻译（二）：系统依赖</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（二）系统依赖/">
-            <time datetime="2018-04-17T02:58:47.000Z" itemprop="datePublished">2018-04-17</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/16/SpringBootDoc/SpringBoot翻译（一）介绍 Spring Boot/">SpringBoot官方文档翻译（一）：介绍 Spring Boot</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/16/SpringBootDoc/SpringBoot翻译（一）介绍 Spring Boot/">
-            <time datetime="2018-04-16T14:58:47.000Z" itemprop="datePublished">2018-04-16</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
+
+    <a data-url="http://yoursite.com/2018/04/18/SpringBootDoc/SpringBoot翻译（八）开始写代码/" data-id="cjg4kew0i0000bw7832oqnfv3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（七）增加类路径依赖/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">SpringBoot官方文档翻译（七）：增加类路径依赖</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
 </section>
             
                 
