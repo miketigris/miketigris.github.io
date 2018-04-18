@@ -161,11 +161,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                17
+                18
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                3
+                4
                 <span>标签</span>
             </div>
         </div>
@@ -214,7 +214,7 @@
 
             
             <section id="main">
-    <article id="post-SpringBootDoc/SpringBoot翻译（十）创建一个可执行jar包" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Spring BootDoc第三部分/SpringBoot翻译（十一）使用Spring Boot" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -222,7 +222,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/18/SpringBootDoc/SpringBoot翻译（十）创建一个可执行jar包/">SpringBoot官方文档翻译（十）：创建一个可执行jar包</a>
+            <a class="article-title" href="/2018/04/18/Spring BootDoc第三部分/SpringBoot翻译（十一）使用Spring Boot/">SpringBoot官方文档翻译（十一）：使用Spring Boot</a>
         </h1>
     
 
@@ -231,7 +231,137 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/18/SpringBootDoc/SpringBoot翻译（十）创建一个可执行jar包/">
+        <a href="/2018/04/18/Spring BootDoc第三部分/SpringBoot翻译（十一）使用Spring Boot/">
+            <time datetime="2018-04-18T09:40:47.000Z" itemprop="datePublished">2018-04-18</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="11-5-Creating-an-Executable-Jar（运行示例）"><a href="#11-5-Creating-an-Executable-Jar（运行示例）" class="headerlink" title="11.5 Creating an Executable Jar（运行示例）"></a>11.5 Creating an Executable Jar（运行示例）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">We finish our example by creating a completely self-contained     </span><br><span class="line">executable jar file that we could run in production. Executable     </span><br><span class="line">jars (sometimes called “fat jars”) are archives containing your     </span><br><span class="line">compiled classes along with all of the jar dependencies that your     </span><br><span class="line">code needs to run.</span><br></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2018/04/18/Spring BootDoc第三部分/SpringBoot翻译（十一）使用Spring Boot/" data-id="cjg4w0j1k0006mj78loqiqjbx" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-SpringBootDoc第二部分/SpringBoot翻译（十）创建一个可执行jar包" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（十）创建一个可执行jar包/">SpringBoot官方文档翻译（十）：创建一个可执行jar包</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（十）创建一个可执行jar包/">
             <time datetime="2018-04-18T08:59:47.000Z" itemprop="datePublished">2018-04-18</time>
         </a>
     </div>
@@ -246,7 +376,7 @@
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
     </div>
 
                     </div>
@@ -290,7 +420,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/18/SpringBootDoc/SpringBoot翻译（十）创建一个可执行jar包/" data-id="cjg4s62rg0009gj781mkxb87j" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（十）创建一个可执行jar包/" data-id="cjg4w0j1x000tmj78pj8lzo46" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -366,7 +496,7 @@
 
 
 
-    <article id="post-SpringBootDoc/SpringBoot翻译（九）运行示例" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBootDoc第二部分/SpringBoot翻译（九）运行示例" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -374,7 +504,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/18/SpringBootDoc/SpringBoot翻译（九）运行示例/">SpringBoot官方文档翻译（九）：运行示例</a>
+            <a class="article-title" href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（九）运行示例/">SpringBoot官方文档翻译（九）：运行示例</a>
         </h1>
     
 
@@ -383,7 +513,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/18/SpringBootDoc/SpringBoot翻译（九）运行示例/">
+        <a href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（九）运行示例/">
             <time datetime="2018-04-18T07:32:47.000Z" itemprop="datePublished">2018-04-18</time>
         </a>
     </div>
@@ -398,7 +528,7 @@
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
     </div>
 
                     </div>
@@ -426,7 +556,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/18/SpringBootDoc/SpringBoot翻译（九）运行示例/" data-id="cjg4rl9dg0003gj78pbaquwqm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（九）运行示例/" data-id="cjg4w0j1p000cmj783qnyywyv" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -502,7 +632,7 @@
 
 
 
-    <article id="post-SpringBootDoc/SpringBoot翻译（八）开始写代码" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBootDoc第二部分/SpringBoot翻译（八）开始写代码" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -510,7 +640,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/18/SpringBootDoc/SpringBoot翻译（八）开始写代码/">SpringBoot官方文档翻译（八）：开始写代码</a>
+            <a class="article-title" href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（八）开始写代码/">SpringBoot官方文档翻译（八）：开始写代码</a>
         </h1>
     
 
@@ -519,7 +649,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/18/SpringBootDoc/SpringBoot翻译（八）开始写代码/">
+        <a href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（八）开始写代码/">
             <time datetime="2018-04-18T03:56:47.000Z" itemprop="datePublished">2018-04-18</time>
         </a>
     </div>
@@ -534,7 +664,7 @@
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
     </div>
 
                     </div>
@@ -571,7 +701,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/18/SpringBootDoc/SpringBoot翻译（八）开始写代码/" data-id="cjg4q05fq000ig378ur9i3oic" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（八）开始写代码/" data-id="cjg4w0j1u000mmj789eaf0izx" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -647,7 +777,7 @@
 
 
 
-    <article id="post-SpringBootDoc/SpringBoot翻译（七）增加类路径依赖" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBootDoc第二部分/SpringBoot翻译（七）增加类路径依赖" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -655,7 +785,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（七）增加类路径依赖/">SpringBoot官方文档翻译（七）：增加类路径依赖</a>
+            <a class="article-title" href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（七）增加类路径依赖/">SpringBoot官方文档翻译（七）：增加类路径依赖</a>
         </h1>
     
 
@@ -664,7 +794,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（七）增加类路径依赖/">
+        <a href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（七）增加类路径依赖/">
             <time datetime="2018-04-17T12:35:47.000Z" itemprop="datePublished">2018-04-17</time>
         </a>
     </div>
@@ -679,7 +809,7 @@
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
     </div>
 
                     </div>
@@ -708,7 +838,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc/SpringBoot翻译（七）增加类路径依赖/" data-id="cjg4q05fh0007g378cfojy3l9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（七）增加类路径依赖/" data-id="cjg4w0j1n000amj782ju2ss9r" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -784,7 +914,7 @@
 
 
 
-    <article id="post-SpringBootDoc/SpringBoot翻译（六）创建POM文件" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBootDoc第二部分/SpringBoot翻译（六）创建POM文件" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -792,7 +922,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（六）创建POM文件/">SpringBoot官方文档翻译（六）：创建POM文件</a>
+            <a class="article-title" href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（六）创建POM文件/">SpringBoot官方文档翻译（六）：创建POM文件</a>
         </h1>
     
 
@@ -801,7 +931,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（六）创建POM文件/">
+        <a href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（六）创建POM文件/">
             <time datetime="2018-04-17T12:15:47.000Z" itemprop="datePublished">2018-04-17</time>
         </a>
     </div>
@@ -816,7 +946,7 @@
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
     </div>
 
                     </div>
@@ -843,7 +973,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc/SpringBoot翻译（六）创建POM文件/" data-id="cjg4q05fp000gg378oyo6j6oc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（六）创建POM文件/" data-id="cjg4w0j1w000pmj78rulzhmw3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -919,7 +1049,7 @@
 
 
 
-    <article id="post-SpringBootDoc/SpringBoot翻译（四）安装部署Spring Boot CLI" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBootDoc第二部分/SpringBoot翻译（四）安装部署Spring Boot CLI" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -927,7 +1057,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（四）安装部署Spring Boot CLI/">SpringBoot官方文档翻译（四）：安装Spring Boot命令行界面</a>
+            <a class="article-title" href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（四）安装部署Spring Boot CLI/">SpringBoot官方文档翻译（四）：安装Spring Boot命令行界面</a>
         </h1>
     
 
@@ -936,7 +1066,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（四）安装部署Spring Boot CLI/">
+        <a href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（四）安装部署Spring Boot CLI/">
             <time datetime="2018-04-17T11:58:47.000Z" itemprop="datePublished">2018-04-17</time>
         </a>
     </div>
@@ -951,7 +1081,7 @@
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
     </div>
 
                     </div>
@@ -1010,7 +1140,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc/SpringBoot翻译（四）安装部署Spring Boot CLI/" data-id="cjg4q05fs000ng378hq9bjrfe" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（四）安装部署Spring Boot CLI/" data-id="cjg4w0j1y000wmj785iknudg6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1086,7 +1216,7 @@
 
 
 
-    <article id="post-SpringBootDoc/SpringBoot翻译（五）部署你的第一个Spring Boot应用" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBootDoc第二部分/SpringBoot翻译（五）部署你的第一个Spring Boot应用" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1094,7 +1224,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（五）部署你的第一个Spring Boot应用/">SpringBoot官方文档翻译（五）：部署你的第一个Spring Boot应用</a>
+            <a class="article-title" href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（五）部署你的第一个Spring Boot应用/">SpringBoot官方文档翻译（五）：部署你的第一个Spring Boot应用</a>
         </h1>
     
 
@@ -1103,7 +1233,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（五）部署你的第一个Spring Boot应用/">
+        <a href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（五）部署你的第一个Spring Boot应用/">
             <time datetime="2018-04-17T11:50:47.000Z" itemprop="datePublished">2018-04-17</time>
         </a>
     </div>
@@ -1118,7 +1248,7 @@
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
     </div>
 
                     </div>
@@ -1150,7 +1280,7 @@ that it is your current directory.
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc/SpringBoot翻译（五）部署你的第一个Spring Boot应用/" data-id="cjg4q05fl000cg378dgt38083" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（五）部署你的第一个Spring Boot应用/" data-id="cjg4w0j1s000hmj787soro1cr" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1226,7 +1356,7 @@ that it is your current directory.
 
 
 
-    <article id="post-SpringBootDoc/SpringBoot翻译（三）安装部署Spring Boot" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBootDoc第二部分/SpringBoot翻译（三）安装部署Spring Boot" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1234,7 +1364,7 @@ that it is your current directory.
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（三）安装部署Spring Boot/">SpringBoot官方文档翻译（三）：安装部署Spring Boot</a>
+            <a class="article-title" href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（三）安装部署Spring Boot/">SpringBoot官方文档翻译（三）：安装部署Spring Boot</a>
         </h1>
     
 
@@ -1243,7 +1373,7 @@ that it is your current directory.
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（三）安装部署Spring Boot/">
+        <a href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（三）安装部署Spring Boot/">
             <time datetime="2018-04-17T02:59:47.000Z" itemprop="datePublished">2018-04-17</time>
         </a>
     </div>
@@ -1258,7 +1388,7 @@ that it is your current directory.
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
     </div>
 
                     </div>
@@ -1298,7 +1428,7 @@ that it is your current directory.
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc/SpringBoot翻译（三）安装部署Spring Boot/" data-id="cjg4q05fj000ag378f7h9uz3c" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（三）安装部署Spring Boot/" data-id="cjg4w0j1o000bmj78rqvep3bd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1374,7 +1504,7 @@ that it is your current directory.
 
 
 
-    <article id="post-SpringBootDoc/SpringBoot翻译（二）系统依赖" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SpringBootDoc第二部分/SpringBoot翻译（二）系统依赖" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1382,7 +1512,7 @@ that it is your current directory.
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/17/SpringBootDoc/SpringBoot翻译（二）系统依赖/">SpringBoot官方文档翻译（二）：系统依赖</a>
+            <a class="article-title" href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（二）系统依赖/">SpringBoot官方文档翻译（二）：系统依赖</a>
         </h1>
     
 
@@ -1391,7 +1521,7 @@ that it is your current directory.
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（二）系统依赖/">
+        <a href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（二）系统依赖/">
             <time datetime="2018-04-17T02:58:47.000Z" itemprop="datePublished">2018-04-17</time>
         </a>
     </div>
@@ -1406,7 +1536,7 @@ that it is your current directory.
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
     </div>
 
                     </div>
@@ -1455,142 +1585,7 @@ that it is your current directory.
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc/SpringBoot翻译（二）系统依赖/" data-id="cjg4q05fk000bg378vmzrjz7a" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-SpringBootDoc/SpringBoot翻译（一）介绍 Spring Boot" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/16/SpringBootDoc/SpringBoot翻译（一）介绍 Spring Boot/">SpringBoot官方文档翻译（一）：介绍 Spring Boot</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/16/SpringBootDoc/SpringBoot翻译（一）介绍 Spring Boot/">
-            <time datetime="2018-04-16T14:58:47.000Z" itemprop="datePublished">2018-04-16</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot/">SpringBoot</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="Part-II-Getting-Started"><a href="#Part-II-Getting-Started" class="headerlink" title="Part II. Getting Started"></a>Part II. Getting Started</h1><h1 id="篇章二-开始"><a href="#篇章二-开始" class="headerlink" title="篇章二. 开始"></a>篇章二. 开始</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">If you are getting started with Spring Boot,or “Spring” in general, </span><br><span class="line">start by reading this section. It answers the basic “what?”, “how?”    </span><br><span class="line">and “why?” questions.It includes an introduction to Spring Boot,     </span><br><span class="line">along with installation instructions.We then walk you through     </span><br><span class="line">building your first Spring Boot application, discussing some core     </span><br><span class="line">principles as we go.</span><br></pre></td></tr></table></figure>
-<p>一般来说，您可以从阅读本章节开始学习Spring Boot 或者Spring。本节回答了最基础的“什么？”，“如何？”，“为何？”等问题。它包括了介绍Spring Boot如何独立部署的说明。我们将带领您建设您得第一个SpringBoot应用，跟随我们一起去探讨一些Spring Boot的核心价值。</p>
-<h2 id="8-Introducing-Spring-Boot（介绍-Spring-Boot）"><a href="#8-Introducing-Spring-Boot（介绍-Spring-Boot）" class="headerlink" title="8 . Introducing Spring Boot（介绍 Spring Boot）"></a>8 . Introducing Spring Boot（介绍 Spring Boot）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot makes it easy to create stand-alone, production-grade     </span><br><span class="line">Spring-based Applications that you can run. We take an opinionated    </span><br><span class="line">view of the Spring platform and third-party libraries, so that you    </span><br><span class="line">can get started with minimum fuss. Most Spring Boot applications     </span><br><span class="line">need very little Spring configuration.</span><br></pre></td></tr></table></figure>
-<p>Spring Boot使您能够非常简单的创建一个可运行的基于Spring的，产品级别的，独立部署应用。我们用我们自己认为的观点来处理Spring平台和第三方库，以便于您能够以最小的代价开始您的应用。所有的Spring Boot应用都只需要很少的Spring配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">You can use Spring Boot to create Java applications that can    </span><br><span class="line"> be started by using java -jar or more traditional war deployments.    </span><br><span class="line">  We also provide a command line tool that runs “spring scripts”.</span><br></pre></td></tr></table></figure></p>
-<p>你能够在Spring Boot 中使用java -jar 或者更为传统的 war包去创建java应用。我们同样提供了命令行工具去运行“Spring脚本”。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Our primary goals are:</span><br><span class="line">* Provide a radically faster and widely accessible     </span><br><span class="line">	getting-started experience for all Spring development.</span><br><span class="line">* Be opinionated out of the box but get out of the way     </span><br><span class="line">	quickly as requirements start to diverge from the defaults.</span><br><span class="line">* Provide a range of non-functional features that are     </span><br><span class="line">	common to large classes of projects (such as embedded servers,     </span><br><span class="line">	security, metrics, health checks, and externalized configuration).</span><br><span class="line">* Absolutely no code generation and no requirement for XML    </span><br><span class="line">	configuration.</span><br></pre></td></tr></table></figure></p>
-<p>我们的主要目标<br>    •    为所有的基于Spring的开发提供一个更快的，更广泛的入门级体验。<br>    •    以自我认为的方式通过一些默认的最快速基本的配置实现开箱即用的体验。<br>    •  提供大型项目（如内置服务器，安全性，埋点，运行状况检查和外部配置）通用的一系列非产品功能性的功能。<br>    •  绝对不需要生成代码或者xml的配置。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/04/16/SpringBootDoc/SpringBoot翻译（一）介绍 Spring Boot/" data-id="cjg4q05fg0006g378rx0ie7t2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（二）系统依赖/" data-id="cjg4w0j1r000gmj78nt5688z4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1683,7 +1678,26 @@ that it is your current directory.
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/04/18/SpringBootDoc/SpringBoot翻译（十）创建一个可执行jar包/" class="thumbnail">
+                            <a href="/2018/04/18/Spring BootDoc第三部分/SpringBoot翻译（十一）使用Spring Boot/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962692577.jpg)" alt="SpringBoot官方文档翻译（十一）：使用Spring Boot" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
+                            <p class="item-title"><a href="/2018/04/18/Spring BootDoc第三部分/SpringBoot翻译（十一）使用Spring Boot/" class="title">SpringBoot官方文档翻译（十一）：使用Spring Boot</a></p>
+                            <p class="item-date"><time datetime="2018-04-18T09:40:47.000Z" itemprop="datePublished">2018-04-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（十）创建一个可执行jar包/" class="thumbnail">
     
     
         <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523932533990.jpg)" alt="SpringBoot官方文档翻译（十）：创建一个可执行jar包" class="thumbnail-image"></span>
@@ -1694,7 +1708,7 @@ that it is your current directory.
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/18/SpringBootDoc/SpringBoot翻译（十）创建一个可执行jar包/" class="title">SpringBoot官方文档翻译（十）：创建一个可执行jar包</a></p>
+                            <p class="item-title"><a href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（十）创建一个可执行jar包/" class="title">SpringBoot官方文档翻译（十）：创建一个可执行jar包</a></p>
                             <p class="item-date"><time datetime="2018-04-18T08:59:47.000Z" itemprop="datePublished">2018-04-18</time></p>
                         </div>
                     </li>
@@ -1702,7 +1716,7 @@ that it is your current directory.
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/04/18/SpringBootDoc/SpringBoot翻译（九）运行示例/" class="thumbnail">
+                            <a href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（九）运行示例/" class="thumbnail">
     
     
         <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962638880.jpg)" alt="SpringBoot官方文档翻译（九）：运行示例" class="thumbnail-image"></span>
@@ -1713,7 +1727,7 @@ that it is your current directory.
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/18/SpringBootDoc/SpringBoot翻译（九）运行示例/" class="title">SpringBoot官方文档翻译（九）：运行示例</a></p>
+                            <p class="item-title"><a href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（九）运行示例/" class="title">SpringBoot官方文档翻译（九）：运行示例</a></p>
                             <p class="item-date"><time datetime="2018-04-18T07:32:47.000Z" itemprop="datePublished">2018-04-18</time></p>
                         </div>
                     </li>
@@ -1721,7 +1735,7 @@ that it is your current directory.
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/04/18/SpringBootDoc/SpringBoot翻译（八）开始写代码/" class="thumbnail">
+                            <a href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（八）开始写代码/" class="thumbnail">
     
     
         <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523931297126.jpg)" alt="SpringBoot官方文档翻译（八）：开始写代码" class="thumbnail-image"></span>
@@ -1732,7 +1746,7 @@ that it is your current directory.
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/18/SpringBootDoc/SpringBoot翻译（八）开始写代码/" class="title">SpringBoot官方文档翻译（八）：开始写代码</a></p>
+                            <p class="item-title"><a href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（八）开始写代码/" class="title">SpringBoot官方文档翻译（八）：开始写代码</a></p>
                             <p class="item-date"><time datetime="2018-04-18T03:56:47.000Z" itemprop="datePublished">2018-04-18</time></p>
                         </div>
                     </li>
@@ -1740,7 +1754,7 @@ that it is your current directory.
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（七）增加类路径依赖/" class="thumbnail">
+                            <a href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（七）增加类路径依赖/" class="thumbnail">
     
     
         <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962714052.jpg)" alt="SpringBoot官方文档翻译（七）：增加类路径依赖" class="thumbnail-image"></span>
@@ -1751,27 +1765,8 @@ that it is your current directory.
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（七）增加类路径依赖/" class="title">SpringBoot官方文档翻译（七）：增加类路径依赖</a></p>
+                            <p class="item-title"><a href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（七）增加类路径依赖/" class="title">SpringBoot官方文档翻译（七）：增加类路径依赖</a></p>
                             <p class="item-date"><time datetime="2018-04-17T12:35:47.000Z" itemprop="datePublished">2018-04-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（六）创建POM文件/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962729983.jpg)" alt="SpringBoot官方文档翻译（六）：创建POM文件" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/17/SpringBootDoc/SpringBoot翻译（六）创建POM文件/" class="title">SpringBoot官方文档翻译（六）：创建POM文件</a></p>
-                            <p class="item-date"><time datetime="2018-04-17T12:15:47.000Z" itemprop="datePublished">2018-04-17</time></p>
                         </div>
                     </li>
                 
@@ -1784,7 +1779,7 @@ that it is your current directory.
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1793,7 +1788,7 @@ that it is your current directory.
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1802,7 +1797,7 @@ that it is your current directory.
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/">SpringBoot</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1811,7 +1806,7 @@ that it is your current directory.
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Effective-Java/" style="font-size: 15px;">Effective Java</a> <a href="/tags/SpringBoot/" style="font-size: 20px;">SpringBoot</a> <a href="/tags/书籍/" style="font-size: 10px;">书籍</a>
+            <a href="/tags/Effective-Java/" style="font-size: 15px;">Effective Java</a> <a href="/tags/SpringBoot官方文档翻译第三部分/" style="font-size: 10px;">SpringBoot官方文档翻译第三部分</a> <a href="/tags/SpringBoot官方文档翻译第二部分/" style="font-size: 20px;">SpringBoot官方文档翻译第二部分</a> <a href="/tags/书籍/" style="font-size: 10px;">书籍</a>
         </div>
     </div>
 

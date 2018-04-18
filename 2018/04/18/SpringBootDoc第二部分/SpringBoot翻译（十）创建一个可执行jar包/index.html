@@ -3,22 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>消除过期的对象引用（六） | 博客</title>
+    <title>SpringBoot官方文档翻译（十）：创建一个可执行jar包 | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="消除过期的对象引用书中的例子如下:问题出在pop方法上，pop出去以后，stack的size本身减少1，size–，外部会持有该对象的引用，但是即便外部释放掉该element的引用，stack本身还有一个“保护机制”，栈内部会维护着这个对象的过期引用。为什么呢？这个是数组的特性，好比创建了一个16大小的数组，调用pop">
-<meta name="keywords" content="Effective Java">
+    <meta name="description" content="11.5 Creating an Executable Jar（运行示例）12345We finish our example by creating a completely self-contained     executable jar file that we could run in production.">
+<meta name="keywords" content="SpringBoot官方文档翻译第二部分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="消除过期的对象引用（六）">
-<meta property="og:url" content="http://yoursite.com/2017/12/04/读书笔记/消除过期的对象引用/index.html">
+<meta property="og:title" content="SpringBoot官方文档翻译（十）：创建一个可执行jar包">
+<meta property="og:url" content="http://yoursite.com/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（十）创建一个可执行jar包/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="消除过期的对象引用书中的例子如下:问题出在pop方法上，pop出去以后，stack的size本身减少1，size–，外部会持有该对象的引用，但是即便外部释放掉该element的引用，stack本身还有一个“保护机制”，栈内部会维护着这个对象的过期引用。为什么呢？这个是数组的特性，好比创建了一个16大小的数组，调用pop方法相当于这时候对第16个数组对象创建一个外部引用，这个对象本身还是在内存中有空">
+<meta property="og:description" content="11.5 Creating an Executable Jar（运行示例）12345We finish our example by creating a completely self-contained     executable jar file that we could run in production. Executable     jars (sometimes called “">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://s1.wailian.download/2017/11/28/app.jpg">
-<meta property="og:updated_time" content="2017-12-04T15:27:51.000Z">
+<meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523932533990.jpg">
+<meta property="og:updated_time" content="2018-04-18T09:15:21.363Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="消除过期的对象引用（六）">
-<meta name="twitter:description" content="消除过期的对象引用书中的例子如下:问题出在pop方法上，pop出去以后，stack的size本身减少1，size–，外部会持有该对象的引用，但是即便外部释放掉该element的引用，stack本身还有一个“保护机制”，栈内部会维护着这个对象的过期引用。为什么呢？这个是数组的特性，好比创建了一个16大小的数组，调用pop方法相当于这时候对第16个数组对象创建一个外部引用，这个对象本身还是在内存中有空">
-<meta name="twitter:image" content="http://s1.wailian.download/2017/11/28/app.jpg">
+<meta name="twitter:title" content="SpringBoot官方文档翻译（十）：创建一个可执行jar包">
+<meta name="twitter:description" content="11.5 Creating an Executable Jar（运行示例）12345We finish our example by creating a completely self-contained     executable jar file that we could run in production. Executable     jars (sometimes called “">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/17/1523932533990.jpg">
     
 
     
@@ -217,7 +217,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-读书笔记/消除过期的对象引用" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-SpringBootDoc第二部分/SpringBoot翻译（十）创建一个可执行jar包" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -225,7 +225,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            消除过期的对象引用（六）
+            SpringBoot官方文档翻译（十）：创建一个可执行jar包
         </h1>
     
 
@@ -234,8 +234,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/12/04/读书笔记/消除过期的对象引用/">
-            <time datetime="2017-12-04T14:19:47.000Z" itemprop="datePublished">2017-12-04</time>
+        <a href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（十）创建一个可执行jar包/">
+            <time datetime="2018-04-18T08:59:47.000Z" itemprop="datePublished">2018-04-18</time>
         </a>
     </div>
 
@@ -243,13 +243,13 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Effective-Java/">Effective Java</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
     </div>
 
                     </div>
@@ -260,10 +260,29 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="消除过期的对象引用"><a href="#消除过期的对象引用" class="headerlink" title="消除过期的对象引用"></a>消除过期的对象引用</h2><p>书中的例子如下:问题出在pop方法上，pop出去以后，stack的size本身减少1，size–，外部会持有该对象的引用，但是即便外部释放掉该element的引用，stack本身还有一个“保护机制”，栈内部会维护着这个对象的过期引用。<br>为什么呢？<br>这个是数组的特性，好比创建了一个16大小的数组，调用pop方法相当于这时候对第16个数组对象创建一个外部引用，这个对象本身还是在内存中有空间的。换而言之，这个第16个对象此时此刻即被外部调用的一个引用持有，也同时被stack本身的数组持有，也许有人认为–size了，现在应该变为15大小的数组了，为什么还持有第16个呢？<br>这里首先要理解数组对象创建的时候内存的变化。声明数组过程中，变量保存在栈中，创建并进行初始化时，数组元素是保存在堆中，数组通过引用指针指向数组元素。<br>对于基本类型数组的初始化，程序直接先为数组分配内存空间，再将数组元素的值存入对应的内存里。<br>对于引用类型数组的数组元素依然是引用类型，因此数组元素里存储的还是引用，它指向另一块内存，该内在里存储了该引用变量所引用的对象。<br>这里的size其实只是栈中一个域变量的变化，而非真正数组的变化，原来作为基本类型的引用依然存在于第16个数组的位置上。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span> </span>&#123;</span><br><span class="line">    pprivate Object[] elements;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_INITAL_CAPACITY = <span class="number">16</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        elements = <span class="keyword">new</span> Object[DEFAULT_INITAL_CAPACITY];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(Object e)</span> </span>&#123;</span><br><span class="line">        ensureCapacity();</span><br><span class="line">        elements[size++] = e;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(size == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> EmptyStackException();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> elements[--size];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(elements.length == size)</span><br><span class="line">            elements = Arrays.copyOf(elements, <span class="number">2</span> * size + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>术语：过期引用（obsolete reference) ，指永远不会被解除的引用。</p>
-<p>书中也给了修改得方式如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">pop</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(size == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> EmptyStackException();</span><br><span class="line">    &#125;</span><br><span class="line">    Object result = elements[--size];</span><br><span class="line">    elements[size] = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <h2 id="11-5-Creating-an-Executable-Jar（运行示例）"><a href="#11-5-Creating-an-Executable-Jar（运行示例）" class="headerlink" title="11.5 Creating an Executable Jar（运行示例）"></a>11.5 Creating an Executable Jar（运行示例）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">We finish our example by creating a completely self-contained     </span><br><span class="line">executable jar file that we could run in production. Executable     </span><br><span class="line">jars (sometimes called “fat jars”) are archives containing your     </span><br><span class="line">compiled classes along with all of the jar dependencies that your     </span><br><span class="line">code needs to run.</span><br></pre></td></tr></table></figure>
+<p>我们通过创建一个完全独立的可执行JAR文件来完成我们的示例，我们可以在生产中运行它。可执行jars（有时候也叫做“重量级jars”）是包含了您自身编译的类和其所依赖的所有jar包的一个整合归档包。</p>
+<p><strong>Executable jars and Java</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Java does not provide a standard way to load nested jar files (jar     </span><br><span class="line">files that are themselves contained within a jar). This can be     </span><br><span class="line">problematic if you are looking to distribute a self-contained application.    </span><br><span class="line">To solve this problem, many developers use “uber” jars. An uber     </span><br><span class="line">jar packages all the classes from all the application’s dependencies     </span><br><span class="line">into a single archive. The problem with this approach is that it     </span><br><span class="line">becomes hard to see which libraries are in your application.     </span><br><span class="line">It can also be problematic if the same filename is used (but     </span><br><span class="line">with different content) in multiple jars.</span><br><span class="line">Spring Boot takes a different approach and lets you actually     </span><br><span class="line">nest jars directly.</span><br></pre></td></tr></table></figure></p>
+<p>Java并不提供一个标准的方式去嵌套jar文件（jar文件本身又包含另一个jar）。这将成为一个阻碍，如果您打算发布一个独立运行的jar应用。<br>为了解决这个问题，很多开发者使用“uber”包。一个“uber”包根据应用的依赖关系打包了所有的类到一个单独的归档中。采用这种途径打包之后产生的另一个问题是，您无法知道在您的应用中有哪些库。<br>这还产生一个新的问题就是一些同名的文件会被应用到多个不同的（但包含不同的内容)jars当中。<br>Spring Boot 采用了一个不同的方式让您可以直接嵌套jars包。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">To create an executable jar, we need to add the     </span><br><span class="line">spring-boot-maven-plugin to our pom.xml. To do so,     </span><br><span class="line">insert the following lines just below the dependenciessection:</span><br></pre></td></tr></table></figure></p>
+<p>创建一个可执行jar，我们需要增减一个<strong>spring-boot-maven-plugin</strong>到pom文件中。可以这样做，插入下面的配置行到依赖关系部分下面。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The spring-boot-starter-parent POM includes &lt;executions&gt;     </span><br><span class="line">configuration to bind the repackage goal. If you do not     </span><br><span class="line">use the parent POM, you need to declare this configuration     </span><br><span class="line">yourself. See the plugin documentation for details.</span><br></pre></td></tr></table></figure>
+<p><strong>spring-boot-starter-parent</strong>的pom文件包含<strong><executions></executions></strong>配置，可以绑定执行<strong>repackage</strong>对象。如果您不使用父POM，您需要自己声明这个配置。您可以在plugin的文档中得到更为详细的信息（<a href="https://docs.spring.io/spring-boot/docs/2.1.0.BUILD-SNAPSHOT/maven-plugin/usage.html）" target="_blank" rel="noopener">https://docs.spring.io/spring-boot/docs/2.1.0.BUILD-SNAPSHOT/maven-plugin/usage.html）</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Save your pom.xml and run mvn package from the command line, as follows:</span><br></pre></td></tr></table></figure>
+<p>保存您的pom.xml,在命令行中运行<strong>mvn package</strong>，如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ mvn package</span><br><span class="line"></span><br><span class="line">[INFO] Scanning <span class="keyword">for</span> projects...</span><br><span class="line">[INFO]</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] Building myproject 0.0.1-SNAPSHOT</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] .... ..</span><br><span class="line">[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ myproject ---</span><br><span class="line">[INFO] Building jar: /Users/developer/example/spring-boot-example/target/myproject-0.0.1-SNAPSHOT.jar</span><br><span class="line">[INFO]</span><br><span class="line">[INFO] --- spring-boot-maven-plugin:2.1.0.BUILD-SNAPSHOT:repackage (default) @ myproject ---</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br><span class="line">[INFO] BUILD SUCCESS</span><br><span class="line">[INFO] ------------------------------------------------------------------------</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If you look in the target directory, you should see     </span><br><span class="line">myproject-0.0.1-SNAPSHOT.jar. The file should be around     </span><br><span class="line">10 MB in size. If you want to peek inside, you can use     </span><br><span class="line">jar tvf, as follows:</span><br></pre></td></tr></table></figure>
+<p>如果您在target目录下查看，你将会看到<strong>myproject-0.0.1-SNAPSHOT.jar</strong>。这个文件大概10M左右的样子。如果您想一窥内部构造，您可以使用 <strong>jar tvf</strong>命令，如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ jar tvf target/myproject-0.0.1-SNAPSHOT.jar</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">You should also see a much smaller file named myproject-0.0.1-    </span><br><span class="line">SNAPSHOT.jar.original in the target directory. This is the original     </span><br><span class="line">jar file that Maven created before it was repackaged by Spring Boot.    </span><br><span class="line">To run that application, use the java -jar command, as follows:</span><br></pre></td></tr></table></figure>
+<p>您应该同样的会看到一个比较小的名称为<strong>myproject-0.0.1-SNAPSHOT.jar.original</strong>的文件在target目录下。这是maven在Spring Boot进行repackaged之前创建的原版的jar文件。运行这个应用，使用<strong>java -jar</strong>命令，如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ java -jar target/myproject-0.0.1-SNAPSHOT.jar</span><br><span class="line"></span><br><span class="line">  .   ____          _            __ _ _</span><br><span class="line"> /\\ / ___<span class="string">'_ __ _ _(_)_ __  __ _ \ \ \ \</span></span><br><span class="line"><span class="string">( ( )\___ | '</span>_ | <span class="string">'_| | '</span>_ \/ _` | \ \ \ \</span><br><span class="line"> \\/  ___)| |_)| | | | | || (_| |  ) ) ) )</span><br><span class="line">  <span class="string">'  |____| .__|_| |_|_| |_\__, | / / / /</span></span><br><span class="line"><span class="string"> =========|_|==============|___/=/_/_/_/</span></span><br><span class="line"><span class="string"> :: Spring Boot ::  (v2.1.0.BUILD-SNAPSHOT)</span></span><br><span class="line"><span class="string">....... . . .</span></span><br><span class="line"><span class="string">....... . . . (log output here)</span></span><br><span class="line"><span class="string">....... . . .</span></span><br><span class="line"><span class="string">........ Started Example in 2.536 seconds (JVM running for 2.864)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">As before, to exit the application, press ctrl-c.</span><br></pre></td></tr></table></figure>
+<p>跟之前一样，如果想退出应用，按ctrl+c</p>
+<h2 id="12-What-to-Read-Next（接下去阅读什么）"><a href="#12-What-to-Read-Next（接下去阅读什么）" class="headerlink" title="12. What to Read Next（接下去阅读什么）"></a>12. What to Read Next（接下去阅读什么）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Hopefully, this section provided some of the Spring Boot basics     </span><br><span class="line">and got you on your way to writing your own applications. If you     </span><br><span class="line">are a task-oriented type of developer, you might want to jump over to spring.io and check out some of the getting started guides that     </span><br><span class="line">solve specific “How do I do that with Spring?” problems. We also     </span><br><span class="line">have Spring Boot-specific “How-to” reference documentation.</span><br></pre></td></tr></table></figure>
+<p>希望，本节提供了一些Spring Boot的基础知识和能帮助您以您自己的方式编写自己的应用程序。<br>如果您是一个面向任务的开发人员类型，您可能想跳到spring.io并查看一些入门指南解决具体的“我怎样用Spring做这件事”的问题。 我们也具有特定于Spring Boot的“操作方法”参考文档。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The Spring Boot repository also has a bunch of samples you can run.     </span><br><span class="line">The samples are independent of the rest of the code (that is, you     </span><br><span class="line">do not need to build the rest to run or use the samples).</span><br></pre></td></tr></table></figure>
+<p>Spring Boot存储库还有一堆你可以运行的样本。样本与代码的其余部分无关（即，您<br>无需要构建其余的代码去运行或使用样本）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Otherwise, the next logical step is to read Part III, “Using Spring     </span><br><span class="line">Boot”. If you are really impatient, you could also jump ahead and     </span><br><span class="line">read about Spring Boot features.</span><br></pre></td></tr></table></figure></p>
+<p>除此之外，下一个合乎逻辑的步骤是阅读第三部分，“使用Spring Boot”。如果您真的不耐烦，您可以跳过此章节，阅读Spring Boot的功能部分。</p>
 
         
         </div>
@@ -274,7 +293,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/12/04/读书笔记/消除过期的对象引用/" data-id="cjg4w0j210010mj7859sr5ms4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（十）创建一个可执行jar包/" data-id="cjg4w0j1x000tmj78pj8lzo46" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -349,19 +368,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/04/16/SpringBootDoc第二部分/SpringBoot翻译（一）介绍 Spring Boot/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2018/04/18/Spring BootDoc第三部分/SpringBoot翻译（十一）使用Spring Boot/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    SpringBoot官方文档翻译（一）：介绍 Spring Boot
+                    SpringBoot官方文档翻译（十一）：使用Spring Boot
                 
             </div>
         </a>
     
     
-        <a href="/2017/12/04/读书笔记/通过私有化构造函数强化不可实例化的类/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（九）运行示例/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">私有化构造函数强化不可实例化的类，避免创建不必要的对象（四，五）</div>
+            <div class="article-nav-title">SpringBoot官方文档翻译（九）：运行示例</div>
         </a>
     
 </nav>
