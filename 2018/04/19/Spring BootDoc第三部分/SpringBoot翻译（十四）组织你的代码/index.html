@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>分类: 随笔 | 博客</title>
+    <title>SpringBoot官方文档翻译（十四）：组织你的代码 | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="许贵荣">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://yoursite.com/categories/随笔/index.html">
+    <meta name="description" content="14. Structuring Your Code（组织您的代码）12Spring Boot does not require any specific code layout to work.     However, there are some best practices that help. Spring B">
+<meta name="keywords" content="SpringBoot官方文档翻译第三部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot官方文档翻译（十四）：组织你的代码">
+<meta property="og:url" content="http://yoursite.com/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十四）组织你的代码/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="许贵荣">
+<meta property="og:description" content="14. Structuring Your Code（组织您的代码）12Spring Boot does not require any specific code layout to work.     However, there are some best practices that help. Spring Boot不需要任何特殊的代码框架就能运行。然而，有一些最佳实践可以给予您更多的帮助">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523962773687.jpg">
+<meta property="og:updated_time" content="2018-04-19T13:19:23.027Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:description" content="许贵荣">
+<meta name="twitter:title" content="SpringBoot官方文档翻译（十四）：组织你的代码">
+<meta name="twitter:description" content="14. Structuring Your Code（组织您的代码）12Spring Boot does not require any specific code layout to work.     However, there are some best practices that help. Spring Boot不需要任何特殊的代码框架就能运行。然而，有一些最佳实践可以给予您更多的帮助">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/17/1523962773687.jpg">
     
 
     
@@ -213,50 +217,156 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title">随笔</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-Spring BootDoc第三部分/SpringBoot翻译（十四）组织你的代码" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/29/Markdown语法/">Mark Down语法</a>
+        <h1 class="article-title" itemprop="name">
+            SpringBoot官方文档翻译（十四）：组织你的代码
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/11/29/Markdown语法/">
-            <time datetime="2017-11-29T09:39:59.000Z" itemprop="datePublished">2017-11-29</time>
+        <a href="/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十四）组织你的代码/">
+            <time datetime="2018-04-19T12:31:47.000Z" itemprop="datePublished">2018-04-19</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/随笔/">随笔</a>
+        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/书籍/">书籍</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
     </div>
 
-                </div>
-            </div>
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="14-Structuring-Your-Code（组织您的代码）"><a href="#14-Structuring-Your-Code（组织您的代码）" class="headerlink" title="14. Structuring Your Code（组织您的代码）"></a>14. Structuring Your Code（组织您的代码）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot does not require any specific code layout to work.     </span><br><span class="line">However, there are some best practices that help.</span><br></pre></td></tr></table></figure>
+<p>Spring Boot不需要任何特殊的代码框架就能运行。然而，有一些最佳实践可以给予您更多的帮助。</p>
+<h2 id="14-1-Using-the-“default”-Package-使用默认包）"><a href="#14-1-Using-the-“default”-Package-使用默认包）" class="headerlink" title="14.1 Using the “default” Package(使用默认包）"></a>14.1 Using the “default” Package(使用默认包）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">When a class does not include a package declaration, it is     </span><br><span class="line">considered to be in the “default package”. The use of the     </span><br><span class="line">“default package” is generally discouraged and should be     </span><br><span class="line">avoided. It can cause particular problems for Spring Boot     </span><br><span class="line">applications that use the @ComponentScan, @EntityScan, or @SpringBootApplicationannotations, since every class     </span><br><span class="line">from every jar is read.</span><br></pre></td></tr></table></figure>
+<p>当一个类不包含包声明时，它是被认为是在“默认包”中。 使用“默认包”通常是不鼓励的，应该是<br>避免。 它可能会导致Spring Boot的特殊问题，诸如在使用@ComponentScan，@EntityScan或@SpringBootApplicationannotations的应用程序，因为每个包里的每个类都会被读取。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">We recommend that you follow Java’s recommended package naming     </span><br><span class="line">conventions and use a reversed domain name (for example,     </span><br><span class="line">com.example.project).</span><br></pre></td></tr></table></figure>
+<p>我们建议您遵循Java推荐的软件包命名约定并使用反向域名（例如，com.example.project）。</p>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://yoursite.com/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十四）组织你的代码/" data-id="cjg6jyube000bjf78h1ydfhjv" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十三）Starters/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">SpringBoot官方文档翻译（十三）：Starters</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
 </section>
             
                 
