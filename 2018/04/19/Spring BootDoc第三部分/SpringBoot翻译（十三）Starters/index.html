@@ -14,7 +14,7 @@
 <meta property="og:description" content="13.5 Starters1234567Starters are a set of convenient dependency descriptors that     you can include in your application. You get a one-stop shop     for all the Spring and related technologies that y">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523962729983.jpg">
-<meta property="og:updated_time" content="2018-04-19T03:51:45.888Z">
+<meta property="og:updated_time" content="2018-04-19T09:42:46.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot官方文档翻译（十三）：Starters">
 <meta name="twitter:description" content="13.5 Starters1234567Starters are a set of convenient dependency descriptors that     you can include in your application. You get a one-stop shop     for all the Spring and related technologies that y">
@@ -261,6 +261,119 @@
         
             
             <h1 id="13-5-Starters"><a href="#13-5-Starters" class="headerlink" title="13.5 Starters"></a>13.5 Starters</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Starters are a set of convenient dependency descriptors that     </span><br><span class="line">you can include in your application. You get a one-stop shop     </span><br><span class="line">for all the Spring and related technologies that you need     </span><br><span class="line">without having to hunt through sample code and copy-paste     </span><br><span class="line">loads of dependency descriptors. For example, if you want     </span><br><span class="line">to get started using Spring and JPA for database access,     </span><br><span class="line">include the spring-boot-starter-data-jpa dependency in your project.</span><br></pre></td></tr></table></figure>
+<p>“Starters”是一组可以导入到您的应用中的方便可用的依赖描述符。您将可以在不需要通过示例代码搜索拷贝-粘贴的情况下一站式获得所有关于Spring相关联的技术依赖。举个例子，如果您选择使用Spring和JPA作为数据库接入组件，导入<strong>spring-boot-starter-data-jpa</strong>依赖进您的工程即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The starters contain a lot of the dependencies that you need     </span><br><span class="line">to get a project up and running quickly and with a consistent,     </span><br><span class="line">supported set of managed transitive dependencies.</span><br></pre></td></tr></table></figure>
+<p>这些“Starters”包含很多您需要的让项目快速启动的依赖，并保持一致，支持一组受管控的传递依赖。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">What’s in a name</span><br><span class="line">All official starters follow a similar naming pattern;     </span><br><span class="line">spring-boot-starter-*, where * is a particular type of     </span><br><span class="line">application. This naming structure is intended to help     </span><br><span class="line">when you need to find a starter. The Maven integration     </span><br><span class="line">in many IDEs lets you search dependencies by name. For     </span><br><span class="line">example, with the appropriate Eclipse or STS plugin installed,     </span><br><span class="line">you can press ctrl-space in the POM editor and type     </span><br><span class="line">“spring-boot-starter” for a complete list.</span><br><span class="line">As explained in the “Creating Your Own Starter” section,     </span><br><span class="line">third party starters should not start with spring-boot,     </span><br><span class="line">as it is reserved for official Spring Boot artifacts. Rather,     </span><br><span class="line">a third-party starter typically starts with the name of the project.     </span><br><span class="line">For example, a third-party starter project called thirdpartyproject     </span><br><span class="line">would typically be named thirdpartyproject-spring-boot-starter.</span><br></pre></td></tr></table></figure>
+<p>名字中包含了什么？<br>所有的官方“starters”遵循一个相同的命名规范；spring-boot-starter-<em>,<br>“</em>“是代表特定类型的应用。这种命名结构能够在您需要寻找一个“starter”的时候提供有利的帮助。<br>在许多集成了Maven的IDE中，您都可以按名称搜索依赖项。比如，通过安装适当的Eclipse或STS插件，<br>你可以在POM编辑器中按ctrl-space并键入“spring-boot-starter”获取完整列表。<br>如上所述，“创建您自己的Starter”，第三方“starters”不应该使用spring-boot作为开头，因为他是为官方Spring Boot保留的。然而，一个第三方的starter一般以工程名开始。举个例子，一个第三方的starter工程名为“thirdpartyproject”，可以以“thirdpartyproject-spring-boot-starter”来命名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The following application starters are provided by Spring Boot    </span><br><span class="line">under the org.springframework.boot group:</span><br></pre></td></tr></table></figure></p>
+<p>如下应用的starters被Spring Boot提供，在 <strong>org.springframework.boot</strong>  group下</p>
+<table>
+<thead>
+<tr>
+<th>名字</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>spring-boot-starter</td>
+<td>核心starter, 包括自动配置支持, 日志和YMAL支持。</td>
+</tr>
+<tr>
+<td>spring-boot-starter-activemq</td>
+<td>Starter用于JMS消息，使用Apache的ActiveMQ</td>
+</tr>
+<tr>
+<td>spring-boot-starter-amqp</td>
+<td>Starter用于使用Spring AMQP 和Rabbit MQ</td>
+</tr>
+<tr>
+<td>spring-boot-starter-aop</td>
+<td>Starter用于在Spring AOP 和 AspectJ下的面相切面编程</td>
+</tr>
+<tr>
+<td>spring-boot-starter-artemis</td>
+<td>Starter用于JMS消息 ，应用于 Apache Artemis</td>
+</tr>
+<tr>
+<td>spring-boot-starter-batch</td>
+<td>Starter 用于使用Spring Batch</td>
+</tr>
+<tr>
+<td>spring-boot-starter-cache</td>
+<td>Starter用于使用Spring Framework下的缓存支持</td>
+</tr>
+<tr>
+<td>spring-boot-starter-cloud-connectors</td>
+<td>Starter用于Spring Cloud连接，它简化了连接到Cloud Foundry和Heroku等云平台的服务</td>
+</tr>
+<tr>
+<td>spring-boot-starter-data-cassandra</td>
+<td>Starter用于使用Cassandra分布式数据库和Spring Data Cassandra</td>
+</tr>
+<tr>
+<td>spring-boot-starter-data-cassandra-reactive</td>
+<td>Starter用于使用Cassandra分布式数据库和Spring Data Cassandra Reactive</td>
+</tr>
+<tr>
+<td>spring-boot-starter-data-couchbase</td>
+<td>Starter用于Couchbase面向文档的数据库和Spring Data Couchbase</td>
+</tr>
+<tr>
+<td>spring-boot-starter-data-couchbase-reactive</td>
+<td>Starter用于使用Couchbase面向文档的数据库和Spring Data Couchbase Reactive</td>
+</tr>
+<tr>
+<td>spring-boot-starter-data-elasticsearch</td>
+<td>Starter用于使用Elasticsearch 查找分析引擎 和 Spring Data Elasticsearch</td>
+</tr>
+<tr>
+<td>spring-boot-starter-data-jpa</td>
+<td>Starter用于Spring Data JPA和Hibernate</td>
+</tr>
+<tr>
+<td>spring-boot-starter-data-ldap</td>
+<td>Starter用于Spring Data LDAP</td>
+</tr>
+<tr>
+<td>spring-boot-starter-data-mongodb</td>
+<td>Starter用于MongoDB 基于文档的数据库和Spring Data MongoDB</td>
+</tr>
+<tr>
+<td>spring-boot-starter-data-mongodb-reactive</td>
+<td>Starter用于使用MongoDB面向文档的数据库和Spring Data MongoDB Reactive</td>
+</tr>
+<tr>
+<td>spring-boot-starter-data-neo4j</td>
+<td>Starter用于使用Neo4j图形数据库和Spring Data Neo4jPom</td>
+</tr>
+<tr>
+<td>spring-boot-starter-data-redis</td>
+<td>Starter用于在Spring Data Redis和Lettuce客户端中使用Redis键值数据存储</td>
+</tr>
+<tr>
+<td>spring-boot-starter-data-redis-reactive</td>
+<td>Starter用于使用Redis键值数据存储以及Spring Data Redis反应器和Lettuce客户端</td>
+</tr>
+<tr>
+<td>spring-boot-starter-data-rest</td>
+<td>Starter用于使用Spring Data REST将Spring Data存储库暴露于REST</td>
+</tr>
+<tr>
+<td>spring-boot-starter-data-solr</td>
+<td>Starter用于在Spring Data Solr中使用Apache Solr搜索平台</td>
+</tr>
+<tr>
+<td>spring-boot-starter-freemarker</td>
+<td>Starter for building MVC web applications using FreeMarker views</td>
+</tr>
+<tr>
+<td>spring-boot-starter-groovy-templates</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Starter for building MVC web applications using Groovy Templates views<br>Pom<br>spring-boot-starter-hateoas|<br>Starter for building hypermedia-based RESTful web application with Spring MVC and Spring HATEOAS<br>Pom<br>spring-boot-starter-integration|<br>Starter for using Spring Integration<br>Pom<br>spring-boot-starter-jdbc|<br>Starter for using JDBC with the HikariCP connection pool<br>Pom<br>spring-boot-starter-jersey|<br>Starter for building RESTful web applications using JAX-RS and Jersey. An alternative to spring-boot-starter-web<br>Pom<br>spring-boot-starter-jooq|<br>Starter for using jOOQ to access SQL databases. An alternative to spring-boot-starter-data-jpa or spring-boot-starter-jdbc<br>Pom<br>spring-boot-starter-json|<br>Starter for reading and writing json<br>Pom<br>spring-boot-starter-jta-atomikos|<br>Starter for JTA transactions using Atomikos<br>Pom<br>spring-boot-starter-jta-bitronix|<br>Starter for JTA transactions using Bitronix<br>Pom<br>spring-boot-starter-jta-narayana|<br>Starter for JTA transactions using Narayana<br>Pom<br>spring-boot-starter-mail|<br>Starter for using Java Mail and Spring Framework’s email sending support<br>Pom<br>spring-boot-starter-mustache|<br>Starter for building web applications using Mustache views<br>Pom<br>spring-boot-starter-quartz|<br>Starter for using the Quartz scheduler<br>Pom<br>spring-boot-starter-security|<br>Starter for using Spring Security<br>Pom<br>spring-boot-starter-test|<br>Starter for testing Spring Boot applications with libraries including JUnit, Hamcrest and Mockito<br>Pom<br>spring-boot-starter-thymeleaf|<br>Starter for building MVC web applications using Thymeleaf views<br>Pom<br>spring-boot-starter-validation|<br>Starter for using Java Bean Validation with Hibernate Validator<br>Pom<br>spring-boot-starter-web|<br>Starter for building web, including RESTful, applications using Spring MVC. Uses Tomcat as the default embedded container<br>Pom<br>spring-boot-starter-web-services|<br>Starter for using Spring Web Services<br>Pom<br>spring-boot-starter-webflux|<br>Starter for building WebFlux applications using Spring Framework’s Reactive Web support<br>Pom<br>spring-boot-starter-websocket|<br>Starter for building WebSocket applications using Spring Framework’s WebSocket support<br>Pom</p>
 
         
         </div>
@@ -271,7 +384,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十三）Starters/" data-id="cjg5zozdq0007zq78r2a60f68" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十三）Starters/" data-id="cjg6c88580007au78ysawhaoc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
