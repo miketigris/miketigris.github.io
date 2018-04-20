@@ -161,7 +161,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                25
+                26
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -214,6 +214,159 @@
 
             
             <section id="main">
+    <article id="post-Spring BootDoc第三部分/SpringBoot翻译（十九）运行您的应用" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十九）运行您的应用/">SpringBoot官方文档翻译（十九）：运行您的应用</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十九）运行您的应用/">
+            <time datetime="2018-04-20T12:51:47.000Z" itemprop="datePublished">2018-04-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="18-Running-Your-Application（运行您的应用）"><a href="#18-Running-Your-Application（运行您的应用）" class="headerlink" title="18. Running Your Application（运行您的应用）"></a>18. Running Your Application（运行您的应用）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">One of the biggest advantages of packaging your application as     </span><br><span class="line">a jar and using an embedded HTTP server is that you can run your     </span><br><span class="line">application as you would any other. Debugging Spring Boot     </span><br><span class="line">applications is also easy. You do not need any special IDE plugins     </span><br><span class="line">or extensions.</span><br></pre></td></tr></table></figure>
+<p>将您的应用打包成一个jar并且使用内置的HTTP服务器有一个巨大的优势就是您可以直接运行您的应用。调试Spring Boot应用也是非常简单的。您不需要任何特殊的IDE插件或者扩展。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">This section only covers jar based packaging. If you choose     </span><br><span class="line">to package your application as a war file, you should refer     </span><br><span class="line">to your server and IDE documentation.</span><br></pre></td></tr></table></figure>
+<p>本节只讲述基于jar包打包的方式。如果你选择将您的应用打包成一个war包，您应该参考<br>到您的服务器和IDE文档。</p>
+<h2 id="19-1-Running-from-an-IDE（从一个IDE钟运行）"><a href="#19-1-Running-from-an-IDE（从一个IDE钟运行）" class="headerlink" title="19.1 Running from an IDE（从一个IDE钟运行）"></a>19.1 Running from an IDE（从一个IDE钟运行）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">You can run a Spring Boot application from your IDE as a simple     </span><br><span class="line">Java application. However, you first need to import your project.     </span><br><span class="line">Import steps vary depending on your IDE and build system. Most     </span><br><span class="line">IDEs can import Maven projects directly. For example, Eclipse     </span><br><span class="line">users can select Import…  → Existing Maven Projects from the File menu.</span><br></pre></td></tr></table></figure>
+<p>您可以从您的IDE将Spring Boot应用作为一个简单的java应用来运行。然而，您首先需要导入您的工程。导入步骤根据您的IDE构建系统的不同而变化。大部分IDE能够直接导入Maven工程。举个例子，Eclipse用户可以选择File-Import-Existing Maven Projects菜单。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If you cannot directly import your project into your IDE,     </span><br><span class="line">you may be able to generate IDE metadata by using a build plugin.     </span><br><span class="line">Maven includes plugins for Eclipse and IDEA. Gradle offers plugins     </span><br><span class="line">for various IDEs.</span><br></pre></td></tr></table></figure></p>
+<p>如果您不能直接从IDE中导入您的工程，您可以通过构建插件生成IDE metadata。Maven包含Eclipse和IDEA的插件。Gradle为大部分IDE提供了插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If you accidentally run a web application twice, you see     </span><br><span class="line">a “Port already in use” error. STS users can use the Relaunch     </span><br><span class="line">button rather than the Run button to ensure that any existing     </span><br><span class="line">instance is closed.</span><br></pre></td></tr></table></figure></p>
+<p>如果您偶然的运行了2次web应用，您会发现“Port already in use”端口已经被使用的报错.STS使用者，能够使用Relaunch按钮来避免这个问题，如果使用Run按钮请确认任何实例都已经处于关闭状态。</p>
+<h2 id="19-2-Running-as-a-Packaged-Application（作为一个大包应用运行）"><a href="#19-2-Running-as-a-Packaged-Application（作为一个大包应用运行）" class="headerlink" title="19.2 Running as a Packaged Application（作为一个大包应用运行）"></a>19.2 Running as a Packaged Application（作为一个大包应用运行）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If you use the Spring Boot Maven or Gradle plugins to create     </span><br><span class="line">an executable jar, you can run your application using java -jar,     </span><br><span class="line">as shown in the following example:</span><br></pre></td></tr></table></figure>
+<p>如果您使用Spring Boot Maven或者Gradle插件创建了一个可执行的jar，您可以通过<strong>java -jar</strong>命令来运行它，如下例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -jar target/myapplication-0.0.1-SNAPSHOT.jar</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">It is also possible to run a packaged application with remote     </span><br><span class="line">debugging support enabled. Doing so lets you attach a debugger     </span><br><span class="line">to your packaged application, as shown in the following example:</span><br></pre></td></tr></table></figure>
+<p>同样可以通过远程调试模式运行一个已经打包的应用，如果远程调试开启的情况下。这样做的话您可以链接一个断点到您的已经打包的应用中，如下例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8000,<span class="built_in">suspend</span>=n \</span><br><span class="line">       -jar target/myapplication-0.0.1-SNAPSHOT.jar</span><br></pre></td></tr></table></figure></p>
+<h2 id="19-3-Using-the-Maven-Plugin（使用Maven插件）"><a href="#19-3-Using-the-Maven-Plugin（使用Maven插件）" class="headerlink" title="19.3 Using the Maven Plugin（使用Maven插件）"></a>19.3 Using the Maven Plugin（使用Maven插件）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The Spring Boot Maven plugin includes a run goal that can     </span><br><span class="line">be used to quickly compile and run your application. Applications     </span><br><span class="line">run in an exploded form, as they do in your IDE. The following     </span><br><span class="line">example shows a typical Maven command to run a Spring Boot application:</span><br></pre></td></tr></table></figure>
+<p>Spring Boot的Maven插件包含了一个运行目标可以快速编译和运行您的应用。应用像在您的IDE中以分解的形式运行。接下去的例子展示了一个典型的Maven命令运行Spring Boot 应用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn spring-boot:run</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">You might also want to use the MAVEN_OPTS operating system     </span><br><span class="line">environment variable, as shown in the following example:</span><br></pre></td></tr></table></figure>
+<p>您也许也想使用MAVEN_OPTS操作系统环境变量，如下例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> MAVEN_OPTS=-Xmx1024m</span><br></pre></td></tr></table></figure></p>
+<h2 id="19-4-Using-the-Gradle-Plugin（使用Gradle插件）"><a href="#19-4-Using-the-Gradle-Plugin（使用Gradle插件）" class="headerlink" title="19.4 Using the Gradle Plugin（使用Gradle插件）"></a>19.4 Using the Gradle Plugin（使用Gradle插件）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The Spring Boot Gradle plugin also includes a bootRun task that can     </span><br><span class="line">be used to run your application in an exploded form. The bootRun     </span><br><span class="line">task is added whenever you apply the org.springframework.boot and     </span><br><span class="line">java plugins and is shown in the following example:</span><br></pre></td></tr></table></figure>
+<p>Spring Boot的Gradle插件同样映入了bootRun任务，能够运用分解的方式运行您的应用。bootRun任务将会被自动引入，如果您引入了<strong>org.springframework.boot</strong>和java插件。如下例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gradle bootRun</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">You might also want to use the JAVA_OPTS operating system     </span><br><span class="line">environment variable, as shown in the following example:</span><br></pre></td></tr></table></figure>
+<p>您也许想使用JAVA_OPTS操作系统环境变量，如下例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> JAVA_OPTS=-Xmx1024m</span><br></pre></td></tr></table></figure></p>
+<h2 id="19-5-Hot-Swapping（热交换）"><a href="#19-5-Hot-Swapping（热交换）" class="headerlink" title="19.5 Hot Swapping（热交换）"></a>19.5 Hot Swapping（热交换）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Since Spring Boot applications are just plain Java applications,     </span><br><span class="line">JVM hot-swapping should work out of the box. JVM hot swapping is     </span><br><span class="line">somewhat limited with the bytecode that it can replace. For a     </span><br><span class="line">more complete solution, JRebel can be used.</span><br></pre></td></tr></table></figure>
+<p>由于Spring Boot应用程序只是普通的Java应用程序，所以JVM热插拔应该可以开箱即用。JVM热插拔是<br>在可以替代的字节码方面有所限制。需要更完整的解决方案，可以使用JRebel。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The spring-boot-devtools module also includes support for     </span><br><span class="line">quick application restarts. See the Chapter 20, Developer     </span><br><span class="line">Tools section later in this chapter and theHot swapping     </span><br><span class="line">“How-to” for details.</span><br></pre></td></tr></table></figure>
+<p><strong>spring-boot-devtools</strong>模块也宝行了支持快速重启应用的功能。查看章节20，开发者工具章节接下去会讲这点，已经热插拔相关细节。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十九）运行您的应用/" data-id="cjg7ype3u000fca78xoo53doy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-Spring BootDoc第三部分/SpringBoot翻译（十八）使用@SpringBootApplication注解" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -282,7 +435,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十八）使用@SpringBootApplication注解/" data-id="cjg7qnwp9000k3o78hlph6ggs" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十八）使用@SpringBootApplication注解/" data-id="cjg7ype40000rca78o2m64vv0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -421,7 +574,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入/" data-id="cjg7qnwp3000b3o78e018r7oc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入/" data-id="cjg7ype3r000bca78xo08zih0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -565,7 +718,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十六）自动配置/" data-id="cjg7qnwpa000m3o7896dc1t8p" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十六）自动配置/" data-id="cjg7ype3y000mca78h5fr0r14" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -702,7 +855,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十五）配置类/" data-id="cjg7qnwp7000g3o780pn8kj7u" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十五）配置类/" data-id="cjg7ype3x000kca786vyzfyg4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -843,7 +996,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十四）组织你的代码/" data-id="cjg7qnwpc000r3o78vgaw3dp0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十四）组织你的代码/" data-id="cjg7ype41000uca780wd8ks3x" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1174,7 +1327,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十三）Starters/" data-id="cjg7qnwp5000e3o78kj0zcf87" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十三）Starters/" data-id="cjg7ype3t000eca78mdvhyhy2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1312,7 +1465,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十二）Gradle&Ant/" data-id="cjg7qnwp6000f3o78gays796m" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十二）Gradle&Ant/" data-id="cjg7ype3v000gca78vu2ciph7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1488,7 +1641,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十一）使用Spring Boot/" data-id="cjg7qnwp2000a3o78hltd0t4c" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十一）使用Spring Boot/" data-id="cjg7ype3p000aca78ndtjmx2m" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1640,143 +1793,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（十）创建一个可执行jar包/" data-id="cjg7qnwpp001l3o7805izqssb" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-SpringBootDoc第二部分/SpringBoot翻译（九）运行示例" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（九）运行示例/">SpringBoot官方文档翻译（九）：运行示例</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（九）运行示例/">
-            <time datetime="2018-04-18T07:32:47.000Z" itemprop="datePublished">2018-04-18</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="11-4-Running-the-Example（运行示例）"><a href="#11-4-Running-the-Example（运行示例）" class="headerlink" title="11.4 Running the Example（运行示例）"></a>11.4 Running the Example（运行示例）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">At this point, your application should work. Since you used the     </span><br><span class="line">spring-boot-starter-parent POM, you have a useful run goal that you     </span><br><span class="line">can use to start the application. Type mvn spring-boot:run from the     </span><br><span class="line">root project directory to start the application. You should see output     </span><br><span class="line">similar to the following:</span><br></pre></td></tr></table></figure>
-<p>此时，您的应用程序应该可以工作了。由于使用了<strong>spring-boot-starter-parent</strong> POM，所以您有一个可用的运行目标，可以用来启动应用程序。在工程的根木兰路下输入<strong>mvn spring-boot:run</strong>启动应用。您应该看到类似于以下的输出：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ mvn spring-boot:run</span><br><span class="line"></span><br><span class="line">  .   ____          _            __ _ _</span><br><span class="line"> /\\ / ___<span class="string">'_ __ _ _(_)_ __  __ _ \ \ \ \</span></span><br><span class="line"><span class="string">( ( )\___ | '</span>_ | <span class="string">'_| | '</span>_ \/ _` | \ \ \ \</span><br><span class="line"> \\/  ___)| |_)| | | | | || (_| |  ) ) ) )</span><br><span class="line">  <span class="string">'  |____| .__|_| |_|_| |_\__, | / / / /</span></span><br><span class="line"><span class="string"> =========|_|==============|___/=/_/_/_/</span></span><br><span class="line"><span class="string"> :: Spring Boot ::  (v2.1.0.BUILD-SNAPSHOT)</span></span><br><span class="line"><span class="string">....... . . .</span></span><br><span class="line"><span class="string">....... . . . (log output here)</span></span><br><span class="line"><span class="string">....... . . .</span></span><br><span class="line"><span class="string">........ Started Example in 2.222 seconds (JVM running for 6.514)</span></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">If you open a web browser to localhost:8080, you should see     </span><br><span class="line">the following output:</span><br></pre></td></tr></table></figure>
-<p>如果您打开一个web浏览器输入<strong>localhost:8080</strong>，您将会看到如下的输出：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">To gracefully exit the application, press ctrl-c.</span><br></pre></td></tr></table></figure>
-<p>优雅退出请按ctrl+c</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（九）运行示例/" data-id="cjg7qnwpi00143o782izfio5t" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（十）创建一个可执行jar包/" data-id="cjg7ype4c001lca780u6k64c9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1869,6 +1886,25 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十九）运行您的应用/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962692577.jpg)" alt="SpringBoot官方文档翻译（十九）：运行您的应用" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
+                            <p class="item-title"><a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十九）运行您的应用/" class="title">SpringBoot官方文档翻译（十九）：运行您的应用</a></p>
+                            <p class="item-date"><time datetime="2018-04-20T12:51:47.000Z" itemprop="datePublished">2018-04-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十八）使用@SpringBootApplication注解/" class="thumbnail">
     
     
@@ -1942,25 +1978,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十四）组织你的代码/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962657339.jpg)" alt="SpringBoot官方文档翻译（十四）：组织你的代码" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十四）组织你的代码/" class="title">SpringBoot官方文档翻译（十四）：组织你的代码</a></p>
-                            <p class="item-date"><time datetime="2018-04-20T02:31:47.000Z" itemprop="datePublished">2018-04-20</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1970,7 +1987,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -1979,7 +1996,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1988,7 +2005,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li></ul>
         </div>
     </div>
 
