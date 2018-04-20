@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>分类: SpringBoot官方文档翻译 | 博客</title>
+    <title>SpringBoot官方文档翻译（十五）：配置类 | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="许贵荣">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://yoursite.com/categories/SpringBoot官方文档翻译/page/2/index.html">
+    <meta name="description" content="15. Configuration Classes（配置类）12345Spring Boot favors Java-based configuration. Although it is     possible to use SpringApplication with XML sources, we genera">
+<meta name="keywords" content="SpringBoot官方文档翻译第三部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot官方文档翻译（十五）：配置类">
+<meta property="og:url" content="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十五）配置类/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="许贵荣">
+<meta property="og:description" content="15. Configuration Classes（配置类）12345Spring Boot favors Java-based configuration. Although it is     possible to use SpringApplication with XML sources, we generally     recommend that your primary sour">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523962773687.jpg">
+<meta property="og:updated_time" content="2018-04-20T03:42:13.300Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:description" content="许贵荣">
+<meta name="twitter:title" content="SpringBoot官方文档翻译（十五）：配置类">
+<meta name="twitter:description" content="15. Configuration Classes（配置类）12345Spring Boot favors Java-based configuration. Although it is     possible to use SpringApplication with XML sources, we generally     recommend that your primary sour">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/17/1523962773687.jpg">
     
 
     
@@ -213,306 +217,167 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title">SpringBoot官方文档翻译</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-Spring BootDoc第三部分/SpringBoot翻译（十五）配置类" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（八）开始写代码/">SpringBoot官方文档翻译（八）：开始写代码</a>
+        <h1 class="article-title" itemprop="name">
+            SpringBoot官方文档翻译（十五）：配置类
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（八）开始写代码/">
-            <time datetime="2018-04-18T03:56:47.000Z" itemprop="datePublished">2018-04-18</time>
+        <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十五）配置类/">
+            <time datetime="2018-04-20T04:31:47.000Z" itemprop="datePublished">2018-04-20</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（七）增加类路径依赖/">SpringBoot官方文档翻译（七）：增加类路径依赖</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="15-Configuration-Classes（配置类）"><a href="#15-Configuration-Classes（配置类）" class="headerlink" title="15. Configuration Classes（配置类）"></a>15. Configuration Classes（配置类）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot favors Java-based configuration. Although it is     </span><br><span class="line">possible to use SpringApplication with XML sources, we generally     </span><br><span class="line">recommend that your primary source be a single @Configuration class.     </span><br><span class="line">Usually the class that defines the main method is a good candidate     </span><br><span class="line">as the primary @Configuration.</span><br></pre></td></tr></table></figure>
+<p>Spring Boot偏向于使用Java-base的配置方式。尽管他也能够支持使用SpringApplication配合XML，我们通常还是强烈建议您使用单个的@Configuration注解类做配置类。通常定义main方法的类用来作为一个主配置类是一个很好的选择。</p>
+<h2 id="15-1-Importing-Additional-Configuration-Classes（导入其他配置类）"><a href="#15-1-Importing-Additional-Configuration-Classes（导入其他配置类）" class="headerlink" title="15.1 Importing Additional Configuration Classes（导入其他配置类）"></a>15.1 Importing Additional Configuration Classes（导入其他配置类）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">You need not put all your @Configuration into     </span><br><span class="line">a single class. The @Import annotation can be     </span><br><span class="line">used to import additional configuration classes.     </span><br><span class="line">Alternatively, you can use @ComponentScan to automatically     </span><br><span class="line">pick up all Spring components, including @Configuration classes.</span><br></pre></td></tr></table></figure>
+<p>您并不需要将您所有的配置放在一个@Configuration注解的类中。<strong>@Import</strong>注解可以用来导入额外的注解类。另外，您可以使用@ComponentScan注解去制动选择所有的Spring组件。包括@Configuration注解的配置类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">We recommend that you follow Java’s recommended package naming     </span><br><span class="line">conventions and use a reversed domain name (for example,     </span><br><span class="line">com.example.project).</span><br></pre></td></tr></table></figure>
+<p>我们建议您遵循Java推荐的软件包命名约定并使用反向域名（例如，com.example.project）。</p>
+<h2 id="15-2-Importing-XML-Configuration（导入XML配置）"><a href="#15-2-Importing-XML-Configuration（导入XML配置）" class="headerlink" title="15.2 Importing XML Configuration（导入XML配置）"></a>15.2 Importing XML Configuration（导入XML配置）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If you absolutely must use XML based configuration, we recommend     </span><br><span class="line">that you still start with a @Configuration class. You can then     </span><br><span class="line">use an @ImportResourceannotation to load XML configuration files.</span><br></pre></td></tr></table></figure>
+<p>如果您是在要使用基于XML的配置，我们建议您还是从一个@Configuration注解的类开始。您可以在其中使用<strong>@ImportResourceannotation</strong>注解去加载XML配置文件。</p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（七）增加类路径依赖/">
-            <time datetime="2018-04-17T12:35:47.000Z" itemprop="datePublished">2018-04-17</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（六）创建POM文件/">SpringBoot官方文档翻译（六）：创建POM文件</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（六）创建POM文件/">
-            <time datetime="2018-04-17T12:15:47.000Z" itemprop="datePublished">2018-04-17</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（四）安装部署Spring Boot CLI/">SpringBoot官方文档翻译（四）：安装Spring Boot命令行界面</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（四）安装部署Spring Boot CLI/">
-            <time datetime="2018-04-17T11:58:47.000Z" itemprop="datePublished">2018-04-17</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（五）部署你的第一个Spring Boot应用/">SpringBoot官方文档翻译（五）：部署你的第一个Spring Boot应用</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（五）部署你的第一个Spring Boot应用/">
-            <time datetime="2018-04-17T11:50:47.000Z" itemprop="datePublished">2018-04-17</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（三）安装部署Spring Boot/">SpringBoot官方文档翻译（三）：安装部署Spring Boot</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（三）安装部署Spring Boot/">
-            <time datetime="2018-04-17T02:59:47.000Z" itemprop="datePublished">2018-04-17</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（二）系统依赖/">SpringBoot官方文档翻译（二）：系统依赖</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/SpringBootDoc第二部分/SpringBoot翻译（二）系统依赖/">
-            <time datetime="2018-04-17T02:58:47.000Z" itemprop="datePublished">2018-04-17</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/16/SpringBootDoc第二部分/SpringBoot翻译（一）介绍 Spring Boot/">SpringBoot官方文档翻译（一）：介绍 Spring Boot</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/16/SpringBootDoc第二部分/SpringBoot翻译（一）介绍 Spring Boot/">
-            <time datetime="2018-04-16T14:58:47.000Z" itemprop="datePublished">2018-04-16</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
 
-    <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/categories/SpringBoot官方文档翻译/">&laquo; 上一页</a><a class="page-number" href="/categories/SpringBoot官方文档翻译/">1</a><span class="page-number current">2</span>
-    </nav>
+    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十五）配置类/" data-id="cjg7edr950006qi785d90nnk4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十八）使用@SpringBootApplication注解/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    SpringBoot官方文档翻译（十八）：使用@SpringBootApplication注解
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十六）自动配置/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">SpringBoot官方文档翻译（十六）：自动配置</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
 </section>
             
                 
