@@ -214,7 +214,7 @@
 
             
             <section id="main">
-    <article id="post-Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Spring BootDoc第三部分/SpringBoot翻译（十六）自动配置" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -222,7 +222,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入/">SpringBoot官方文档翻译（十七）：Spring Beans和依赖注入</a>
+            <a class="article-title" href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十六）自动配置/">SpringBoot官方文档翻译（十六）：自动配置</a>
         </h1>
     
 
@@ -231,7 +231,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入/">
+        <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十六）自动配置/">
             <time datetime="2018-04-20T04:31:47.000Z" itemprop="datePublished">2018-04-20</time>
         </a>
     </div>
@@ -257,16 +257,21 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="17-Spring-Beans-and-Dependency-Injection（Spring-Beans和依赖注入）"><a href="#17-Spring-Beans-and-Dependency-Injection（Spring-Beans和依赖注入）" class="headerlink" title="17. Spring Beans and Dependency Injection（Spring Beans和依赖注入）"></a>17. Spring Beans and Dependency Injection（Spring Beans和依赖注入）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">You are free to use any of the standard Spring Framework     </span><br><span class="line">techniques to define your beans and their injected dependencies.     </span><br><span class="line">For simplicity, we often find that using @ComponentScan     </span><br><span class="line">(to find your beans) and using @Autowired (to do constructor     </span><br><span class="line">injection) works well.</span><br></pre></td></tr></table></figure>
-<p>您可以自由的使用Spring框架标注的一些技术和注解来定义您的注入依赖关系。打个比方，我们经常使用<br><strong>@ComponentScan</strong>（去查找您的beans），用<strong>@Autowired</strong>（去做构造注入）。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">If you structure your code as suggested above (locating your     </span><br><span class="line">application class in a root package), you can add @ComponentScan     </span><br><span class="line">without any arguments. All of your application components     </span><br><span class="line">(@Component, @Service, @Repository, @Controller etc.) are     </span><br><span class="line">automatically registered as Spring Beans.</span><br></pre></td></tr></table></figure>
-<p>如果您按照以上的建议构造您的代码结构（将您的主应用类放在根包下面），您可以增加<strong>@ComponentScan</strong>注解而不需要任何参数。您所有的应用组件（@Component, @Service, @Repository, @Controller 等等）都将被自动注册为Spring Beans。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The following example shows a @Service Bean that uses     </span><br><span class="line">constructor injection to obtain a required RiskAssessor bean:</span><br></pre></td></tr></table></figure>
-<p>接下去的例子展示了<strong>@Service</strong>使用构造注入去获得必要的<strong>RiskAssessor</strong> bean<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DatabaseAccountService</span> <span class="keyword">implements</span> <span class="title">AccountService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> RiskAssessor riskAssessor;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">DatabaseAccountService</span><span class="params">(RiskAssessor riskAssessor)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.riskAssessor = riskAssessor;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">If a bean has one constructor, you can omit the @Autowired,     </span><br><span class="line">as shown in the following example:</span><br></pre></td></tr></table></figure>
-<p>如果一个bean有一个构造函数，您可以省略<strong>@Autowired</strong>注解，如下例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DatabaseAccountService</span> <span class="keyword">implements</span> <span class="title">AccountService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> RiskAssessor riskAssessor;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">DatabaseAccountService</span><span class="params">(RiskAssessor riskAssessor)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.riskAssessor = riskAssessor;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Notice how using constructor injection lets the riskAssessor     </span><br><span class="line">field be marked as final, indicating that it cannot be     </span><br><span class="line">subsequently changed.</span><br></pre></td></tr></table></figure>
-<p>注意介绍如何使用构造注入使riskAssessor字段被标记为final，表明它不可以随后改变。</p>
+            <h1 id="16-Auto-configuration（自动配置）"><a href="#16-Auto-configuration（自动配置）" class="headerlink" title="16. Auto-configuration（自动配置）"></a>16. Auto-configuration（自动配置）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot auto-configuration attempts to automatically configure your Spring application based on the jar dependencies that you have added. For example, if HSQLDB is on your classpath, and you have not manually configured any database connection beans, then Spring Boot auto-configures an in-memory database.</span><br></pre></td></tr></table></figure>
+<p>Spring Boot 自动配置将根据您增加的jar包依赖关系尝试全自动的配置您的Spring应用。举个例子，如果HSQLDB在您的类路径下，而您未配置任何数据库连接beans，Spring将会自动配置一个基于内存的数据库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">You need to opt-in to auto-configuration by adding     </span><br><span class="line">the @EnableAutoConfiguration or @SpringBootApplication     </span><br><span class="line">annotations to one of your @Configuration classes.</span><br></pre></td></tr></table></figure>
+<p>您需要通过增加<strong>@EnableAutoConfiguration</strong>或者<strong>@SpringBootApplication</strong>注解到您的<strong>@Configuration</strong>配置类，以此来加入自动配置的功能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">You should only ever add one @SpringBootApplication or     </span><br><span class="line">@EnableAutoConfiguration annotation. We generally     </span><br><span class="line">recommend that you add one or the other to your primary     </span><br><span class="line">@Configuration class only.</span><br></pre></td></tr></table></figure>
+<p>您应该只添加<strong>@SpringBootApplication</strong>或者<strong>@EnableAutoConfiguration</strong>中的一个注解。我们一般建议您将一个或另一个添加到您的主@Configuration类。</p>
+<h2 id="16-1-Gradually-Replacing-Auto-configuration（逐渐替换自动配置）"><a href="#16-1-Gradually-Replacing-Auto-configuration（逐渐替换自动配置）" class="headerlink" title="16.1 Gradually Replacing Auto-configuration（逐渐替换自动配置）"></a>16.1 Gradually Replacing Auto-configuration（逐渐替换自动配置）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Auto-configuration is non-invasive. At any point, you can start     </span><br><span class="line">to define your own configuration to replace specific parts of the     </span><br><span class="line">auto-configuration. For example, if you add your own DataSource bean,     </span><br><span class="line">the default embedded database support backs away.</span><br></pre></td></tr></table></figure>
+<p>自动配置是非侵入式的。 在任何时候，您都可以开始定义自己的配置以替换自动配置的特定部分。<br>例如，如果您添加自己的DataSource bean，则默认的嵌入式数据库支持会被取消。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If you need to find out what auto-configuration is currently      </span><br><span class="line">being applied, and why, start your application with the --debug switch.     </span><br><span class="line">Doing so enables debug logs for a selection of core loggers and logs     </span><br><span class="line">a conditions report to the console.</span><br></pre></td></tr></table></figure></p>
+<p>如果您需要了解当前正在应用的自动配置以及为什么被使用，采用–debug开关启动您的应用程序。<br>这样做可以启用debug断点日志作为主日志输出，记录各种条件分支报告到控制台。</p>
+<h2 id="16-2-Disabling-Specific-Auto-configuration-Classes（禁用特定的自动配置类）"><a href="#16-2-Disabling-Specific-Auto-configuration-Classes（禁用特定的自动配置类）" class="headerlink" title="16.2 Disabling Specific Auto-configuration Classes（禁用特定的自动配置类）"></a>16.2 Disabling Specific Auto-configuration Classes（禁用特定的自动配置类）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If you find that specific auto-configuration classes that you     </span><br><span class="line">do not want are being applied, you can use the exclude attribute    </span><br><span class="line"> of @EnableAutoConfiguration to disable them, as shown in the     </span><br><span class="line"> following example:</span><br></pre></td></tr></table></figure>
+<p>如果您发现一些特殊的自动配置类，您并不想他们生效。您可以在<strong>@EnableAutoConfiguration</strong>注解中使用排除标签去禁用他们，如下例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.jdbc.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span>(exclude=&#123;DataSourceAutoConfiguration.class&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConfiguration</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If the class is not on the classpath, you can use the excludeName     </span><br><span class="line">attribute of the annotation and specify the fully qualified name     </span><br><span class="line">instead. Finally, you can also control the list of auto-configuration     </span><br><span class="line">classes to exclude by using the spring.autoconfigure.exclude property.</span><br></pre></td></tr></table></figure>
+<p>如果该类不在类路径下，您可以使用该注解的excludeName属性去定义全路径名称来替代。最后，您可以通过使用<strong>spring.autoconfigure.exclude</strong>控制自动配置的类的列表。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">You can define exclusions both at the annotation level and by     </span><br><span class="line">using the property.</span><br></pre></td></tr></table></figure>
+<p>你既可以在注解中定义exclusions，也可以在property属性中定义。</p>
 
         
         </div>
@@ -277,7 +282,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入/" data-id="cjg7ofe43000iqi78ehwupyv9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十六）自动配置/" data-id="cjg7p5z0g001k0z78bfce7uwh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -416,7 +421,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十八）使用@SpringBootApplication注解/" data-id="cjg7oz4jr000rqi78pfgix72c" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十八）使用@SpringBootApplication注解/" data-id="cjg7p5z0e001h0z78bcnklhou" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -553,7 +558,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十五）配置类/" data-id="cjg7edr950006qi785d90nnk4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十五）配置类/" data-id="cjg7p5z0d001d0z7854poaest" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -629,7 +634,7 @@
 
 
 
-    <article id="post-Spring BootDoc第三部分/SpringBoot翻译（十六）自动配置" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -637,7 +642,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十六）自动配置/">SpringBoot官方文档翻译（十六）：自动配置</a>
+            <a class="article-title" href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入/">SpringBoot官方文档翻译（十七）：Spring Beans和依赖注入</a>
         </h1>
     
 
@@ -646,7 +651,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十六）自动配置/">
+        <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入/">
             <time datetime="2018-04-20T04:31:47.000Z" itemprop="datePublished">2018-04-20</time>
         </a>
     </div>
@@ -672,21 +677,16 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="16-Auto-configuration（自动配置）"><a href="#16-Auto-configuration（自动配置）" class="headerlink" title="16. Auto-configuration（自动配置）"></a>16. Auto-configuration（自动配置）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot auto-configuration attempts to automatically configure your Spring application based on the jar dependencies that you have added. For example, if HSQLDB is on your classpath, and you have not manually configured any database connection beans, then Spring Boot auto-configures an in-memory database.</span><br></pre></td></tr></table></figure>
-<p>Spring Boot 自动配置将根据您增加的jar包依赖关系尝试全自动的配置您的Spring应用。举个例子，如果HSQLDB在您的类路径下，而您未配置任何数据库连接beans，Spring将会自动配置一个基于内存的数据库。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">You need to opt-in to auto-configuration by adding     </span><br><span class="line">the @EnableAutoConfiguration or @SpringBootApplication     </span><br><span class="line">annotations to one of your @Configuration classes.</span><br></pre></td></tr></table></figure>
-<p>您需要通过增加<strong>@EnableAutoConfiguration</strong>或者<strong>@SpringBootApplication</strong>注解到您的<strong>@Configuration</strong>配置类，以此来加入自动配置的功能。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">You should only ever add one @SpringBootApplication or     </span><br><span class="line">@EnableAutoConfiguration annotation. We generally     </span><br><span class="line">recommend that you add one or the other to your primary     </span><br><span class="line">@Configuration class only.</span><br></pre></td></tr></table></figure>
-<p>您应该只添加<strong>@SpringBootApplication</strong>或者<strong>@EnableAutoConfiguration</strong>中的一个注解。我们一般建议您将一个或另一个添加到您的主@Configuration类。</p>
-<h2 id="16-1-Gradually-Replacing-Auto-configuration（逐渐替换自动配置）"><a href="#16-1-Gradually-Replacing-Auto-configuration（逐渐替换自动配置）" class="headerlink" title="16.1 Gradually Replacing Auto-configuration（逐渐替换自动配置）"></a>16.1 Gradually Replacing Auto-configuration（逐渐替换自动配置）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Auto-configuration is non-invasive. At any point, you can start     </span><br><span class="line">to define your own configuration to replace specific parts of the     </span><br><span class="line">auto-configuration. For example, if you add your own DataSource bean,     </span><br><span class="line">the default embedded database support backs away.</span><br></pre></td></tr></table></figure>
-<p>自动配置是非侵入式的。 在任何时候，您都可以开始定义自己的配置以替换自动配置的特定部分。<br>例如，如果您添加自己的DataSource bean，则默认的嵌入式数据库支持会被取消。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If you need to find out what auto-configuration is currently      </span><br><span class="line">being applied, and why, start your application with the --debug switch.     </span><br><span class="line">Doing so enables debug logs for a selection of core loggers and logs     </span><br><span class="line">a conditions report to the console.</span><br></pre></td></tr></table></figure></p>
-<p>如果您需要了解当前正在应用的自动配置以及为什么被使用，采用–debug开关启动您的应用程序。<br>这样做可以启用debug断点日志作为主日志输出，记录各种条件分支报告到控制台。</p>
-<h2 id="16-2-Disabling-Specific-Auto-configuration-Classes（禁用特定的自动配置类）"><a href="#16-2-Disabling-Specific-Auto-configuration-Classes（禁用特定的自动配置类）" class="headerlink" title="16.2 Disabling Specific Auto-configuration Classes（禁用特定的自动配置类）"></a>16.2 Disabling Specific Auto-configuration Classes（禁用特定的自动配置类）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If you find that specific auto-configuration classes that you     </span><br><span class="line">do not want are being applied, you can use the exclude attribute    </span><br><span class="line"> of @EnableAutoConfiguration to disable them, as shown in the     </span><br><span class="line"> following example:</span><br></pre></td></tr></table></figure>
-<p>如果您发现一些特殊的自动配置类，您并不想他们生效。您可以在<strong>@EnableAutoConfiguration</strong>注解中使用排除标签去禁用他们，如下例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.jdbc.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span>(exclude=&#123;DataSourceAutoConfiguration.class&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConfiguration</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If the class is not on the classpath, you can use the excludeName     </span><br><span class="line">attribute of the annotation and specify the fully qualified name     </span><br><span class="line">instead. Finally, you can also control the list of auto-configuration     </span><br><span class="line">classes to exclude by using the spring.autoconfigure.exclude property.</span><br></pre></td></tr></table></figure>
-<p>如果该类不在类路径下，您可以使用该注解的excludeName属性去定义全路径名称来替代。最后，您可以通过使用<strong>spring.autoconfigure.exclude</strong>控制自动配置的类的列表。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">You can define exclusions both at the annotation level and by     </span><br><span class="line">using the property.</span><br></pre></td></tr></table></figure>
-<p>你既可以在注解中定义exclusions，也可以在property属性中定义。</p>
+            <h1 id="17-Spring-Beans-and-Dependency-Injection（Spring-Beans和依赖注入）"><a href="#17-Spring-Beans-and-Dependency-Injection（Spring-Beans和依赖注入）" class="headerlink" title="17. Spring Beans and Dependency Injection（Spring Beans和依赖注入）"></a>17. Spring Beans and Dependency Injection（Spring Beans和依赖注入）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">You are free to use any of the standard Spring Framework     </span><br><span class="line">techniques to define your beans and their injected dependencies.     </span><br><span class="line">For simplicity, we often find that using @ComponentScan     </span><br><span class="line">(to find your beans) and using @Autowired (to do constructor     </span><br><span class="line">injection) works well.</span><br></pre></td></tr></table></figure>
+<p>您可以自由的使用Spring框架标注的一些技术和注解来定义您的注入依赖关系。打个比方，我们经常使用<br><strong>@ComponentScan</strong>（去查找您的beans），用<strong>@Autowired</strong>（去做构造注入）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">If you structure your code as suggested above (locating your     </span><br><span class="line">application class in a root package), you can add @ComponentScan     </span><br><span class="line">without any arguments. All of your application components     </span><br><span class="line">(@Component, @Service, @Repository, @Controller etc.) are     </span><br><span class="line">automatically registered as Spring Beans.</span><br></pre></td></tr></table></figure>
+<p>如果您按照以上的建议构造您的代码结构（将您的主应用类放在根包下面），您可以增加<strong>@ComponentScan</strong>注解而不需要任何参数。您所有的应用组件（@Component, @Service, @Repository, @Controller 等等）都将被自动注册为Spring Beans。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The following example shows a @Service Bean that uses     </span><br><span class="line">constructor injection to obtain a required RiskAssessor bean:</span><br></pre></td></tr></table></figure>
+<p>接下去的例子展示了<strong>@Service</strong>使用构造注入去获得必要的<strong>RiskAssessor</strong> bean<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DatabaseAccountService</span> <span class="keyword">implements</span> <span class="title">AccountService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> RiskAssessor riskAssessor;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">DatabaseAccountService</span><span class="params">(RiskAssessor riskAssessor)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.riskAssessor = riskAssessor;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">If a bean has one constructor, you can omit the @Autowired,     </span><br><span class="line">as shown in the following example:</span><br></pre></td></tr></table></figure>
+<p>如果一个bean有一个构造函数，您可以省略<strong>@Autowired</strong>注解，如下例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DatabaseAccountService</span> <span class="keyword">implements</span> <span class="title">AccountService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> RiskAssessor riskAssessor;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">DatabaseAccountService</span><span class="params">(RiskAssessor riskAssessor)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.riskAssessor = riskAssessor;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Notice how using constructor injection lets the riskAssessor     </span><br><span class="line">field be marked as final, indicating that it cannot be     </span><br><span class="line">subsequently changed.</span><br></pre></td></tr></table></figure>
+<p>注意介绍如何使用构造注入使riskAssessor字段被标记为final，表明它不可以随后改变。</p>
 
         
         </div>
@@ -697,7 +697,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十六）自动配置/" data-id="cjg7esq6i000cqi783n45uokw" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入/" data-id="cjg7p5z0a00170z78kj4k7dwp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -838,7 +838,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十四）组织你的代码/" data-id="cjg7e4k9n000bqa78pvica08o" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十四）组织你的代码/" data-id="cjg7p5z0h001o0z78glikqz3j" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1169,7 +1169,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十三）Starters/" data-id="cjg7e4k9o000eqa788ej7n7bw" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十三）Starters/" data-id="cjg7p5z0900130z7840flqyds" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1307,7 +1307,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十二）Gradle&Ant/" data-id="cjg7e4k9p000fqa78posa86aq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十二）Gradle&Ant/" data-id="cjg7p5z0c001a0z78aokpqht0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1483,7 +1483,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十一）使用Spring Boot/" data-id="cjg7e4k9l000aqa78nrmldpxc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十一）使用Spring Boot/" data-id="cjg7p5z0700100z782v06xesb" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1635,7 +1635,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（十）创建一个可执行jar包/" data-id="cjg7e4ka30016qa78736nsl48" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（十）创建一个可执行jar包/" data-id="cjg7p5z03000u0z78q83z81fo" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1771,7 +1771,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（九）运行示例/" data-id="cjg7e4k9u000mqa780yqwnvxt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/18/SpringBootDoc第二部分/SpringBoot翻译（九）运行示例/" data-id="cjg7p5yzw000f0z78cxz6e78r" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1864,10 +1864,10 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入/" class="thumbnail">
+                            <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十六）自动配置/" class="thumbnail">
     
     
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962638880.jpg)" alt="SpringBoot官方文档翻译（十七）：Spring Beans和依赖注入" class="thumbnail-image"></span>
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962729983.jpg)" alt="SpringBoot官方文档翻译（十六）：自动配置" class="thumbnail-image"></span>
     
 </a>
 
@@ -1875,7 +1875,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入/" class="title">SpringBoot官方文档翻译（十七）：Spring Beans和依赖注入</a></p>
+                            <p class="item-title"><a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十六）自动配置/" class="title">SpringBoot官方文档翻译（十六）：自动配置</a></p>
                             <p class="item-date"><time datetime="2018-04-20T04:31:47.000Z" itemprop="datePublished">2018-04-20</time></p>
                         </div>
                     </li>
@@ -1921,10 +1921,10 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十六）自动配置/" class="thumbnail">
+                            <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入/" class="thumbnail">
     
     
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962773687.jpg)" alt="SpringBoot官方文档翻译（十六）：自动配置" class="thumbnail-image"></span>
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962638880.jpg)" alt="SpringBoot官方文档翻译（十七）：Spring Beans和依赖注入" class="thumbnail-image"></span>
     
 </a>
 
@@ -1932,7 +1932,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十六）自动配置/" class="title">SpringBoot官方文档翻译（十六）：自动配置</a></p>
+                            <p class="item-title"><a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入/" class="title">SpringBoot官方文档翻译（十七）：Spring Beans和依赖注入</a></p>
                             <p class="item-date"><time datetime="2018-04-20T04:31:47.000Z" itemprop="datePublished">2018-04-20</time></p>
                         </div>
                     </li>
