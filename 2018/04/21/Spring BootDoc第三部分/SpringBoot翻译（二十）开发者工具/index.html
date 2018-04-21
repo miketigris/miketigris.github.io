@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>标签: 书籍 | 博客</title>
+    <title>SpringBoot官方文档翻译（二十）：开发者工具 | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="许贵荣">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://yoursite.com/tags/书籍/index.html">
+    <meta name="description" content="20. Developer Tools（开发者工具）123456Spring Boot includes an additional set of tools that can     make the application development experience a little more     pleas">
+<meta name="keywords" content="SpringBoot官方文档翻译第三部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot官方文档翻译（二十）：开发者工具">
+<meta property="og:url" content="http://yoursite.com/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十）开发者工具/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="许贵荣">
+<meta property="og:description" content="20. Developer Tools（开发者工具）123456Spring Boot includes an additional set of tools that can     make the application development experience a little more     pleasant. The spring-boot-devtools module can">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523931297126.jpg">
+<meta property="og:updated_time" content="2018-04-21T09:24:31.676Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:description" content="许贵荣">
+<meta name="twitter:title" content="SpringBoot官方文档翻译（二十）：开发者工具">
+<meta name="twitter:description" content="20. Developer Tools（开发者工具）123456Spring Boot includes an additional set of tools that can     make the application development experience a little more     pleasant. The spring-boot-devtools module can">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/17/1523931297126.jpg">
     
 
     
@@ -213,86 +217,165 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#书籍</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-Spring BootDoc第三部分/SpringBoot翻译（二十）开发者工具" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/29/博客使用说明/">博客使用示例</a>
+        <h1 class="article-title" itemprop="name">
+            SpringBoot官方文档翻译（二十）：开发者工具
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/11/29/博客使用说明/">
-            <time datetime="2017-11-29T09:40:59.000Z" itemprop="datePublished">2017-11-29</time>
+        <a href="/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十）开发者工具/">
+            <time datetime="2018-04-21T09:24:47.000Z" itemprop="datePublished">2018-04-21</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/随笔/">随笔</a>
+        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/书籍/">书籍</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/29/Markdown语法/">Mark Down语法</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="20-Developer-Tools（开发者工具）"><a href="#20-Developer-Tools（开发者工具）" class="headerlink" title="20. Developer Tools（开发者工具）"></a>20. Developer Tools（开发者工具）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot includes an additional set of tools that can     </span><br><span class="line">make the application development experience a little more     </span><br><span class="line">pleasant. The spring-boot-devtools module can be included     </span><br><span class="line">in any project to provide additional development-time features.     </span><br><span class="line">To include devtools support, add the module dependency to     </span><br><span class="line">your build, as shown in the following listings for Maven and Gradle:</span><br></pre></td></tr></table></figure>
+<p>Spring Boot引入了额外的一些工具，让应用的开发体验变得更加愉快。<strong>spring-boot-devtools</strong>模块能够被任何项目引入提供“开发-时间”功能。如果需要支持devtools功能，增加如下模块到您的构建李，如下：<br>Maven：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>Gradle：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">	compile(<span class="string">"org.springframework.boot:spring-boot-devtools"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Developer tools are automatically disabled when running a      </span><br><span class="line">fully packaged application. If your application is launched     </span><br><span class="line">from java -jar or if it is started from a special classloader,     </span><br><span class="line">then it is considered a “production application”. Flagging the     </span><br><span class="line">dependency as optional in Maven or using compileOnly in Gradle     </span><br><span class="line">is a best practice that prevents devtools from being transitively     </span><br><span class="line">applied to other modules that use your project.</span><br></pre></td></tr></table></figure>
+<p>当运行一个完整的应用jar包的时候，开发者工具集将会被自动禁用。如果您的应用是通过java -jar启动或者是通过一些特殊的类加载器启动的，它会被当做一个“产品级别的应用”。在Maven中标记devtools的依赖为可选的，在Gradle中使用compileOnly是防止devtools被传递依赖到您的其他模块的的最佳实践。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Repackaged archives do not contain devtools by default. If     </span><br><span class="line">you want to use a certain remote devtools feature, you need     </span><br><span class="line">to disable the excludeDevtoolsbuild property to include it.     </span><br><span class="line">The property is supported with both the Maven and Gradle plugins.</span><br></pre></td></tr></table></figure></p>
+<p>重新打包的档案在默认情况下不包含devtools。如果您想使用某个远程的devtools功能，您需要禁用excludeDevtoolsbuild属性去支持它。这个属性既支持Maven也支持Gradle。</p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/11/29/Markdown语法/">
-            <time datetime="2017-11-29T09:39:59.000Z" itemprop="datePublished">2017-11-29</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/随笔/">随笔</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/书籍/">书籍</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://yoursite.com/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十）开发者工具/" data-id="cjg989b2n000eoz78ibrwidl1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十二）自动重启/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    SpringBoot官方文档翻译（二十二）：自动重启
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十一）默认属性/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">SpringBoot官方文档翻译（二十一）：默认属性</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
 </section>
             
                 
