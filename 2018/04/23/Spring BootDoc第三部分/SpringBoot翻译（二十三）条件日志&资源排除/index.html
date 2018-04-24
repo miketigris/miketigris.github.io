@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档: 2017/11 | 博客</title>
+    <title>SpringBoot官方文档翻译（二十三）：条件日志&amp;资源排除 | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="许贵荣">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://yoursite.com/archives/2017/11/index.html">
+    <meta name="description" content="20.2.1 Logging changes in condition evaluation（记录条件评估中的更改）1234By default, each time your application restarts, a report showing     the condition evaluation del">
+<meta name="keywords" content="SpringBoot官方文档翻译第三部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot官方文档翻译（二十三）：条件日志&amp;资源排除">
+<meta property="og:url" content="http://yoursite.com/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十三）条件日志&资源排除/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="许贵荣">
+<meta property="og:description" content="20.2.1 Logging changes in condition evaluation（记录条件评估中的更改）1234By default, each time your application restarts, a report showing     the condition evaluation delta is logged. The report shows the     c">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.wailian.work/images/2018/04/20/1524194188729.jpg">
+<meta property="og:updated_time" content="2018-04-23T08:42:41.301Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:description" content="许贵荣">
+<meta name="twitter:title" content="SpringBoot官方文档翻译（二十三）：条件日志&amp;资源排除">
+<meta name="twitter:description" content="20.2.1 Logging changes in condition evaluation（记录条件评估中的更改）1234By default, each time your application restarts, a report showing     the condition evaluation delta is logged. The report shows the     c">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/20/1524194188729.jpg">
     
 
     
@@ -213,122 +217,166 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2017</h1>
-            </div>
+            <section id="main"><article id="post-Spring BootDoc第三部分/SpringBoot翻译（二十三）条件日志&amp;资源排除" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/30/读书笔记/考虑使用静态工厂方法代替构造器/">考虑使用静态工厂方法代替构造器（一）</a>
+        <h1 class="article-title" itemprop="name">
+            SpringBoot官方文档翻译（二十三）：条件日志&amp;资源排除
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/11/30/读书笔记/考虑使用静态工厂方法代替构造器/">
-            <time datetime="2017-11-30T11:58:47.000Z" itemprop="datePublished">2017-11-30</time>
+        <a href="/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十三）条件日志&资源排除/">
+            <time datetime="2018-04-23T09:24:47.000Z" itemprop="datePublished">2018-04-23</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Effective-Java/">Effective Java</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/29/博客使用说明/">博客使用示例</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="20-2-1-Logging-changes-in-condition-evaluation（记录条件评估中的更改）"><a href="#20-2-1-Logging-changes-in-condition-evaluation（记录条件评估中的更改）" class="headerlink" title="20.2.1 Logging changes in condition evaluation（记录条件评估中的更改）"></a>20.2.1 Logging changes in condition evaluation（记录条件评估中的更改）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">By default, each time your application restarts, a report showing     </span><br><span class="line">the condition evaluation delta is logged. The report shows the     </span><br><span class="line">changes to your application’s auto-configuration as you make changes     </span><br><span class="line">such as adding or removing beans and setting configuration properties.</span><br></pre></td></tr></table></figure>
+<p>默认情况下，每次您重启您的应用，一个条件评估的增量日志将被打印在控制台。这个日志展示了您应用自动配置部分修改得内容，注入增加，删除beans或者设置配置属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">To disable the logging of the report, set the following property:</span><br></pre></td></tr></table></figure></p>
+<p>禁用以上的日志报告，如下设置：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.devtools.restart.log-condition-evaluation-delta=<span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="20-2-2-Excluding-Resources（排除资源）"><a href="#20-2-2-Excluding-Resources（排除资源）" class="headerlink" title="20.2.2 Excluding Resources（排除资源）"></a>20.2.2 Excluding Resources（排除资源）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Certain resources do not necessarily need to trigger a restart      </span><br><span class="line">when they are changed. For example, Thymeleaf templates can be     </span><br><span class="line">edited in-place. By default, changing resources in /META-INF/maven,     </span><br><span class="line">/META-INF/resources, /resources, /static, /public, or /templates     </span><br><span class="line">does not trigger a restart but does trigger a live reload. If you     </span><br><span class="line">want to customize these exclusions, you can use     </span><br><span class="line">the spring.devtools.restart.exclude property. For example, to exclude     </span><br><span class="line">only /static and /public you would set the following property:</span><br></pre></td></tr></table></figure>
+<p>某些资源没有必要在修改得时候出发重启。举个例子，Thymeleaf模板能够就地编辑。默认情况下，改变<strong>/META-INF/maven,<br>/META-INF/resources, /resources, /static, /public, 或者 /templates</strong>这些路径下的内容，并不需要触发重启，但会触发重载。如果您想自定义排除这些，您可以使用<strong>spring.devtools.restart.exclude </strong>属性。举个例子，仅仅排除<strong>/static 和 /public</strong>，您可以设置以下属性：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.devtools.restart.exclude=<span class="keyword">static</span><span class="comment">/**,public/**</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">If you want to keep those defaults and add additional exclusions,    </span><br><span class="line">use the spring.devtools.restart.additional-exclude property instead.</span><br></pre></td></tr></table></figure>
+<p>如果您想保留这些默认配置，并增加一些额外的排除项目，使用<strong>spring.devtools.restart.additional-exclude</strong>属性代替。</p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/11/29/博客使用说明/">
-            <time datetime="2017-11-29T09:40:59.000Z" itemprop="datePublished">2017-11-29</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/随笔/">随笔</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/书籍/">书籍</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/29/Markdown语法/">Mark Down语法</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/11/29/Markdown语法/">
-            <time datetime="2017-11-29T09:39:59.000Z" itemprop="datePublished">2017-11-29</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/随笔/">随笔</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/书籍/">书籍</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
+
+    <a data-url="http://yoursite.com/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十三）条件日志&资源排除/" data-id="cjgc2o6a1000uiu78p9le22z6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十四）监控额外的路径&禁用重启md/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    SpringBoot官方文档翻译（二十四）：监控额外的路径&amp;禁用重启
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十二）自动重启/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">SpringBoot官方文档翻译（二十二）：自动重启</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
 </section>
             
                 
