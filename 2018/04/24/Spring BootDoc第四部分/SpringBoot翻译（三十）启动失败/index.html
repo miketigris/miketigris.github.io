@@ -3,22 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>SpringBoot官方文档翻译（十四）：组织你的代码 | 博客</title>
+    <title>SpringBoot官方文档翻译（三十）：启动失败 | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="14. Structuring Your Code（组织您的代码）12Spring Boot does not require any specific code layout to work.     However, there are some best practices that help. Spring B">
-<meta name="keywords" content="SpringBoot官方文档翻译第三部分">
+    <meta name="description" content="23.1 Startup Failure（启动失败）12345If your application fails to start, registered FailureAnalyzers get     a chance to provide a dedicated error message and a concr">
+<meta name="keywords" content="SpringBoot官方文档翻译第四部分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot官方文档翻译（十四）：组织你的代码">
-<meta property="og:url" content="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十四）组织你的代码/index.html">
+<meta property="og:title" content="SpringBoot官方文档翻译（三十）：启动失败">
+<meta property="og:url" content="http://yoursite.com/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（三十）启动失败/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="14. Structuring Your Code（组织您的代码）12Spring Boot does not require any specific code layout to work.     However, there are some best practices that help. Spring Boot不需要任何特殊的代码框架就能运行。然而，有一些最佳实践可以给予您更多的帮助">
+<meta property="og:description" content="23.1 Startup Failure（启动失败）12345If your application fails to start, registered FailureAnalyzers get     a chance to provide a dedicated error message and a concrete action     to fix the problem. For i">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523962657339.jpg">
-<meta property="og:updated_time" content="2018-04-20T03:27:37.560Z">
+<meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523931297126.jpg">
+<meta property="og:updated_time" content="2018-04-24T12:12:32.735Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot官方文档翻译（十四）：组织你的代码">
-<meta name="twitter:description" content="14. Structuring Your Code（组织您的代码）12Spring Boot does not require any specific code layout to work.     However, there are some best practices that help. Spring Boot不需要任何特殊的代码框架就能运行。然而，有一些最佳实践可以给予您更多的帮助">
-<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/17/1523962657339.jpg">
+<meta name="twitter:title" content="SpringBoot官方文档翻译（三十）：启动失败">
+<meta name="twitter:description" content="23.1 Startup Failure（启动失败）12345If your application fails to start, registered FailureAnalyzers get     a chance to provide a dedicated error message and a concrete action     to fix the problem. For i">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/17/1523931297126.jpg">
     
 
     
@@ -217,7 +217,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-Spring BootDoc第三部分/SpringBoot翻译（十四）组织你的代码" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Spring BootDoc第四部分/SpringBoot翻译（三十）启动失败" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -225,7 +225,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            SpringBoot官方文档翻译（十四）：组织你的代码
+            SpringBoot官方文档翻译（三十）：启动失败
         </h1>
     
 
@@ -234,8 +234,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十四）组织你的代码/">
-            <time datetime="2018-04-20T02:31:47.000Z" itemprop="datePublished">2018-04-20</time>
+        <a href="/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（三十）启动失败/">
+            <time datetime="2018-04-24T12:30:47.000Z" itemprop="datePublished">2018-04-24</time>
         </a>
     </div>
 
@@ -249,7 +249,7 @@
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a>
     </div>
 
                     </div>
@@ -260,18 +260,14 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="14-Structuring-Your-Code（组织您的代码）"><a href="#14-Structuring-Your-Code（组织您的代码）" class="headerlink" title="14. Structuring Your Code（组织您的代码）"></a>14. Structuring Your Code（组织您的代码）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot does not require any specific code layout to work.     </span><br><span class="line">However, there are some best practices that help.</span><br></pre></td></tr></table></figure>
-<p>Spring Boot不需要任何特殊的代码框架就能运行。然而，有一些最佳实践可以给予您更多的帮助。</p>
-<h2 id="14-1-Using-the-“default”-Package-使用默认包）"><a href="#14-1-Using-the-“default”-Package-使用默认包）" class="headerlink" title="14.1 Using the “default” Package(使用默认包）"></a>14.1 Using the “default” Package(使用默认包）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">When a class does not include a package declaration, it is     </span><br><span class="line">considered to be in the “default package”. The use of the     </span><br><span class="line">“default package” is generally discouraged and should be     </span><br><span class="line">avoided. It can cause particular problems for Spring Boot     </span><br><span class="line">applications that use the @ComponentScan, @EntityScan, or @SpringBootApplicationannotations, since every class     </span><br><span class="line">from every jar is read.</span><br></pre></td></tr></table></figure>
-<p>当一个类不包含包声明时，它是被认为是在“默认包”中。 使用“默认包”通常是不鼓励的，应该是<br>避免。 它可能会导致Spring Boot的特殊问题，诸如在使用@ComponentScan，@EntityScan或@SpringBootApplicationannotations的应用程序，因为每个包里的每个类都会被读取。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">We recommend that you follow Java’s recommended package naming     </span><br><span class="line">conventions and use a reversed domain name (for example,     </span><br><span class="line">com.example.project).</span><br></pre></td></tr></table></figure>
-<p>我们建议您遵循Java推荐的软件包命名约定并使用反向域名（例如，com.example.project）。</p>
-<h2 id="14-2-Locating-the-Main-Application-Class（定位主应用类）"><a href="#14-2-Locating-the-Main-Application-Class（定位主应用类）" class="headerlink" title="14.2 Locating the Main Application Class（定位主应用类）"></a>14.2 Locating the Main Application Class（定位主应用类）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">We generally recommend that you locate your main application     </span><br><span class="line">class in a root package above other  classes .The @SpringBootApplication annotation is often placed     </span><br><span class="line">on your main class, and it implicitly defines a base “search     </span><br><span class="line">package” for certain items. For example, if you are writing a     </span><br><span class="line">JPA application, the package of the @SpringBootApplication annotated     </span><br><span class="line">class is used to search for @Entity items. Using a root package also     </span><br><span class="line">allows component scan to apply only on your project.</span><br></pre></td></tr></table></figure>
-<p>我们通常推荐您将主应用类放到高于其他的类的根目录。<strong>@SpringBootApplication</strong>注解一般用于您的主应用类上，它隐含地为某些项目定义了一个基础“搜索包”。举个例子，如果你正在写一个JPA应用程序，@SpringBootApplication注释类所在的包将会用于搜索@Entity注解。 使用根包也允许组件扫描仅适用于您的项目。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If you don’t want to use @SpringBootApplication,     </span><br><span class="line">the @EnableAutoConfiguration and @ComponentScan     </span><br><span class="line">annotations that it imports defines that behaviour     </span><br><span class="line">so you can also use that instead.</span><br></pre></td></tr></table></figure></p>
-<p>如果您不想使用注解<strong>@SpringBootApplication</strong>，注解<strong>@EnableAutoConfiguration</strong> 和 <strong>@ComponentScan</strong>组合使用可以起到替代它的作用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The following listing shows a typical layout:</span><br></pre></td></tr></table></figure></p>
-<p>以下的列表显示了一个典型的类和包结构布局：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">com</span><br><span class="line"> +- example</span><br><span class="line">     +- myapplication</span><br><span class="line">         +- Application.java</span><br><span class="line">         |</span><br><span class="line">         +- customer</span><br><span class="line">         |   +- Customer.java</span><br><span class="line">         |   +- CustomerController.java</span><br><span class="line">         |   +- CustomerService.java</span><br><span class="line">         |   +- CustomerRepository.java</span><br><span class="line">         |</span><br><span class="line">         +- order</span><br><span class="line">             +- Order.java</span><br><span class="line">             +- OrderController.java</span><br><span class="line">             +- OrderService.java</span><br><span class="line">             +- OrderRepository.java</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The Application.java file would declare the main method,     </span><br><span class="line">along with the basic @SpringBootApplication, as follows:</span><br></pre></td></tr></table></figure>
-<p>Application.java文件将定义main方法，已经基本的<strong>@SpringBootApplication</strong>如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.myapplication;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(Application.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <h2 id="23-1-Startup-Failure（启动失败）"><a href="#23-1-Startup-Failure（启动失败）" class="headerlink" title="23.1 Startup Failure（启动失败）"></a>23.1 Startup Failure（启动失败）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">If your application fails to start, registered FailureAnalyzers get     </span><br><span class="line">a chance to provide a dedicated error message and a concrete action     </span><br><span class="line">to fix the problem. For instance, if you start a web application on     </span><br><span class="line">port 8080 and that port is already in use, you should see something     </span><br><span class="line">similar to the following message:</span><br></pre></td></tr></table></figure>
+<p>如果您的应用启动失败了，注册的<strong>FailureAnalyzers</strong>将获得有机会提供专门的错误信息和具体行动<br>解决问题。举个例子，如果您子啊端口8080启动一个应用，而此端口已经被使用了，将会出现如下信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">***************************</span><br><span class="line">APPLICATION FAILED TO START</span><br><span class="line">***************************</span><br><span class="line"></span><br><span class="line">Description:</span><br><span class="line"></span><br><span class="line">Embedded servlet container failed to start. Port 8080 was already in use.</span><br><span class="line"></span><br><span class="line">Action:</span><br><span class="line"></span><br><span class="line">Identify and stop the process that&apos;s listening on port 8080 or configure this application to listen on another port.</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot provides numerous FailureAnalyzer implementations, and     </span><br><span class="line">you can add your own.</span><br></pre></td></tr></table></figure>
+<p>Spring Boot提供了众多的FailureAnalyzer实现，您可以加入您自身的实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If no failure analyzers are able to handle the exception, you can     </span><br><span class="line">still display the full conditions report to better understand what     </span><br><span class="line">went wrong. To do so, you need to enable the debug property or enable DEBUG logging for      </span><br><span class="line">org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener.</span><br></pre></td></tr></table></figure>
+<p>如果没有错误分析器能够处理这个异常，依然可以展示整个的条件报告去了解到底什么出错了。这样做，您需要为以下包或者类开启debug属性或者开启DEBUG日志：<strong>org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">For instance, if you are running your application by using     </span><br><span class="line">java -jar, you can enable the debug property as follows:</span><br></pre></td></tr></table></figure>
+<p>举个例子，如果您使用java -jar去运行您的应用，您能够通过开启debug属性，如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -jar myproject-0.0.1-SNAPSHOT.jar --debug</span><br></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -282,7 +278,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十四）组织你的代码/" data-id="cjgdoidsp001o9r78l42y7ckl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（三十）启动失败/" data-id="cjgdoidt3002n9r78eni49k5h" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -357,19 +353,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十五）配置类/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（三十一）定制Banner/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    SpringBoot官方文档翻译（十五）：配置类
+                    SpringBoot官方文档翻译（三十一）：定制Banner
                 
             </div>
         </a>
     
     
-        <a href="/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十三）Starters/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（二十九）Spring Boot的功能/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">SpringBoot官方文档翻译（十三）：Starters</div>
+            <div class="article-nav-title">SpringBoot官方文档翻译（二十九）：Spring Boot的功能</div>
         </a>
     
 </nav>

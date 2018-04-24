@@ -14,7 +14,7 @@
 <meta property="og:description" content="Part IV. Spring Boot features（Spring Boot的功能）12345This section dives into the details of Spring Boot. Here you can learn     about the key features that you may want to use and customize. If you     h">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523932533990.jpg">
-<meta property="og:updated_time" content="2018-04-24T11:11:30.148Z">
+<meta property="og:updated_time" content="2018-04-24T12:03:07.305Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot官方文档翻译（二十九）：Spring Boot的功能">
 <meta name="twitter:description" content="Part IV. Spring Boot features（Spring Boot的功能）12345This section dives into the details of Spring Boot. Here you can learn     about the key features that you may want to use and customize. If you     h">
@@ -165,7 +165,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                36
+                38
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -262,6 +262,12 @@
             
             <h1 id="Part-IV-Spring-Boot-features（Spring-Boot的功能）"><a href="#Part-IV-Spring-Boot-features（Spring-Boot的功能）" class="headerlink" title="Part IV. Spring Boot features（Spring Boot的功能）"></a>Part IV. Spring Boot features（Spring Boot的功能）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">This section dives into the details of Spring Boot. Here you can learn     </span><br><span class="line">about the key features that you may want to use and customize. If you     </span><br><span class="line">have not already done so, you might want to read the &quot;Part II, “Getting     </span><br><span class="line">Started”&quot; and &quot;Part III, “Using Spring Boot”&quot; sections, so that you have     </span><br><span class="line">a good grounding of the basics.</span><br></pre></td></tr></table></figure>
 <p>本章节将介绍SPirng Boot的细节，您可以学习到你想使用和定制的关键功能。如果您还没有准备好，您可以阅读第二部分“Getting  Started”和第三部分“Using Spring Boot”章节，这样您可以具备良好的基础知识。</p>
+<h2 id="23-SpringApplication"><a href="#23-SpringApplication" class="headerlink" title="23. SpringApplication"></a>23. SpringApplication</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The SpringApplication class provides a convenient way to bootstrap     </span><br><span class="line">a Spring application that is started from a main() method. In many     </span><br><span class="line">situations, you can delegate to the static SpringApplication.run     </span><br><span class="line">method, as shown in the following example:</span><br></pre></td></tr></table></figure>
+<p>SpringApplication类提供了一个非常便捷的方式通过main（）方法去启动Spring应用。在大多数情况下，您可以通过委托给静态方法SpringApplication.run（）去启动，如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	SpringApplication.run(MySpringConfiguration.class, args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">When your application starts, you should see something similar     </span><br><span class="line">to the following output:</span><br></pre></td></tr></table></figure>
+<p>当您的应用启动后，您将看到如下的景象：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  .   ____          _            __ _ _</span><br><span class="line"> /\\ / ___<span class="string">'_ __ _ _(_)_ __  __ _ \ \ \ \</span></span><br><span class="line"><span class="string">( ( )\___ | '</span>_ | <span class="string">'_| | '</span>_ \/ _` | \ \ \ \</span><br><span class="line"> \\/  ___)| |_)| | | | | || (_| |  ) ) ) )</span><br><span class="line">  <span class="string">'  |____| .__|_| |_|_| |_\__, | / / / /</span></span><br><span class="line"><span class="string"> =========|_|==============|___/=/_/_/_/</span></span><br><span class="line"><span class="string"> :: Spring Boot ::   v2.1.0.BUILD-SNAPSHOT</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2013-07-31 00:08:16.117  INFO 56603 --- [           main] o.s.b.s.app.SampleApplication            : Starting SampleApplication v0.1.0 on mycomputer with PID 56603 (/apps/myapp.jar started by pwebb)</span></span><br><span class="line"><span class="string">2013-07-31 00:08:16.166  INFO 56603 --- [           main] ationConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6e5a8246: startup date [Wed Jul 31 00:08:16 PDT 2013]; root of context hierarchy</span></span><br><span class="line"><span class="string">2014-03-04 13:09:54.912  INFO 41370 --- [           main] .t.TomcatServletWebServerFactory : Server initialized with port: 8080</span></span><br><span class="line"><span class="string">2014-03-04 13:09:56.501  INFO 41370 --- [           main] o.s.b.s.app.SampleApplication            : Started SampleApplication in 2.992 seconds (JVM running for 3.658)</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">By default, INFO logging messages are shown, including some     </span><br><span class="line">relevant startup details, such as the user that launched the     </span><br><span class="line">application. If you need a log level other than INFO, you can     </span><br><span class="line">set it, as described in Section 26.4, “Log Levels”,</span><br></pre></td></tr></table></figure>
+<p>默认情况下，INFO级别的日志将会展示出来，包括一些相应的启动细节，诸如启动程序的用户等。如果您需要展示不仅仅是INFO级别的日志，您可以设置它，详情参照26.4章节“Log Levels”。</p>
 
         
         </div>
@@ -272,7 +278,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（二十九）Spring Boot的功能/" data-id="cjgdklmnp001o3e783sj5d1fu" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（二十九）Spring Boot的功能/" data-id="cjgdoidt4002r9r78n2x9hmgt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -347,6 +353,15 @@
         
 <nav id="article-nav">
     
+        <a href="/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（三十）启动失败/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    SpringBoot官方文档翻译（三十）：启动失败
+                
+            </div>
+        </a>
+    
     
         <a href="/2018/04/24/Spring BootDoc第三部分/SpringBoot翻译（二十八）生产环境打包/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
@@ -373,6 +388,44 @@
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（三十一）定制Banner/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="SpringBoot官方文档翻译（三十一）：定制Banner" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
+                            <p class="item-title"><a href="/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（三十一）定制Banner/" class="title">SpringBoot官方文档翻译（三十一）：定制Banner</a></p>
+                            <p class="item-date"><time datetime="2018-04-24T12:45:47.000Z" itemprop="datePublished">2018-04-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（三十）启动失败/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523931297126.jpg)" alt="SpringBoot官方文档翻译（三十）：启动失败" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
+                            <p class="item-title"><a href="/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（三十）启动失败/" class="title">SpringBoot官方文档翻译（三十）：启动失败</a></p>
+                            <p class="item-date"><time datetime="2018-04-24T12:30:47.000Z" itemprop="datePublished">2018-04-24</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -431,44 +484,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/24/Spring BootDoc第三部分/SpringBoot翻译（二十六）已知限制&LiveReload&全局设置/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962729983.jpg)" alt="SpringBoot官方文档翻译（二十六）：已知限制&amp;LiveReload&amp;全局设置" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/24/Spring BootDoc第三部分/SpringBoot翻译（二十六）已知限制&LiveReload&全局设置/" class="title">SpringBoot官方文档翻译（二十六）：已知限制&amp;LiveReload&amp;全局设置</a></p>
-                            <p class="item-date"><time datetime="2018-04-24T08:59:47.000Z" itemprop="datePublished">2018-04-24</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/24/Spring BootDoc第三部分/SpringBoot翻译（二十五）使用触发文件&定制“重启”类加载器/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962773687.jpg)" alt="SpringBoot官方文档翻译（二十五）：使用触发文件&amp;定制“重启”类加载器" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/24/Spring BootDoc第三部分/SpringBoot翻译（二十五）使用触发文件&定制“重启”类加载器/" class="title">SpringBoot官方文档翻译（二十五）：使用触发文件&amp;定制“重启”类加载器</a></p>
-                            <p class="item-date"><time datetime="2018-04-24T07:59:47.000Z" itemprop="datePublished">2018-04-24</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -478,7 +493,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -487,7 +502,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -496,7 +511,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -505,7 +520,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Effective-Java/" style="font-size: 15px;">Effective Java</a> <a href="/tags/SpringBoot官方文档翻译第三部分/" style="font-size: 20px;">SpringBoot官方文档翻译第三部分</a> <a href="/tags/SpringBoot官方文档翻译第二部分/" style="font-size: 17.5px;">SpringBoot官方文档翻译第二部分</a> <a href="/tags/SpringBoot官方文档翻译第四部分/" style="font-size: 10px;">SpringBoot官方文档翻译第四部分</a> <a href="/tags/书籍/" style="font-size: 12.5px;">书籍</a>
+            <a href="/tags/Effective-Java/" style="font-size: 15px;">Effective Java</a> <a href="/tags/SpringBoot官方文档翻译第三部分/" style="font-size: 20px;">SpringBoot官方文档翻译第三部分</a> <a href="/tags/SpringBoot官方文档翻译第二部分/" style="font-size: 17.5px;">SpringBoot官方文档翻译第二部分</a> <a href="/tags/SpringBoot官方文档翻译第四部分/" style="font-size: 12.5px;">SpringBoot官方文档翻译第四部分</a> <a href="/tags/书籍/" style="font-size: 10px;">书籍</a>
         </div>
     </div>
 
