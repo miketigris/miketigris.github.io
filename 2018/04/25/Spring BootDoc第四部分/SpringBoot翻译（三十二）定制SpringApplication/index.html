@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>分类: 随笔 | 博客</title>
+    <title>SpringBoot官方文档翻译（三十二）：定制SpringApplication | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="许贵荣">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://yoursite.com/categories/随笔/index.html">
+    <meta name="description" content="23.3 Customizing SpringApplication（定制SpringApplication）123If the SpringApplication defaults are not to your taste, you can instead     create a local instance a">
+<meta name="keywords" content="SpringBoot官方文档翻译第四部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot官方文档翻译（三十二）：定制SpringApplication">
+<meta property="og:url" content="http://yoursite.com/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十二）定制SpringApplication/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="许贵荣">
+<meta property="og:description" content="23.3 Customizing SpringApplication（定制SpringApplication）123If the SpringApplication defaults are not to your taste, you can instead     create a local instance and customize it. For example, to turn of">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.wailian.work/images/2018/04/20/1524194162815.jpg">
+<meta property="og:updated_time" content="2018-04-25T03:39:22.249Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:description" content="许贵荣">
+<meta name="twitter:title" content="SpringBoot官方文档翻译（三十二）：定制SpringApplication">
+<meta name="twitter:description" content="23.3 Customizing SpringApplication（定制SpringApplication）123If the SpringApplication defaults are not to your taste, you can instead     create a local instance and customize it. For example, to turn of">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/20/1524194162815.jpg">
     
 
     
@@ -213,86 +217,165 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title">随笔</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-Spring BootDoc第四部分/SpringBoot翻译（三十二）定制SpringApplication" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/29/博客使用说明/">博客使用示例</a>
+        <h1 class="article-title" itemprop="name">
+            SpringBoot官方文档翻译（三十二）：定制SpringApplication
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/11/29/博客使用说明/">
-            <time datetime="2017-11-29T09:40:59.000Z" itemprop="datePublished">2017-11-29</time>
+        <a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十二）定制SpringApplication/">
+            <time datetime="2018-04-25T03:39:47.000Z" itemprop="datePublished">2018-04-25</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/随笔/">随笔</a>
+        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/书籍/">书籍</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/29/Markdown语法/">Mark Down语法</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="23-3-Customizing-SpringApplication（定制SpringApplication）"><a href="#23-3-Customizing-SpringApplication（定制SpringApplication）" class="headerlink" title="23.3 Customizing SpringApplication（定制SpringApplication）"></a>23.3 Customizing SpringApplication（定制SpringApplication）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If the SpringApplication defaults are not to your taste, you can instead     </span><br><span class="line">create a local instance and customize it. For example, to turn off the     </span><br><span class="line">banner, you could write:</span><br></pre></td></tr></table></figure>
+<p>如果SpringApplication默认设置不符合您的口味，您可以创建一个本地实例替换定制它。举个例子，想要关闭banner您可以这样写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	SpringApplication app = <span class="keyword">new</span> SpringApplication(MySpringConfiguration.class);</span><br><span class="line">	app.setBannerMode(Banner.Mode.OFF);</span><br><span class="line">	app.run(args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">The constructor arguments passed to SpringApplication are     </span><br><span class="line">configuration sources for Spring beans. In most cases, these     </span><br><span class="line">are references to @Configuration classes, but they could also     </span><br><span class="line">be references to XML configuration or to packages that should     </span><br><span class="line">be scanned.</span><br></pre></td></tr></table></figure>
+<p>传递给SpringApplication的构造函数参数是Spring bean的配置源。在大多数情况下，这将会关联到一个@Configuration的配置类，但它同样支持关联到XML配置或者关联到那些需要被扫描的包。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">It is also possible to configure the SpringApplication by     </span><br><span class="line">using an application.properties file. See Chapter 24, Externalized Configuration for details.    </span><br><span class="line">For a complete list of the configuration options, see the SpringApplication Javadoc.</span><br></pre></td></tr></table></figure></p>
+<p>同样可以使用application.properties来配置SpringApplication。细节请查看章节24“Externalized Configuration ”。<br>需要了解完整的可选配置，请查看SpringApplication的Javadoc或者源码。</p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/11/29/Markdown语法/">
-            <time datetime="2017-11-29T09:39:59.000Z" itemprop="datePublished">2017-11-29</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/随笔/">随笔</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/书籍/">书籍</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://yoursite.com/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十二）定制SpringApplication/" data-id="cjgeysn4c002spt78nsn942m8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十三）流式编程接口/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    SpringBoot官方文档翻译（三十三）：流式编程接口
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十一）定制Banner/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">SpringBoot官方文档翻译（三十一）：定制Banner</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
 </section>
             
                 

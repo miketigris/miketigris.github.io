@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>分类: 随笔 | 博客</title>
+    <title>SpringBoot官方文档翻译（三十四）：应用事件和监听 | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="许贵荣">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://yoursite.com/categories/随笔/index.html">
+    <meta name="description" content="23.5 Application Events and Listeners（应用事件和监听）123In addition to the usual Spring Framework events, such as     ContextRefreshedEvent, a SpringApplication sends ">
+<meta name="keywords" content="SpringBoot官方文档翻译第四部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot官方文档翻译（三十四）：应用事件和监听">
+<meta property="og:url" content="http://yoursite.com/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="许贵荣">
+<meta property="og:description" content="23.5 Application Events and Listeners（应用事件和监听）123In addition to the usual Spring Framework events, such as     ContextRefreshedEvent, a SpringApplication sends some additional     application events.">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523962657339.jpg">
+<meta property="og:updated_time" content="2018-04-25T08:31:08.022Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:description" content="许贵荣">
+<meta name="twitter:title" content="SpringBoot官方文档翻译（三十四）：应用事件和监听">
+<meta name="twitter:description" content="23.5 Application Events and Listeners（应用事件和监听）123In addition to the usual Spring Framework events, such as     ContextRefreshedEvent, a SpringApplication sends some additional     application events.">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/17/1523962657339.jpg">
     
 
     
@@ -213,86 +217,152 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title">随笔</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/29/博客使用说明/">博客使用示例</a>
+        <h1 class="article-title" itemprop="name">
+            SpringBoot官方文档翻译（三十四）：应用事件和监听
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/11/29/博客使用说明/">
-            <time datetime="2017-11-29T09:40:59.000Z" itemprop="datePublished">2017-11-29</time>
+        <a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/">
+            <time datetime="2018-04-25T08:39:47.000Z" itemprop="datePublished">2018-04-25</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/随笔/">随笔</a>
+        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/书籍/">书籍</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/29/Markdown语法/">Mark Down语法</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="23-5-Application-Events-and-Listeners（应用事件和监听）"><a href="#23-5-Application-Events-and-Listeners（应用事件和监听）" class="headerlink" title="23.5 Application Events and Listeners（应用事件和监听）"></a>23.5 Application Events and Listeners（应用事件和监听）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In addition to the usual Spring Framework events, such as     </span><br><span class="line">ContextRefreshedEvent, a SpringApplication sends some additional     </span><br><span class="line">application events.</span><br></pre></td></tr></table></figure>
+<p>除了通常的Spring框架事件（如ContextRefreshedEvent）之外，SpringApplication还会发送一些其他应用程序事件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Some events are actually triggered before the ApplicationContext is     </span><br><span class="line">created, so you cannot register a listener on those as a @Bean. You     </span><br><span class="line">can register them with the SpringApplication.addListeners(… ) method or    </span><br><span class="line"> the SpringApplicationBuilder.listeners(… ) method.    </span><br><span class="line">If you want those listeners to be registered automatically, regardless     </span><br><span class="line">of the way the application is created, you can add a     </span><br><span class="line">META-INF/spring.factoriesfile to your project and reference your     </span><br><span class="line">listener(s) by using the org.springframework.context.ApplicationListener     </span><br><span class="line">key, as shown in the following example:</span><br><span class="line">org.springframework.context.ApplicationListener=com.example.project.MyListener</span><br></pre></td></tr></table></figure></p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/11/29/Markdown语法/">
-            <time datetime="2017-11-29T09:39:59.000Z" itemprop="datePublished">2017-11-29</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/随笔/">随笔</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/书籍/">书籍</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://yoursite.com/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" data-id="cjgeysn4d002vpt78jy8w23s6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十三）流式编程接口/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">SpringBoot官方文档翻译（三十三）：流式编程接口</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
 </section>
             
                 

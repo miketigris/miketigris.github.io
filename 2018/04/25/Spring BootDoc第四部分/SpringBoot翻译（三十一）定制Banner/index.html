@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>分类: 随笔 | 博客</title>
+    <title>SpringBoot官方文档翻译（三十一）：定制Banner | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="许贵荣">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://yoursite.com/categories/随笔/index.html">
+    <meta name="description" content="23.2 Customizing the Banner（定制Banner）123456789The banner that is printed on start up can be changed by adding a     banner.txt file to your classpath or by sett">
+<meta name="keywords" content="SpringBoot官方文档翻译第四部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot官方文档翻译（三十一）：定制Banner">
+<meta property="og:url" content="http://yoursite.com/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十一）定制Banner/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="许贵荣">
+<meta property="og:description" content="23.2 Customizing the Banner（定制Banner）123456789The banner that is printed on start up can be changed by adding a     banner.txt file to your classpath or by setting    the spring.banner.location proper">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.wailian.work/images/2018/04/20/1524194203156.jpg">
+<meta property="og:updated_time" content="2018-04-25T03:12:01.526Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:description" content="许贵荣">
+<meta name="twitter:title" content="SpringBoot官方文档翻译（三十一）：定制Banner">
+<meta name="twitter:description" content="23.2 Customizing the Banner（定制Banner）123456789The banner that is printed on start up can be changed by adding a     banner.txt file to your classpath or by setting    the spring.banner.location proper">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/20/1524194203156.jpg">
     
 
     
@@ -213,86 +217,201 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title">随笔</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-Spring BootDoc第四部分/SpringBoot翻译（三十一）定制Banner" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/29/博客使用说明/">博客使用示例</a>
+        <h1 class="article-title" itemprop="name">
+            SpringBoot官方文档翻译（三十一）：定制Banner
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/11/29/博客使用说明/">
-            <time datetime="2017-11-29T09:40:59.000Z" itemprop="datePublished">2017-11-29</time>
+        <a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十一）定制Banner/">
+            <time datetime="2018-04-25T03:11:47.000Z" itemprop="datePublished">2018-04-25</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/随笔/">随笔</a>
+        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/书籍/">书籍</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/11/29/Markdown语法/">Mark Down语法</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="23-2-Customizing-the-Banner（定制Banner）"><a href="#23-2-Customizing-the-Banner（定制Banner）" class="headerlink" title="23.2 Customizing the Banner（定制Banner）"></a>23.2 Customizing the Banner（定制Banner）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">The banner that is printed on start up can be changed by adding a     </span><br><span class="line">banner.txt file to your classpath or by setting    </span><br><span class="line">the spring.banner.location property to the location of such a file.     </span><br><span class="line">If the file has an encoding other than UTF-8, you can set     </span><br><span class="line">spring.banner.charset. In addition to a text file, you can also     </span><br><span class="line">add a banner.gif, banner.jpg, or banner.png image file to your     </span><br><span class="line">classpath or set the spring.banner.image.location property. Images     </span><br><span class="line">are converted into an ASCII art representation and printed above     </span><br><span class="line">any text banner.</span><br></pre></td></tr></table></figure>
+<p>当应用启动的时候显示的那个Banner是可以被放在类路径下的banner.txt所改变，或者通过设置<strong>spring.banner.location</strong>属性来指定bannner的位置。如果该banner文件的编码格式不是UTF-8，您可以通过设置<strong>spring.banner.charset</strong>来指定编码格式。除了text文件以外，您还可以指定一个banner.gif格式的文件，或者banner.jpg或者banner.png的图片文件到您类路径下，或者通过设置<strong>spring.banner.image.location</strong>属性来指定该图片位置。图片被转换成ASCII艺术表示并在上面打印任何文字横幅。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Inside your banner.txt file, you can use any of the following placeholders:</span><br></pre></td></tr></table></figure></p>
+<p>在banner.txt文件中，您可以使用以下任何占位符：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>${application.version}</td>
+<td>您应用的版本信息,诸如定义在MANIFEST.MF中的。举个例子,Implementation-Version: 1.0 则打印1.0.</td>
+</tr>
+<tr>
+<td>${application.formatted-version}</td>
+<td>同上，并且被格式化后显示  (用括号包围，并以v开头). 举个例子(v1.0).</td>
+</tr>
+<tr>
+<td>${spring-boot.version}</td>
+<td>Spring Boot的版本。举个例子(v2.1.0.BUILD-SNAPSHOT).</td>
+</tr>
+<tr>
+<td>${spring-boot.formatted-version}</td>
+<td>同上，并且被格式化后显示(用括号包围，并以v开头). 举个例子 (v2.1.0.BUILD-SNAPSHOT).</td>
+</tr>
+<tr>
+<td>${Ansi.NAME} (or ${AnsiColor.NAME},${AnsiBackground.NAME}, ${AnsiStyle.NAME})</td>
+<td>其中NAME是ANSI转义代码的名称，可以参考<a href="https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/ansi/AnsiPropertySource.java" target="_blank" rel="noopener">https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/ansi/AnsiPropertySource.java</a></td>
+</tr>
+<tr>
+<td>${application.title}</td>
+<td>您的应用的标题，定义在MANIFEST.MF中。举个例子Implementation-Title: MyApp则打印“MyApp”</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The SpringApplication.setBanner(… ) method can be used if you want     </span><br><span class="line">to generate a banner programmatically. Use    </span><br><span class="line"> the org.springframework.boot.Banner interface and implement your own printBanner() method.</span><br></pre></td></tr></table></figure>
+<p>如果需要，可以使用SpringApplication.setBanner（…）方法以编程方式生成横幅。使用<strong>org.springframework.boot.Banner</strong>接口实现您自己的printBanner()方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">You can also use the spring.main.banner-mode property to determine if     </span><br><span class="line">the banner has to be printed on System.out (console), sent to the     </span><br><span class="line">configured logger (log), or not produced at all (off).</span><br></pre></td></tr></table></figure></p>
+<p>您也可以使用<strong>spring.main.banner-mode</strong>属性来确定是否横幅必须打印在System.out（控制台）上，发送到配置记录器（日志），或根本不生产（关闭）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The printed banner is registered as a singleton bean under     </span><br><span class="line">the following name: springBootBanner.</span><br></pre></td></tr></table></figure></p>
+<p>打印banner被注册为一个名为“springBootBanner”的单例bean。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">YAML maps off to false, so be sure to add quotes if you want to     </span><br><span class="line">disable the banner in your application, as shown in the following example:</span><br><span class="line">spring:</span><br><span class="line">	main:</span><br><span class="line">		banner-mode: &quot;off&quot;</span><br></pre></td></tr></table></figure></p>
+<p>YAML映射“off”为“false”，因此如果您想在应用程序中禁用横幅，请务必添加引号。</p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/11/29/Markdown语法/">
-            <time datetime="2017-11-29T09:39:59.000Z" itemprop="datePublished">2017-11-29</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/随笔/">随笔</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/书籍/">书籍</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://yoursite.com/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十一）定制Banner/" data-id="cjgeysn49002lpt78c3qrx6n8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十二）定制SpringApplication/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    SpringBoot官方文档翻译（三十二）：定制SpringApplication
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（三十）启动失败/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">SpringBoot官方文档翻译（三十）：启动失败</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
 </section>
             
                 

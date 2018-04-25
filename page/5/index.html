@@ -3,22 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>SpringBoot官方文档翻译（二十二）：自动重启 | 博客</title>
+    <title>博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="20.2 Automatic Restart（自动重启）1234567Applications that use spring-boot-devtools automatically restart     whenever files on the classpath change. This can be a us">
-<meta name="keywords" content="SpringBoot官方文档翻译第三部分">
-<meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot官方文档翻译（二十二）：自动重启">
-<meta property="og:url" content="http://yoursite.com/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十二）自动重启/index.html">
+    <meta name="description" content="许贵荣">
+<meta property="og:type" content="website">
+<meta property="og:title" content="博客">
+<meta property="og:url" content="http://yoursite.com/page/5/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="20.2 Automatic Restart（自动重启）1234567Applications that use spring-boot-devtools automatically restart     whenever files on the classpath change. This can be a useful     feature when working in an IDE,">
+<meta property="og:description" content="许贵荣">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.wailian.work/images/2018/04/20/1524194162815.jpg">
-<meta property="og:updated_time" content="2018-04-23T07:33:46.815Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot官方文档翻译（二十二）：自动重启">
-<meta name="twitter:description" content="20.2 Automatic Restart（自动重启）1234567Applications that use spring-boot-devtools automatically restart     whenever files on the classpath change. This can be a useful     feature when working in an IDE,">
-<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/20/1524194162815.jpg">
+<meta name="twitter:title" content="博客">
+<meta name="twitter:description" content="许贵荣">
     
 
     
@@ -217,15 +213,16 @@
 </aside>
 
             
-            <section id="main"><article id="post-Spring BootDoc第三部分/SpringBoot翻译（二十二）自动重启" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main">
+    <article id="post-Markdown语法" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
             <header class="article-header">
                 
     
-        <h1 class="article-title" itemprop="name">
-            SpringBoot官方文档翻译（二十二）：自动重启
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/11/29/Markdown语法/">Mark Down语法</a>
         </h1>
     
 
@@ -234,8 +231,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十二）自动重启/">
-            <time datetime="2018-04-23T07:24:47.000Z" itemprop="datePublished">2018-04-23</time>
+        <a href="/2017/11/29/Markdown语法/">
+            <time datetime="2017-11-29T09:39:59.000Z" itemprop="datePublished">2017-11-29</time>
         </a>
     </div>
 
@@ -243,13 +240,13 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
+        <a class="article-category-link" href="/categories/随笔/">随笔</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
+        <a class="tag-link" href="/tags/书籍/">书籍</a>
     </div>
 
                     </div>
@@ -259,18 +256,125 @@
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <h2 id="20-2-Automatic-Restart（自动重启）"><a href="#20-2-Automatic-Restart（自动重启）" class="headerlink" title="20.2 Automatic Restart（自动重启）"></a>20.2 Automatic Restart（自动重启）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Applications that use spring-boot-devtools automatically restart     </span><br><span class="line">whenever files on the classpath change. This can be a useful     </span><br><span class="line">feature when working in an IDE, as it gives a very fast feedback     </span><br><span class="line">loop for code changes. By default, any entry on the classpath     </span><br><span class="line">that points to a folder is monitored for changes. Note that     </span><br><span class="line">certain resources, such as static assets and view templates,     </span><br><span class="line">do not need to restart the application.</span><br></pre></td></tr></table></figure>
-<p>如果类路径下的文件被改动了，您的应用将会使用<strong>spring-boot-devtools</strong>自动重启。这将会是一个作用于您的IDE的非常有用的功能，它将会以最快的速度给您的代码修改做出反馈。默认情况下，任何类路径下的东西和文件夹中的东西都将会被监控是否被修改。注意某些资源（如静态资产和视图模板）不需要重新启动应用程序。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Triggering a restart</span><br><span class="line">As DevTools monitors classpath resources, the only way to     </span><br><span class="line">trigger a restart is to update the classpath. The way in     </span><br><span class="line">which you cause the classpath to be updated depends on the     </span><br><span class="line">IDE that you are using. In Eclipse, saving a modified file     </span><br><span class="line">causes the classpath to be updated and triggers a restart.     </span><br><span class="line">In IntelliJ IDEA, building the project (Build -&gt; Build Project)     </span><br><span class="line">has the same effect.</span><br></pre></td></tr></table></figure>
-<p>触发重启<br>由于DevTools监控类路径下的资源，所以只有更新类路径资源才能触发重启。如何触发类路径资源变更从而触发重启取决于您使用的IDE。在Eclipse中，保存修改文件将会触发重启，在IDEA中，构建项目会产生同样的效果。(Build -&gt; Build Project)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">As long as forking is enabled, you can also start your     </span><br><span class="line">application by using the supported build plugins (Maven     </span><br><span class="line">and Gradle), since DevTools needs an isolated application     </span><br><span class="line">classloader to operate properly. By default, Gradle and Maven     </span><br><span class="line">do that when they detect DevTools on the classpath.</span><br></pre></td></tr></table></figure></p>
-<p>只要使用分叉，您可以使用插件（Maven和Gradle）启动您的应用，因为DevTools需要隔离应用类加载器去操作属性。默认情况下，当他们在类路径中检测到DevTools时，Gradle和Maven会这样做。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Automatic restart works very well when used with LiveReload.     </span><br><span class="line">See the LiveReload section for details. If you use JRebel,     </span><br><span class="line">automatic restarts are disabled in favor of dynamic class     </span><br><span class="line">reloading. Other devtools features (such as LiveReload and     </span><br><span class="line">property overrides) can still be used.</span><br></pre></td></tr></table></figure></p>
-<p>与LiveReload一起使用时，自动重启的效果非常好。可以查看20.3-LiveReload章节了解更多细节。如果你使用JRebel，自动重新启动被禁用，以支持动态类重装。 其他devtools功能（如LiveReload和属性覆盖）仍然可以使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DevTools relies on the application context’s shutdown hook to     </span><br><span class="line">close it during a restart. It does not work correctly if you have     </span><br><span class="line">disabled the shutdown hook (SpringApplication.setRegisterShutdownHook(false)).</span><br></pre></td></tr></table></figure></p>
-<p>重启的时候，DevTools依赖应用上下文的关闭钩子去关闭它。如果您禁用了关闭钩子<strong>(SpringApplication.setRegisterShutdownHook(false))</strong>，它将无法正常工作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">When deciding if an entry on the classpath should trigger a     </span><br><span class="line">restart when it changes, DevTools automatically ignores     </span><br><span class="line">projects named spring-boot,spring-boot-devtools, spring-boot-    </span><br><span class="line">autoconfigure, spring-boot-actuator, and spring-boot-starter.</span><br></pre></td></tr></table></figure></p>
-<p>当决策类路径下某个条目改变了是否应该触发重启的时候，DevTools自动忽略那些以spring-boot,spring-boot-devtools, spring-boot-autoconfigure, spring-boot-actuator, and spring-boot-starter命名的项目名称。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DevTools needs to customize the ResourceLoader used by the     </span><br><span class="line">ApplicationContext. If your application provides one already,      </span><br><span class="line">it is going to be wrapped. Direct override of the getResource     </span><br><span class="line">method on the ApplicationContext is not supported.</span><br></pre></td></tr></table></figure></p>
-<p>DevTools需要自定义ApplicationContext中使用的资源加载器（ResourceLoader）。如果您的应用已经提供了一个，他将被代理包裹起来。不允许直接重写ApplicationContext中的getResource方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Restart vs Reload</span><br><span class="line">The restart technology provided by Spring Boot works by using     </span><br><span class="line">two classloaders. Classes that do not change (for example, those     </span><br><span class="line">from third-party jars) are loaded into a base classloader. Classes     </span><br><span class="line">that you are actively developing are loaded into a restart classloader.     </span><br><span class="line">When the application is restarted, the restart classloader is thrown      </span><br><span class="line">away and a new one is created. This approach means that application     </span><br><span class="line">restarts are typically much faster than “cold starts”, since the base     </span><br><span class="line">classloader is already available and populated.</span><br><span class="line">If you find that restarts are not quick enough for your applications     </span><br><span class="line">or you encounter classloading issues, you could consider reloading     </span><br><span class="line">technologies such as JRebelfrom ZeroTurnaround. These work by rewriting     </span><br><span class="line">classes as they are loaded to make them more amenable to reloading.</span><br></pre></td></tr></table></figure></p>
-<p>重启和重载<br>Spring Boot是通过使用2个类加载器来提供重启技术的。不被修改得类（例如第三方jar）将会被加载到一个基础的类加载器中。那些您真实要修改的类将会被加载到一个“重启”类加载器中。当应用重启的时候，“重启”类加载器将会被抛弃并重新创建一个新的“重启”类加载器。这种方法意味着应用程序重新启动通常比“冷启动”快得多，因为基类加载器已经可用并且已被填充。<br>如果您发现重启对于您的应用程序来说不够快，或者遇到类加载问题，则可以考虑从ZeroTurnaround中重新加载技术，例如JRebel。 这些工作通过在加载类时重写类来使它们更易于重新加载。</p>
+            <p><blockquote>
+<p>我在mac下用的Markdown编辑器是免费的Lite MWeb，从官方说明上摘抄下语法，以后备用</p>
+</blockquote>
+<h2 id="本文约定"><a href="#本文约定" class="headerlink" title="本文约定"></a>本文约定</h2><p>如果有写 <code>效果如下：</code>， 在 MWeb 编辑状态下只有用 <code>CMD + 4</code> 或 <code>CMD + R</code> 预览才可以看效果。</p>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>Markdown 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 第一级标题 `&lt;h1&gt;` </span><br><span class="line">## 第二级标题 `&lt;h2&gt;` </span><br><span class="line">###### 第六级标题 `&lt;h6&gt;`</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<h1 id="第一级标题-lt-h1-gt"><a href="#第一级标题-lt-h1-gt" class="headerlink" title="第一级标题 &lt;h1&gt;"></a>第一级标题 <code>&lt;h1&gt;</code></h1><h2 id="第二级标题-lt-h2-gt"><a href="#第二级标题-lt-h2-gt" class="headerlink" title="第二级标题 &lt;h2&gt;"></a>第二级标题 <code>&lt;h2&gt;</code></h2><h6 id="第六级标题-lt-h6-gt"><a href="#第六级标题-lt-h6-gt" class="headerlink" title="第六级标题 &lt;h6&gt;"></a>第六级标题 <code>&lt;h6&gt;</code></h6><h2 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h2><p>Markdown 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*这些文字会生成`&lt;em&gt;`*</span><br><span class="line">_这些文字会生成`&lt;u&gt;`_</span><br><span class="line"></span><br><span class="line">**这些文字会生成`&lt;strong&gt;`**</span><br><span class="line">__这些文字会生成`&lt;strong&gt;`__</span><br></pre></td></tr></table></figure>
+<p>在 MWeb 中的快捷键为： <code>CMD + U</code>、<code>CMD + I</code>、<code>CMD + B</code><br>效果如下：</p>
+<p><em>这些文字会生成<code>&lt;em&gt;</code></em><br><em>这些文字会生成<code>&lt;u&gt;</code></em></p>
+<p><strong>这些文字会生成<code>&lt;strong&gt;</code></strong><br><strong>这些文字会生成<code>&lt;strong&gt;</code></strong></p>
+<h2 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h2><p>四个及以上空格加回车。<br>如果不想打这么多空格，只要回车就为换行，请勾选：<code>Preferences</code> - <code>Themes</code> - <code>Translate newlines to &lt;br&gt; tags</code></p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>Markdown 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* 项目一 无序列表 `* + 空格键`</span><br><span class="line">* 项目二</span><br><span class="line">* 项目二的子项目一 无序列表 `TAB + * + 空格键`</span><br><span class="line">* 项目二的子项目二</span><br></pre></td></tr></table></figure>
+<p>在 MWeb 中的快捷键为： <code>Option + U</code><br>效果如下：</p>
+<ul>
+<li>项目一 无序列表 <code>* + 空格键</code></li>
+<li>项目二</li>
+<li>项目二的子项目一 无序列表 <code>TAB + * + 空格键</code></li>
+<li>项目二的子项目二</li>
+</ul>
+<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><p>Markdown 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 项目一 有序列表 `数字 + . + 空格键`</span><br><span class="line">2. 项目二 </span><br><span class="line">3. 项目三</span><br><span class="line">1. 项目三的子项目一 有序列表 `TAB + 数字 + . + 空格键`</span><br><span class="line">2. 项目三的子项目二</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<ol>
+<li>项目一 有序列表 <code>数字 + . + 空格键</code></li>
+<li>项目二 </li>
+<li>项目三</li>
+<li>项目三的子项目一 有序列表 <code>TAB + 数字 + . + 空格键</code></li>
+<li>项目三的子项目二</li>
+</ol>
+<h3 id="任务列表（Task-lists）"><a href="#任务列表（Task-lists）" class="headerlink" title="任务列表（Task lists）"></a>任务列表（Task lists）</h3><p>Markdown 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- [ ] 任务一 未做任务 `- + 空格 + [ ]`</span><br><span class="line">- [x] 任务二 已做任务 `- + 空格 + [x]`</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 任务一 未做任务 <code>- + 空格 + [ ]</code></li>
+<li style="list-style: none"><input type="checkbox" checked> 任务二 已做任务 <code>- + 空格 + [x]</code></li>
+</ul>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>Markdown 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![GitHub set up](http://zh.mweb.im/asset/img/set-up-git.gif)</span><br><span class="line">格式: ![Alt Text](url)</span><br></pre></td></tr></table></figure>
+<p><code>Control + Shift + I</code> 可插入Markdown语法。<br>如果是 MWeb 的文档库中的文档，还可以用拖放图片、<code>CMD + V</code> 粘贴、<code>CMD + Option + I</code> 导入这三种方式来增加图片。<br>效果如下：</p>
+<p><img src="http://zh.mweb.im/asset/img/set-up-git.gif" alt="GitHub set up"></p>
+<p>MWeb 引入的特别的语法来设置图片宽度，方法是在图片描述后加 <code>-w + 图片宽度</code> 即可，比如说要设置上面的图片的宽度为 140，语法如下：</p>
+<p><img src="http://zh.mweb.im/asset/img/set-up-git.gif" alt="GitHub set up-w140"></p>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>Markdown 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">email &lt;example@example.com&gt;</span><br><span class="line">[GitHub](http://github.com)</span><br><span class="line">自动生成连接  &lt;http://www.github.com/&gt;</span><br></pre></td></tr></table></figure>
+<p><code>Control + Shift + L</code> 可插入Markdown语法。<br>如果是 MWeb 的文档库中的文档，拖放或<code>CMD + Option + I</code> 导入非图片时，会生成连接。<br>效果如下：</p>
+<p>Email 连接： <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#111;&#58;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#x65;&#x40;&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;">&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#x65;&#x40;&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;</a><br><a href="http://github.com" target="_blank" rel="noopener">连接标题Github网站</a><br>自动生成连接像： <a href="http://www.github.com/" target="_blank" rel="noopener">http://www.github.com/</a> 这样</p>
+<h2 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h2><p>Markdown 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">某某说:</span><br><span class="line">&gt; 第一行引用</span><br><span class="line">&gt; 第二行费用文字</span><br></pre></td></tr></table></figure>
+<p><code>CMD + Shift + B</code> 可插入Markdown语法。<br>效果如下：</p>
+<p>某某说:</p>
+<blockquote>
+<p>第一行引用<br>第二行费用文字</p>
+</blockquote>
+<h2 id="行内代码"><a href="#行内代码" class="headerlink" title="行内代码"></a>行内代码</h2><p>Markdown 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">像这样即可：`&lt;addr&gt;` `code`</span><br></pre></td></tr></table></figure>
+<p><code>CMD + K</code> 可插入Markdown语法。<br>效果如下：</p>
+<p>像这样即可：<code>&lt;addr&gt;</code> <code>code</code></p>
+<h2 id="多行或者一段代码"><a href="#多行或者一段代码" class="headerlink" title="多行或者一段代码"></a>多行或者一段代码</h2><p>Markdown 语法：</p>
+<pre><code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fancyAlert</span>(<span class="params">arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arg) &#123;</span><br><span class="line">    $.facebox(&#123;<span class="attr">div</span>:<span class="string">'#foo'</span>&#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><p><code>CMD + Shift + K</code> 可插入Markdown语法。<br>效果如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fancyAlert</span>(<span class="params">arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(arg) &#123;</span><br><span class="line">    $.facebox(&#123;<span class="attr">div</span>:<span class="string">'#foo'</span>&#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="顺序图或流程图"><a href="#顺序图或流程图" class="headerlink" title="顺序图或流程图"></a>顺序图或流程图</h2><p>Markdown 语法：</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">张三-&gt;李四: 嘿，小四儿, 写博客了没?</span><br><span class="line">Note right of 李四: 李四愣了一下，说：</span><br><span class="line">李四--&gt;张三: 忙得吐血，哪有时间写。</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 开始</span><br><span class="line">e=&gt;end: 结束</span><br><span class="line">op=&gt;operation: 我的操作</span><br><span class="line">cond=&gt;condition: 确认？</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
+</code></pre><p>效果如下（ <code>Preferences</code> - <code>Themes</code> - <code>Enable sequence &amp; flow chart</code> 才会看到效果 ）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">张三-&gt;李四: 嘿，小四儿, 写博客了没?</span><br><span class="line">Note right of 李四: 李四愣了一下，说：</span><br><span class="line">李四--&gt;张三: 忙得吐血，哪有时间写。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 开始</span><br><span class="line">e=&gt;end: 结束</span><br><span class="line">op=&gt;operation: 我的操作</span><br><span class="line">cond=&gt;condition: 确认？</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
+<p>更多请参考：<a href="http://bramp.github.io/js-sequence-diagrams/" target="_blank" rel="noopener">http://bramp.github.io/js-sequence-diagrams/</a>, <a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="noopener">http://adrai.github.io/flowchart.js/</a></p>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>Markdown 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第一格表头 | 第二格表头</span><br><span class="line">--------- | -------------</span><br><span class="line">内容单元格 第一列第一格 | 内容单元格第二列第一格</span><br><span class="line">内容单元格 第一列第二格 多加文字 | 内容单元格第二列第二格</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<table>
+<thead>
+<tr>
+<th>第一格表头</th>
+<th>第二格表头</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内容单元格 第一列第一格</td>
+<td>内容单元格第二列第一格</td>
+</tr>
+<tr>
+<td>内容单元格 第一列第二格 多加文字</td>
+<td>内容单元格第二列第二格</td>
+</tr>
+</tbody>
+</table>
+<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><p>Markdown 语法：</p>
+<p>加删除线像这样用： <del>删除这些</del></p>
+<p>效果如下：</p>
+<p>加删除线像这样用： <del>删除这些</del></p>
+<h2 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h2><p>以下三种方式都可以生成分隔线：</p>
+<hr>
+<hr>
+<hr>
+<p>效果如下：</p>
+<hr>
+<hr>
+<hr>
+<h2 id="MathJax"><a href="#MathJax" class="headerlink" title="MathJax"></a>MathJax</h2><p>Markdown 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">块级公式：</span><br><span class="line">$$	x = \dfrac&#123;-b \pm \sqrt&#123;b^2 - 4ac&#125;&#125;&#123;2a&#125; $$</span><br><span class="line"></span><br><span class="line">\\[ \frac&#123;1&#125;&#123;\Bigl(\sqrt&#123;\phi \sqrt&#123;5&#125;&#125;-\phi\Bigr) e^&#123;\frac25 \pi&#125;&#125; =</span><br><span class="line">1+\frac&#123;e^&#123;-2\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-4\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-6\pi&#125;&#125;</span><br><span class="line">&#123;1+\frac&#123;e^&#123;-8\pi&#125;&#125; &#123;1+\ldots&#125; &#125; &#125; &#125; \\]</span><br><span class="line"></span><br><span class="line">行内公式： $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$</span><br></pre></td></tr></table></figure>
+<p>效果如下（<code>Preferences</code> - <code>Themes</code> - <code>Enable MathJax</code> 才会看到效果）：</p>
+<p>块级公式：<br>$$    x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</p>
+<p>\[ \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} =<br>1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}<br>{1+\frac{e^{-8\pi}} {1+\ldots} } } } \]</p>
+<p>行内公式： $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$</p>
+<h2 id="脚注（Footnote）"><a href="#脚注（Footnote）" class="headerlink" title="脚注（Footnote）"></a>脚注（Footnote）</h2><p>Markdown 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个脚注：[^sample_footnote]</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p>这是一个脚注：<a href="这里是脚注信息">^sample_footnote</a></p>
+<h2 id="注释和阅读更多"><a href="#注释和阅读更多" class="headerlink" title="注释和阅读更多"></a>注释和阅读更多</h2><!-- comment --></p>
+            <p class="article-more-link">
+                <a href="/2017/11/29/Markdown语法/#more">查看更多</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -280,7 +384,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十二）自动重启/" data-id="cjgeysn3m001apt78xgy88wut" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/11/29/Markdown语法/" data-id="cjgeysmz80000pt78skfq81wu" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -352,34 +456,13 @@
         </footer>
     </div>
     
-        
-<nav id="article-nav">
-    
-        <a href="/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十三）条件日志&资源排除/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    SpringBoot官方文档翻译（二十三）：条件日志&amp;资源排除
-                
-            </div>
-        </a>
-    
-    
-        <a href="/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十）开发者工具/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">SpringBoot官方文档翻译（二十）：开发者工具</div>
-        </a>
-    
-</nav>
-
-
-    
 </article>
 
 
-    
-    
 
+    <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/page/4/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    </nav>
 </section>
             
                 
