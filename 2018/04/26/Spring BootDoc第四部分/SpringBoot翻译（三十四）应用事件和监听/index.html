@@ -9,12 +9,12 @@
 <meta name="keywords" content="SpringBoot官方文档翻译第四部分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot官方文档翻译（三十四）：应用事件和监听">
-<meta property="og:url" content="http://yoursite.com/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/04/26/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/index.html">
 <meta property="og:site_name" content="博客">
 <meta property="og:description" content="23.5 Application Events and Listeners（应用事件和监听）123In addition to the usual Spring Framework events, such as     ContextRefreshedEvent, a SpringApplication sends some additional     application events.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523962657339.jpg">
-<meta property="og:updated_time" content="2018-04-25T08:31:08.022Z">
+<meta property="og:updated_time" content="2018-04-27T07:35:53.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot官方文档翻译（三十四）：应用事件和监听">
 <meta name="twitter:description" content="23.5 Application Events and Listeners（应用事件和监听）123In addition to the usual Spring Framework events, such as     ContextRefreshedEvent, a SpringApplication sends some additional     application events.">
@@ -165,7 +165,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                41
+                42
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -234,8 +234,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/">
-            <time datetime="2018-04-25T08:39:47.000Z" itemprop="datePublished">2018-04-25</time>
+        <a href="/2018/04/26/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/">
+            <time datetime="2018-04-26T08:39:47.000Z" itemprop="datePublished">2018-04-26</time>
         </a>
     </div>
 
@@ -261,7 +261,22 @@
         
             
             <h2 id="23-5-Application-Events-and-Listeners（应用事件和监听）"><a href="#23-5-Application-Events-and-Listeners（应用事件和监听）" class="headerlink" title="23.5 Application Events and Listeners（应用事件和监听）"></a>23.5 Application Events and Listeners（应用事件和监听）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In addition to the usual Spring Framework events, such as     </span><br><span class="line">ContextRefreshedEvent, a SpringApplication sends some additional     </span><br><span class="line">application events.</span><br></pre></td></tr></table></figure>
-<p>除了通常的Spring框架事件（如ContextRefreshedEvent）之外，SpringApplication还会发送一些其他应用程序事件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Some events are actually triggered before the ApplicationContext is     </span><br><span class="line">created, so you cannot register a listener on those as a @Bean. You     </span><br><span class="line">can register them with the SpringApplication.addListeners(… ) method or    </span><br><span class="line"> the SpringApplicationBuilder.listeners(… ) method.    </span><br><span class="line">If you want those listeners to be registered automatically, regardless     </span><br><span class="line">of the way the application is created, you can add a     </span><br><span class="line">META-INF/spring.factoriesfile to your project and reference your     </span><br><span class="line">listener(s) by using the org.springframework.context.ApplicationListener     </span><br><span class="line">key, as shown in the following example:</span><br><span class="line">org.springframework.context.ApplicationListener=com.example.project.MyListener</span><br></pre></td></tr></table></figure></p>
+<p>除了通常的Spring框架事件（如ContextRefreshedEvent）之外，SpringApplication还会发送一些其他应用程序事件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Some events are actually triggered before the ApplicationContext is     </span><br><span class="line">created, so you cannot register a listener on those as a @Bean. You     </span><br><span class="line">can register them with the SpringApplication.addListeners(… ) method or    </span><br><span class="line"> the SpringApplicationBuilder.listeners(… ) method.    </span><br><span class="line">If you want those listeners to be registered automatically, regardless     </span><br><span class="line">of the way the application is created, you can add a     </span><br><span class="line">META-INF/spring.factories file to your project and reference your     </span><br><span class="line">listener(s) by using the org.springframework.context.ApplicationListener     </span><br><span class="line">key, as shown in the following example:</span><br><span class="line">org.springframework.context.ApplicationListener=com.example.project.MyListener</span><br></pre></td></tr></table></figure></p>
+<p>一些事件其实是在应用上下文创建之前就已经创建了，所以您不能够通过@Bean给这些事件增加监听。您可以通过<strong>SpringApplication.addListeners(… )</strong>方法或者<strong>SpringApplicationBuilder.listeners(… )</strong>方法来给这些事件注册监听。<br>如果您想这些事件自动注册，而不管应用是否被创建，您可以通过增加<strong>META-INF/spring.factories</strong>文件到您的项目中，然后通过org.springframework.context.ApplicationListener作为key关联您的监听，如下例子：org.springframework.context.ApplicationListener=com.example.project.MyListener<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Application events are sent in the following order, as your application runs:</span><br></pre></td></tr></table></figure></p>
+<p>随着您的应用程序运行，应用程序事件按以下顺序发送：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.	An ApplicationStartingEvent is sent at the start of a run but before any processing, except for the registration of listeners and initializers.</span><br><span class="line">2.	An ApplicationEnvironmentPreparedEvent is sent when the Environment to be used in the context is known but before the context is created.</span><br><span class="line">3.	An ApplicationPreparedEvent is sent just before the refresh is started but after bean definitions have been loaded.</span><br><span class="line">4.	An ApplicationStartedEvent is sent after the context has been refreshed but before any application and command-line runners have been called.</span><br><span class="line">5.	An ApplicationReadyEvent is sent after any application and command-line runners have been called. It indicates that the application is ready to service requests.</span><br><span class="line">6.	An ApplicationFailedEvent is sent if there is an exception on startup.</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>1.ApplicationStartingEvent 会在程序注册完监听器和初始器之后，其他所有进程运行之前发送。</li>
+<li>2.ApplicationEnvironmentPreparedEvent 在Environment被使用之后，容器被创建之前发送。</li>
+<li>3.ApplicationPreparedEvent在刷新启动之前，但在加载了bean定义之后发送。</li>
+<li>4.ApplicationStartedEvent在上下文被刷新之后，任何应用和command-line运行之前将被调用</li>
+<li>5.ApplicationReadyEvent在刷新启动之后被发送，并且处理了任何相关的回调以指示应用程序准备好服务请求。</li>
+<li>6.ApplicationFailedEvent如果启动时发生异常发送。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">You often need not use application events, but it can be handy to know     </span><br><span class="line">that they exist. Internally, Spring Boot uses events to handle a variety      </span><br><span class="line">of tasks.</span><br></pre></td></tr></table></figure>
+<p>您经常不需要使用应用程序事件，但可以方便地知道它们存在。在内部，Spring Boot使用事件来处理各种任务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Application events are sent by using Spring Framework’s event     </span><br><span class="line">publishing mechanism. Part of this mechanism ensures that an     </span><br><span class="line">event published to the listeners in a child context is also     </span><br><span class="line">published to the listeners in any ancestor contexts. As a result     </span><br><span class="line">of this, if your application uses a hierarchy of SpringApplication     </span><br><span class="line">instances, a listener may receive multiple instances of the same     </span><br><span class="line">type of application event.</span><br></pre></td></tr></table></figure>
+<p>应用事件发送是采用的Spring框架的事件发布机制。该机制的一部分确保发布给子上下文中侦听器的事件也会发布给任何祖先上下文中的侦听器。因此，如果您的应用使用的是SpringApplication级联结构实例化，监听器可以接收同一类型的应用程序事件的多个实例。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">To allow your listener to distinguish between an event for its context     </span><br><span class="line">and an event for a descendant context, it should request that its     </span><br><span class="line">application context is injected and then compare the injected context     </span><br><span class="line">with the context of the event. The context can be injected by    </span><br><span class="line">implementing ApplicationContextAware or, if the listener is a bean,     </span><br><span class="line">by using @Autowired.</span><br></pre></td></tr></table></figure></p>
+<p>允许您的侦听器区分其上下文的事件和后代上下文的事件，它应该请求注入它应用的上下文，并比较注入上线文的事件。上线文可以通过实现<strong>ApplicationContextAware</strong>接口注入，或者如果监听是个bean可以通过<strong>@Autowired</strong>来注入</p>
 
         
         </div>
@@ -272,7 +287,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" data-id="cjgeysn4d002vpt78jy8w23s6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/26/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" data-id="cjgeysn4d002vpt78jy8w23s6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -347,6 +362,15 @@
         
 <nav id="article-nav">
     
+        <a href="/2018/04/27/Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    SpringBoot官方文档翻译（三十五）：web环境
+                
+            </div>
+        </a>
+    
     
         <a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十三）流式编程接口/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
@@ -377,7 +401,26 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" class="thumbnail">
+                            <a href="/2018/04/27/Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962773687.jpg)" alt="SpringBoot官方文档翻译（三十五）：web环境" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
+                            <p class="item-title"><a href="/2018/04/27/Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境/" class="title">SpringBoot官方文档翻译（三十五）：web环境</a></p>
+                            <p class="item-date"><time datetime="2018-04-27T07:39:47.000Z" itemprop="datePublished">2018-04-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/26/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" class="thumbnail">
     
     
         <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962657339.jpg)" alt="SpringBoot官方文档翻译（三十四）：应用事件和监听" class="thumbnail-image"></span>
@@ -388,8 +431,8 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" class="title">SpringBoot官方文档翻译（三十四）：应用事件和监听</a></p>
-                            <p class="item-date"><time datetime="2018-04-25T08:39:47.000Z" itemprop="datePublished">2018-04-25</time></p>
+                            <p class="item-title"><a href="/2018/04/26/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" class="title">SpringBoot官方文档翻译（三十四）：应用事件和监听</a></p>
+                            <p class="item-date"><time datetime="2018-04-26T08:39:47.000Z" itemprop="datePublished">2018-04-26</time></p>
                         </div>
                     </li>
                 
@@ -450,25 +493,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（三十）启动失败/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523931297126.jpg)" alt="SpringBoot官方文档翻译（三十）：启动失败" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（三十）启动失败/" class="title">SpringBoot官方文档翻译（三十）：启动失败</a></p>
-                            <p class="item-date"><time datetime="2018-04-24T12:30:47.000Z" itemprop="datePublished">2018-04-24</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -478,7 +502,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -487,7 +511,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">34</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -496,7 +520,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li></ul>
         </div>
     </div>
 

@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档: 2018/4 | 博客</title>
+    <title>SpringBoot官方文档翻译（三十五）：web环境 | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="许贵荣">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/04/page/3/index.html">
+    <meta name="description" content="23.6 Web Environment（web环境）123A SpringApplication attempts to create the right type of     ApplicationContext on your behalf. The algorithm used to     determin">
+<meta name="keywords" content="SpringBoot官方文档翻译第四部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot官方文档翻译（三十五）：web环境">
+<meta property="og:url" content="http://yoursite.com/2018/04/27/Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="许贵荣">
+<meta property="og:description" content="23.6 Web Environment（web环境）123A SpringApplication attempts to create the right type of     ApplicationContext on your behalf. The algorithm used to     determine a WebEnvironmentType is fairly simple:">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.wailian.work/images/2018/04/17/1523962773687.jpg">
+<meta property="og:updated_time" content="2018-04-28T09:13:33.119Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:description" content="许贵荣">
+<meta name="twitter:title" content="SpringBoot官方文档翻译（三十五）：web环境">
+<meta name="twitter:description" content="23.6 Web Environment（web环境）123A SpringApplication attempts to create the right type of     ApplicationContext on your behalf. The algorithm used to     determine a WebEnvironmentType is fairly simple:">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/17/1523962773687.jpg">
     
 
     
@@ -213,378 +217,161 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2018</h1>
-            </div>
+            <section id="main"><article id="post-Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十五）配置类/">SpringBoot官方文档翻译（十五）：配置类</a>
+        <h1 class="article-title" itemprop="name">
+            SpringBoot官方文档翻译（三十五）：web环境
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十五）配置类/">
-            <time datetime="2018-04-20T04:31:47.000Z" itemprop="datePublished">2018-04-20</time>
+        <a href="/2018/04/27/Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境/">
+            <time datetime="2018-04-27T07:39:47.000Z" itemprop="datePublished">2018-04-27</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十四）组织你的代码/">SpringBoot官方文档翻译（十四）：组织你的代码</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="23-6-Web-Environment（web环境）"><a href="#23-6-Web-Environment（web环境）" class="headerlink" title="23.6 Web Environment（web环境）"></a>23.6 Web Environment（web环境）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A SpringApplication attempts to create the right type of     </span><br><span class="line">ApplicationContext on your behalf. The algorithm used to     </span><br><span class="line">determine a WebEnvironmentType is fairly simple:</span><br></pre></td></tr></table></figure>
+<p><strong>SpringApplication</strong>试图根据您的行为创建正确的<strong>ApplicationContext</strong>类型，用于确定WebEnvironmentType的算法非常简单:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">•	If Spring MVC is present, an AnnotationConfigServletWebServerApplicationContext is used</span><br><span class="line">•	If Spring MVC is not present and Spring WebFlux is present, an AnnotationConfigReactiveWebApplicationContext is used</span><br><span class="line">•	Otherwise, AnnotationConfigApplicationContext is used</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>如果使用的是Spring MVC的框架，<strong>AnnotationConfigServletWebServerApplicationContext</strong>将会被使用</li>
+<li>如果使用的不是Spring MVC框架，使用的是WebFlux框架，<strong>AnnotationConfigReactiveWebApplicationContext</strong>上下文将会被使用</li>
+<li>其他情况，<strong>AnnotationConfigApplicationContext</strong>将会被使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">This means that if you are using Spring MVC and the new WebClient     </span><br><span class="line">from Spring WebFlux in the same application, Spring MVC will be used     </span><br><span class="line">by default. You can override that easily by     </span><br><span class="line">calling setWebApplicationType(WebApplicationType).</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这意味着，如果您在同一个应用中使用了Spring MVC也使用了Spring WebFlux的Web客户端，Spring MVC将会作为默认框架。您可以通过<strong>setWebApplicationType(WebApplicationType).</strong>来重写这个默认。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">It is also possible to take complete control of the ApplicationContext     </span><br><span class="line">type that is used by calling setApplicationContextClass(… ).</span><br></pre></td></tr></table></figure></p>
+<p>也可以通过调用setApplicationContextClass(… )来设置上下文的类型。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">It is often desirable to call setWebApplicationType(WebApplicationType.NONE)     </span><br><span class="line">when using SpringApplication within a JUnit test.</span><br></pre></td></tr></table></figure></p>
+<p>当使用JUnit测试的时候也可以使用<strong>setWebApplicationType(WebApplicationType.NONE)</strong>来设置上下文类型。</p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十四）组织你的代码/">
-            <time datetime="2018-04-20T02:31:47.000Z" itemprop="datePublished">2018-04-20</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十三）Starters/">SpringBoot官方文档翻译（十三）：Starters</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十三）Starters/">
-            <time datetime="2018-04-19T05:31:47.000Z" itemprop="datePublished">2018-04-19</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十二）Gradle&Ant/">SpringBoot官方文档翻译（十二）：Gradle&amp;Ant</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十二）Gradle&Ant/">
-            <time datetime="2018-04-19T04:31:47.000Z" itemprop="datePublished">2018-04-19</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十一）使用Spring Boot/">SpringBoot官方文档翻译（十一）：使用Spring Boot&amp;Maven</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/19/Spring BootDoc第三部分/SpringBoot翻译（十一）使用Spring Boot/">
-            <time datetime="2018-04-19T03:31:47.000Z" itemprop="datePublished">2018-04-19</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/18/Spring BootDoc第二部分/SpringBoot翻译（十）创建一个可执行jar包/">SpringBoot官方文档翻译（十）：创建一个可执行jar包</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/18/Spring BootDoc第二部分/SpringBoot翻译（十）创建一个可执行jar包/">
-            <time datetime="2018-04-18T08:59:47.000Z" itemprop="datePublished">2018-04-18</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/18/Spring BootDoc第二部分/SpringBoot翻译（九）运行示例/">SpringBoot官方文档翻译（九）：运行示例</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/18/Spring BootDoc第二部分/SpringBoot翻译（九）运行示例/">
-            <time datetime="2018-04-18T07:32:47.000Z" itemprop="datePublished">2018-04-18</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/18/Spring BootDoc第二部分/SpringBoot翻译（八）开始写代码/">SpringBoot官方文档翻译（八）：开始写代码</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/18/Spring BootDoc第二部分/SpringBoot翻译（八）开始写代码/">
-            <time datetime="2018-04-18T03:56:47.000Z" itemprop="datePublished">2018-04-18</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/17/Spring BootDoc第二部分/SpringBoot翻译（七）增加类路径依赖/">SpringBoot官方文档翻译（七）：增加类路径依赖</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/Spring BootDoc第二部分/SpringBoot翻译（七）增加类路径依赖/">
-            <time datetime="2018-04-17T12:35:47.000Z" itemprop="datePublished">2018-04-17</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/17/Spring BootDoc第二部分/SpringBoot翻译（六）创建POM文件/">SpringBoot官方文档翻译（六）：创建POM文件</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/Spring BootDoc第二部分/SpringBoot翻译（六）创建POM文件/">
-            <time datetime="2018-04-17T12:15:47.000Z" itemprop="datePublished">2018-04-17</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
 
-    <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/2018/04/page/2/">&laquo; 上一页</a><a class="page-number" href="/archives/2018/04/">1</a><a class="page-number" href="/archives/2018/04/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2018/04/page/4/">4</a><a class="extend next" rel="next" href="/archives/2018/04/page/4/">下一页 &raquo;</a>
-    </nav>
+    <a data-url="http://yoursite.com/2018/04/27/Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境/" data-id="cjgj7md6c0000kh784uwje1c5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/04/26/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">SpringBoot官方文档翻译（三十四）：应用事件和监听</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
 </section>
             
                 

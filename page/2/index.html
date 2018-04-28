@@ -161,7 +161,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                41
+                42
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -214,6 +214,146 @@
 
             
             <section id="main">
+    <article id="post-Spring BootDoc第三部分/SpringBoot翻译（二十五）使用触发文件&amp;定制“重启”类加载器" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/04/24/Spring BootDoc第三部分/SpringBoot翻译（二十五）使用触发文件&定制“重启”类加载器/">SpringBoot官方文档翻译（二十五）：使用触发文件&amp;定制“重启”类加载器</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/04/24/Spring BootDoc第三部分/SpringBoot翻译（二十五）使用触发文件&定制“重启”类加载器/">
+            <time datetime="2018-04-24T07:59:47.000Z" itemprop="datePublished">2018-04-24</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="20-2-5-Using-a-Trigger-File（使用触发文件）"><a href="#20-2-5-Using-a-Trigger-File（使用触发文件）" class="headerlink" title="20.2.5 Using a Trigger File（使用触发文件）"></a>20.2.5 Using a Trigger File（使用触发文件）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">If you work with an IDE that continuously compiles changed files,     </span><br><span class="line">you might prefer to trigger restarts only at specific times. To do     </span><br><span class="line">so, you can use a “trigger file”, which is a special file that must     </span><br><span class="line">be modified when you want to actually trigger a restart check.      </span><br><span class="line">Changing the file only triggers the check and the restart only occurs      </span><br><span class="line">if Devtools has detected it has to do something. The trigger file can      </span><br><span class="line">be updated manually or with an IDE plugin.</span><br></pre></td></tr></table></figure>
+<p>如果您使用持续编译更改文件的IDE，您可能更愿意仅在特定时间触发重新启动。如果那样的话，您可以使用一个“触发文件”，当您需要触发重启的时候，您必须通过修改这个特殊的文件触发。这个文件的改变仅仅触发检查并且只是重启Devtools已经发现需要做的一些事情。这个触发文件能够被手动更新或者通过IDE的插件更新。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">To use a trigger file, set the spring.devtools.restart.trigger-file     </span><br><span class="line">property to the path of your trigger file.</span><br></pre></td></tr></table></figure></p>
+<p>想使用这个触发文件，设置<strong>spring.devtools.restart.trigger-file</strong>属性到您的触发文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">You might want to set spring.devtools.restart.trigger-file as     </span><br><span class="line">a global setting, so that all your projects behave in the same way.</span><br></pre></td></tr></table></figure></p>
+<p>您也许想要设置<strong>set spring.devtools.restart.trigger-file</strong>为一个全局的设置，那样的话您所有的项目都能通过这样的方式统一行为。</p>
+<h2 id="20-2-6-Customizing-the-Restart-Classloader（自定义重启类加载器）"><a href="#20-2-6-Customizing-the-Restart-Classloader（自定义重启类加载器）" class="headerlink" title="20.2.6 Customizing the Restart Classloader（自定义重启类加载器）"></a>20.2.6 Customizing the Restart Classloader（自定义重启类加载器）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">As described earlier in the Restart vs Reload section, restart     </span><br><span class="line">functionality is implemented by using two classloaders. For most     </span><br><span class="line">applications, this approach works well. However, it can sometimes     </span><br><span class="line">cause classloading issues.</span><br></pre></td></tr></table></figure>
+<p>如前重启和重载章节所述，重启功能是由两个类加载器来实现的。对于大多数应用，这种方式工作正常。然而，它有时候也会导致一些类加载问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">By default, any open project in your IDE is loaded with the “restart”     </span><br><span class="line">classloader, and any regular .jar file is loaded with the “base”     </span><br><span class="line">classloader. If you work on a multi-module project, and not every     </span><br><span class="line">module is imported into your IDE, you may need to customize things.     </span><br><span class="line">To do so, you can create a META-INF/spring-devtools.properties file.</span><br></pre></td></tr></table></figure></p>
+<p>默认情况下，任何您使用IDE打开的项目都是被“重启”类加载器加载，并且任何常规的.jar文件都会被“base”类加载器加载。如果您在一个多模块工作的项目中，并且并不是所有的模块都是导入到您的IDE，您也许需要定制一些东西。为此，您可以创建一个<strong>META-INF/spring-devtools.properties</strong>文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">The spring-devtools.properties file can contain properties     </span><br><span class="line">prefixed with restart.exclude and restart.include. The include     </span><br><span class="line">elements are items that should be pulled up into the “restart”     </span><br><span class="line">classloader, and the exclude elements are items that should be     </span><br><span class="line">pushed down into the “base” classloader. The value of the property     </span><br><span class="line">is a regex pattern that is applied to the classpath, as shown in     </span><br><span class="line">the following example:</span><br></pre></td></tr></table></figure></p>
+<p><strong>spring-devtools.properties</strong>文件能够包含前缀为<strong>restart.exclude</strong>和<strong>restart.include</strong>属性。<strong>include</strong>元素项目将会被拉取到“重启”类加载器中，“exclude”元素项目将会提交至“base”类加载器。这些属性的值是一个应用于类路径的正则表达式模式，如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">restart.exclude.companycommonlibs=<span class="regexp">/mycorp-common-[\\w-]+\.jar</span></span><br><span class="line"><span class="regexp">restart.include.projectcommon=/my</span>corp-myproj-[\\w-]+\.jar</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">All property keys must be unique. As long as a property     </span><br><span class="line">starts with restart.include. or restart.exclude. it is considered.</span><br></pre></td></tr></table></figure>
+<p>所有的属性keys必须是唯一的。只要属性的前置是<strong>restart.include</strong>或者<strong>restart.exclude</strong>就会被考虑到。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">All META-INF/spring-devtools.properties from the classpath are loaded.     </span><br><span class="line">You can package files inside your project, or in the libraries that     </span><br><span class="line">the project consumes.</span><br></pre></td></tr></table></figure></p>
+<p>所有类路径下的<strong>META-INF/spring-devtools.properties</strong>都将会被加载。您可以打包文件进入您的项目或者在项目依赖的lib库中。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2018/04/24/Spring BootDoc第三部分/SpringBoot翻译（二十五）使用触发文件&定制“重启”类加载器/" data-id="cjgeysn3o001dpt78f3oy8px0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-Spring BootDoc第三部分/SpringBoot翻译（二十四）监控额外的路径&amp;禁用重启md" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -623,7 +763,7 @@
 
 
 
-    <article id="post-Spring BootDoc第三部分/SpringBoot翻译（二十）开发者工具" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Spring BootDoc第三部分/SpringBoot翻译（二十一）默认属性" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -631,7 +771,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十）开发者工具/">SpringBoot官方文档翻译（二十）：开发者工具</a>
+            <a class="article-title" href="/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十一）默认属性/">SpringBoot官方文档翻译（二十一）：默认属性</a>
         </h1>
     
 
@@ -640,7 +780,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十）开发者工具/">
+        <a href="/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十一）默认属性/">
             <time datetime="2018-04-21T09:24:47.000Z" itemprop="datePublished">2018-04-21</time>
         </a>
     </div>
@@ -666,12 +806,11 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="20-Developer-Tools（开发者工具）"><a href="#20-Developer-Tools（开发者工具）" class="headerlink" title="20. Developer Tools（开发者工具）"></a>20. Developer Tools（开发者工具）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot includes an additional set of tools that can     </span><br><span class="line">make the application development experience a little more     </span><br><span class="line">pleasant. The spring-boot-devtools module can be included     </span><br><span class="line">in any project to provide additional development-time features.     </span><br><span class="line">To include devtools support, add the module dependency to     </span><br><span class="line">your build, as shown in the following listings for Maven and Gradle:</span><br></pre></td></tr></table></figure>
-<p>Spring Boot引入了额外的一些工具，让应用的开发体验变得更加愉快。<strong>spring-boot-devtools</strong>模块能够被任何项目引入提供“开发-时间”功能。如果需要支持devtools功能，增加如下模块到您的构建李，如下：<br>Maven：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>Gradle：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">	compile(<span class="string">"org.springframework.boot:spring-boot-devtools"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Developer tools are automatically disabled when running a      </span><br><span class="line">fully packaged application. If your application is launched     </span><br><span class="line">from java -jar or if it is started from a special classloader,     </span><br><span class="line">then it is considered a “production application”. Flagging the     </span><br><span class="line">dependency as optional in Maven or using compileOnly in Gradle     </span><br><span class="line">is a best practice that prevents devtools from being transitively     </span><br><span class="line">applied to other modules that use your project.</span><br></pre></td></tr></table></figure>
-<p>当运行一个完整的应用jar包的时候，开发者工具集将会被自动禁用。如果您的应用是通过java -jar启动或者是通过一些特殊的类加载器启动的，它会被当做一个“产品级别的应用”。在Maven中标记devtools的依赖为可选的，在Gradle中使用compileOnly是防止devtools被传递依赖到您的其他模块的的最佳实践。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Repackaged archives do not contain devtools by default. If     </span><br><span class="line">you want to use a certain remote devtools feature, you need     </span><br><span class="line">to disable the excludeDevtoolsbuild property to include it.     </span><br><span class="line">The property is supported with both the Maven and Gradle plugins.</span><br></pre></td></tr></table></figure></p>
-<p>重新打包的档案在默认情况下不包含devtools。如果您想使用某个远程的devtools功能，您需要禁用excludeDevtoolsbuild属性去支持它。这个属性既支持Maven也支持Gradle。</p>
+            <h2 id="20-1-Property-Defaults（默认属性）"><a href="#20-1-Property-Defaults（默认属性）" class="headerlink" title="20.1 Property Defaults（默认属性）"></a>20.1 Property Defaults（默认属性）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Several of the libraries supported by Spring Boot use     </span><br><span class="line">caches to improve performance. For example, template     </span><br><span class="line">engines cache compiled templates to avoid repeatedly     </span><br><span class="line">parsing template files. Also, Spring MVC can add HTTP     </span><br><span class="line">caching headers to responses when serving static resources.</span><br></pre></td></tr></table></figure>
+<p>Spring Boot支持几个库使用缓存来提升性能。比如，模板引擎缓存编译模板以避免重复<br>解析模板文件。同样的，Spring MVC在服务静态资源的时候，能将HTTP的header缓存到应答当中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">While caching is very beneficial in production, it can be     </span><br><span class="line">counter-productive during development, preventing you from     </span><br><span class="line">seeing the changes you just made in your application.     </span><br><span class="line">For this reason, spring-boot-devtools disables the caching     </span><br><span class="line">options by default.</span><br></pre></td></tr></table></figure></p>
+<p>虽然缓存在生产中非常有益，但在开发阶段有时候会适得其反，阻止您看到您应用最新的改动。基于此，spring-boot-devtools会默认禁用缓存。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Cache options are usually configured by settings in     </span><br><span class="line">your application.properties file. For example, Thymeleaf     </span><br><span class="line">offers the spring.thymeleaf.cache property. Rather than     </span><br><span class="line">needing to set these properties manually, the     </span><br><span class="line">spring-boot-devtools module automatically applies sensible     </span><br><span class="line">development-time configuration.</span><br></pre></td></tr></table></figure></p>
+<p>缓存选项通常会被配置于您的<strong>application.properties</strong>文件。举个例子，Thymeleaf提供了<strong>spring.thymeleaf.cache</strong>属性。<strong>spring-boot-devtools</strong>将会自动应用合理的配置，而不是通过手动设置这些属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">For a complete list of the properties that are applied     </span><br><span class="line">by the devtools, see DevToolsPropertyDefaultsPostProcessor.</span><br></pre></td></tr></table></figure></p>
+<p>想要查看devtools完整的属性，请参考“<a href="https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-devtools/src/main/java/org/springframework/boot/devtools/env/DevToolsPropertyDefaultsPostProcessor.java”" target="_blank" rel="noopener">https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-devtools/src/main/java/org/springframework/boot/devtools/env/DevToolsPropertyDefaultsPostProcessor.java”</a></p>
 
         
         </div>
@@ -682,7 +821,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十）开发者工具/" data-id="cjgeysn3t001rpt78n79vofe9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十一）默认属性/" data-id="cjgeysn3i0010pt78rvwho8a5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -758,7 +897,7 @@
 
 
 
-    <article id="post-Spring BootDoc第三部分/SpringBoot翻译（二十一）默认属性" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Spring BootDoc第三部分/SpringBoot翻译（二十）开发者工具" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -766,7 +905,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十一）默认属性/">SpringBoot官方文档翻译（二十一）：默认属性</a>
+            <a class="article-title" href="/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十）开发者工具/">SpringBoot官方文档翻译（二十）：开发者工具</a>
         </h1>
     
 
@@ -775,7 +914,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十一）默认属性/">
+        <a href="/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十）开发者工具/">
             <time datetime="2018-04-21T09:24:47.000Z" itemprop="datePublished">2018-04-21</time>
         </a>
     </div>
@@ -801,11 +940,12 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="20-1-Property-Defaults（默认属性）"><a href="#20-1-Property-Defaults（默认属性）" class="headerlink" title="20.1 Property Defaults（默认属性）"></a>20.1 Property Defaults（默认属性）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Several of the libraries supported by Spring Boot use     </span><br><span class="line">caches to improve performance. For example, template     </span><br><span class="line">engines cache compiled templates to avoid repeatedly     </span><br><span class="line">parsing template files. Also, Spring MVC can add HTTP     </span><br><span class="line">caching headers to responses when serving static resources.</span><br></pre></td></tr></table></figure>
-<p>Spring Boot支持几个库使用缓存来提升性能。比如，模板引擎缓存编译模板以避免重复<br>解析模板文件。同样的，Spring MVC在服务静态资源的时候，能将HTTP的header缓存到应答当中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">While caching is very beneficial in production, it can be     </span><br><span class="line">counter-productive during development, preventing you from     </span><br><span class="line">seeing the changes you just made in your application.     </span><br><span class="line">For this reason, spring-boot-devtools disables the caching     </span><br><span class="line">options by default.</span><br></pre></td></tr></table></figure></p>
-<p>虽然缓存在生产中非常有益，但在开发阶段有时候会适得其反，阻止您看到您应用最新的改动。基于此，spring-boot-devtools会默认禁用缓存。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Cache options are usually configured by settings in     </span><br><span class="line">your application.properties file. For example, Thymeleaf     </span><br><span class="line">offers the spring.thymeleaf.cache property. Rather than     </span><br><span class="line">needing to set these properties manually, the     </span><br><span class="line">spring-boot-devtools module automatically applies sensible     </span><br><span class="line">development-time configuration.</span><br></pre></td></tr></table></figure></p>
-<p>缓存选项通常会被配置于您的<strong>application.properties</strong>文件。举个例子，Thymeleaf提供了<strong>spring.thymeleaf.cache</strong>属性。<strong>spring-boot-devtools</strong>将会自动应用合理的配置，而不是通过手动设置这些属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">For a complete list of the properties that are applied     </span><br><span class="line">by the devtools, see DevToolsPropertyDefaultsPostProcessor.</span><br></pre></td></tr></table></figure></p>
-<p>想要查看devtools完整的属性，请参考“<a href="https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-devtools/src/main/java/org/springframework/boot/devtools/env/DevToolsPropertyDefaultsPostProcessor.java”" target="_blank" rel="noopener">https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-devtools/src/main/java/org/springframework/boot/devtools/env/DevToolsPropertyDefaultsPostProcessor.java”</a></p>
+            <h1 id="20-Developer-Tools（开发者工具）"><a href="#20-Developer-Tools（开发者工具）" class="headerlink" title="20. Developer Tools（开发者工具）"></a>20. Developer Tools（开发者工具）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot includes an additional set of tools that can     </span><br><span class="line">make the application development experience a little more     </span><br><span class="line">pleasant. The spring-boot-devtools module can be included     </span><br><span class="line">in any project to provide additional development-time features.     </span><br><span class="line">To include devtools support, add the module dependency to     </span><br><span class="line">your build, as shown in the following listings for Maven and Gradle:</span><br></pre></td></tr></table></figure>
+<p>Spring Boot引入了额外的一些工具，让应用的开发体验变得更加愉快。<strong>spring-boot-devtools</strong>模块能够被任何项目引入提供“开发-时间”功能。如果需要支持devtools功能，增加如下模块到您的构建李，如下：<br>Maven：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>Gradle：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">	compile(<span class="string">"org.springframework.boot:spring-boot-devtools"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Developer tools are automatically disabled when running a      </span><br><span class="line">fully packaged application. If your application is launched     </span><br><span class="line">from java -jar or if it is started from a special classloader,     </span><br><span class="line">then it is considered a “production application”. Flagging the     </span><br><span class="line">dependency as optional in Maven or using compileOnly in Gradle     </span><br><span class="line">is a best practice that prevents devtools from being transitively     </span><br><span class="line">applied to other modules that use your project.</span><br></pre></td></tr></table></figure>
+<p>当运行一个完整的应用jar包的时候，开发者工具集将会被自动禁用。如果您的应用是通过java -jar启动或者是通过一些特殊的类加载器启动的，它会被当做一个“产品级别的应用”。在Maven中标记devtools的依赖为可选的，在Gradle中使用compileOnly是防止devtools被传递依赖到您的其他模块的的最佳实践。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Repackaged archives do not contain devtools by default. If     </span><br><span class="line">you want to use a certain remote devtools feature, you need     </span><br><span class="line">to disable the excludeDevtoolsbuild property to include it.     </span><br><span class="line">The property is supported with both the Maven and Gradle plugins.</span><br></pre></td></tr></table></figure></p>
+<p>重新打包的档案在默认情况下不包含devtools。如果您想使用某个远程的devtools功能，您需要禁用excludeDevtoolsbuild属性去支持它。这个属性既支持Maven也支持Gradle。</p>
 
         
         </div>
@@ -816,7 +956,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十一）默认属性/" data-id="cjgeysn3i0010pt78rvwho8a5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十）开发者工具/" data-id="cjgeysn3t001rpt78n79vofe9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1472,143 +1612,6 @@
 
 
 
-    <article id="post-Spring BootDoc第三部分/SpringBoot翻译（十五）配置类" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十五）配置类/">SpringBoot官方文档翻译（十五）：配置类</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十五）配置类/">
-            <time datetime="2018-04-20T04:31:47.000Z" itemprop="datePublished">2018-04-20</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="15-Configuration-Classes（配置类）"><a href="#15-Configuration-Classes（配置类）" class="headerlink" title="15. Configuration Classes（配置类）"></a>15. Configuration Classes（配置类）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot favors Java-based configuration. Although it is     </span><br><span class="line">possible to use SpringApplication with XML sources, we generally     </span><br><span class="line">recommend that your primary source be a single @Configuration class.     </span><br><span class="line">Usually the class that defines the main method is a good candidate     </span><br><span class="line">as the primary @Configuration.</span><br></pre></td></tr></table></figure>
-<p>Spring Boot偏向于使用Java-base的配置方式。尽管他也能够支持使用SpringApplication配合XML，我们通常还是强烈建议您使用单个的@Configuration注解类做配置类。通常定义main方法的类用来作为一个主配置类是一个很好的选择。</p>
-<h2 id="15-1-Importing-Additional-Configuration-Classes（导入其他配置类）"><a href="#15-1-Importing-Additional-Configuration-Classes（导入其他配置类）" class="headerlink" title="15.1 Importing Additional Configuration Classes（导入其他配置类）"></a>15.1 Importing Additional Configuration Classes（导入其他配置类）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">You need not put all your @Configuration into     </span><br><span class="line">a single class. The @Import annotation can be     </span><br><span class="line">used to import additional configuration classes.     </span><br><span class="line">Alternatively, you can use @ComponentScan to automatically     </span><br><span class="line">pick up all Spring components, including @Configuration classes.</span><br></pre></td></tr></table></figure>
-<p>您并不需要将您所有的配置放在一个@Configuration注解的类中。<strong>@Import</strong>注解可以用来导入额外的注解类。另外，您可以使用@ComponentScan注解去制动选择所有的Spring组件。包括@Configuration注解的配置类。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">We recommend that you follow Java’s recommended package naming     </span><br><span class="line">conventions and use a reversed domain name (for example,     </span><br><span class="line">com.example.project).</span><br></pre></td></tr></table></figure>
-<p>我们建议您遵循Java推荐的软件包命名约定并使用反向域名（例如，com.example.project）。</p>
-<h2 id="15-2-Importing-XML-Configuration（导入XML配置）"><a href="#15-2-Importing-XML-Configuration（导入XML配置）" class="headerlink" title="15.2 Importing XML Configuration（导入XML配置）"></a>15.2 Importing XML Configuration（导入XML配置）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If you absolutely must use XML based configuration, we recommend     </span><br><span class="line">that you still start with a @Configuration class. You can then     </span><br><span class="line">use an @ImportResourceannotation to load XML configuration files.</span><br></pre></td></tr></table></figure>
-<p>如果您是在要使用基于XML的配置，我们建议您还是从一个@Configuration注解的类开始。您可以在其中使用<strong>@ImportResourceannotation</strong>注解去加载XML配置文件。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十五）配置类/" data-id="cjgeysn430029pt78sxufmiji" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
     </nav>
@@ -1626,7 +1629,26 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" class="thumbnail">
+                            <a href="/2018/04/27/Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962773687.jpg)" alt="SpringBoot官方文档翻译（三十五）：web环境" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
+                            <p class="item-title"><a href="/2018/04/27/Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境/" class="title">SpringBoot官方文档翻译（三十五）：web环境</a></p>
+                            <p class="item-date"><time datetime="2018-04-27T07:39:47.000Z" itemprop="datePublished">2018-04-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/26/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" class="thumbnail">
     
     
         <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962657339.jpg)" alt="SpringBoot官方文档翻译（三十四）：应用事件和监听" class="thumbnail-image"></span>
@@ -1637,8 +1659,8 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" class="title">SpringBoot官方文档翻译（三十四）：应用事件和监听</a></p>
-                            <p class="item-date"><time datetime="2018-04-25T08:39:47.000Z" itemprop="datePublished">2018-04-25</time></p>
+                            <p class="item-title"><a href="/2018/04/26/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" class="title">SpringBoot官方文档翻译（三十四）：应用事件和监听</a></p>
+                            <p class="item-date"><time datetime="2018-04-26T08:39:47.000Z" itemprop="datePublished">2018-04-26</time></p>
                         </div>
                     </li>
                 
@@ -1699,25 +1721,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（三十）启动失败/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523931297126.jpg)" alt="SpringBoot官方文档翻译（三十）：启动失败" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（三十）启动失败/" class="title">SpringBoot官方文档翻译（三十）：启动失败</a></p>
-                            <p class="item-date"><time datetime="2018-04-24T12:30:47.000Z" itemprop="datePublished">2018-04-24</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1727,7 +1730,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -1736,7 +1739,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">34</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1745,7 +1748,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li></ul>
         </div>
     </div>
 

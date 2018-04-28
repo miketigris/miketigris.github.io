@@ -161,7 +161,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                41
+                42
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -214,6 +214,143 @@
 
             
             <section id="main">
+    <article id="post-Spring BootDoc第三部分/SpringBoot翻译（十五）配置类" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十五）配置类/">SpringBoot官方文档翻译（十五）：配置类</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十五）配置类/">
+            <time datetime="2018-04-20T04:31:47.000Z" itemprop="datePublished">2018-04-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="15-Configuration-Classes（配置类）"><a href="#15-Configuration-Classes（配置类）" class="headerlink" title="15. Configuration Classes（配置类）"></a>15. Configuration Classes（配置类）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot favors Java-based configuration. Although it is     </span><br><span class="line">possible to use SpringApplication with XML sources, we generally     </span><br><span class="line">recommend that your primary source be a single @Configuration class.     </span><br><span class="line">Usually the class that defines the main method is a good candidate     </span><br><span class="line">as the primary @Configuration.</span><br></pre></td></tr></table></figure>
+<p>Spring Boot偏向于使用Java-base的配置方式。尽管他也能够支持使用SpringApplication配合XML，我们通常还是强烈建议您使用单个的@Configuration注解类做配置类。通常定义main方法的类用来作为一个主配置类是一个很好的选择。</p>
+<h2 id="15-1-Importing-Additional-Configuration-Classes（导入其他配置类）"><a href="#15-1-Importing-Additional-Configuration-Classes（导入其他配置类）" class="headerlink" title="15.1 Importing Additional Configuration Classes（导入其他配置类）"></a>15.1 Importing Additional Configuration Classes（导入其他配置类）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">You need not put all your @Configuration into     </span><br><span class="line">a single class. The @Import annotation can be     </span><br><span class="line">used to import additional configuration classes.     </span><br><span class="line">Alternatively, you can use @ComponentScan to automatically     </span><br><span class="line">pick up all Spring components, including @Configuration classes.</span><br></pre></td></tr></table></figure>
+<p>您并不需要将您所有的配置放在一个@Configuration注解的类中。<strong>@Import</strong>注解可以用来导入额外的注解类。另外，您可以使用@ComponentScan注解去制动选择所有的Spring组件。包括@Configuration注解的配置类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">We recommend that you follow Java’s recommended package naming     </span><br><span class="line">conventions and use a reversed domain name (for example,     </span><br><span class="line">com.example.project).</span><br></pre></td></tr></table></figure>
+<p>我们建议您遵循Java推荐的软件包命名约定并使用反向域名（例如，com.example.project）。</p>
+<h2 id="15-2-Importing-XML-Configuration（导入XML配置）"><a href="#15-2-Importing-XML-Configuration（导入XML配置）" class="headerlink" title="15.2 Importing XML Configuration（导入XML配置）"></a>15.2 Importing XML Configuration（导入XML配置）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If you absolutely must use XML based configuration, we recommend     </span><br><span class="line">that you still start with a @Configuration class. You can then     </span><br><span class="line">use an @ImportResourceannotation to load XML configuration files.</span><br></pre></td></tr></table></figure>
+<p>如果您是在要使用基于XML的配置，我们建议您还是从一个@Configuration注解的类开始。您可以在其中使用<strong>@ImportResourceannotation</strong>注解去加载XML配置文件。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十五）配置类/" data-id="cjgeysn430029pt78sxufmiji" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-Spring BootDoc第三部分/SpringBoot翻译（十四）组织你的代码" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1705,173 +1842,6 @@
 
 
 
-    <article id="post-Spring BootDoc第二部分/SpringBoot翻译（四）安装部署Spring Boot CLI" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/17/Spring BootDoc第二部分/SpringBoot翻译（四）安装部署Spring Boot CLI/">SpringBoot官方文档翻译（四）：安装Spring Boot命令行界面</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/17/Spring BootDoc第二部分/SpringBoot翻译（四）安装部署Spring Boot CLI/">
-            <time datetime="2018-04-17T11:58:47.000Z" itemprop="datePublished">2018-04-17</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="10-2-Installing-the-Spring-Boot-CLI（安装Spring-Boot命令行界面）"><a href="#10-2-Installing-the-Spring-Boot-CLI（安装Spring-Boot命令行界面）" class="headerlink" title="10.2 Installing the Spring Boot CLI（安装Spring Boot命令行界面）"></a>10.2 Installing the Spring Boot CLI（安装Spring Boot命令行界面）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">The Spring Boot CLI (Command Line Interface) is a command line tool    </span><br><span class="line">that you can use to quickly prototype with Spring. It lets you     </span><br><span class="line">run Groovy scripts, which means that you have a familiar Java-like     </span><br><span class="line">syntax without so much boilerplate code.</span><br><span class="line">You do not need to use the CLI to work with Spring Boot, but     </span><br><span class="line">it is definitely the quickest way to get a Spring application     </span><br><span class="line">off the ground.</span><br></pre></td></tr></table></figure>
-<p>Spring Boot CLI（命令行界面）是一个命令行工具，您可以使用它来快速使用Spring进行原型开发<br>它允许您运行Groovy脚本，这意味着您不需要太多样板代码就能以类似于java的语法进行开发。<br>尽管您不需要使用CLI去运行Spring Boot ，但这绝对是获得Spring应用程序的最快捷方式</p>
-<h2 id="10-2-1-Manual-Installation（手动安装）"><a href="#10-2-1-Manual-Installation（手动安装）" class="headerlink" title="10.2.1 Manual Installation（手动安装）"></a>10.2.1 Manual Installation（手动安装）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">You can download the Spring CLI distribution from the Spring     </span><br><span class="line">software repository:</span><br><span class="line">	•	spring-boot-cli-2.1.0.BUILD-SNAPSHOT-bin.zip</span><br><span class="line">	•	spring-boot-cli-2.1.0.BUILD-SNAPSHOT-bin.tar.gz</span><br><span class="line">Cutting edge snapshot distributions are also available.</span><br><span class="line">Once downloaded, follow the INSTALL.txt instructions from the     </span><br><span class="line">unpacked archive. In summary, there is a spring script (spring.bat     </span><br><span class="line">for Windows) in a bin/directory in the .zip file. Alternatively,     </span><br><span class="line">you can use java -jar with the .jar file (the script helps you to     </span><br><span class="line">be sure that the classpath is set correctly).</span><br></pre></td></tr></table></figure>
-<p>您可以从Spring 软件远程库下载Spring CLI的分发版本<br>•    spring-boot-cli-2.1.0.BUILD-SNAPSHOT-bin.zip<br>•    spring-boot-cli-2.1.0.BUILD-SNAPSHOT-bin.tar.gz<br>最新的快照版本同样可用。下载以后，请参照解压出来的文档INSTALL.txt的介绍进行操作。综上所述，有一个spring脚本（windows 下用spring.bat）在bin目录下的.zip文件中。另外，你可以使用<strong>java -jar</strong> 启动.jar包（这个脚本帮助您确认类路径是否被正确设置）</p>
-<h2 id="10-2-2-Installation-with-SDKMAN-（通过SDKMAN安装）"><a href="#10-2-2-Installation-with-SDKMAN-（通过SDKMAN安装）" class="headerlink" title="10.2.2 Installation with SDKMAN!（通过SDKMAN安装）"></a>10.2.2 Installation with SDKMAN!（通过SDKMAN安装）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SDKMAN! (The Software Development Kit Manager) can be used for     </span><br><span class="line">managing multiple versions of various binary SDKs, including Groovy     </span><br><span class="line">and the Spring Boot CLI. Get SDKMAN! from sdkman.io and install     </span><br><span class="line">Spring Boot by using the following commands:</span><br></pre></td></tr></table></figure>
-<p>SDKMAN!（软件开发工具包管理器）可用于管理各种二进制SDK的多个版本，包括Groovy脚本和Spring Boot CLI.从sdkman.io中获取SDKMAN!并用以下命令进行Spring Boot 安装。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sdk install springboot</span><br><span class="line">$ spring --version</span><br><span class="line">Spring Boot v2.1.0.BUILD-SNAPSHOT</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">If you develop features for the CLI and want easy access     </span><br><span class="line">to the version you built, use the following commands:</span><br></pre></td></tr></table></figure>
-<p>如果您为CLI开发功能并希望轻松访问您创建的版本，请使用以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sdk install springboot dev /path/to/spring-boot/spring-boot-cli/    </span><br><span class="line">target/spring-boot-cli-2.1.0.BUILD-SNAPSHOT-bin/spring-2.1.0.BUILD-SNAPSHOT/</span><br><span class="line">$ sdk default springboot dev</span><br><span class="line">$ spring --version</span><br><span class="line">Spring CLI v2.1.0.BUILD-SNAPSHOT</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The preceding instructions install a local instance of spring called the dev instance. It points at your target build location, so every time you rebuild Spring Boot,spring is up-to-date.</span><br><span class="line">You can see it by running the following command:</span><br></pre></td></tr></table></figure>
-<p>之前介绍了如何安装一个被称之为dev实例的本地spring实例。它指向了您的目标构建地址，因此每次当您重新构建Spring Boot的时候spring也同步更新。您可以通过运行下列命令行查看它：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ sdk ls springboot</span><br><span class="line"></span><br><span class="line">================================================================================</span><br><span class="line">Available Springboot Versions</span><br><span class="line">================================================================================</span><br><span class="line">&gt; + dev</span><br><span class="line">* 2.1.0.BUILD-SNAPSHOT</span><br><span class="line"></span><br><span class="line">================================================================================</span><br><span class="line">+ - <span class="built_in">local</span> version</span><br><span class="line">* - installed</span><br><span class="line">&gt; - currently <span class="keyword">in</span> use</span><br><span class="line">================================================================================</span><br></pre></td></tr></table></figure>
-<h2 id="10-2-3-OSX-Homebrew-Installation-苹果系统下使用Homebrew安装）"><a href="#10-2-3-OSX-Homebrew-Installation-苹果系统下使用Homebrew安装）" class="headerlink" title="10.2.3 OSX Homebrew Installation(苹果系统下使用Homebrew安装）"></a>10.2.3 OSX Homebrew Installation(苹果系统下使用Homebrew安装）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">If you are on a Mac and use Homebrew, you can install the     </span><br><span class="line">Spring Boot CLI by using the following commands:</span><br></pre></td></tr></table></figure>
-<p>如果您使用的是Mac并且使用Homebrew命令，你可以安装Spring Boot CLI 通过以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew tap pivotal/tap</span><br><span class="line">$ brew install springboot</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Homebrew installs spring to /usr/local/bin.</span><br></pre></td></tr></table></figure>
-<p>Homebrew将spring安装在/usr/local/bin路径下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">If you do not see the formula, your installation of brew     </span><br><span class="line">might be out-of-date. In that case, run brew update and try again.</span><br></pre></td></tr></table></figure>
-<p>如果您没有看到该公式，那么您的brew的安装可能会过时。 在这种情况下，运行brew update并重试。</p>
-<h2 id="10-2-4-MacPorts-Installation（以MacPorts安装方式）"><a href="#10-2-4-MacPorts-Installation（以MacPorts安装方式）" class="headerlink" title="10.2.4 MacPorts Installation（以MacPorts安装方式）"></a>10.2.4 MacPorts Installation（以MacPorts安装方式）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">If you are on a Mac and use MacPorts, you can install the     </span><br><span class="line">Spring Boot CLI by using the following command:</span><br></pre></td></tr></table></figure>
-<p>如果您使用Mac，并且使用MacPorts，您可以通过以下命令安装Spring Boot CLI<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo port install spring-boot-cli</span><br></pre></td></tr></table></figure></p>
-<h2 id="10-2-5-Command-line-Completion（命令行完成）"><a href="#10-2-5-Command-line-Completion（命令行完成）" class="headerlink" title="10.2.5 Command-line Completion（命令行完成）"></a>10.2.5 Command-line Completion（命令行完成）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">The Spring Boot CLI includes scripts that provide command     </span><br><span class="line">completion for the BASH and zsh shells. You can source     </span><br><span class="line">the script (also named spring) in any shell or put it in     </span><br><span class="line">your personal or system-wide bash completion initialization.     </span><br><span class="line">On a Debian system, the system-wide scripts are in     </span><br><span class="line">/shell-completion/bash and all scripts in that directory     </span><br><span class="line">are executed when a new shell starts. For example, to run     </span><br><span class="line">the script manually if you have installed by using SDKMAN!,      </span><br><span class="line">use the following commands:</span><br></pre></td></tr></table></figure>
-<p>Spring Boot CLI为BASH和zsh shells提供了命令行完成脚本。您可以在任何shell或者您个人的或者系统范围内的bash中初始化source该脚本。在Debian系统，全系统脚本在/shell-completion/bash，并且所有新建的可执行脚本都在该路径下。比如说，在您已经安装使用SDKMAN的情况下，去手动运行该脚本，使用如下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ . ~/.sdkman/candidates/springboot/current/shell-completion/bash/spring</span><br><span class="line">$ spring &lt;HIT TAB HERE&gt;</span><br><span class="line">  grab  <span class="built_in">help</span>  jar  run  <span class="built_in">test</span>  version</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If you install the Spring Boot CLI by using Homebrew or MacPorts,     </span><br><span class="line">the command-line completion scripts are automatically registered     </span><br><span class="line">with your shell.</span><br></pre></td></tr></table></figure>
-<p>如果您使用Homebrew或者MacPorts安装Spring Boot CLI命令行初始化完成，那么它会自动注册到您的shell当中。</p>
-<h2 id="10-2-6-Quick-start-Spring-CLI-Example（快速开始Spring-CLI-示例）"><a href="#10-2-6-Quick-start-Spring-CLI-Example（快速开始Spring-CLI-示例）" class="headerlink" title="10.2.6 Quick-start Spring CLI Example（快速开始Spring CLI 示例）"></a>10.2.6 Quick-start Spring CLI Example（快速开始Spring CLI 示例）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">You can use the following web application to test your installation.     </span><br><span class="line">To start, create a file called app.groovy, as follows:</span><br></pre></td></tr></table></figure>
-<p>您可以使用如下的web应用去测试您的安装情况。首先，创建一个如下的app.groovy：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThisWillActuallyRun</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/"</span>)</span><br><span class="line">	<span class="function">String <span class="title">home</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="string">"Hello World!"</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Then run it from a shell, as follows:</span><br></pre></td></tr></table></figure>
-<p>然后在shell中运行它，如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ spring run app.groovy</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The first run of your application is slow, as dependencies     </span><br><span class="line">are downloaded. Subsequent runs are much quicker.</span><br></pre></td></tr></table></figure>
-<p>首次运行您的应用会比较慢，因为依赖库需要被下载，以后每次运行会比较快<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Open localhost:8080 in your favorite web browser.     </span><br><span class="line">You should see the following output:</span><br></pre></td></tr></table></figure></p>
-<p>在您喜爱的浏览器中打开 localhost:8080 ，您将会看到如下的输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
-<h2 id="10-3-Upgrading-from-an-Earlier-Version-of-Spring-Boot（从一个旧版本升级Spring-Boot）"><a href="#10-3-Upgrading-from-an-Earlier-Version-of-Spring-Boot（从一个旧版本升级Spring-Boot）" class="headerlink" title="10.3 Upgrading from an Earlier Version of Spring Boot（从一个旧版本升级Spring Boot）"></a>10.3 Upgrading from an Earlier Version of Spring Boot（从一个旧版本升级Spring Boot）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If you are upgrading from an earlier release of Spring Boot, check     </span><br><span class="line">the “migration guide” on the project wiki that provides detailed     </span><br><span class="line">upgrade instructions. Check also the“release notes” for a list of     </span><br><span class="line">“new and noteworthy” features for each release.</span><br></pre></td></tr></table></figure>
-<p>如果您想从以前的版本中升级Spring Boot 请核对该项目在wiki上的“migration guide”，它提供了详细的升级说明。并且从列表中核对“relese notes”，每个relese版本都有新的值得注意的功能。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">To upgrade an existing CLI installation, use the appropriate     </span><br><span class="line">package manager command (for example, brew upgrade) or, if     </span><br><span class="line">you manually installed the CLI, follow thestandard instructions,     </span><br><span class="line">remembering to update your PATH environment variable to     </span><br><span class="line">remove any older references.</span><br></pre></td></tr></table></figure>
-<p>去升级一个已有的CLI安装程序，推荐使用打包工具命令（比如 brew upgrage），如果您手动安装了CLI，根据标准的说明，记得更新您的环境变量去移除任何旧的关联</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/04/17/Spring BootDoc第二部分/SpringBoot翻译（四）安装部署Spring Boot CLI/" data-id="cjgeysn3h000xpt7882svsyhb" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
     </nav>
@@ -1889,7 +1859,26 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" class="thumbnail">
+                            <a href="/2018/04/27/Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962773687.jpg)" alt="SpringBoot官方文档翻译（三十五）：web环境" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
+                            <p class="item-title"><a href="/2018/04/27/Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境/" class="title">SpringBoot官方文档翻译（三十五）：web环境</a></p>
+                            <p class="item-date"><time datetime="2018-04-27T07:39:47.000Z" itemprop="datePublished">2018-04-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/26/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" class="thumbnail">
     
     
         <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962657339.jpg)" alt="SpringBoot官方文档翻译（三十四）：应用事件和监听" class="thumbnail-image"></span>
@@ -1900,8 +1889,8 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" class="title">SpringBoot官方文档翻译（三十四）：应用事件和监听</a></p>
-                            <p class="item-date"><time datetime="2018-04-25T08:39:47.000Z" itemprop="datePublished">2018-04-25</time></p>
+                            <p class="item-title"><a href="/2018/04/26/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" class="title">SpringBoot官方文档翻译（三十四）：应用事件和监听</a></p>
+                            <p class="item-date"><time datetime="2018-04-26T08:39:47.000Z" itemprop="datePublished">2018-04-26</time></p>
                         </div>
                     </li>
                 
@@ -1962,25 +1951,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（三十）启动失败/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523931297126.jpg)" alt="SpringBoot官方文档翻译（三十）：启动失败" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/04/24/Spring BootDoc第四部分/SpringBoot翻译（三十）启动失败/" class="title">SpringBoot官方文档翻译（三十）：启动失败</a></p>
-                            <p class="item-date"><time datetime="2018-04-24T12:30:47.000Z" itemprop="datePublished">2018-04-24</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1990,7 +1960,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -1999,7 +1969,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">34</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -2008,7 +1978,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li></ul>
         </div>
     </div>
 
