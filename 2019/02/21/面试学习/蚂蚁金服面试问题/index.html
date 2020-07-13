@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>蚂蚁金服一面 | 博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="1.    HashMap&amp;amp;ConcurrentHashMap2.    再谈谈一致hash算法？3.    乐观锁&amp;amp;悲观锁？4.    可重入锁&amp;amp;Synchronize？5.    事务四大特性？6.    事务的二段提交机制?7.    聚簇索引&amp;amp;非聚">
+<meta name="keywords" content="面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="蚂蚁金服一面">
+<meta property="og:url" content="http://yoursite.com/2019/02/21/面试学习/蚂蚁金服面试问题/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="1.    HashMap&amp;amp;ConcurrentHashMap2.    再谈谈一致hash算法？3.    乐观锁&amp;amp;悲观锁？4.    可重入锁&amp;amp;Synchronize？5.    事务四大特性？6.    事务的二段提交机制?7.    聚簇索引&amp;amp;非聚簇索引？8.    用自己的实践经历说一下索引的使用场景(说一个就要举一个例子)？9.    当前读&amp;amp;快">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.wailian.work/images/2018/04/20/1524194203156.jpg">
+<meta property="og:updated_time" content="2019-02-19T08:52:46.172Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="蚂蚁金服一面">
+<meta name="twitter:description" content="1.    HashMap&amp;amp;ConcurrentHashMap2.    再谈谈一致hash算法？3.    乐观锁&amp;amp;悲观锁？4.    可重入锁&amp;amp;Synchronize？5.    事务四大特性？6.    事务的二段提交机制?7.    聚簇索引&amp;amp;非聚簇索引？8.    用自己的实践经历说一下索引的使用场景(说一个就要举一个例子)？9.    当前读&amp;amp;快">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/20/1524194203156.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="博客" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">博客</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">文章</a>
+                
+                    <a class="main-nav-link" href="/categories">人工智能</a>
+                
+                    <a class="main-nav-link" href="/archives">移动研发</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="http://www.wailian.work/images/2018/04/17/IMG_1469.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">文章</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">人工智能</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">移动研发</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="http://www.wailian.work/images/2018/04/17/IMG_1469.jpg" />
+            <h2 id="name">mike</h2>
+            <h3 id="title">互联网金融从业者，现任职于美团金服</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>上海, 中国</span>
+            <a id="follow" target="_blank" href="https://github.com/miketigris/">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                47
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                8
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/miketigris/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="weibo" class=tooltip>
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/xgr712@126.com" target="_blank" title="envelope" class=tooltip>
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-面试学习/蚂蚁金服面试问题" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            蚂蚁金服一面
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2019/02/21/面试学习/蚂蚁金服面试问题/">
+            <time datetime="2019-02-21T03:11:47.000Z" itemprop="datePublished">2019-02-21</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/蚂蚁/">蚂蚁</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/面试/">面试</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="1-HashMap-amp-ConcurrentHashMap"><a href="#1-HashMap-amp-ConcurrentHashMap" class="headerlink" title="1.    HashMap&amp;ConcurrentHashMap"></a>1.    HashMap&amp;ConcurrentHashMap</h2><h2 id="2-再谈谈一致hash算法？"><a href="#2-再谈谈一致hash算法？" class="headerlink" title="2.    再谈谈一致hash算法？"></a>2.    再谈谈一致hash算法？</h2><h2 id="3-乐观锁-amp-悲观锁？"><a href="#3-乐观锁-amp-悲观锁？" class="headerlink" title="3.    乐观锁&amp;悲观锁？"></a>3.    乐观锁&amp;悲观锁？</h2><h2 id="4-可重入锁-amp-Synchronize？"><a href="#4-可重入锁-amp-Synchronize？" class="headerlink" title="4.    可重入锁&amp;Synchronize？"></a>4.    可重入锁&amp;Synchronize？</h2><h2 id="5-事务四大特性？"><a href="#5-事务四大特性？" class="headerlink" title="5.    事务四大特性？"></a>5.    事务四大特性？</h2><h2 id="6-事务的二段提交机制"><a href="#6-事务的二段提交机制" class="headerlink" title="6.    事务的二段提交机制?"></a>6.    事务的二段提交机制?</h2><h2 id="7-聚簇索引-amp-非聚簇索引？"><a href="#7-聚簇索引-amp-非聚簇索引？" class="headerlink" title="7.    聚簇索引&amp;非聚簇索引？"></a>7.    聚簇索引&amp;非聚簇索引？</h2><h2 id="8-用自己的实践经历说一下索引的使用场景-说一个就要举一个例子-？"><a href="#8-用自己的实践经历说一下索引的使用场景-说一个就要举一个例子-？" class="headerlink" title="8.    用自己的实践经历说一下索引的使用场景(说一个就要举一个例子)？"></a>8.    用自己的实践经历说一下索引的使用场景(说一个就要举一个例子)？</h2><h2 id="9-当前读-amp-快照读？"><a href="#9-当前读-amp-快照读？" class="headerlink" title="9.    当前读&amp;快照读？"></a>9.    当前读&amp;快照读？</h2><h2 id="10-类加载过程？"><a href="#10-类加载过程？" class="headerlink" title="10.    类加载过程？"></a>10.    类加载过程？</h2><h2 id="11-双亲委派机制及使用原因？"><a href="#11-双亲委派机制及使用原因？" class="headerlink" title="11.    双亲委派机制及使用原因？"></a>11.    双亲委派机制及使用原因？</h2><h2 id="12-说说GC算法？"><a href="#12-说说GC算法？" class="headerlink" title="12.    说说GC算法？"></a>12.    说说GC算法？</h2><h2 id="13-Http-amp-Https的区别"><a href="#13-Http-amp-Https的区别" class="headerlink" title="13.    Http&amp;Https的区别"></a>13.    Http&amp;Https的区别</h2><h2 id="14-Https的加密方式"><a href="#14-Https的加密方式" class="headerlink" title="14.    Https的加密方式"></a>14.    Https的加密方式</h2><h2 id="15-线程池的核心参数和基本原理"><a href="#15-线程池的核心参数和基本原理" class="headerlink" title="15.    线程池的核心参数和基本原理"></a>15.    线程池的核心参数和基本原理</h2><h2 id="16-线程池的调优策略"><a href="#16-线程池的调优策略" class="headerlink" title="16.    线程池的调优策略"></a>16.    线程池的调优策略</h2><h2 id="17-你有什么职业规划"><a href="#17-你有什么职业规划" class="headerlink" title="17.    你有什么职业规划"></a>17.    你有什么职业规划</h2>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2019/02/21/面试学习/蚂蚁金服面试问题/" data-id="ckck7p935003txp78j21cwazr" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/02/21/面试学习/HashMap&ConcurrentHashMap/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    并发编程
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/05/02/Spring BootDoc第四部分/SpringBoot翻译（三十六）访问应用程序参数/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">SpringBoot官方文档翻译（三十六）：访问应用程序参数</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/01/21/面试学习/IO密集型与CPU密集型/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="IO密集型与CPU密集型" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Netty指南/">Netty指南</a></p>
+                            <p class="item-title"><a href="/2020/01/21/面试学习/IO密集型与CPU密集型/" class="title">IO密集型与CPU密集型</a></p>
+                            <p class="item-date"><time datetime="2020-01-21T03:11:47.000Z" itemprop="datePublished">2020-01-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/21/面试学习/HashMap&ConcurrentHashMap/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="并发编程" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2019/02/21/面试学习/HashMap&ConcurrentHashMap/" class="title">并发编程</a></p>
+                            <p class="item-date"><time datetime="2019-02-21T03:12:47.000Z" itemprop="datePublished">2019-02-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/21/面试学习/蚂蚁金服面试问题/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="蚂蚁金服一面" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/蚂蚁/">蚂蚁</a></p>
+                            <p class="item-title"><a href="/2019/02/21/面试学习/蚂蚁金服面试问题/" class="title">蚂蚁金服一面</a></p>
+                            <p class="item-date"><time datetime="2019-02-21T03:11:47.000Z" itemprop="datePublished">2019-02-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/02/Spring BootDoc第四部分/SpringBoot翻译（三十六）访问应用程序参数/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962729983.jpg)" alt="SpringBoot官方文档翻译（三十六）：访问应用程序参数" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
+                            <p class="item-title"><a href="/2018/05/02/Spring BootDoc第四部分/SpringBoot翻译（三十六）访问应用程序参数/" class="title">SpringBoot官方文档翻译（三十六）：访问应用程序参数</a></p>
+                            <p class="item-date"><time datetime="2018-05-02T04:39:47.000Z" itemprop="datePublished">2018-05-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/02/Spring Boot道可道（原创）/（一）SpringApplication解析/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962729983.jpg)" alt="SpringBoot官方文档翻译（三十六）：访问应用程序参数" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
+                            <p class="item-title"><a href="/2018/05/02/Spring Boot道可道（原创）/（一）SpringApplication解析/" class="title">SpringBoot官方文档翻译（三十六）：访问应用程序参数</a></p>
+                            <p class="item-date"><time datetime="2018-05-02T04:39:47.000Z" itemprop="datePublished">2018-05-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Netty指南/">Netty指南</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/蚂蚁/">蚂蚁</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netty/">Netty</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Effective-Java/" style="font-size: 14px;">Effective Java</a> <a href="/tags/Netty/" style="font-size: 10px;">Netty</a> <a href="/tags/SpringBoot官方文档翻译第三部分/" style="font-size: 20px;">SpringBoot官方文档翻译第三部分</a> <a href="/tags/SpringBoot官方文档翻译第二部分/" style="font-size: 18px;">SpringBoot官方文档翻译第二部分</a> <a href="/tags/SpringBoot官方文档翻译第四部分/" style="font-size: 16px;">SpringBoot官方文档翻译第四部分</a> <a href="/tags/书籍/" style="font-size: 12px;">书籍</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://www.wanjiaxinwen.cn">博客</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 许贵荣个人版权所有<br>
+            Powered by <a href="http://www.wanjiaxinwen.cn" target="_blank">许贵荣</a>. 苏ICP备16038819号
+        </div>
+    </div>
+</footer>
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
