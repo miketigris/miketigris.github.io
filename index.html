@@ -161,11 +161,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                47
+                57
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                8
+                9
                 <span>标签</span>
             </div>
         </div>
@@ -214,7 +214,7 @@
 
             
             <section id="main">
-    <article id="post-面试学习/IO密集型与CPU密集型" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Clean Code/错误处理" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -222,7 +222,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2020/01/21/面试学习/IO密集型与CPU密集型/">IO密集型与CPU密集型</a>
+            <a class="article-title" href="/2020/07/21/Clean Code/错误处理/">错误处理</a>
         </h1>
     
 
@@ -231,138 +231,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2020/01/21/面试学习/IO密集型与CPU密集型/">
-            <time datetime="2020-01-21T03:11:47.000Z" itemprop="datePublished">2020-01-21</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Netty指南/">Netty指南</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Netty/">Netty</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="IO密集型与CPU密集型"><a href="#IO密集型与CPU密集型" class="headerlink" title="IO密集型与CPU密集型"></a>IO密集型与CPU密集型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">IO是一个通用的概念，即数据从一个地方移动到另一个地方，对一个实体来说，可以看成数据从外部进入，以及从实体输出到外部。 </span><br><span class="line">具体来说，常见的IO请求有网络IO，磁盘IO。</span><br><span class="line">那么因为CPU的工作频率远远快过和其连接的外部硬件，例如磁盘，所以CPU在IO的时候经常会需要等待外部硬件完成当前任务，完成之后，才能进行下一个任务，这种情况常常称为IO阻塞，即CPU直到等待IO操作返回前，不能继续运行。IO阻塞对于CPU强大的运算能力是一个巨大的浪费。</span><br><span class="line">所以有了多线程，多线程是同步运行的多个任务。不过由于CPU核数的问题，许多线程实际上并不是真正并行而只是通过快速切分时间片来模拟的。简单来说就是你执行一点，我执行一点，来回切换，创造出一种同时运行任务的假象。（多线程的本质是切换CPU时间片轮流执行，造成多个线程同步执行的假象）</span><br><span class="line">多线程的底层机制是由操作系统实现的，当一个线程遇到IO阻塞时，例如读写文件，操作系统可能会暂时挂起该线程，从而让其他线程优先执行，也就是将多出来的时间片切分给其他的线程，直到等待该线程的IO操作返回，再重新调度该线程运行。</span><br><span class="line">CPU密集型（CPU-bound）</span><br><span class="line">CPU密集型也叫计算密集型，指的是系统的硬盘、内存性能相对CPU要好很多，此时，系统运作大部分的状况是CPU Loading 100%，CPU要读/写I/O(硬盘/内存)，I/O在很短的时间就可以完成，而CPU还有许多运算要处理，CPU Loading很高。</span><br><span class="line">在多重程序系统中，大部份时间用来做计算、逻辑判断等CPU动作的程序称之CPU bound。例如一个计算圆周率至小数点一千位以下的程序，在执行的过程当中绝大部份时间用在三角函数和开根号的计算，RSA加解密算法，便是属于CPU bound的程序。</span><br><span class="line">CPU bound的程序一般而言CPU占用率相当高。这可能是因为任务本身不太需要访问I/O设备，也可能是因为程序是多线程实现因此屏蔽掉了等待I/O的时间。</span><br><span class="line">CPU密集的意思是该任务需要大量的运算，而没有阻塞，CPU一直全速运行。 </span><br><span class="line">CPU密集任务只有在真正的多核CPU上才可能得到加速(通过多线程)，而在单核CPU上，无论你开几个模拟的多线程，该任务都不可能得到加速，因为CPU总的运算能力就那些。</span><br><span class="line">IO密集型（I/O bound）</span><br><span class="line">IO密集型指的是系统的CPU性能相对硬盘、内存要好很多，此时，系统运作，大部分的状况是CPU在等I/O (硬盘/内存) 的读/写操作，此时CPU Loading并不高。</span><br><span class="line">I/O bound的程序一般在达到性能极限时，CPU占用率仍然较低。这可能是因为任务本身需要大量I/O操作，而pipeline做得不是很好，没有充分利用处理器能力。</span><br><span class="line">IO密集型，即该任务需要大量的IO，即大量的阻塞。在单线程上运行IO密集型的任务会导致浪费大量的CPU运算能力浪费在等待。所以在IO密集型任务中使用多线程可以大大的加速程序运行，即使在单核CPU上，这种加速主要就是利用了被浪费掉的阻塞时间。 </span><br><span class="line"></span><br><span class="line">除了同步IO之外，系统可能还支持异步IO，即IO不阻塞，对IO设备发出读写命令之后立即返回执行下一条命令，而IO设备的返回结果则在将来未知的某个时间点通过信号来回调。这也是nodeJS底层的实现机制。</span><br><span class="line">CPU密集型 vs IO密集型</span><br><span class="line">我们可以把任务分为计算（CPU)密集型和IO密集型。</span><br><span class="line">计算密集型任务的特点是要进行大量的计算，消耗CPU资源，比如计算圆周率、对视频进行高清解码等等，全靠CPU的运算能力。这种计算密集型任务虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU执行任务的效率就越低，所以，要最高效地利用CPU，计算密集型任务同时进行的数量应当等于CPU的核心数。</span><br><span class="line">计算密集型任务由于主要消耗CPU资源，因此，代码运行效率至关重要。Python这样的脚本语言运行效率很低，完全不适合计算密集型任务。对于计算密集型任务，最好用C语言编写。</span><br><span class="line">第二种任务的类型是IO密集型，涉及到网络、磁盘IO的任务都是IO密集型任务，这类任务的特点是CPU消耗很少，任务的大部分时间都在等待IO操作完成（因为IO的速度远远低于CPU和内存的速度）。对于IO密集型任务，任务越多，CPU效率越高，但也有一个限度。常见的大部分任务都是IO密集型任务，比如Web应用。</span><br><span class="line">IO密集型任务执行期间，99%的时间都花在IO上，花在CPU上的时间很少，因此，用运行速度极快的C语言替换用Python这样运行速度极低的脚本语言，完全无法提升运行效率。对于IO密集型任务，最合适的语言就是开发效率最高（代码量最少）的语言，脚本语言是首选，C语言最差。</span><br><span class="line">总之，计算密集型程序适合C语言多线程，I/O密集型适合脚本语言开发的多线程。</span><br><span class="line">参考：</span><br><span class="line">https://blog.csdn.net/o83290102o5/article/details/78723329</span><br><span class="line">https://blog.csdn.net/youanyyou/article/details/78990156</span><br></pre></td></tr></table></figure>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2020/01/21/面试学习/IO密集型与CPU密集型/" data-id="ckck7u8vd00002178ndtcei7t" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-面试学习/HashMap&amp;ConcurrentHashMap" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2019/02/21/面试学习/HashMap&ConcurrentHashMap/">并发编程</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2019/02/21/面试学习/HashMap&ConcurrentHashMap/">
-            <time datetime="2019-02-21T03:12:47.000Z" itemprop="datePublished">2019-02-21</time>
+        <a href="/2020/07/21/Clean Code/错误处理/">
+            <time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time>
         </a>
     </div>
 
@@ -376,7 +246,7 @@
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/读书笔记/">读书笔记</a>
+        <a class="tag-link" href="/tags/Clean-Code/">Clean Code</a>
     </div>
 
                     </div>
@@ -387,27 +257,12 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="如何减少上下文切换"><a href="#如何减少上下文切换" class="headerlink" title="如何减少上下文切换"></a>如何减少上下文切换</h2><ul>
-<li>无锁并发编程</li>
-<li>CAS算法</li>
-<li>使用最少的线程</li>
-<li>协程</li>
-</ul>
-<h2 id="什么是死锁"><a href="#什么是死锁" class="headerlink" title="什么是死锁"></a>什么是死锁</h2><p>两个或多个线程等待彼此锁释放而无法继续运行形成死锁。</p>
-<h2 id="如何避免死锁"><a href="#如何避免死锁" class="headerlink" title="如何避免死锁"></a>如何避免死锁</h2><ul>
-<li>避免一个线程同时获取多个锁</li>
-<li>避免一个线程在锁内同时占用多个资源</li>
-<li>尝试使用定时锁lock.tryLock(timeout)来替代使用内部锁</li>
-<li>对于数据库锁，加锁和解锁必须在一个数据库连接里</li>
-</ul>
-<h2 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h2><ul>
-<li>lock前缀指令会引起处理器缓存回写到内存</li>
-<li>一个处理器的缓存回写到内存会导致其他处理器的缓存无效 </li>
-</ul>
-<h2 id="synchronized-java的所有对象都是锁"><a href="#synchronized-java的所有对象都是锁" class="headerlink" title="synchronized java的所有对象都是锁"></a>synchronized java的所有对象都是锁</h2><ul>
-<li>对于同步方法，锁的是当前实例对象</li>
-<li>对于静态同步方法，锁的是当前类的Class对象</li>
-<li>对于同步方法块，锁的是Synchonized括号配置的对象</li>
+            <h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><ul>
+<li>使用异常而非返回码，这个在之前的章节中已经提起了</li>
+<li>打包外部api的异常</li>
+<li>别返回null，可以返回空对象或者异常</li>
+<li>别传递null，可以报一个参数检验异常</li>
+<li>何为受检异常何为非受检异常？</li>
 </ul>
 
         
@@ -419,7 +274,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2019/02/21/面试学习/HashMap&ConcurrentHashMap/" data-id="ckck7p93b0044xp785jiadraw" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2020/07/21/Clean Code/错误处理/" data-id="ckd43u6z1000u8i78s8vkcsc8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -495,7 +350,7 @@
 
 
 
-    <article id="post-面试学习/蚂蚁金服面试问题" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Clean Code/格式" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -503,7 +358,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2019/02/21/面试学习/蚂蚁金服面试问题/">蚂蚁金服一面</a>
+            <a class="article-title" href="/2020/07/21/Clean Code/格式/">格式</a>
         </h1>
     
 
@@ -512,8 +367,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2019/02/21/面试学习/蚂蚁金服面试问题/">
-            <time datetime="2019-02-21T03:11:47.000Z" itemprop="datePublished">2019-02-21</time>
+        <a href="/2020/07/21/Clean Code/格式/">
+            <time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time>
         </a>
     </div>
 
@@ -521,13 +376,13 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/蚂蚁/">蚂蚁</a>
+        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/面试/">面试</a>
+        <a class="tag-link" href="/tags/Clean-Code/">Clean Code</a>
     </div>
 
                     </div>
@@ -538,7 +393,14 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="1-HashMap-amp-ConcurrentHashMap"><a href="#1-HashMap-amp-ConcurrentHashMap" class="headerlink" title="1.    HashMap&amp;ConcurrentHashMap"></a>1.    HashMap&amp;ConcurrentHashMap</h2><h2 id="2-再谈谈一致hash算法？"><a href="#2-再谈谈一致hash算法？" class="headerlink" title="2.    再谈谈一致hash算法？"></a>2.    再谈谈一致hash算法？</h2><h2 id="3-乐观锁-amp-悲观锁？"><a href="#3-乐观锁-amp-悲观锁？" class="headerlink" title="3.    乐观锁&amp;悲观锁？"></a>3.    乐观锁&amp;悲观锁？</h2><h2 id="4-可重入锁-amp-Synchronize？"><a href="#4-可重入锁-amp-Synchronize？" class="headerlink" title="4.    可重入锁&amp;Synchronize？"></a>4.    可重入锁&amp;Synchronize？</h2><h2 id="5-事务四大特性？"><a href="#5-事务四大特性？" class="headerlink" title="5.    事务四大特性？"></a>5.    事务四大特性？</h2><h2 id="6-事务的二段提交机制"><a href="#6-事务的二段提交机制" class="headerlink" title="6.    事务的二段提交机制?"></a>6.    事务的二段提交机制?</h2><h2 id="7-聚簇索引-amp-非聚簇索引？"><a href="#7-聚簇索引-amp-非聚簇索引？" class="headerlink" title="7.    聚簇索引&amp;非聚簇索引？"></a>7.    聚簇索引&amp;非聚簇索引？</h2><h2 id="8-用自己的实践经历说一下索引的使用场景-说一个就要举一个例子-？"><a href="#8-用自己的实践经历说一下索引的使用场景-说一个就要举一个例子-？" class="headerlink" title="8.    用自己的实践经历说一下索引的使用场景(说一个就要举一个例子)？"></a>8.    用自己的实践经历说一下索引的使用场景(说一个就要举一个例子)？</h2><h2 id="9-当前读-amp-快照读？"><a href="#9-当前读-amp-快照读？" class="headerlink" title="9.    当前读&amp;快照读？"></a>9.    当前读&amp;快照读？</h2><h2 id="10-类加载过程？"><a href="#10-类加载过程？" class="headerlink" title="10.    类加载过程？"></a>10.    类加载过程？</h2><h2 id="11-双亲委派机制及使用原因？"><a href="#11-双亲委派机制及使用原因？" class="headerlink" title="11.    双亲委派机制及使用原因？"></a>11.    双亲委派机制及使用原因？</h2><h2 id="12-说说GC算法？"><a href="#12-说说GC算法？" class="headerlink" title="12.    说说GC算法？"></a>12.    说说GC算法？</h2><h2 id="13-Http-amp-Https的区别"><a href="#13-Http-amp-Https的区别" class="headerlink" title="13.    Http&amp;Https的区别"></a>13.    Http&amp;Https的区别</h2><h2 id="14-Https的加密方式"><a href="#14-Https的加密方式" class="headerlink" title="14.    Https的加密方式"></a>14.    Https的加密方式</h2><h2 id="15-线程池的核心参数和基本原理"><a href="#15-线程池的核心参数和基本原理" class="headerlink" title="15.    线程池的核心参数和基本原理"></a>15.    线程池的核心参数和基本原理</h2><h2 id="16-线程池的调优策略"><a href="#16-线程池的调优策略" class="headerlink" title="16.    线程池的调优策略"></a>16.    线程池的调优策略</h2><h2 id="17-你有什么职业规划"><a href="#17-你有什么职业规划" class="headerlink" title="17.    你有什么职业规划"></a>17.    你有什么职业规划</h2>
+            <h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><ul>
+<li>垂直格式要注意缩进</li>
+<li>水平格式要注意一行代码的最大长度，建议45个字符左右。尽量保持代码短小。</li>
+<li>不建议水平对齐</li>
+<li>缩进：方法对于类缩进一级，代码块对于方法缩进一级</li>
+<li>当自己的规则与团队冲突时以团队规则为准</li>
+</ul>
+
         
         </div>
         <footer class="article-footer">
@@ -548,7 +410,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2019/02/21/面试学习/蚂蚁金服面试问题/" data-id="ckck7p935003txp78j21cwazr" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2020/07/21/Clean Code/格式/" data-id="ckd43u6yt000e8i78l21mgpks" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -624,7 +486,7 @@
 
 
 
-    <article id="post-Spring BootDoc第四部分/SpringBoot翻译（三十六）访问应用程序参数" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Clean Code/迭代" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -632,7 +494,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/05/02/Spring BootDoc第四部分/SpringBoot翻译（三十六）访问应用程序参数/">SpringBoot官方文档翻译（三十六）：访问应用程序参数</a>
+            <a class="article-title" href="/2020/07/21/Clean Code/迭代/">迭代</a>
         </h1>
     
 
@@ -641,8 +503,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/05/02/Spring BootDoc第四部分/SpringBoot翻译（三十六）访问应用程序参数/">
-            <time datetime="2018-05-02T04:39:47.000Z" itemprop="datePublished">2018-05-02</time>
+        <a href="/2020/07/21/Clean Code/迭代/">
+            <time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time>
         </a>
     </div>
 
@@ -650,13 +512,13 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
+        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a>
+        <a class="tag-link" href="/tags/Clean-Code/">Clean Code</a>
     </div>
 
                     </div>
@@ -667,11 +529,12 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="23-6-Accessing-Application-Arguments（访问应用程序参数）"><a href="#23-6-Accessing-Application-Arguments（访问应用程序参数）" class="headerlink" title="23.6 Accessing Application Arguments（访问应用程序参数）"></a>23.6 Accessing Application Arguments（访问应用程序参数）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">If you need to access the application arguments that were passed to SpringApplication.run(… ), you can inject a org.springframework.boot.ApplicationArguments bean. The ApplicationArguments interface provides access to both the raw String[] arguments as well as parsed option and non-option arguments,     </span><br><span class="line">as shown in the following example:</span><br></pre></td></tr></table></figure>
-<p>您可以通过注入一个<strong>org.springframework.boot.ApplicationArguments</strong> bean去获取访问通过<strong>SpringApplication.run(… )</strong>传递的参数。<strong>ApplicationArguments</strong>参数接口即提供了访问原生<strong>String[]</strong>参数的方式，也提供了访问解析option（可选）和non-option（非可选）参数。举个例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBean</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MyBean</span><span class="params">(ApplicationArguments args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">boolean</span> debug = args.containsOption(<span class="string">"debug"</span>);</span><br><span class="line">		List&lt;String&gt; files = args.getNonOptionArgs();</span><br><span class="line">		<span class="comment">// if run with "--debug logfile.txt" debug=true, files=["logfile.txt"]</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot also registers a CommandLinePropertySource with the    </span><br><span class="line"> Spring Environment. This lets you also inject single application     </span><br><span class="line"> arguments by using the @Value annotation.</span><br></pre></td></tr></table></figure>
-<p>Spring Boot还向Spring环境注册了一个CommandLinePropertySource。这使您同样能够通过使用注解<strong>@Value</strong>注入单应用参数。</p>
-<p>请为以下账号开通访问 <a href="http://qahome.dp/smsqueue/query" target="_blank" rel="noopener">http://qahome.dp/smsqueue/query</a> 的权限<br>wbhz_zhengzhongguo<br>wbhz_178304746<br>wbhz_majing_fzlzh<br>wbhz_songchang<br>wbhz_ganjiali<br>wbhz_lushen<br>wbhz_fangjie</p>
+            <h2 id="通过迭代达到整洁的目的"><a href="#通过迭代达到整洁的目的" class="headerlink" title="通过迭代达到整洁的目的"></a>通过迭代达到整洁的目的</h2><ul>
+<li>运行所有测试</li>
+<li>不可重复</li>
+<li>表达程序员的意图</li>
+<li>尽可能减少类和方法的数量</li>
+</ul>
 
         
         </div>
@@ -682,7 +545,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/05/02/Spring BootDoc第四部分/SpringBoot翻译（三十六）访问应用程序参数/" data-id="ckck7p92m0031xp783em5z017" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2020/07/21/Clean Code/迭代/" data-id="ckd43u6yv000g8i78ollbv4b0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -758,7 +621,7 @@
 
 
 
-    <article id="post-Spring Boot道可道（原创）/（一）SpringApplication解析" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Clean Code/有意义的命名" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -766,7 +629,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/05/02/Spring Boot道可道（原创）/（一）SpringApplication解析/">SpringBoot官方文档翻译（三十六）：访问应用程序参数</a>
+            <a class="article-title" href="/2020/07/21/Clean Code/有意义的命名/">有意义的命名</a>
         </h1>
     
 
@@ -775,8 +638,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/05/02/Spring Boot道可道（原创）/（一）SpringApplication解析/">
-            <time datetime="2018-05-02T04:39:47.000Z" itemprop="datePublished">2018-05-02</time>
+        <a href="/2020/07/21/Clean Code/有意义的命名/">
+            <time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time>
         </a>
     </div>
 
@@ -784,13 +647,13 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
+        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a>
+        <a class="tag-link" href="/tags/Clean-Code/">Clean Code</a>
     </div>
 
                     </div>
@@ -801,150 +664,25 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="23-6-Accessing-Application-Arguments（访问应用程序参数）"><a href="#23-6-Accessing-Application-Arguments（访问应用程序参数）" class="headerlink" title="23.6 Accessing Application Arguments（访问应用程序参数）"></a>23.6 Accessing Application Arguments（访问应用程序参数）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">If you need to access the application arguments that were passed to SpringApplication.run(… ), you can inject a org.springframework.boot.ApplicationArguments bean. The ApplicationArguments interface provides access to both the raw String[] arguments as well as parsed option and non-option arguments,     </span><br><span class="line">as shown in the following example:</span><br></pre></td></tr></table></figure>
-<p>您可以通过注入一个<strong>org.springframework.boot.ApplicationArguments</strong> bean去获取访问通过<strong>SpringApplication.run(… )</strong>传递的参数。<strong>ApplicationArguments</strong>参数接口即提供了访问原生<strong>String[]</strong>参数的方式，也提供了访问解析option（可选）和non-option（非可选）参数。举个例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBean</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MyBean</span><span class="params">(ApplicationArguments args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">boolean</span> debug = args.containsOption(<span class="string">"debug"</span>);</span><br><span class="line">		List&lt;String&gt; files = args.getNonOptionArgs();</span><br><span class="line">		<span class="comment">// if run with "--debug logfile.txt" debug=true, files=["logfile.txt"]</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot also registers a CommandLinePropertySource with the    </span><br><span class="line"> Spring Environment. This lets you also inject single application     </span><br><span class="line"> arguments by using the @Value annotation.</span><br></pre></td></tr></table></figure>
-<p>Spring Boot还向Spring环境注册了一个CommandLinePropertySource。这使您同样能够通过使用注解<strong>@Value</strong>注入单应用参数。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/05/02/Spring Boot道可道（原创）/（一）SpringApplication解析/" data-id="ckck7p92t003fxp78gj9lg9ix" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/27/Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境/">SpringBoot官方文档翻译（三十五）：web环境</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/27/Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境/">
-            <time datetime="2018-04-27T07:39:47.000Z" itemprop="datePublished">2018-04-27</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="23-6-Web-Environment（web环境）"><a href="#23-6-Web-Environment（web环境）" class="headerlink" title="23.6 Web Environment（web环境）"></a>23.6 Web Environment（web环境）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A SpringApplication attempts to create the right type of     </span><br><span class="line">ApplicationContext on your behalf. The algorithm used to     </span><br><span class="line">determine a WebEnvironmentType is fairly simple:</span><br></pre></td></tr></table></figure>
-<p><strong>SpringApplication</strong>试图根据您的行为创建正确的<strong>ApplicationContext</strong>类型，用于确定WebEnvironmentType的算法非常简单:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">•	If Spring MVC is present, an AnnotationConfigServletWebServerApplicationContext is used</span><br><span class="line">•	If Spring MVC is not present and Spring WebFlux is present, an AnnotationConfigReactiveWebApplicationContext is used</span><br><span class="line">•	Otherwise, AnnotationConfigApplicationContext is used</span><br></pre></td></tr></table></figure></p>
+            <h2 id="有意义的命名"><a href="#有意义的命名" class="headerlink" title="有意义的命名"></a>有意义的命名</h2><p>有意义的命名能够增加代码的可读性，使得维护代码变得容易，也让重构变得更加高效。</p>
 <ul>
-<li>如果使用的是Spring MVC的框架，<strong>AnnotationConfigServletWebServerApplicationContext</strong>将会被使用</li>
-<li>如果使用的不是Spring MVC框架，使用的是WebFlux框架，<strong>AnnotationConfigReactiveWebApplicationContext</strong>上下文将会被使用</li>
-<li>其他情况，<strong>AnnotationConfigApplicationContext</strong>将会被使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">This means that if you are using Spring MVC and the new WebClient     </span><br><span class="line">from Spring WebFlux in the same application, Spring MVC will be used     </span><br><span class="line">by default. You can override that easily by     </span><br><span class="line">calling setWebApplicationType(WebApplicationType).</span><br></pre></td></tr></table></figure>
-</li>
+<li>名副其实：不要用简单语，使用合适的名称</li>
+<li>避免误导：1和l（L）还有一些近义词的误导要避免，0和o(O)</li>
+<li>做有意义的区分：避免使用a1，a2这种</li>
+<li>使用读得出来的名称</li>
+<li>使用可搜索的名称</li>
+<li>避免使用编码</li>
+<li>避免思维映射</li>
+<li>类名：用名词</li>
+<li>方法名：动词或者动词短语</li>
+<li>别扮可爱</li>
+<li>每个概念对应一个词</li>
+<li>别用双关语</li>
+<li>使用解决方案领域名称</li>
+<li>使用源自所涉及问题的领域名称</li>
+<li>添加有意义的语境</li>
+<li>不要添加没用的语境</li>
 </ul>
-<p>这意味着，如果您在同一个应用中使用了Spring MVC也使用了Spring WebFlux的Web客户端，Spring MVC将会作为默认框架。您可以通过<strong>setWebApplicationType(WebApplicationType).</strong>来重写这个默认。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">It is also possible to take complete control of the ApplicationContext     </span><br><span class="line">type that is used by calling setApplicationContextClass(… ).</span><br></pre></td></tr></table></figure></p>
-<p>也可以通过调用setApplicationContextClass(… )来设置上下文的类型。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">It is often desirable to call setWebApplicationType(WebApplicationType.NONE)     </span><br><span class="line">when using SpringApplication within a JUnit test.</span><br></pre></td></tr></table></figure></p>
-<p>当使用JUnit测试的时候也可以使用<strong>setWebApplicationType(WebApplicationType.NONE)</strong>来设置上下文类型。</p>
 
         
         </div>
@@ -955,7 +693,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/27/Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境/" data-id="ckck7p92j002vxp78cfkdue27" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2020/07/21/Clean Code/有意义的命名/" data-id="ckd43u6yx000k8i78466tcf1z" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1031,7 +769,7 @@
 
 
 
-    <article id="post-Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Clean Code/注释" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1039,7 +777,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/26/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/">SpringBoot官方文档翻译（三十四）：应用事件和监听</a>
+            <a class="article-title" href="/2020/07/21/Clean Code/注释/">注释</a>
         </h1>
     
 
@@ -1048,8 +786,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/26/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/">
-            <time datetime="2018-04-26T08:39:47.000Z" itemprop="datePublished">2018-04-26</time>
+        <a href="/2020/07/21/Clean Code/注释/">
+            <time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time>
         </a>
     </div>
 
@@ -1057,13 +795,13 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
+        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a>
+        <a class="tag-link" href="/tags/Clean-Code/">Clean Code</a>
     </div>
 
                     </div>
@@ -1074,23 +812,13 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="23-5-Application-Events-and-Listeners（应用事件和监听）"><a href="#23-5-Application-Events-and-Listeners（应用事件和监听）" class="headerlink" title="23.5 Application Events and Listeners（应用事件和监听）"></a>23.5 Application Events and Listeners（应用事件和监听）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In addition to the usual Spring Framework events, such as     </span><br><span class="line">ContextRefreshedEvent, a SpringApplication sends some additional     </span><br><span class="line">application events.</span><br></pre></td></tr></table></figure>
-<p>除了通常的Spring框架事件（如ContextRefreshedEvent）之外，SpringApplication还会发送一些其他应用程序事件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Some events are actually triggered before the ApplicationContext is     </span><br><span class="line">created, so you cannot register a listener on those as a @Bean. You     </span><br><span class="line">can register them with the SpringApplication.addListeners(… ) method or    </span><br><span class="line"> the SpringApplicationBuilder.listeners(… ) method.    </span><br><span class="line">If you want those listeners to be registered automatically, regardless     </span><br><span class="line">of the way the application is created, you can add a     </span><br><span class="line">META-INF/spring.factories file to your project and reference your     </span><br><span class="line">listener(s) by using the org.springframework.context.ApplicationListener     </span><br><span class="line">key, as shown in the following example:</span><br><span class="line">org.springframework.context.ApplicationListener=com.example.project.MyListener</span><br></pre></td></tr></table></figure></p>
-<p>一些事件其实是在应用上下文创建之前就已经创建了，所以您不能够通过@Bean给这些事件增加监听。您可以通过<strong>SpringApplication.addListeners(… )</strong>方法或者<strong>SpringApplicationBuilder.listeners(… )</strong>方法来给这些事件注册监听。<br>如果您想这些事件自动注册，而不管应用是否被创建，您可以通过增加<strong>META-INF/spring.factories</strong>文件到您的项目中，然后通过org.springframework.context.ApplicationListener作为key关联您的监听，如下例子：org.springframework.context.ApplicationListener=com.example.project.MyListener<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Application events are sent in the following order, as your application runs:</span><br></pre></td></tr></table></figure></p>
-<p>随着您的应用程序运行，应用程序事件按以下顺序发送：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.	An ApplicationStartingEvent is sent at the start of a run but before any processing, except for the registration of listeners and initializers.</span><br><span class="line">2.	An ApplicationEnvironmentPreparedEvent is sent when the Environment to be used in the context is known but before the context is created.</span><br><span class="line">3.	An ApplicationPreparedEvent is sent just before the refresh is started but after bean definitions have been loaded.</span><br><span class="line">4.	An ApplicationStartedEvent is sent after the context has been refreshed but before any application and command-line runners have been called.</span><br><span class="line">5.	An ApplicationReadyEvent is sent after any application and command-line runners have been called. It indicates that the application is ready to service requests.</span><br><span class="line">6.	An ApplicationFailedEvent is sent if there is an exception on startup.</span><br></pre></td></tr></table></figure></p>
+            <h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>最好的代码不需要注释，如果一定要有注释最好只有下面几种吧</p>
 <ul>
-<li>1.ApplicationStartingEvent 会在程序注册完监听器和初始器之后，其他所有进程运行之前发送。</li>
-<li>2.ApplicationEnvironmentPreparedEvent 在Environment被使用之后，容器被创建之前发送。</li>
-<li>3.ApplicationPreparedEvent在刷新启动之前，但在加载了bean定义之后发送。</li>
-<li>4.ApplicationStartedEvent在上下文被刷新之后，任何应用和command-line运行之前将被调用</li>
-<li>5.ApplicationReadyEvent在刷新启动之后被发送，并且处理了任何相关的回调以指示应用程序准备好服务请求。</li>
-<li>6.ApplicationFailedEvent如果启动时发生异常发送。</li>
+<li>法律信息：Copyright</li>
+<li>TODO注释</li>
+<li>公共的API中的Javadoc</li>
+<li>类文件头的作者和时间信息</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">You often need not use application events, but it can be handy to know     </span><br><span class="line">that they exist. Internally, Spring Boot uses events to handle a variety      </span><br><span class="line">of tasks.</span><br></pre></td></tr></table></figure>
-<p>您经常不需要使用应用程序事件，但可以方便地知道它们存在。在内部，Spring Boot使用事件来处理各种任务。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Application events are sent by using Spring Framework’s event     </span><br><span class="line">publishing mechanism. Part of this mechanism ensures that an     </span><br><span class="line">event published to the listeners in a child context is also     </span><br><span class="line">published to the listeners in any ancestor contexts. As a result     </span><br><span class="line">of this, if your application uses a hierarchy of SpringApplication     </span><br><span class="line">instances, a listener may receive multiple instances of the same     </span><br><span class="line">type of application event.</span><br></pre></td></tr></table></figure>
-<p>应用事件发送是采用的Spring框架的事件发布机制。该机制的一部分确保发布给子上下文中侦听器的事件也会发布给任何祖先上下文中的侦听器。因此，如果您的应用使用的是SpringApplication级联结构实例化，监听器可以接收同一类型的应用程序事件的多个实例。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">To allow your listener to distinguish between an event for its context     </span><br><span class="line">and an event for a descendant context, it should request that its     </span><br><span class="line">application context is injected and then compare the injected context     </span><br><span class="line">with the context of the event. The context can be injected by    </span><br><span class="line">implementing ApplicationContextAware or, if the listener is a bean,     </span><br><span class="line">by using @Autowired.</span><br></pre></td></tr></table></figure></p>
-<p>允许您的侦听器区分其上下文的事件和后代上下文的事件，它应该请求注入它应用的上下文，并比较注入上线文的事件。上线文可以通过实现<strong>ApplicationContextAware</strong>接口注入，或者如果监听是个bean可以通过<strong>@Autowired</strong>来注入</p>
 
         
         </div>
@@ -1101,7 +829,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/26/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" data-id="ckck7p92n0035xp783ub6rh5d" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2020/07/21/Clean Code/注释/" data-id="ckd43u6yy000m8i78lniiin5n" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1177,7 +905,7 @@
 
 
 
-    <article id="post-Spring BootDoc第四部分/SpringBoot翻译（三十三）流式编程接口" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Clean Code/边界和测试" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1185,7 +913,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十三）流式编程接口/">SpringBoot官方文档翻译（三十三）：流式编程接口</a>
+            <a class="article-title" href="/2020/07/21/Clean Code/边界和测试/">边界和测试</a>
         </h1>
     
 
@@ -1194,8 +922,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十三）流式编程接口/">
-            <time datetime="2018-04-25T07:39:47.000Z" itemprop="datePublished">2018-04-25</time>
+        <a href="/2020/07/21/Clean Code/边界和测试/">
+            <time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time>
         </a>
     </div>
 
@@ -1203,13 +931,13 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
+        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a>
+        <a class="tag-link" href="/tags/Clean-Code/">Clean Code</a>
     </div>
 
                     </div>
@@ -1220,12 +948,24 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="23-4-Fluent-Builder-API（流式编程接口）"><a href="#23-4-Fluent-Builder-API（流式编程接口）" class="headerlink" title="23.4 Fluent Builder API（流式编程接口）"></a>23.4 Fluent Builder API（流式编程接口）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If you need to build an ApplicationContext hierarchy (multiple contexts     </span><br><span class="line">with a parent/child relationship) or if you prefer using a “fluent”     </span><br><span class="line">builder API, you can use the SpringApplicationBuilder.</span><br></pre></td></tr></table></figure>
-<p>如果您需要构建ApplicationContext层次结构（具有父/子关系的多个上下文），或者如果您更愿意使用“流式”构建器API，则可以使用SpringApplicationBuilder。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The SpringApplicationBuilder lets you chain together multiple method     </span><br><span class="line">calls and includes parent and child methods that let you create a     </span><br><span class="line">hierarchy, as shown in the following example:</span><br></pre></td></tr></table></figure>
-<p>SpringApplicationBuilder可以让您将多个方法之间的调用使用父子关系的方式链接起来，如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> SpringApplicationBuilder()</span><br><span class="line">		.sources(Parent.class)</span><br><span class="line">		.child(Application.class)</span><br><span class="line">		.bannerMode(Banner.Mode.OFF)</span><br><span class="line">		.run(args);</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">There are some restrictions when creating an ApplicationContext     </span><br><span class="line">hierarchy. For example, Web components must be contained within     </span><br><span class="line">the child context, and the same Environment is used for both parent     </span><br><span class="line">and child contexts. See the SpringApplicationBuilder Javadoc for     </span><br><span class="line">full details.</span><br></pre></td></tr></table></figure>
-<p>像这种链式编程有一些限制。例如，Web组件必须包含在子上下文中，一些环境变量即会被用在父上下文中也会用在子上下文中。具体可以参考SpringApplicationBuilder的Javadoc。</p>
+            <h2 id="边界"><a href="#边界" class="headerlink" title="边界"></a>边界</h2><ul>
+<li>文中建议尽量不要再边界中使用map，个人建议如果使用DDD设计的话，在边界增加防腐层，与领域层很好的隔离，能够降低被腐蚀的可能性。</li>
+</ul>
+<h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><h3 id="TDD三定律"><a href="#TDD三定律" class="headerlink" title="TDD三定律"></a>TDD三定律</h3><ul>
+<li>在编写不能通过的单元测试前，不可编写生产代码</li>
+<li>只可编写刚好无法通过的单元测试，不能编译也算不通过</li>
+<li>只可编写刚好足以通过当前失败测试的生产代码</li>
+</ul>
+<h3 id="保持测试整洁"><a href="#保持测试整洁" class="headerlink" title="保持测试整洁"></a>保持测试整洁</h3><ul>
+<li>测试代码和生产代码一样重要，需要被设计和思考</li>
+<li>测试代码最重要的是可读性</li>
+<li>每个测试一个断言<h3 id="FIRST原则"><a href="#FIRST原则" class="headerlink" title="FIRST原则"></a>FIRST原则</h3></li>
+<li>快速（Fast）：测试应该够快</li>
+<li>独立（Independent）： 测试应该相互独立</li>
+<li>可重复（Repeatable）：测试应该可重复</li>
+<li>自足验证（Self-Validating）：测试应该有布尔值输出。</li>
+<li>及时（Timely） 测试应该及时编写</li>
+</ul>
 
         
         </div>
@@ -1236,7 +976,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十三）流式编程接口/" data-id="ckck7p92h002oxp78nz440d6c" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2020/07/21/Clean Code/边界和测试/" data-id="ckd43u6z0000r8i78qmdx2be1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1312,7 +1052,7 @@
 
 
 
-    <article id="post-Spring BootDoc第四部分/SpringBoot翻译（三十二）定制SpringApplication" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Clean Code/类和系统" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1320,7 +1060,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十二）定制SpringApplication/">SpringBoot官方文档翻译（三十二）：定制SpringApplication</a>
+            <a class="article-title" href="/2020/07/21/Clean Code/类和系统/">类和系统</a>
         </h1>
     
 
@@ -1329,8 +1069,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十二）定制SpringApplication/">
-            <time datetime="2018-04-25T03:39:47.000Z" itemprop="datePublished">2018-04-25</time>
+        <a href="/2020/07/21/Clean Code/类和系统/">
+            <time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time>
         </a>
     </div>
 
@@ -1338,13 +1078,13 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
+        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a>
+        <a class="tag-link" href="/tags/Clean-Code/">Clean Code</a>
     </div>
 
                     </div>
@@ -1355,12 +1095,15 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="23-3-Customizing-SpringApplication（定制SpringApplication）"><a href="#23-3-Customizing-SpringApplication（定制SpringApplication）" class="headerlink" title="23.3 Customizing SpringApplication（定制SpringApplication）"></a>23.3 Customizing SpringApplication（定制SpringApplication）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If the SpringApplication defaults are not to your taste, you can instead     </span><br><span class="line">create a local instance and customize it. For example, to turn off the     </span><br><span class="line">banner, you could write:</span><br></pre></td></tr></table></figure>
-<p>如果SpringApplication默认设置不符合您的口味，您可以创建一个本地实例替换定制它。举个例子，想要关闭banner您可以这样写：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	SpringApplication app = <span class="keyword">new</span> SpringApplication(MySpringConfiguration.class);</span><br><span class="line">	app.setBannerMode(Banner.Mode.OFF);</span><br><span class="line">	app.run(args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">The constructor arguments passed to SpringApplication are     </span><br><span class="line">configuration sources for Spring beans. In most cases, these     </span><br><span class="line">are references to @Configuration classes, but they could also     </span><br><span class="line">be references to XML configuration or to packages that should     </span><br><span class="line">be scanned.</span><br></pre></td></tr></table></figure>
-<p>传递给SpringApplication的构造函数参数是Spring bean的配置源。在大多数情况下，这将会关联到一个@Configuration的配置类，但它同样支持关联到XML配置或者关联到那些需要被扫描的包。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">It is also possible to configure the SpringApplication by     </span><br><span class="line">using an application.properties file. See Chapter 24, Externalized Configuration for details.    </span><br><span class="line">For a complete list of the configuration options, see the SpringApplication Javadoc.</span><br></pre></td></tr></table></figure></p>
-<p>同样可以使用application.properties来配置SpringApplication。细节请查看章节24“Externalized Configuration ”。<br>需要了解完整的可选配置，请查看SpringApplication的Javadoc或者源码。</p>
+            <h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><h2 id="类应该短小"><a href="#类应该短小" class="headerlink" title="类应该短小"></a>类应该短小</h2><ul>
+<li>单一权责原则 SRP：系统应该由许多短小的类而不是少量巨大的类组成。每个小类封装一个权责，只有一个修改原因，并与少数其他类一起协同达成期望的系统行为。</li>
+<li>内聚：类应该只有少量的实体变量，类中的每个方法都应该操作一个或多个这种变量。当类失去了内聚性，就应该拆分它。将大函数拆成许多小函数往往也是将类拆分成多个小类的时机。</li>
+<li>OCP开闭原则：类应该对扩展开放，对修改封闭</li>
+<li>隔离修改：需求会改变，所以代码会改变。</li>
+<li>DIP依赖倒置原则：类应该依赖于抽象而不依赖于具体细节。<br>##系统</li>
+<li>依赖注入 IOC  DI</li>
+<li>面向切面编程： AOP</li>
+</ul>
 
         
         </div>
@@ -1371,7 +1114,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十二）定制SpringApplication/" data-id="ckck7p92l002yxp785yoflmb5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2020/07/21/Clean Code/类和系统/" data-id="ckd43u6yu000f8i78ty0lnw0i" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1447,7 +1190,7 @@
 
 
 
-    <article id="post-Spring BootDoc第四部分/SpringBoot翻译（三十一）定制Banner" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-重构改善既有代码设计/函数" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1455,7 +1198,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十一）定制Banner/">SpringBoot官方文档翻译（三十一）：定制Banner</a>
+            <a class="article-title" href="/2020/07/21/重构改善既有代码设计/函数/">函数</a>
         </h1>
     
 
@@ -1464,8 +1207,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十一）定制Banner/">
-            <time datetime="2018-04-25T03:11:47.000Z" itemprop="datePublished">2018-04-25</time>
+        <a href="/2020/07/21/重构改善既有代码设计/函数/">
+            <time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time>
         </a>
     </div>
 
@@ -1473,13 +1216,13 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
+        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a>
+        <a class="tag-link" href="/tags/Clean-Code/">Clean Code</a>
     </div>
 
                     </div>
@@ -1490,48 +1233,22 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="23-2-Customizing-the-Banner（定制Banner）"><a href="#23-2-Customizing-the-Banner（定制Banner）" class="headerlink" title="23.2 Customizing the Banner（定制Banner）"></a>23.2 Customizing the Banner（定制Banner）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">The banner that is printed on start up can be changed by adding a     </span><br><span class="line">banner.txt file to your classpath or by setting    </span><br><span class="line">the spring.banner.location property to the location of such a file.     </span><br><span class="line">If the file has an encoding other than UTF-8, you can set     </span><br><span class="line">spring.banner.charset. In addition to a text file, you can also     </span><br><span class="line">add a banner.gif, banner.jpg, or banner.png image file to your     </span><br><span class="line">classpath or set the spring.banner.image.location property. Images     </span><br><span class="line">are converted into an ASCII art representation and printed above     </span><br><span class="line">any text banner.</span><br></pre></td></tr></table></figure>
-<p>当应用启动的时候显示的那个Banner是可以被放在类路径下的banner.txt所改变，或者通过设置<strong>spring.banner.location</strong>属性来指定bannner的位置。如果该banner文件的编码格式不是UTF-8，您可以通过设置<strong>spring.banner.charset</strong>来指定编码格式。除了text文件以外，您还可以指定一个banner.gif格式的文件，或者banner.jpg或者banner.png的图片文件到您类路径下，或者通过设置<strong>spring.banner.image.location</strong>属性来指定该图片位置。图片被转换成ASCII艺术表示并在上面打印任何文字横幅。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Inside your banner.txt file, you can use any of the following placeholders:</span><br></pre></td></tr></table></figure></p>
-<p>在banner.txt文件中，您可以使用以下任何占位符：</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>${application.version}</td>
-<td>您应用的版本信息,诸如定义在MANIFEST.MF中的。举个例子,Implementation-Version: 1.0 则打印1.0.</td>
-</tr>
-<tr>
-<td>${application.formatted-version}</td>
-<td>同上，并且被格式化后显示  (用括号包围，并以v开头). 举个例子(v1.0).</td>
-</tr>
-<tr>
-<td>${spring-boot.version}</td>
-<td>Spring Boot的版本。举个例子(v2.1.0.BUILD-SNAPSHOT).</td>
-</tr>
-<tr>
-<td>${spring-boot.formatted-version}</td>
-<td>同上，并且被格式化后显示(用括号包围，并以v开头). 举个例子 (v2.1.0.BUILD-SNAPSHOT).</td>
-</tr>
-<tr>
-<td>${Ansi.NAME} (or ${AnsiColor.NAME},${AnsiBackground.NAME}, ${AnsiStyle.NAME})</td>
-<td>其中NAME是ANSI转义代码的名称，可以参考<a href="https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/ansi/AnsiPropertySource.java" target="_blank" rel="noopener">https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/ansi/AnsiPropertySource.java</a></td>
-</tr>
-<tr>
-<td>${application.title}</td>
-<td>您的应用的标题，定义在MANIFEST.MF中。举个例子Implementation-Title: MyApp则打印“MyApp”</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The SpringApplication.setBanner(… ) method can be used if you want     </span><br><span class="line">to generate a banner programmatically. Use    </span><br><span class="line"> the org.springframework.boot.Banner interface and implement your own printBanner() method.</span><br></pre></td></tr></table></figure>
-<p>如果需要，可以使用SpringApplication.setBanner（…）方法以编程方式生成横幅。使用<strong>org.springframework.boot.Banner</strong>接口实现您自己的printBanner()方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">You can also use the spring.main.banner-mode property to determine if     </span><br><span class="line">the banner has to be printed on System.out (console), sent to the     </span><br><span class="line">configured logger (log), or not produced at all (off).</span><br></pre></td></tr></table></figure></p>
-<p>您也可以使用<strong>spring.main.banner-mode</strong>属性来确定是否横幅必须打印在System.out（控制台）上，发送到配置记录器（日志），或根本不生产（关闭）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The printed banner is registered as a singleton bean under     </span><br><span class="line">the following name: springBootBanner.</span><br></pre></td></tr></table></figure></p>
-<p>打印banner被注册为一个名为“springBootBanner”的单例bean。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">YAML maps off to false, so be sure to add quotes if you want to     </span><br><span class="line">disable the banner in your application, as shown in the following example:</span><br><span class="line">spring:</span><br><span class="line">	main:</span><br><span class="line">		banner-mode: &quot;off&quot;</span><br></pre></td></tr></table></figure></p>
-<p>YAML映射“off”为“false”，因此如果您想在应用程序中禁用横幅，请务必添加引号。</p>
+            <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>怎样才能让函数表达其意图？该给函数赋予哪些属性，好让读者一看就明白函数属于怎样的程序？</p>
+<ul>
+<li>短小：短小注意代码块的缩进。</li>
+<li>只做一件事情</li>
+<li>每个函数一个抽象层级：向下规则，每个函数后面都跟着位于下一抽象层级的函数，查看函数时，能够逐层向下阅读了。</li>
+<li>SWITH:这个现在支持枚举了，建议在较低抽象层使用枚举。</li>
+<li>使用描述性名称：不要担心名称长，长而具有描述性的名称比短小费解的名称要好。也比注释要好，命名的方式要保持一致。</li>
+<li>函数的参数之一：最好是零，如果出现3个以上尽量使用对象。不要使用标识参数（true false）</li>
+<li>函数的参数之二：避免使用输出参数，避免将输入参数再作为输出参数使用。</li>
+<li>分隔指令与询问：函数要么做什么事，要么回答什么事，不可二者兼得。函数应该是修改某对象的状态，或者是返回该对象的有关信息。</li>
+<li>使用异常替代返回错误码。</li>
+<li>try catch代码的抽离：这个规则简单而言，如果出现try关键字，应该是这个函数的第一个关键字，错误处理本身就是一件事情，应该符合只做一件事的原则。在springboot中现在有全局异常处理的功能，用起来还是很爽的，实践经验建议统一处理比较好</li>
+<li>不要重复自己：重复是软件中一切邪恶的更远。马丁福勒的重构一书中也提到需要消灭重复，抽象函数。</li>
+<li>不要使用goto</li>
+<li>写函数和写文章一样，不要指望着一开始就写的很好，可以写完后慢慢打磨出你想要的样子。</li>
+</ul>
 
         
         </div>
@@ -1542,7 +1259,286 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十一）定制Banner/" data-id="ckck7p92i002rxp78158pcng6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2020/07/21/重构改善既有代码设计/函数/" data-id="ckd43u70d003z8i78yydcz2ky" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-Clean Code/对象和数据结构" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2020/07/21/Clean Code/对象和数据结构/">对象和数据结构</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2020/07/21/Clean Code/对象和数据结构/">
+            <time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Clean-Code/">Clean Code</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><ul>
+<li>数据的抽象应该是提供接口而非实现</li>
+<li>得墨忒耳律：模块不应了解他操作对象的内部情形，只暴露操作不暴露内部数据结构。</li>
+<li>书中的数据结构一般指的是诸如DTO这种类型。</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2020/07/21/Clean Code/对象和数据结构/" data-id="ckd43u6yr000b8i789zxxr65i" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-Clean Code/函数" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2020/07/21/Clean Code/函数/">函数</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2020/07/21/Clean Code/函数/">
+            <time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Clean-Code/">Clean Code</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>怎样才能让函数表达其意图？该给函数赋予哪些属性，好让读者一看就明白函数属于怎样的程序？</p>
+<ul>
+<li>短小：短小注意代码块的缩进。</li>
+<li>只做一件事情</li>
+<li>每个函数一个抽象层级：向下规则，每个函数后面都跟着位于下一抽象层级的函数，查看函数时，能够逐层向下阅读了。</li>
+<li>SWITH:这个现在支持枚举了，建议在较低抽象层使用枚举。</li>
+<li>使用描述性名称：不要担心名称长，长而具有描述性的名称比短小费解的名称要好。也比注释要好，命名的方式要保持一致。</li>
+<li>函数的参数之一：最好是零，如果出现3个以上尽量使用对象。不要使用标识参数（true false）</li>
+<li>函数的参数之二：避免使用输出参数，避免将输入参数再作为输出参数使用。</li>
+<li>分隔指令与询问：函数要么做什么事，要么回答什么事，不可二者兼得。函数应该是修改某对象的状态，或者是返回该对象的有关信息。</li>
+<li>使用异常替代返回错误码。</li>
+<li>try catch代码的抽离：这个规则简单而言，如果出现try关键字，应该是这个函数的第一个关键字，错误处理本身就是一件事情，应该符合只做一件事的原则。在springboot中现在有全局异常处理的功能，用起来还是很爽的，实践经验建议统一处理比较好</li>
+<li>不要重复自己：重复是软件中一切邪恶的更远。马丁福勒的重构一书中也提到需要消灭重复，抽象函数。</li>
+<li>不要使用goto</li>
+<li>写函数和写文章一样，不要指望着一开始就写的很好，可以写完后慢慢打磨出你想要的样子。</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2020/07/21/Clean Code/函数/" data-id="ckd43u6yp000a8i78btcyw0vo" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1619,7 +1615,7 @@
 
 
     <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
     </nav>
 </section>
             
@@ -1635,29 +1631,10 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2020/01/21/面试学习/IO密集型与CPU密集型/" class="thumbnail">
+                            <a href="/2020/07/21/Clean Code/错误处理/" class="thumbnail">
     
     
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="IO密集型与CPU密集型" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Netty指南/">Netty指南</a></p>
-                            <p class="item-title"><a href="/2020/01/21/面试学习/IO密集型与CPU密集型/" class="title">IO密集型与CPU密集型</a></p>
-                            <p class="item-date"><time datetime="2020-01-21T03:11:47.000Z" itemprop="datePublished">2020-01-21</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/02/21/面试学习/HashMap&ConcurrentHashMap/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="并发编程" class="thumbnail-image"></span>
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="错误处理" class="thumbnail-image"></span>
     
 </a>
 
@@ -1665,65 +1642,84 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
-                            <p class="item-title"><a href="/2019/02/21/面试学习/HashMap&ConcurrentHashMap/" class="title">并发编程</a></p>
-                            <p class="item-date"><time datetime="2019-02-21T03:12:47.000Z" itemprop="datePublished">2019-02-21</time></p>
+                            <p class="item-title"><a href="/2020/07/21/Clean Code/错误处理/" class="title">错误处理</a></p>
+                            <p class="item-date"><time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2019/02/21/面试学习/蚂蚁金服面试问题/" class="thumbnail">
+                            <a href="/2020/07/21/Clean Code/格式/" class="thumbnail">
     
     
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="蚂蚁金服一面" class="thumbnail-image"></span>
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="格式" class="thumbnail-image"></span>
     
 </a>
 
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/蚂蚁/">蚂蚁</a></p>
-                            <p class="item-title"><a href="/2019/02/21/面试学习/蚂蚁金服面试问题/" class="title">蚂蚁金服一面</a></p>
-                            <p class="item-date"><time datetime="2019-02-21T03:11:47.000Z" itemprop="datePublished">2019-02-21</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2020/07/21/Clean Code/格式/" class="title">格式</a></p>
+                            <p class="item-date"><time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/05/02/Spring BootDoc第四部分/SpringBoot翻译（三十六）访问应用程序参数/" class="thumbnail">
+                            <a href="/2020/07/21/Clean Code/迭代/" class="thumbnail">
     
     
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962729983.jpg)" alt="SpringBoot官方文档翻译（三十六）：访问应用程序参数" class="thumbnail-image"></span>
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="迭代" class="thumbnail-image"></span>
     
 </a>
 
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/05/02/Spring BootDoc第四部分/SpringBoot翻译（三十六）访问应用程序参数/" class="title">SpringBoot官方文档翻译（三十六）：访问应用程序参数</a></p>
-                            <p class="item-date"><time datetime="2018-05-02T04:39:47.000Z" itemprop="datePublished">2018-05-02</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2020/07/21/Clean Code/迭代/" class="title">迭代</a></p>
+                            <p class="item-date"><time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/05/02/Spring Boot道可道（原创）/（一）SpringApplication解析/" class="thumbnail">
+                            <a href="/2020/07/21/Clean Code/有意义的命名/" class="thumbnail">
     
     
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/17/1523962729983.jpg)" alt="SpringBoot官方文档翻译（三十六）：访问应用程序参数" class="thumbnail-image"></span>
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="有意义的命名" class="thumbnail-image"></span>
     
 </a>
 
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a></p>
-                            <p class="item-title"><a href="/2018/05/02/Spring Boot道可道（原创）/（一）SpringApplication解析/" class="title">SpringBoot官方文档翻译（三十六）：访问应用程序参数</a></p>
-                            <p class="item-date"><time datetime="2018-05-02T04:39:47.000Z" itemprop="datePublished">2018-05-02</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2020/07/21/Clean Code/有意义的命名/" class="title">有意义的命名</a></p>
+                            <p class="item-date"><time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/07/21/Clean Code/注释/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="注释" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2020/07/21/Clean Code/注释/" class="title">注释</a></p>
+                            <p class="item-date"><time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time></p>
                         </div>
                     </li>
                 
@@ -1736,7 +1732,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Netty指南/">Netty指南</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/蚂蚁/">蚂蚁</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Netty指南/">Netty指南</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/蚂蚁/">蚂蚁</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -1745,7 +1741,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1754,7 +1750,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netty/">Netty</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Clean-Code/">Clean Code</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netty/">Netty</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1763,7 +1759,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Effective-Java/" style="font-size: 14px;">Effective Java</a> <a href="/tags/Netty/" style="font-size: 10px;">Netty</a> <a href="/tags/SpringBoot官方文档翻译第三部分/" style="font-size: 20px;">SpringBoot官方文档翻译第三部分</a> <a href="/tags/SpringBoot官方文档翻译第二部分/" style="font-size: 18px;">SpringBoot官方文档翻译第二部分</a> <a href="/tags/SpringBoot官方文档翻译第四部分/" style="font-size: 16px;">SpringBoot官方文档翻译第四部分</a> <a href="/tags/书籍/" style="font-size: 12px;">书籍</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+            <a href="/tags/Clean-Code/" style="font-size: 18px;">Clean Code</a> <a href="/tags/Effective-Java/" style="font-size: 14px;">Effective Java</a> <a href="/tags/Netty/" style="font-size: 10px;">Netty</a> <a href="/tags/SpringBoot官方文档翻译第三部分/" style="font-size: 20px;">SpringBoot官方文档翻译第三部分</a> <a href="/tags/SpringBoot官方文档翻译第二部分/" style="font-size: 18px;">SpringBoot官方文档翻译第二部分</a> <a href="/tags/SpringBoot官方文档翻译第四部分/" style="font-size: 16px;">SpringBoot官方文档翻译第四部分</a> <a href="/tags/书籍/" style="font-size: 12px;">书籍</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
         </div>
     </div>
 
