@@ -161,7 +161,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                59
+                63
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -214,7 +214,7 @@
 
             
             <section id="main">
-    <article id="post-Clean Code/迭代" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Clean Code/类和系统" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -222,7 +222,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2020/07/21/Clean Code/迭代/">迭代</a>
+            <a class="article-title" href="/2020/07/21/Clean Code/类和系统/">类和系统</a>
         </h1>
     
 
@@ -231,7 +231,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2020/07/21/Clean Code/迭代/">
+        <a href="/2020/07/21/Clean Code/类和系统/">
             <time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time>
         </a>
     </div>
@@ -257,11 +257,14 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="通过迭代达到整洁的目的"><a href="#通过迭代达到整洁的目的" class="headerlink" title="通过迭代达到整洁的目的"></a>通过迭代达到整洁的目的</h2><ul>
-<li>运行所有测试</li>
-<li>不可重复</li>
-<li>表达程序员的意图</li>
-<li>尽可能减少类和方法的数量</li>
+            <h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><h2 id="类应该短小"><a href="#类应该短小" class="headerlink" title="类应该短小"></a>类应该短小</h2><ul>
+<li>单一权责原则 SRP：系统应该由许多短小的类而不是少量巨大的类组成。每个小类封装一个权责，只有一个修改原因，并与少数其他类一起协同达成期望的系统行为。</li>
+<li>内聚：类应该只有少量的实体变量，类中的每个方法都应该操作一个或多个这种变量。当类失去了内聚性，就应该拆分它。将大函数拆成许多小函数往往也是将类拆分成多个小类的时机。</li>
+<li>OCP开闭原则：类应该对扩展开放，对修改封闭</li>
+<li>隔离修改：需求会改变，所以代码会改变。</li>
+<li>DIP依赖倒置原则：类应该依赖于抽象而不依赖于具体细节。<br>##系统</li>
+<li>依赖注入 IOC  DI</li>
+<li>面向切面编程： AOP</li>
 </ul>
 
         
@@ -273,7 +276,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2020/07/21/Clean Code/迭代/" data-id="ckd5wfwfl004b2v787qu94wps" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2020/07/21/Clean Code/类和系统/" data-id="ckd8m0s4x002gph783z24kpfe" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -349,7 +352,7 @@
 
 
 
-    <article id="post-Clean Code/格式" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Clean Code/注释" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -357,7 +360,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2020/07/21/Clean Code/格式/">格式</a>
+            <a class="article-title" href="/2020/07/21/Clean Code/注释/">注释</a>
         </h1>
     
 
@@ -366,7 +369,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2020/07/21/Clean Code/格式/">
+        <a href="/2020/07/21/Clean Code/注释/">
             <time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time>
         </a>
     </div>
@@ -392,12 +395,12 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><ul>
-<li>垂直格式要注意缩进</li>
-<li>水平格式要注意一行代码的最大长度，建议45个字符左右。尽量保持代码短小。</li>
-<li>不建议水平对齐</li>
-<li>缩进：方法对于类缩进一级，代码块对于方法缩进一级</li>
-<li>当自己的规则与团队冲突时以团队规则为准</li>
+            <h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>最好的代码不需要注释，如果一定要有注释最好只有下面几种吧</p>
+<ul>
+<li>法律信息：Copyright</li>
+<li>TODO注释</li>
+<li>公共的API中的Javadoc</li>
+<li>类文件头的作者和时间信息</li>
 </ul>
 
         
@@ -409,7 +412,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2020/07/21/Clean Code/格式/" data-id="ckd5wfwf400352v78xo5cvp6f" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2020/07/21/Clean Code/注释/" data-id="ckd8m0s4r0024ph78s1u7eguj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -485,7 +488,7 @@
 
 
 
-    <article id="post-面试学习/IO密集型与CPU密集型" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-蚂蚁搬家/Unix的五种网络模型" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -493,7 +496,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2020/01/21/面试学习/IO密集型与CPU密集型/">IO密集型与CPU密集型</a>
+            <a class="article-title" href="/2020/01/21/蚂蚁搬家/Unix的五种网络模型/">Unix的五种网络模型</a>
         </h1>
     
 
@@ -502,7 +505,158 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2020/01/21/面试学习/IO密集型与CPU密集型/">
+        <a href="/2020/01/21/蚂蚁搬家/Unix的五种网络模型/">
+            <time datetime="2020-01-21T03:11:49.000Z" itemprop="datePublished">2020-01-21</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Netty指南/">Netty指南</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Netty/">Netty</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>blocking IO（阻塞IO）</li>
+<li>nonblocking IO（非阻塞IO）</li>
+<li>IO multiplexing（IO多路复用）</li>
+<li>signal driven IO（信号驱动IO）</li>
+<li>asynchronous IO（异步IO)</li>
+</ul>
+<h2 id="要弄清楚Netty的原理，以及java-nio2-0相关的原理，需要了解UNIX底层的IO基本原理。"><a href="#要弄清楚Netty的原理，以及java-nio2-0相关的原理，需要了解UNIX底层的IO基本原理。" class="headerlink" title="要弄清楚Netty的原理，以及java nio2.0相关的原理，需要了解UNIX底层的IO基本原理。"></a>要弄清楚Netty的原理，以及java nio2.0相关的原理，需要了解UNIX底层的IO基本原理。</h2><ul>
+<li>IO发生时涉及的对象和步骤。对于一个network IO (这里我们以read举例)，它会涉及到两个系统对象，一个是调用这个IO的process (or thread)，另一个就是系统内核(kernel)。当一个read操作发生时，它会经历两个阶段：1.等待数据准备 (Waiting for the data to be ready)2.将数据从内核拷贝到进程中 (Copying the data from the kernel to the process)记住这两点很重要，因为这些IO Model的区别就是在两个阶段上各有不同的情况。blocking IO 在linux中，默认情况下所有的socket都是blocking，一个典型的读操作流程大概是这样</li>
+<li>此处应有图片一</li>
+<li>当用户进程调用了recvfrom这个系统调用，kernel就开始了IO的第一个阶段：准备数据。对于network<br>io来说，很多时候数据在一开始还没有到达（比如，还没有收到一个完整的UDP包），这个时候kernel就要等待足够的数据到来。而在用户进程这边，整个进程会被阻塞。当kernel一直等到数据准备好了，它就会将数据从kernel中拷贝到用户内存，然后kernel返回结果，用户进程才解除block的状态，重新运行起来。所以，blocking IO的特点就是在IO执行的两个阶段都被block了。non-blocking IO linux下，可以通过设置socket使其变为non-blocking。当对一个non-blocking socket执行读操作时，流程是这个样子：</li>
+<li>此处应有图片二</li>
+<li>从图中可以看出，当用户进程发出read操作时，如果kernel中的数据还没有准备好，那么它并不会block用户进程，而是立刻返回一个error。从用户进程角度讲 ，它发起一个read操作后，并不需要等待，而是马上就得到了一个结果。用户进程判断结果是一个error时，它就知道数据还没有准备好，于是它可以再次发送read操作。一旦kernel中的数据准备好了，并且又再次收到了用户进程的system call，那么它马上就将数据拷贝到了用户内存，然后返回。所以，用户进程其实是需要不断的主动询问kernel数据好了没有。</li>
+<li>IO multiplexing,IO multiplexing这个词可能有点陌生，但是如果我说select，epoll，大概就都能明白了。有些地方也  称这种IO方式为event driven IO。我们都知道，select/epoll的好处就在于单个process就可以同时处理多个网络连接的IO。它的基本原理就是select/epoll这个function会不断的轮询所负责的所有socket，当某个socket有数据到达了，就通知用户进程。它的流程如图：</li>
+<li>此处应有图片三</li>
+<li>当用户进程调用了select，那么整个进程会被block，而同时，kernel会“监视”所有select负责的socket，当任何一个socket中的数据准备好了，select就会返回。这个时候用户进程再调用read操作，将数据从kernel拷贝到用户进程。这个图和blocking IO的图其实并没有太大的不同，事实上，还更差一些。因为这里需要使用两个system call (select 和 recvfrom)，而blocking IO只调用了一个system call (recvfrom)。但是，用select的优势在于它可以同时处理多个connection。（多说一句。所以，如果处理的连接数不是很高的话，使用select/epoll的web server不一定比使用multi-threading + blocking IO的web server性能更好，可能延迟还更大。select/epoll的优势并不是对于单个连接能处理得更快，而是在于能处理更多的连接。)在IO multiplexing Model中，实际中，对于每一个socket，一般都设置成为non-blocking，但是，如上图所示，整个用户的process其实是一直被block的。只不过process是被select这个函数block，而不是被socket IO给block。</li>
+<li>Asynchronous I/O linux下的asynchronous IO其实用得很少。先看一下它的流程：</li>
+<li>此处应有图片四</li>
+<li>用户进程发起read操作之后，立刻就可以开始去做其它的事。而另一方面，从kernel的角度，当它受到一个asynchronous read之后，首先它会立刻返回，所以不会对用户进程产生任何block。然后，kernel会等待数据准备完成，然后将数据拷贝到用户内存，当这一切都完成之后，kernel会给用户进程发送一个signal，告诉它read操作完成了。</li>
+<li>此处应有图片五和六</li>
+<li>参考：<a href="https://blog.csdn.net/historyasamirror/article/details/5778378" target="_blank" rel="noopener">https://blog.csdn.net/historyasamirror/article/details/5778378</a><br>Richard Stevens的“UNIX® Network Programming Volume 1, Third Edition: The Sockets Networking ”，6.2节“I/O Models ”<br>《Netty权威指南》第二版<br>《Netty实战》</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2020/01/21/蚂蚁搬家/Unix的五种网络模型/" data-id="ckd9mcn7q0000dp78pijnuhsb" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-蚂蚁搬家/Spring Validation的用法" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2020/01/21/蚂蚁搬家/Spring Validation的用法/">Spring Validation的用法</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2020/01/21/蚂蚁搬家/Spring Validation的用法/">
             <time datetime="2020-01-21T03:11:47.000Z" itemprop="datePublished">2020-01-21</time>
         </a>
     </div>
@@ -528,7 +682,53 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="IO密集型与CPU密集型"><a href="#IO密集型与CPU密集型" class="headerlink" title="IO密集型与CPU密集型"></a>IO密集型与CPU密集型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">IO是一个通用的概念，即数据从一个地方移动到另一个地方，对一个实体来说，可以看成数据从外部进入，以及从实体输出到外部。 </span><br><span class="line">具体来说，常见的IO请求有网络IO，磁盘IO。</span><br><span class="line">那么因为CPU的工作频率远远快过和其连接的外部硬件，例如磁盘，所以CPU在IO的时候经常会需要等待外部硬件完成当前任务，完成之后，才能进行下一个任务，这种情况常常称为IO阻塞，即CPU直到等待IO操作返回前，不能继续运行。IO阻塞对于CPU强大的运算能力是一个巨大的浪费。</span><br><span class="line">所以有了多线程，多线程是同步运行的多个任务。不过由于CPU核数的问题，许多线程实际上并不是真正并行而只是通过快速切分时间片来模拟的。简单来说就是你执行一点，我执行一点，来回切换，创造出一种同时运行任务的假象。（多线程的本质是切换CPU时间片轮流执行，造成多个线程同步执行的假象）</span><br><span class="line">多线程的底层机制是由操作系统实现的，当一个线程遇到IO阻塞时，例如读写文件，操作系统可能会暂时挂起该线程，从而让其他线程优先执行，也就是将多出来的时间片切分给其他的线程，直到等待该线程的IO操作返回，再重新调度该线程运行。</span><br><span class="line">CPU密集型（CPU-bound）</span><br><span class="line">CPU密集型也叫计算密集型，指的是系统的硬盘、内存性能相对CPU要好很多，此时，系统运作大部分的状况是CPU Loading 100%，CPU要读/写I/O(硬盘/内存)，I/O在很短的时间就可以完成，而CPU还有许多运算要处理，CPU Loading很高。</span><br><span class="line">在多重程序系统中，大部份时间用来做计算、逻辑判断等CPU动作的程序称之CPU bound。例如一个计算圆周率至小数点一千位以下的程序，在执行的过程当中绝大部份时间用在三角函数和开根号的计算，RSA加解密算法，便是属于CPU bound的程序。</span><br><span class="line">CPU bound的程序一般而言CPU占用率相当高。这可能是因为任务本身不太需要访问I/O设备，也可能是因为程序是多线程实现因此屏蔽掉了等待I/O的时间。</span><br><span class="line">CPU密集的意思是该任务需要大量的运算，而没有阻塞，CPU一直全速运行。 </span><br><span class="line">CPU密集任务只有在真正的多核CPU上才可能得到加速(通过多线程)，而在单核CPU上，无论你开几个模拟的多线程，该任务都不可能得到加速，因为CPU总的运算能力就那些。</span><br><span class="line">IO密集型（I/O bound）</span><br><span class="line">IO密集型指的是系统的CPU性能相对硬盘、内存要好很多，此时，系统运作，大部分的状况是CPU在等I/O (硬盘/内存) 的读/写操作，此时CPU Loading并不高。</span><br><span class="line">I/O bound的程序一般在达到性能极限时，CPU占用率仍然较低。这可能是因为任务本身需要大量I/O操作，而pipeline做得不是很好，没有充分利用处理器能力。</span><br><span class="line">IO密集型，即该任务需要大量的IO，即大量的阻塞。在单线程上运行IO密集型的任务会导致浪费大量的CPU运算能力浪费在等待。所以在IO密集型任务中使用多线程可以大大的加速程序运行，即使在单核CPU上，这种加速主要就是利用了被浪费掉的阻塞时间。 </span><br><span class="line"></span><br><span class="line">除了同步IO之外，系统可能还支持异步IO，即IO不阻塞，对IO设备发出读写命令之后立即返回执行下一条命令，而IO设备的返回结果则在将来未知的某个时间点通过信号来回调。这也是nodeJS底层的实现机制。</span><br><span class="line">CPU密集型 vs IO密集型</span><br><span class="line">我们可以把任务分为计算（CPU)密集型和IO密集型。</span><br><span class="line">计算密集型任务的特点是要进行大量的计算，消耗CPU资源，比如计算圆周率、对视频进行高清解码等等，全靠CPU的运算能力。这种计算密集型任务虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU执行任务的效率就越低，所以，要最高效地利用CPU，计算密集型任务同时进行的数量应当等于CPU的核心数。</span><br><span class="line">计算密集型任务由于主要消耗CPU资源，因此，代码运行效率至关重要。Python这样的脚本语言运行效率很低，完全不适合计算密集型任务。对于计算密集型任务，最好用C语言编写。</span><br><span class="line">第二种任务的类型是IO密集型，涉及到网络、磁盘IO的任务都是IO密集型任务，这类任务的特点是CPU消耗很少，任务的大部分时间都在等待IO操作完成（因为IO的速度远远低于CPU和内存的速度）。对于IO密集型任务，任务越多，CPU效率越高，但也有一个限度。常见的大部分任务都是IO密集型任务，比如Web应用。</span><br><span class="line">IO密集型任务执行期间，99%的时间都花在IO上，花在CPU上的时间很少，因此，用运行速度极快的C语言替换用Python这样运行速度极低的脚本语言，完全无法提升运行效率。对于IO密集型任务，最合适的语言就是开发效率最高（代码量最少）的语言，脚本语言是首选，C语言最差。</span><br><span class="line">总之，计算密集型程序适合C语言多线程，I/O密集型适合脚本语言开发的多线程。</span><br><span class="line">参考：</span><br><span class="line">https://blog.csdn.net/o83290102o5/article/details/78723329</span><br><span class="line">https://blog.csdn.net/youanyyou/article/details/78990156</span><br></pre></td></tr></table></figure>
+            <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li><ol>
+<li>JSR是Java Specification Requests的缩写，意思是Java 规范提案。是指向JCP(Java Community Process)提出新增一个标准化技术规范的正式请求。任何人都可以提交JSR，以向Java平台增添新的API和服务。JSR已成为Java界的一个重要标准。<br>这包括方便地支持将JSR-303或JSR-349bean验证提供程序引导为springbean默认情况下，如果类路径    上存在Bean验证(比如, Hibernate Validator)，LocalValidatorFactoryBean将会被注册为全局验证器，来供在controller层的方法参数上加入@Valid或者@Validated 注解的参数使用。<br>在java配置的方式下，你可以通过以下方式来个性化校验器</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableWebMvc</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebConfig</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Validator <span class="title">getValidator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>您也可以通过以下方式注入自定义的validator</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@InitBinder</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initBinder</span><span class="params">(WebDataBinder binder)</span> </span>&#123;</span><br><span class="line">        binder.addValidators(<span class="keyword">new</span> FooValidator());</span><br><span class="line">     </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><ol>
+<li>Spring Validation<br>spring3对其校验带来了一些提升支持，首先对JSR-303 Bean Validation API 进行了全面的支持，第二点使用编程的方式，Spring的DataBinder能够验证那些绑定了的验证对象。第三点 Spring MVC支持声明性地验证@Controller的输入。</li>
+</ol>
+</li>
+<li><p>2.1 JSR-303 Bean Validation API摘要<br>JSR-303标准化了Java平台的验证约束声明和元数据。通过使用该标准化的API，您可以对域模型的属性进行申明式的验证，在运行时作用于这些域。您可以使用许多内置约束，同样您也可以自定义自己的验证。<br>考虑下面的示例，它显示了一个具有两个属性的简单PersonForm模型：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonForm</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>JSR-303允许您针对此类属性定义声明性验证约束，如下例所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonForm</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull</span></span><br><span class="line">    <span class="meta">@Size</span>(max=<span class="number">64</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Min</span>(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当JSR-303验证器验证该类的实例时，将强制执行这些约束。</p>
+<ul>
+<li>2.2 配置一个bean的验证实现者<br>spring 对 Bean Validation API提供了全面的支持。<br>这包括方便地支持将JSR-303或JSR-349bean验证提供程序引导为springbean<br>它允许你通过注入一个javax.validation.ValidatorFactory或者javax.validation.Validator到您校验需要的地方</li>
+</ul>
+<h2 id="JSR303定义的校验类型"><a href="#JSR303定义的校验类型" class="headerlink" title="JSR303定义的校验类型"></a>JSR303定义的校验类型</h2><p>Spring Validation验证框架对参数的验证机制提供了@Validated（Spring’s JSR-303规范，是标准JSR-303的一个变种），javax提供了@Valid（标准JSR-303规范），配合BindingResult可以直接提供参数验证结果。<br>JSR303定义的校验类型</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">空检查</span><br><span class="line">@Null			验证对象是否为null</span><br><span class="line">@NotNull		验证对象是否不为null, 无法查检长度为0的字符串</span><br><span class="line">@NotBlank		检查约束字符串是不是Null还有被Trim的长度是否大于0,只对字符串,且会去掉前后空格.</span><br><span class="line">@NotEmpty		检查约束元素是否为NULL或者是EMPTY. </span><br><span class="line"></span><br><span class="line">Booelan检查</span><br><span class="line">@AssertTrue		验证 Boolean 对象是否为 <span class="literal">true</span>  </span><br><span class="line">@AssertFalse	验证 Boolean 对象是否为 <span class="literal">false</span>  </span><br><span class="line"></span><br><span class="line">长度检查</span><br><span class="line">@Size(min=, max=)		验证对象（Array,Collection,Map,String）长度是否在给定的范围之内  </span><br><span class="line">@Length(min=, max=)		验证注解的元素值长度在min和max区间内</span><br><span class="line"></span><br><span class="line">日期检查</span><br><span class="line">@Past		验证 Date 和 Calendar 对象是否在当前时间之前  </span><br><span class="line">@Future		验证 Date 和 Calendar 对象是否在当前时间之后  </span><br><span class="line">@Pattern	验证 String 对象是否符合正则表达式的规则</span><br><span class="line"></span><br><span class="line">数值检查，建议使用在Stirng,Integer类型，不建议使用在int类型上，因为表单值为“”时无法转换为int，但可以转换为Stirng为<span class="string">""</span>,Integer为null</span><br><span class="line">@Min			验证 Number 和 String 对象是否大等于指定的值  </span><br><span class="line">@Max			验证 Number 和 String 对象是否小等于指定的值  </span><br><span class="line">@DecimalMax		被标注的值必须不大于约束中指定的最大值. 这个约束的参数是一个通过BigDecimal定义的最大值的字符串表示.小数存在精度</span><br><span class="line">@DecimalMin		被标注的值必须不小于约束中指定的最小值. 这个约束的参数是一个通过BigDecimal定义的最小值的字符串表示.小数存在精度</span><br><span class="line">@Digits			验证 Number 和 String 的构成是否合法  </span><br><span class="line">@Digits(<span class="built_in">integer</span>=,fraction=)		验证字符串是否是符合指定格式的数字，interger指定整数精度，fraction指定小数精度。</span><br><span class="line"></span><br><span class="line">@Range(min=, max=)	验证注解的元素值在最小值和最大值之间</span><br><span class="line">@Range(min=10000,max=50000,message=<span class="string">"range.bean.wage"</span>)</span><br><span class="line">private BigDecimal wage;</span><br><span class="line"></span><br><span class="line">@Valid 递归的对关联对象进行校验, 如果关联对象是个集合或者数组,那么对其中的元素进行递归校验,如果是一个map,则对其中的值部分进行校验.(是否进行递归验证)</span><br><span class="line">@CreditCardNumber信用卡验证</span><br><span class="line">@Email  验证是否是邮件地址，如果为null,不进行验证，算通过验证。</span><br><span class="line">@ScriptAssert(lang= ,script=, <span class="built_in">alias</span>=)</span><br><span class="line">@URL(protocol=,host=, port=,regexp=, flags=)</span><br></pre></td></tr></table></figure>
+<p>在检验入参是否符合规范时，使用@Validated或者@Valid在基本验证功能上没有太多区别。但是在分组、注解地方、嵌套验证等功能上两个有所不同：</p>
+<pre><code>1.    分组：@Validated 支持分组，不展开讲了，@Valid不支持分组 
+2.    注解地方 @Validated：可以用在类型、方法和方法参数上。但是不能用在成员属性（字段）上 @Valid：可以用在方法、构造函数、方法参数和成员属性（字段）上 两者是否能用于成员属性（字段）上直接影响能否提供嵌套验证的功能。 搞个表格直观一点： 
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">类型/是否可以 | 使用在类型上 | 使用在方法上 | 使用在方法参数上 | 构造函数 | 成员属性（字段）</span><br><span class="line">--------- | ------------- | ------------- | ------------- | ------------- | ------------- </span><br><span class="line">@Validated | 是 | 是 | 是 | 待确认 | 否</span><br><span class="line">@Valid | 否 | 是 | 是 | 是 | 是</span><br></pre></td></tr></table></figure>
+<ol>
+<li>嵌套验证：在比较两者嵌套验证时，先说明下什么叫做嵌套验证。<br>比如我们现在有个实体叫做Item：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Item</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull</span>(message = <span class="string">"id不能为空"</span>)</span><br><span class="line">    <span class="meta">@Min</span>(value = <span class="number">1</span>, message = <span class="string">"id必须为正整数"</span>)</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull</span>(message = <span class="string">"props不能为空"</span>)</span><br><span class="line">    <span class="meta">@Size</span>(min = <span class="number">1</span>, message = <span class="string">"至少要有一个属性"</span>)</span><br><span class="line">    <span class="keyword">private</span> List&lt;Prop&gt; props;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Item带有很多属性，属性里面有：pid、vid、pidName和vidName，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Prop &#123;</span><br><span class="line"></span><br><span class="line">    @NotNull(message = &quot;pid不能为空&quot;)</span><br><span class="line">    @Min(value = 1, message = &quot;pid必须为正整数&quot;)</span><br><span class="line">    private Long pid;</span><br><span class="line"></span><br><span class="line">    @NotNull(message = &quot;vid不能为空&quot;)</span><br><span class="line">    @Min(value = 1, message = &quot;vid必须为正整数&quot;)</span><br><span class="line">    private Long vid;</span><br><span class="line"></span><br><span class="line">    @NotBlank(message = &quot;pidName不能为空&quot;)</span><br><span class="line">    private String pidName;</span><br><span class="line"></span><br><span class="line">    @NotBlank(message = &quot;vidName不能为空&quot;)</span><br><span class="line">    private String vidName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>属性这个实体也有自己的验证机制，比如pid和vid不能为空，pidName和vidName不能为空等。<br>现在我们有个ItemController接受一个Item的入参，想要对Item进行验证，如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/item/add"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addItem</span><span class="params">(@Validated Item item, BindingResult bindingResult)</span> </span>&#123;</span><br><span class="line">        doSomething();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上图中，如果Item实体的props属性不额外加注释，只有@NotNull和@Size，无论入参采用@Validated还是@Valid验证，Spring Validation框架只会对Item的id和props做非空和数量验证，不会对props字段里的Prop实体进行字段验证，也就是@Validated和@Valid加在方法参数前，都不会自动对参数进行嵌套验证。也就是说如果传的List中有Prop的pid为空或者是负数，入参验证不会检测出来。<br>为了能够进行嵌套验证，必须手动在Item实体的props字段上明确指出这个字段里面的实体也要进行验证。由于@Validated不能用在成员属性（字段）上，但是@Valid能加在成员属性（字段）上，而且@Valid类注解上也说明了它支持嵌套验证功能，那么我们能够推断出：@Valid加在方法参数时并不能够自动进行嵌套验证，而是用在需要嵌套验证类的相应字段上，来配合方法参数上@Validated或@Valid来进行嵌套验证。<br>我们修改Item类如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Item</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull</span>(message = <span class="string">"id不能为空"</span>)</span><br><span class="line">    <span class="meta">@Min</span>(value = <span class="number">1</span>, message = <span class="string">"id必须为正整数"</span>)</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Valid</span> <span class="comment">// 嵌套验证必须用@Valid</span></span><br><span class="line">    <span class="meta">@NotNull</span>(message = <span class="string">"props不能为空"</span>)</span><br><span class="line">    <span class="meta">@Size</span>(min = <span class="number">1</span>, message = <span class="string">"props至少要有一个自定义属性"</span>)</span><br><span class="line">    <span class="keyword">private</span> List&lt;Prop&gt; props;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后我们在ItemController的addItem函数上再使用@Validated或者@Valid，就能对Item的入参进行嵌套验证。此时Item里面的props如果含有Prop的相应字段为空的情况，Spring Validation框架就会检测出来，bindingResult就会记录相应的错误。<br>总结一下@Validated和@Valid在嵌套验证功能上的区别：<br>@Validated：用在方法入参上无法单独提供嵌套验证功能。不能用在成员属性（字段）上，也无法提示框架进行嵌套验证。能配合嵌套验证注解@Valid进行嵌套验证。<br>@Valid：用在方法入参上无法单独提供嵌套验证功能。能够用在成员属性（字段）上，提示验证框架进行嵌套验证。能配合嵌套验证注解@Valid进行嵌套验证。</p>
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>对于每个注解抛什么异常需要进行总结和归纳，便于在统一异常处理的地方做处理<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@Validated</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/NotEmpty"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">notEmpty</span><span class="params">(@NotEmpty String me)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"NotEmpty"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/NotNull"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">notNull</span><span class="params">(@NotNull String me)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"NotNull"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/NotBlank"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">notBlank</span><span class="params">(@NotBlank String me)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"NotBlank"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/Null"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">snull</span><span class="params">(@Null String me)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Null"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这三个注解在不传“me”这个参数的时候，都抛ConstraintViolationException异常，该异常 继承于ValidationException  继承于RuntimeException<br>注意：正对于这种非嵌套类型的校验，必须要在类上使用@Validated注解，只能用这个，原因后面分析下（T0D0)  .不能用其他的，也不能在其他地方加。</p>
+<p>对于嵌套类型<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//嵌套类型</span></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/item/add0"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addItem0</span><span class="params">(@Validated Item item)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"dosmt0"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/item/add1"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addItem1</span><span class="params">(@Validated Item item, BindingResult bindingResult)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"dosmt1"</span>+bindingResult);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/item/add2"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addItem2</span><span class="params">(@Valid Item item, BindingResult bindingResult)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"dosmt2"</span>+bindingResult);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>会抛BindException，如果我们没有统一的ExceptionHandler的话，会走spring的DefaultHandlerExceptionResolver，然后将结果绑定到DefaultMessageSourceResolvable里的BindingResult里<br>DefaultHandlerExceptionResolver的优先级是最低的，所以一般会使用其他优先级高的处理器<br>我们仅用默认优先级即可，当时messageResolver还是会用默认的。</p>
+<p>如果使用“/item/add1” 带了BindingResult的话则不会抛异常，为空的结果直接绑定到这个结果对象里</p>
+<p>但是如果使用“/item/add2”中的@Valid  则会抛一个ConstraintViolationException的异常，这个使用的时候要小心，具体原因后面分析。（T0D0)<br>先建议大家用@Valid  这个毕竟是java正统的JSR303注解，除非一些不可用的地方使用spring的</p>
 
         
         </div>
@@ -539,7 +739,415 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2020/01/21/面试学习/IO密集型与CPU密集型/" data-id="ckd5wfwfy005b2v78uvumpuhp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2020/01/21/蚂蚁搬家/Spring Validation的用法/" data-id="ckd8m4oq40000tf78un3oeitd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-蚂蚁搬家/Java NIO线程模型" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2020/01/21/蚂蚁搬家/Java NIO线程模型/">Java的NIO线程模型</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2020/01/21/蚂蚁搬家/Java NIO线程模型/">
+            <time datetime="2020-01-21T03:11:47.000Z" itemprop="datePublished">2020-01-21</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Netty指南/">Netty指南</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Netty/">Netty</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>Thread per Connection（阻塞IO模型）: 在没有nio之前，这是传统的java网络编程方案所采用的线程模型。即有一个主循环，socket.accept阻塞等待，当建立连接后，创建新的线程/从线程池中取一个，把该socket连接交由新线程全权处理。这种方案优缺点都很明显，优点即实现简单，缺点则是方案的伸缩性受到线程数的限制。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//创建一个新的ServerSocket用以监听某个端口的socket请求</span></span><br><span class="line">ServerSocket serverSocket = <span class="keyword">new</span> ServerSocket(portNumber); </span><br><span class="line"><span class="comment">//对accept的调用将被阻塞，直到某个连接被建立</span></span><br><span class="line">Socket clientSocket = serverSocket.accept(); </span><br><span class="line"></span><br><span class="line">BufferedReader in = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(clientSocket.getInputStream())); </span><br><span class="line"></span><br><span class="line">PrintWriter out = <span class="keyword">new</span> PrintWriter(clientSocket.getOutputStream(), <span class="keyword">true</span>); </span><br><span class="line">String request, response;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> ((request = in.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="string">"Done"</span>.equals(request)) &#123; <span class="comment">//如果客户端请求为Done则退出循环</span></span><br><span class="line">  	<span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//把每一行读取出的数据交给服务端处理方法</span></span><br><span class="line">  response = processRequest(request); </span><br><span class="line">  <span class="comment">//将处理结果返回给客户端</span></span><br><span class="line">  out.println(response);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Reactor in Single Thread: 有了nio后，可以采用IO多路复用机制了。我们抽取出一个单线程版的reactor模型，时序图见下文，该方案只有一个线程，所有的socket连接均注册在了该reactor上，由一个线程全权负责所有的任务。它实现简单，且不受线程数的限制。这种方案受限于使用场景，仅适合于IO密集的应用，不太适合CPU密集的应用，且适合于CPU资源紧张的应用上。</li>
+<li>Reactor + Thread Pool: 方案2由于受限于使用场景，但为了可以更充分的使用CPU资源，抽取出一个逻辑处理线程池。reactor仅负责IO任务，线程池负责所有其它逻辑的处理。虽然该方案可以充分利用CPU资源，但是这个方案多了进出thread pool的两次上下文切换。</li>
+<li>Reactors in threads: 基于方案3缺点的考虑，将reactor分成两个部分。main reactor负责连接任务（accept、connect等），sub reactor负责IO、逻辑任务，即mina与netty的线程模型。该方案适应性十分强，可以调整sub reactor的数量适应CPU资源紧张的应用；同时CPU密集型任务时，又可以在业务处理逻辑中将任务交由线程池处理，如方案5。该方案有一个不太明显的缺点，即session没有分优先级，所有session平等对待均分到所有的线程中，这样可能会导致优先级低耗资源的session堵塞高优先级的session，但似乎netty与mina并没有针对这个做优化。</li>
+<li>Reactors in threads + Threads pool: 这也是我所在公司应用框架采用的模型，可以更为灵活的适应所有的应用场景：调整reactor数量、调整thread pool大小等。</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2020/01/21/蚂蚁搬家/Java NIO线程模型/" data-id="ckd8m3edz0001s9787zmrwu06" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-蚂蚁搬家/同步异步阻塞非阻塞" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2020/01/21/蚂蚁搬家/同步异步阻塞非阻塞/">同步异步阻塞非阻塞</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2020/01/21/蚂蚁搬家/同步异步阻塞非阻塞/">
+            <time datetime="2020-01-21T03:11:47.000Z" itemprop="datePublished">2020-01-21</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Netty指南/">Netty指南</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Netty/">Netty</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>同步：执行一个操作之后，等待结果，然后才继续执行后续的操作。</li>
+<li>异步：执行一个操作后，可以去执行其他的操作，然后等待通知再回来执行刚才没执行完的操作。</li>
+<li>阻塞：进程给CPU传达一个任务之后，一直等待CPU处理完成，然后才执行后面的操作。</li>
+<li>非阻塞：进程给CPU传达任我后，继续处理后续的操作，隔断时间再来询问之前的操作是否完成。这样的过程其实也叫轮询。</li>
+</ul>
+<h2 id="Netty域Mina的关系"><a href="#Netty域Mina的关系" class="headerlink" title="Netty域Mina的关系"></a>Netty域Mina的关系</h2><ul>
+<li>mina与netty都是Trustin Lee的作品，所以在很多方面都十分相似，他们线程模型也是基本一致，采用了Reactors in threads模型，即Main Reactor + Sub Reactors的模式。由main reactor处理连接相关的任务：accept、connect等，当连接处理完毕并建立一个socket连接（称之为session）后，给每个session分配一个sub reactor，之后该session的所有IO、业务逻辑处理均交给了该sub reactor。每个reactor均是一个线程，sub reactor中只靠内核调度，没有任何通信且互不打扰。</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2020/01/21/蚂蚁搬家/同步异步阻塞非阻塞/" data-id="ckd8m0s7z0051ph78wv9pmyg9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-蚂蚁搬家/IO密集型与CPU密集型" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2020/01/21/蚂蚁搬家/IO密集型与CPU密集型/">IO密集型与CPU密集型</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2020/01/21/蚂蚁搬家/IO密集型与CPU密集型/">
+            <time datetime="2020-01-21T03:11:47.000Z" itemprop="datePublished">2020-01-21</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Netty指南/">Netty指南</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Netty/">Netty</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="IO密集型与CPU密集型"><a href="#IO密集型与CPU密集型" class="headerlink" title="IO密集型与CPU密集型"></a>IO密集型与CPU密集型</h2><p>IO是一个通用的概念，即数据从一个地方移动到另一个地方，对一个实体来说，可以看成数据从外部进入，以及从实体输出到外部。<br>具体来说，常见的IO请求有网络IO，磁盘IO。<br>那么因为CPU的工作频率远远快过和其连接的外部硬件，例如磁盘，所以CPU在IO的时候经常会需要等待外部硬件完成当前任务，完成之后，才能进行下一个任务，这种情况常常称为IO阻塞，即CPU直到等待IO操作返回前，不能继续运行。IO阻塞对于CPU强大的运算能力是一个巨大的浪费。<br>所以有了多线程，多线程是同步运行的多个任务。不过由于CPU核数的问题，许多线程实际上并不是真正并行而只是通过快速切分时间片来模拟的。简单来说就是你执行一点，我执行一点，来回切换，创造出一种同时运行任务的假象。（多线程的本质是切换CPU时间片轮流执行，造成多个线程同步执行的假象）<br>多线程的底层机制是由操作系统实现的，当一个线程遇到IO阻塞时，例如读写文件，操作系统可能会暂时挂起该线程，从而让其他线程优先执行，也就是将多出来的时间片切分给其他的线程，直到等待该线程的IO操作返回，再重新调度该线程运行。<br>CPU密集型（CPU-bound）<br>CPU密集型也叫计算密集型，指的是系统的硬盘、内存性能相对CPU要好很多，此时，系统运作大部分的状况是CPU Loading 100%，CPU要读/写I/O(硬盘/内存)，I/O在很短的时间就可以完成，而CPU还有许多运算要处理，CPU Loading很高。<br>在多重程序系统中，大部份时间用来做计算、逻辑判断等CPU动作的程序称之CPU bound。例如一个计算圆周率至小数点一千位以下的程序，在执行的过程当中绝大部份时间用在三角函数和开根号的计算，RSA加解密算法，便是属于CPU bound的程序。<br>CPU bound的程序一般而言CPU占用率相当高。这可能是因为任务本身不太需要访问I/O设备，也可能是因为程序是多线程实现因此屏蔽掉了等待I/O的时间。<br>CPU密集的意思是该任务需要大量的运算，而没有阻塞，CPU一直全速运行。<br>CPU密集任务只有在真正的多核CPU上才可能得到加速(通过多线程)，而在单核CPU上，无论你开几个模拟的多线程，该任务都不可能得到加速，因为CPU总的运算能力就那些。<br>IO密集型（I/O bound）<br>IO密集型指的是系统的CPU性能相对硬盘、内存要好很多，此时，系统运作，大部分的状况是CPU在等I/O (硬盘/内存) 的读/写操作，此时CPU Loading并不高。<br>I/O bound的程序一般在达到性能极限时，CPU占用率仍然较低。这可能是因为任务本身需要大量I/O操作，而pipeline做得不是很好，没有充分利用处理器能力。<br>IO密集型，即该任务需要大量的IO，即大量的阻塞。在单线程上运行IO密集型的任务会导致浪费大量的CPU运算能力浪费在等待。所以在IO密集型任务中使用多线程可以大大的加速程序运行，即使在单核CPU上，这种加速主要就是利用了被浪费掉的阻塞时间。 </p>
+<p>除了同步IO之外，系统可能还支持异步IO，即IO不阻塞，对IO设备发出读写命令之后立即返回执行下一条命令，而IO设备的返回结果则在将来未知的某个时间点通过信号来回调。这也是nodeJS底层的实现机制。<br>CPU密集型 vs IO密集型<br>我们可以把任务分为计算（CPU)密集型和IO密集型。<br>计算密集型任务的特点是要进行大量的计算，消耗CPU资源，比如计算圆周率、对视频进行高清解码等等，全靠CPU的运算能力。这种计算密集型任务虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU执行任务的效率就越低，所以，要最高效地利用CPU，计算密集型任务同时进行的数量应当等于CPU的核心数。<br>计算密集型任务由于主要消耗CPU资源，因此，代码运行效率至关重要。Python这样的脚本语言运行效率很低，完全不适合计算密集型任务。对于计算密集型任务，最好用C语言编写。<br>第二种任务的类型是IO密集型，涉及到网络、磁盘IO的任务都是IO密集型任务，这类任务的特点是CPU消耗很少，任务的大部分时间都在等待IO操作完成（因为IO的速度远远低于CPU和内存的速度）。对于IO密集型任务，任务越多，CPU效率越高，但也有一个限度。常见的大部分任务都是IO密集型任务，比如Web应用。<br>IO密集型任务执行期间，99%的时间都花在IO上，花在CPU上的时间很少，因此，用运行速度极快的C语言替换用Python这样运行速度极低的脚本语言，完全无法提升运行效率。对于IO密集型任务，最合适的语言就是开发效率最高（代码量最少）的语言，脚本语言是首选，C语言最差。<br>总之，计算密集型程序适合C语言多线程，I/O密集型适合脚本语言开发的多线程。<br>参考：<br><a href="https://blog.csdn.net/o83290102o5/article/details/78723329" target="_blank" rel="noopener">https://blog.csdn.net/o83290102o5/article/details/78723329</a><br><a href="https://blog.csdn.net/youanyyou/article/details/78990156" target="_blank" rel="noopener">https://blog.csdn.net/youanyyou/article/details/78990156</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2020/01/21/蚂蚁搬家/IO密集型与CPU密集型/" data-id="ckd8m0s7w004qph78t5926e8g" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -690,7 +1298,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2019/02/21/面试学习/HashMap&ConcurrentHashMap/" data-id="ckd5wfwfx00562v78a8wqptrg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2019/02/21/面试学习/HashMap&ConcurrentHashMap/" data-id="ckd8m0s89005pph78xbxcbayn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -819,7 +1427,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2019/02/21/面试学习/蚂蚁金服面试问题/" data-id="ckd5wfwfw00532v78z5ljolu3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2019/02/21/面试学习/蚂蚁金服面试问题/" data-id="ckd8m0s86005fph78v2zfj44q" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -952,562 +1560,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/05/02/Spring Boot道可道（原创）/（一）SpringApplication解析/" data-id="ckd5wfwfu004z2v78sea2bkmn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-Spring BootDoc第四部分/SpringBoot翻译（三十六）访问应用程序参数" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/05/02/Spring BootDoc第四部分/SpringBoot翻译（三十六）访问应用程序参数/">SpringBoot官方文档翻译（三十六）：访问应用程序参数</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/05/02/Spring BootDoc第四部分/SpringBoot翻译（三十六）访问应用程序参数/">
-            <time datetime="2018-05-02T04:39:47.000Z" itemprop="datePublished">2018-05-02</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="23-6-Accessing-Application-Arguments（访问应用程序参数）"><a href="#23-6-Accessing-Application-Arguments（访问应用程序参数）" class="headerlink" title="23.6 Accessing Application Arguments（访问应用程序参数）"></a>23.6 Accessing Application Arguments（访问应用程序参数）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">If you need to access the application arguments that were passed to SpringApplication.run(… ), you can inject a org.springframework.boot.ApplicationArguments bean. The ApplicationArguments interface provides access to both the raw String[] arguments as well as parsed option and non-option arguments,     </span><br><span class="line">as shown in the following example:</span><br></pre></td></tr></table></figure>
-<p>您可以通过注入一个<strong>org.springframework.boot.ApplicationArguments</strong> bean去获取访问通过<strong>SpringApplication.run(… )</strong>传递的参数。<strong>ApplicationArguments</strong>参数接口即提供了访问原生<strong>String[]</strong>参数的方式，也提供了访问解析option（可选）和non-option（非可选）参数。举个例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBean</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MyBean</span><span class="params">(ApplicationArguments args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">boolean</span> debug = args.containsOption(<span class="string">"debug"</span>);</span><br><span class="line">		List&lt;String&gt; files = args.getNonOptionArgs();</span><br><span class="line">		<span class="comment">// if run with "--debug logfile.txt" debug=true, files=["logfile.txt"]</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot also registers a CommandLinePropertySource with the    </span><br><span class="line"> Spring Environment. This lets you also inject single application     </span><br><span class="line"> arguments by using the @Value annotation.</span><br></pre></td></tr></table></figure>
-<p>Spring Boot还向Spring环境注册了一个CommandLinePropertySource。这使您同样能够通过使用注解<strong>@Value</strong>注入单应用参数。</p>
-<p>请为以下账号开通访问 <a href="http://qahome.dp/smsqueue/query" target="_blank" rel="noopener">http://qahome.dp/smsqueue/query</a> 的权限<br>wbhz_zhengzhongguo<br>wbhz_178304746<br>wbhz_majing_fzlzh<br>wbhz_songchang<br>wbhz_ganjiali<br>wbhz_lushen<br>wbhz_fangjie</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/05/02/Spring BootDoc第四部分/SpringBoot翻译（三十六）访问应用程序参数/" data-id="ckd5wfweq00252v78k2ml14bc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/27/Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境/">SpringBoot官方文档翻译（三十五）：web环境</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/27/Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境/">
-            <time datetime="2018-04-27T07:39:47.000Z" itemprop="datePublished">2018-04-27</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="23-6-Web-Environment（web环境）"><a href="#23-6-Web-Environment（web环境）" class="headerlink" title="23.6 Web Environment（web环境）"></a>23.6 Web Environment（web环境）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A SpringApplication attempts to create the right type of     </span><br><span class="line">ApplicationContext on your behalf. The algorithm used to     </span><br><span class="line">determine a WebEnvironmentType is fairly simple:</span><br></pre></td></tr></table></figure>
-<p><strong>SpringApplication</strong>试图根据您的行为创建正确的<strong>ApplicationContext</strong>类型，用于确定WebEnvironmentType的算法非常简单:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">•	If Spring MVC is present, an AnnotationConfigServletWebServerApplicationContext is used</span><br><span class="line">•	If Spring MVC is not present and Spring WebFlux is present, an AnnotationConfigReactiveWebApplicationContext is used</span><br><span class="line">•	Otherwise, AnnotationConfigApplicationContext is used</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>如果使用的是Spring MVC的框架，<strong>AnnotationConfigServletWebServerApplicationContext</strong>将会被使用</li>
-<li>如果使用的不是Spring MVC框架，使用的是WebFlux框架，<strong>AnnotationConfigReactiveWebApplicationContext</strong>上下文将会被使用</li>
-<li>其他情况，<strong>AnnotationConfigApplicationContext</strong>将会被使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">This means that if you are using Spring MVC and the new WebClient     </span><br><span class="line">from Spring WebFlux in the same application, Spring MVC will be used     </span><br><span class="line">by default. You can override that easily by     </span><br><span class="line">calling setWebApplicationType(WebApplicationType).</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>这意味着，如果您在同一个应用中使用了Spring MVC也使用了Spring WebFlux的Web客户端，Spring MVC将会作为默认框架。您可以通过<strong>setWebApplicationType(WebApplicationType).</strong>来重写这个默认。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">It is also possible to take complete control of the ApplicationContext     </span><br><span class="line">type that is used by calling setApplicationContextClass(… ).</span><br></pre></td></tr></table></figure></p>
-<p>也可以通过调用setApplicationContextClass(… )来设置上下文的类型。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">It is often desirable to call setWebApplicationType(WebApplicationType.NONE)     </span><br><span class="line">when using SpringApplication within a JUnit test.</span><br></pre></td></tr></table></figure></p>
-<p>当使用JUnit测试的时候也可以使用<strong>setWebApplicationType(WebApplicationType.NONE)</strong>来设置上下文类型。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/04/27/Spring BootDoc第四部分/SpringBoot翻译（三十五）Web环境/" data-id="ckd5wfwen001v2v78i1hyki0q" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/26/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/">SpringBoot官方文档翻译（三十四）：应用事件和监听</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/26/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/">
-            <time datetime="2018-04-26T08:39:47.000Z" itemprop="datePublished">2018-04-26</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="23-5-Application-Events-and-Listeners（应用事件和监听）"><a href="#23-5-Application-Events-and-Listeners（应用事件和监听）" class="headerlink" title="23.5 Application Events and Listeners（应用事件和监听）"></a>23.5 Application Events and Listeners（应用事件和监听）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In addition to the usual Spring Framework events, such as     </span><br><span class="line">ContextRefreshedEvent, a SpringApplication sends some additional     </span><br><span class="line">application events.</span><br></pre></td></tr></table></figure>
-<p>除了通常的Spring框架事件（如ContextRefreshedEvent）之外，SpringApplication还会发送一些其他应用程序事件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Some events are actually triggered before the ApplicationContext is     </span><br><span class="line">created, so you cannot register a listener on those as a @Bean. You     </span><br><span class="line">can register them with the SpringApplication.addListeners(… ) method or    </span><br><span class="line"> the SpringApplicationBuilder.listeners(… ) method.    </span><br><span class="line">If you want those listeners to be registered automatically, regardless     </span><br><span class="line">of the way the application is created, you can add a     </span><br><span class="line">META-INF/spring.factories file to your project and reference your     </span><br><span class="line">listener(s) by using the org.springframework.context.ApplicationListener     </span><br><span class="line">key, as shown in the following example:</span><br><span class="line">org.springframework.context.ApplicationListener=com.example.project.MyListener</span><br></pre></td></tr></table></figure></p>
-<p>一些事件其实是在应用上下文创建之前就已经创建了，所以您不能够通过@Bean给这些事件增加监听。您可以通过<strong>SpringApplication.addListeners(… )</strong>方法或者<strong>SpringApplicationBuilder.listeners(… )</strong>方法来给这些事件注册监听。<br>如果您想这些事件自动注册，而不管应用是否被创建，您可以通过增加<strong>META-INF/spring.factories</strong>文件到您的项目中，然后通过org.springframework.context.ApplicationListener作为key关联您的监听，如下例子：org.springframework.context.ApplicationListener=com.example.project.MyListener<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Application events are sent in the following order, as your application runs:</span><br></pre></td></tr></table></figure></p>
-<p>随着您的应用程序运行，应用程序事件按以下顺序发送：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.	An ApplicationStartingEvent is sent at the start of a run but before any processing, except for the registration of listeners and initializers.</span><br><span class="line">2.	An ApplicationEnvironmentPreparedEvent is sent when the Environment to be used in the context is known but before the context is created.</span><br><span class="line">3.	An ApplicationPreparedEvent is sent just before the refresh is started but after bean definitions have been loaded.</span><br><span class="line">4.	An ApplicationStartedEvent is sent after the context has been refreshed but before any application and command-line runners have been called.</span><br><span class="line">5.	An ApplicationReadyEvent is sent after any application and command-line runners have been called. It indicates that the application is ready to service requests.</span><br><span class="line">6.	An ApplicationFailedEvent is sent if there is an exception on startup.</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>1.ApplicationStartingEvent 会在程序注册完监听器和初始器之后，其他所有进程运行之前发送。</li>
-<li>2.ApplicationEnvironmentPreparedEvent 在Environment被使用之后，容器被创建之前发送。</li>
-<li>3.ApplicationPreparedEvent在刷新启动之前，但在加载了bean定义之后发送。</li>
-<li>4.ApplicationStartedEvent在上下文被刷新之后，任何应用和command-line运行之前将被调用</li>
-<li>5.ApplicationReadyEvent在刷新启动之后被发送，并且处理了任何相关的回调以指示应用程序准备好服务请求。</li>
-<li>6.ApplicationFailedEvent如果启动时发生异常发送。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">You often need not use application events, but it can be handy to know     </span><br><span class="line">that they exist. Internally, Spring Boot uses events to handle a variety      </span><br><span class="line">of tasks.</span><br></pre></td></tr></table></figure>
-<p>您经常不需要使用应用程序事件，但可以方便地知道它们存在。在内部，Spring Boot使用事件来处理各种任务。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Application events are sent by using Spring Framework’s event     </span><br><span class="line">publishing mechanism. Part of this mechanism ensures that an     </span><br><span class="line">event published to the listeners in a child context is also     </span><br><span class="line">published to the listeners in any ancestor contexts. As a result     </span><br><span class="line">of this, if your application uses a hierarchy of SpringApplication     </span><br><span class="line">instances, a listener may receive multiple instances of the same     </span><br><span class="line">type of application event.</span><br></pre></td></tr></table></figure>
-<p>应用事件发送是采用的Spring框架的事件发布机制。该机制的一部分确保发布给子上下文中侦听器的事件也会发布给任何祖先上下文中的侦听器。因此，如果您的应用使用的是SpringApplication级联结构实例化，监听器可以接收同一类型的应用程序事件的多个实例。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">To allow your listener to distinguish between an event for its context     </span><br><span class="line">and an event for a descendant context, it should request that its     </span><br><span class="line">application context is injected and then compare the injected context     </span><br><span class="line">with the context of the event. The context can be injected by    </span><br><span class="line">implementing ApplicationContextAware or, if the listener is a bean,     </span><br><span class="line">by using @Autowired.</span><br></pre></td></tr></table></figure></p>
-<p>允许您的侦听器区分其上下文的事件和后代上下文的事件，它应该请求注入它应用的上下文，并比较注入上线文的事件。上线文可以通过实现<strong>ApplicationContextAware</strong>接口注入，或者如果监听是个bean可以通过<strong>@Autowired</strong>来注入</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/04/26/Spring BootDoc第四部分/SpringBoot翻译（三十四）应用事件和监听/" data-id="ckd5wfwer00282v78atohczlu" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-Spring BootDoc第四部分/SpringBoot翻译（三十三）流式编程接口" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十三）流式编程接口/">SpringBoot官方文档翻译（三十三）：流式编程接口</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十三）流式编程接口/">
-            <time datetime="2018-04-25T07:39:47.000Z" itemprop="datePublished">2018-04-25</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="23-4-Fluent-Builder-API（流式编程接口）"><a href="#23-4-Fluent-Builder-API（流式编程接口）" class="headerlink" title="23.4 Fluent Builder API（流式编程接口）"></a>23.4 Fluent Builder API（流式编程接口）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If you need to build an ApplicationContext hierarchy (multiple contexts     </span><br><span class="line">with a parent/child relationship) or if you prefer using a “fluent”     </span><br><span class="line">builder API, you can use the SpringApplicationBuilder.</span><br></pre></td></tr></table></figure>
-<p>如果您需要构建ApplicationContext层次结构（具有父/子关系的多个上下文），或者如果您更愿意使用“流式”构建器API，则可以使用SpringApplicationBuilder。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The SpringApplicationBuilder lets you chain together multiple method     </span><br><span class="line">calls and includes parent and child methods that let you create a     </span><br><span class="line">hierarchy, as shown in the following example:</span><br></pre></td></tr></table></figure>
-<p>SpringApplicationBuilder可以让您将多个方法之间的调用使用父子关系的方式链接起来，如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> SpringApplicationBuilder()</span><br><span class="line">		.sources(Parent.class)</span><br><span class="line">		.child(Application.class)</span><br><span class="line">		.bannerMode(Banner.Mode.OFF)</span><br><span class="line">		.run(args);</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">There are some restrictions when creating an ApplicationContext     </span><br><span class="line">hierarchy. For example, Web components must be contained within     </span><br><span class="line">the child context, and the same Environment is used for both parent     </span><br><span class="line">and child contexts. See the SpringApplicationBuilder Javadoc for     </span><br><span class="line">full details.</span><br></pre></td></tr></table></figure>
-<p>像这种链式编程有一些限制。例如，Web组件必须包含在子上下文中，一些环境变量即会被用在父上下文中也会用在子上下文中。具体可以参考SpringApplicationBuilder的Javadoc。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/04/25/Spring BootDoc第四部分/SpringBoot翻译（三十三）流式编程接口/" data-id="ckd5wfwek001o2v78i4cxim89" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/05/02/Spring Boot道可道（原创）/（一）SpringApplication解析/" data-id="ckd8m0s7u004mph789ew89b4c" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1584,7 +1637,7 @@
 
 
     <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
     </nav>
 </section>
             
@@ -1619,25 +1672,6 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2020/07/22/重构改善既有代码设计/微服务设计/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="微服务设计" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
-                            <p class="item-title"><a href="/2020/07/22/重构改善既有代码设计/微服务设计/" class="title">微服务设计</a></p>
-                            <p class="item-date"><time datetime="2020-07-22T03:11:47.000Z" itemprop="datePublished">2020-07-22</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
                             <a href="/2020/07/22/重构改善既有代码设计/重构的原则/" class="thumbnail">
     
     
@@ -1657,10 +1691,10 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2020/07/21/Clean Code/注释/" class="thumbnail">
+                            <a href="/2020/07/22/重构改善既有代码设计/微服务设计/" class="thumbnail">
     
     
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="注释" class="thumbnail-image"></span>
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="微服务设计" class="thumbnail-image"></span>
     
 </a>
 
@@ -1668,7 +1702,26 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
-                            <p class="item-title"><a href="/2020/07/21/Clean Code/注释/" class="title">注释</a></p>
+                            <p class="item-title"><a href="/2020/07/22/重构改善既有代码设计/微服务设计/" class="title">微服务设计</a></p>
+                            <p class="item-date"><time datetime="2020-07-22T03:11:47.000Z" itemprop="datePublished">2020-07-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/07/21/Clean Code/错误处理/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="错误处理" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2020/07/21/Clean Code/错误处理/" class="title">错误处理</a></p>
                             <p class="item-date"><time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time></p>
                         </div>
                     </li>
@@ -1676,10 +1729,10 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2020/07/21/Clean Code/对象和数据结构/" class="thumbnail">
+                            <a href="/2020/07/21/Clean Code/有意义的命名/" class="thumbnail">
     
     
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="对象和数据结构" class="thumbnail-image"></span>
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="有意义的命名" class="thumbnail-image"></span>
     
 </a>
 
@@ -1687,7 +1740,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
-                            <p class="item-title"><a href="/2020/07/21/Clean Code/对象和数据结构/" class="title">对象和数据结构</a></p>
+                            <p class="item-title"><a href="/2020/07/21/Clean Code/有意义的命名/" class="title">有意义的命名</a></p>
                             <p class="item-date"><time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time></p>
                         </div>
                     </li>
@@ -1701,7 +1754,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Netty指南/">Netty指南</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/蚂蚁/">蚂蚁</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Netty指南/">Netty指南</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/蚂蚁/">蚂蚁</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -1710,7 +1763,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1719,7 +1772,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Clean-Code/">Clean Code</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netty/">Netty</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微服务设计/">微服务设计</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重构改善既有代码设计/">重构改善既有代码设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Clean-Code/">Clean Code</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netty/">Netty</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微服务设计/">微服务设计</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重构改善既有代码设计/">重构改善既有代码设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1728,7 +1781,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Clean-Code/" style="font-size: 16px;">Clean Code</a> <a href="/tags/Effective-Java/" style="font-size: 14px;">Effective Java</a> <a href="/tags/Netty/" style="font-size: 10px;">Netty</a> <a href="/tags/SpringBoot官方文档翻译第三部分/" style="font-size: 20px;">SpringBoot官方文档翻译第三部分</a> <a href="/tags/SpringBoot官方文档翻译第二部分/" style="font-size: 18px;">SpringBoot官方文档翻译第二部分</a> <a href="/tags/SpringBoot官方文档翻译第四部分/" style="font-size: 16px;">SpringBoot官方文档翻译第四部分</a> <a href="/tags/书籍/" style="font-size: 12px;">书籍</a> <a href="/tags/微服务设计/" style="font-size: 12px;">微服务设计</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/重构改善既有代码设计/" style="font-size: 10px;">重构改善既有代码设计</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+            <a href="/tags/Clean-Code/" style="font-size: 16px;">Clean Code</a> <a href="/tags/Effective-Java/" style="font-size: 14px;">Effective Java</a> <a href="/tags/Netty/" style="font-size: 14px;">Netty</a> <a href="/tags/SpringBoot官方文档翻译第三部分/" style="font-size: 20px;">SpringBoot官方文档翻译第三部分</a> <a href="/tags/SpringBoot官方文档翻译第二部分/" style="font-size: 18px;">SpringBoot官方文档翻译第二部分</a> <a href="/tags/SpringBoot官方文档翻译第四部分/" style="font-size: 16px;">SpringBoot官方文档翻译第四部分</a> <a href="/tags/书籍/" style="font-size: 12px;">书籍</a> <a href="/tags/微服务设计/" style="font-size: 12px;">微服务设计</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/重构改善既有代码设计/" style="font-size: 10px;">重构改善既有代码设计</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
         </div>
     </div>
 
