@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>RESTFul风格的接口 | 博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="RESTFul风哥的接口 网络应用程序，分为前端和后端两个部分。当前的发展趋势，就是前端设备层出不穷（手机、平板、桌面电脑、其他专用设备等等）。 因此，必须有一种统一的机制，方便不同的前端设备与后端进行通信。这导致API构架的流行，甚至出现”API First”的设计思想。RESTful API是目前比较成熟的一套互联">
+<meta name="keywords" content="Netty">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RESTFul风格的接口">
+<meta property="og:url" content="http://yoursite.com/2020/01/22/蚂蚁搬家/RESTFul风格的接口/index.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="RESTFul风哥的接口 网络应用程序，分为前端和后端两个部分。当前的发展趋势，就是前端设备层出不穷（手机、平板、桌面电脑、其他专用设备等等）。 因此，必须有一种统一的机制，方便不同的前端设备与后端进行通信。这导致API构架的流行，甚至出现”API First”的设计思想。RESTful API是目前比较成熟的一套互联网应用程序的API设计理论。一、协议API与用户的通信协议，总是使用HTTPs协">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.wailian.work/images/2018/04/20/1524194203156.jpg">
+<meta property="og:updated_time" content="2020-07-31T08:57:45.712Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RESTFul风格的接口">
+<meta name="twitter:description" content="RESTFul风哥的接口 网络应用程序，分为前端和后端两个部分。当前的发展趋势，就是前端设备层出不穷（手机、平板、桌面电脑、其他专用设备等等）。 因此，必须有一种统一的机制，方便不同的前端设备与后端进行通信。这导致API构架的流行，甚至出现”API First”的设计思想。RESTful API是目前比较成熟的一套互联网应用程序的API设计理论。一、协议API与用户的通信协议，总是使用HTTPs协">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/04/20/1524194203156.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="博客" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">博客</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">文章</a>
+                
+                    <a class="main-nav-link" href="/categories">人工智能</a>
+                
+                    <a class="main-nav-link" href="/archives">移动研发</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="http://www.wailian.work/images/2018/04/17/IMG_1469.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">文章</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">人工智能</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">移动研发</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="http://www.wailian.work/images/2018/04/17/IMG_1469.jpg" />
+            <h2 id="name">mike</h2>
+            <h3 id="title">互联网金融从业者，现任职于美团金服</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>上海, 中国</span>
+            <a id="follow" target="_blank" href="https://github.com/miketigris/">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                64
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                11
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/miketigris/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="weibo" class=tooltip>
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/xgr712@126.com" target="_blank" title="envelope" class=tooltip>
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-蚂蚁搬家/RESTFul风格的接口" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            RESTFul风格的接口
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2020/01/22/蚂蚁搬家/RESTFul风格的接口/">
+            <time datetime="2020-01-22T03:11:49.000Z" itemprop="datePublished">2020-01-22</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Netty指南/">Netty指南</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Netty/">Netty</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="RESTFul风哥的接口"><a href="#RESTFul风哥的接口" class="headerlink" title="RESTFul风哥的接口"></a>RESTFul风哥的接口</h2><ul>
+<li>网络应用程序，分为前端和后端两个部分。当前的发展趋势，就是前端设备层出不穷（手机、平板、桌面电脑、其他专用设备等等）。</li>
+<li>因此，必须有一种统一的机制，方便不同的前端设备与后端进行通信。这导致API构架的流行，甚至出现”API First”的设计思想。RESTful API是目前比较成熟的一套互联网应用程序的API设计理论。<h3 id="一、协议"><a href="#一、协议" class="headerlink" title="一、协议"></a>一、协议</h3>API与用户的通信协议，总是使用HTTPs协议。</li>
+</ul>
+<h3 id="二、域名"><a href="#二、域名" class="headerlink" title="二、域名"></a>二、域名</h3><p>应该尽量将API部署在专用域名之下。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.example.com</span><br></pre></td></tr></table></figure></p>
+<p>如果确定API很简单，不会有进一步扩展，可以考虑放在主域名下。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://example.org/api/</span><br></pre></td></tr></table></figure></p>
+<h3 id="三、版本（Versioning）"><a href="#三、版本（Versioning）" class="headerlink" title="三、版本（Versioning）"></a>三、版本（Versioning）</h3><p>应该将API的版本号放入URL。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.example.com/v1/</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>另一种做法是，将版本号放在HTTP头信息中，但不如放入URL方便和直观。Github采用这种做法。<h3 id="四、路径（Endpoint）"><a href="#四、路径（Endpoint）" class="headerlink" title="四、路径（Endpoint）"></a>四、路径（Endpoint）</h3></li>
+<li>路径又称”终点”（endpoint），表示API的具体网址。</li>
+<li>在RESTful架构中，每个网址代表一种资源（resource），所以网址中不能有动词，只能有名词，而且所用的名词往往与数据库的表格名对应。一般来说，数据库中的表都是同种记录的”集合”（collection），所以API中的名词也应该使用复数。</li>
+<li>举例来说，有一个API提供动物园（zoo）的信息，还包括各种动物和雇员的信息，则它的路径应该设计成下面这样。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://api.example.com/v1/zoos</span><br><span class="line">https://api.example.com/v1/animals</span><br><span class="line">https://api.example.com/v1/employees</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="五、HTTP动词"><a href="#五、HTTP动词" class="headerlink" title="五、HTTP动词"></a>五、HTTP动词</h3><ul>
+<li>对于资源的具体操作类型，由HTTP动词表示。</li>
+<li><p>常用的HTTP动词有下面五个（括号里是对应的SQL命令）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET（SELECT）：从服务器取出资源（一项或多项）。</span><br><span class="line">POST（CREATE）：在服务器新建一个资源。</span><br><span class="line">PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。</span><br><span class="line">PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。</span><br><span class="line">DELETE（DELETE）：从服务器删除资源。</span><br><span class="line">还有两个不常用的HTTP动词。</span><br><span class="line">HEAD：获取资源的元数据。</span><br><span class="line">OPTIONS：获取信息，关于资源的哪些属性是客户端可以改变的。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下面是一些例子。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">GET /zoos：列出所有动物园</span><br><span class="line">POST /zoos：新建一个动物园</span><br><span class="line">GET /zoos/ID：获取某个指定动物园的信息</span><br><span class="line">PUT /zoos/ID：更新某个指定动物园的信息（提供该动物园的全部信息）</span><br><span class="line">PATCH /zoos/ID：更新某个指定动物园的信息（提供该动物园的部分信息）</span><br><span class="line">DELETE /zoos/ID：删除某个动物园</span><br><span class="line">GET /zoos/ID/animals：列出某个指定动物园的所有动物</span><br><span class="line">DELETE /zoos/ID/animals/ID：删除某个指定动物园的指定动物</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 六、过滤信息（Filtering）</span></span><br><span class="line">* 如果记录数量很多，服务器不可能都将它们返回给用户。API应该提供参数，过滤返回结果。</span><br><span class="line">* 下面是一些常见的参数。</span><br><span class="line">``` bash</span><br><span class="line">?<span class="built_in">limit</span>=10：指定返回记录的数量</span><br><span class="line">?offset=10：指定返回记录的开始位置。</span><br><span class="line">?page=2&amp;per_page=100：指定第几页，以及每页的记录数。</span><br><span class="line">?sortby=name&amp;order=asc：指定返回结果按照哪个属性排序，以及排序顺序。</span><br><span class="line">?animal_type_id=1：指定筛选条件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参数的设计允许存在冗余，即允许API路径和URL参数偶尔有重复。比如，GET /zoo/ID/animals 与 GET /animals?zoo_id=ID 的含义是相同的。</p>
+</li>
+</ul>
+<h3 id="七、状态码（Status-Codes）"><a href="#七、状态码（Status-Codes）" class="headerlink" title="七、状态码（Status Codes）"></a>七、状态码（Status Codes）</h3><ul>
+<li>服务器向用户返回的状态码和提示信息，常见的有以下一些（方括号中是该状态码对应的HTTP动词）。<br><a href="https://www.cnblogs.com/passzhang/articles/9388325.html" target="_blank" rel="noopener">https://www.cnblogs.com/passzhang/articles/9388325.html</a><br>http状态码基本上可以分为5类：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">　　1xx为消息类，该类状态码用于表示服务器临时回应。</span><br><span class="line">　　　　100 <span class="built_in">continue</span> 表示出的请求已经被服务器接收，游览器应当继续发送请求的其余部分（HTTP1.1）</span><br><span class="line"></span><br><span class="line">　　　　101 switching pototcols 服务器将遵从客户的请求转换到另外一种协议（HTTP1.1）。</span><br><span class="line"></span><br><span class="line">　　2xx 表示浏览器端请求被处理成功<span class="comment">#</span></span><br><span class="line">　　　　200 ok 一切正常</span><br><span class="line"></span><br><span class="line">　　　　201 created 服务器已经创建了文档，location 头给出了他的URL。</span><br><span class="line"></span><br><span class="line">　　　　202 accepted 已经接收请求，但是尚未处理完成。</span><br><span class="line"></span><br><span class="line">　　　　203 non-authoritative information 文档已经正常的返回，但一些应答头可能不正确，因为使用的是的文档的拷贝(HTTP 1.1新)。</span><br><span class="line"></span><br><span class="line">　　　　204 no content 没有新文档，游览器应该继续显示原来的文档，这个跟下面的304非常相似。</span><br><span class="line"></span><br><span class="line">　　　　205 Reset content 没有新的内容，到那时游览器应该重置它所显示的内容，用来强制清楚表单输入内容（HTTP1.1 新）</span><br><span class="line"></span><br><span class="line">　　　　206 partial content 客户发送了一个带有range头的GET请求，服务器完成了它（HTTP1.1  新）。注意 通过Range 可以实现断点续传。</span><br><span class="line"></span><br><span class="line">　　3xx 重定向。<span class="comment">#</span></span><br><span class="line">　　　　300 Multiple choices 客户请求的文档可以在多个位置找到，这些位置已经在返回的文档内列出，如果服务器要提出优先选择，则应该在location 应答头指明。</span><br><span class="line"></span><br><span class="line">　　　　301 Mulitiple permanently 客户请求的文档在其他地方，新的url在location 头中给出，浏览器应该自动的访问新的URL。</span><br><span class="line"></span><br><span class="line">　　　　302 Found 类似301，但新的URL应该被视为临时性的替代，而不是永久性的，注意，在HTTP1.0中对应的状态信息moved Temporatily。出现该状态码，浏览器能够给自动访问新的URL，因此他是一个很有用的状态代码。</span><br><span class="line"></span><br><span class="line">　　　　注意这个状态代码有时候可以和301替换使用，例如，如果浏览器错误的请求http：// host/~user（缺少了后面的斜杠，有的服务器返回301，有的返回302）。严格的说，我们只能假定原来的请求是GET时浏览器才会自动重定向。</span><br><span class="line"></span><br><span class="line">　　　　303 see other 类似于301/302，不同之处在于，如果原来的请求是post，location头指定的重定向目标文档应该通过get提取（http 1.1 新）。</span><br><span class="line"></span><br><span class="line">　　　　304 not modified 客户端有缓冲的文档并发出了一个条件性的请求（一般是提供<span class="keyword">if</span> -modified -since 头表示客户端执行比指定日期更新的文档）。服务器告诉客户，原来缓冲的文档还可以继续使用。</span><br><span class="line"></span><br><span class="line">　　　　305 use proxy 客户请求的文档应该通过location 头所指明的代理服务器提取（HTTP 1.1新）。</span><br><span class="line"></span><br><span class="line">　　　　307 temporary redirect 和302（found）相同，许多浏览器会错误的相应302应该进行重定向，即使原来的请求是post，即使它实际上只在post请求的应答是303时，才能重定向。由于这个原因，HTTP1.1新增了307，以便更加清楚的区分几个状态代码，当出现303应答时，浏览器可以跟随重定向的get和post请求，如是307应答，则浏览器只能跟随对get的请求的重定向。</span><br><span class="line"></span><br><span class="line">　　400 错误<span class="comment">#</span></span><br><span class="line">　　　　400 Bad Request 请求出现语法错误。</span><br><span class="line"></span><br><span class="line">　　　　401 unauthorized 客户试图未经授权访问受密码保护的页面。应答中会包含-WWW-Authenticate头，浏览器据此显示用户名字和密码对话框，然后再填写合适的authorization头后再次发送请求。</span><br><span class="line"></span><br><span class="line">　　　　403 Forbidden 资源不可用。服务器理解客户的需求，但是拒绝处理他通常由于服务器上文件或目录的权限设置问题。</span><br><span class="line"></span><br><span class="line">　　　　404 NO Found 无法找到指定位置的资源，也是一个常用的应答。</span><br><span class="line"></span><br><span class="line">　　　　405 Method not allowed 请求方法（GET、POST、HEAD、Delete、put、trace等）对指定的资源不适用。（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　406 not acceptable 指定的资源已经找到，但是mime类型和客户在accpet头中所指定的不兼容（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　407 proxy authentication  reqired 类似于401 ，表示客户必须先经过代理服务器的授权。（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　408 request timeout 在服务器许可的等待时间内，客户一直没有发出任何请求。客户可以在以后重复同一请求。（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　409 conflict 通常和put 请求有关，由于请求和资源的当前状态相冲突，因此请求不能成功（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　410 Gone 所请求的文档已经不在可用，而且服务器不知道应该重新到哪一个地址，他和404的不同在于，返回407表示文档永久的离开了指定的位置，而404表示由于位置的原因文档不可用。（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　411 length required 服务器不能处理请求，除非客户发送一个contene-length头（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　412 preconfition Failed请求头中指定的一些前提条件失败（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　413 request entity too large 目标文档的大小超过服务器当前原意处理的大小。如果服务器认为自己能够稍后再处理请求，则应该提供一个retry-After头（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　414 Request URL Too loog URL太长（ HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　416 required range not satisfiable 服务器不能满足客户在请求中的指定range 头（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　5xx服务器错误<span class="comment">#</span></span><br><span class="line">　　　　500 internal Server Error 服务器遇到了意料不到的情况，不能完成客户的请求</span><br><span class="line"></span><br><span class="line">　　　　501 Not lmplemented 服务器不支持请求所需要的功能。例如，客户发出来了一个服务器不支持的put请求。</span><br><span class="line"></span><br><span class="line">　　　　502Bad Gateway 服务器作为网关或者代理时，为了完成请求访问下一个服务器，但该服务器返回了非法的应答。</span><br><span class="line"></span><br><span class="line">　　　　503 service unavilable 服务器由于维护或者负载过重未能应答。例如，servlet 可能在数据库连接池已满的情况下返回503.服务器返回503时可以提供一个retry-after头。</span><br><span class="line"></span><br><span class="line">　　　　504 gateway timeout 作为代理或网关服务器使用，表示不能及时的从远程服务器获得应答（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　505 HTTPversion not supported 服务器不支持请求中所指明的HTTP版本。（HTTP 1.1新）</span><br><span class="line">八、错误处理（Error handling）</span><br><span class="line">如果状态码是4xx，就应该向用户返回出错信息。一般来说，返回的信息中将error作为键名，出错信息作为键值即可。</span><br><span class="line">&#123;error: <span class="string">"Invalid API key"</span> &#125; </span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">### 九、返回结果</span></span><br><span class="line">```  bash</span><br><span class="line">GET /collection：返回资源对象的列表（数组）</span><br><span class="line">GET /collection/resource：返回单个资源对象</span><br><span class="line">POST /collection：返回新生成的资源对象</span><br><span class="line">PUT /collection/resource：返回完整的资源对象</span><br><span class="line">PATCH /collection/resource：返回完整的资源对象</span><br><span class="line">DELETE /collection/resource：返回一个空文档</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 十、Hypermedia API</span></span><br><span class="line">* RESTful API最好做到Hypermedia，即返回结果中提供链接，连向其他API方法，使得用户不查文档，也知道下一步应该做什么。比如，当用户向api.example.com的根目录发出请求，会得到这样一个文档。</span><br><span class="line">``` bash</span><br><span class="line">&#123;<span class="string">"link"</span>: &#123; <span class="string">"rel"</span>: <span class="string">"collection https://www.example.com/zoos"</span>, <span class="string">"href"</span>: <span class="string">"https://api.example.com/zoos"</span>, <span class="string">"title"</span>: <span class="string">"List of zoos"</span>, <span class="string">"type"</span>: <span class="string">"application/vnd.yourformat+json"</span> &#125;&#125; </span><br><span class="line">``` </span><br><span class="line">*上面代码表示，文档中有一个link属性，用户读取这个属性就知道下一步该调用什么API了。rel表示这个API与当前网址的关系（collection关系，并给出该collection的网址），href表示API的路径，title表示API的标题，<span class="built_in">type</span>表示返回类型。Hypermedia API的设计被称为HATEOAS。Github的API就是这种设计，访问api.github.com会得到一个所有可用API的网址列表。</span><br><span class="line">``` bash</span><br><span class="line"> &#123; <span class="string">"current_user_url"</span>: <span class="string">"https://api.github.com/user"</span>, <span class="string">"authorizations_url"</span>: <span class="string">"https://api.github.com/authorizations"</span>,  // ...</span><br><span class="line">&#125; </span><br><span class="line">``` </span><br><span class="line">* 从上面可以看到，如果想获取当前用户的信息，应该去访问api.github.com/user，然后就得到了下面结果</span><br><span class="line">``` bash</span><br><span class="line">&#123; <span class="string">"message"</span>: <span class="string">"Requires authentication"</span>, <span class="string">"documentation_url"</span>: <span class="string">"https://developer.github.com/v3"</span> &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>上面代码表示，服务器给出了提示信息，以及文档的网址。<h3 id="十一、其他"><a href="#十一、其他" class="headerlink" title="十一、其他"></a>十一、其他</h3></li>
+<li>（1）API的身份认证应该使用OAuth 2.0框架。</li>
+<li>（2）服务器返回的数据格式，应该尽量使用JSON，避免使用XML。</li>
+<li>RESTful的优点：<br>  •    可更高效利用缓存来提高响应速度<br>  •    通讯本身的无状态性可以让不同的服务器的处理一系列请求中的不同请求，提高服务器的扩展性<br>  •    浏览器即可作为客户端，简化软件需求<br>  •    相对于其他叠加在HTTP协议之上的机制，REST的软件依赖性更小<br>  •    不需要额外的资源发现机制<br>  •    在软件技术演进中的长期的兼容性更好</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2020/01/22/蚂蚁搬家/RESTFul风格的接口/" data-id="ckd9w9j5a001zq6783tzg7fwn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/07/21/Clean Code/函数/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    函数
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2020/01/21/蚂蚁搬家/Unix的五种网络模型/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Unix的五种网络模型</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/07/23/重构改善既有代码设计/微服务SpringCloud实践/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="微服务SpringCloud实践" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2020/07/23/重构改善既有代码设计/微服务SpringCloud实践/" class="title">微服务SpringCloud实践</a></p>
+                            <p class="item-date"><time datetime="2020-07-23T03:11:47.000Z" itemprop="datePublished">2020-07-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/07/22/重构改善既有代码设计/重构的原则/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="重构的原则" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2020/07/22/重构改善既有代码设计/重构的原则/" class="title">重构的原则</a></p>
+                            <p class="item-date"><time datetime="2020-07-22T03:11:47.000Z" itemprop="datePublished">2020-07-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/07/22/重构改善既有代码设计/微服务设计/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="微服务设计" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2020/07/22/重构改善既有代码设计/微服务设计/" class="title">微服务设计</a></p>
+                            <p class="item-date"><time datetime="2020-07-22T03:11:47.000Z" itemprop="datePublished">2020-07-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/07/21/Clean Code/注释/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="注释" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2020/07/21/Clean Code/注释/" class="title">注释</a></p>
+                            <p class="item-date"><time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/07/21/Clean Code/对象和数据结构/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="对象和数据结构" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
+                            <p class="item-title"><a href="/2020/07/21/Clean Code/对象和数据结构/" class="title">对象和数据结构</a></p>
+                            <p class="item-date"><time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Netty指南/">Netty指南</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/蚂蚁/">蚂蚁</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Clean-Code/">Clean Code</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netty/">Netty</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微服务设计/">微服务设计</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重构改善既有代码设计/">重构改善既有代码设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Clean-Code/" style="font-size: 16.67px;">Clean Code</a> <a href="/tags/Effective-Java/" style="font-size: 13.33px;">Effective Java</a> <a href="/tags/Netty/" style="font-size: 15px;">Netty</a> <a href="/tags/SpringBoot官方文档翻译第三部分/" style="font-size: 20px;">SpringBoot官方文档翻译第三部分</a> <a href="/tags/SpringBoot官方文档翻译第二部分/" style="font-size: 18.33px;">SpringBoot官方文档翻译第二部分</a> <a href="/tags/SpringBoot官方文档翻译第四部分/" style="font-size: 16.67px;">SpringBoot官方文档翻译第四部分</a> <a href="/tags/书籍/" style="font-size: 11.67px;">书籍</a> <a href="/tags/微服务设计/" style="font-size: 11.67px;">微服务设计</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/重构改善既有代码设计/" style="font-size: 10px;">重构改善既有代码设计</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://www.wanjiaxinwen.cn">博客</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 许贵荣个人版权所有<br>
+            Powered by <a href="http://www.wanjiaxinwen.cn" target="_blank">许贵荣</a>. 苏ICP备16038819号
+        </div>
+    </div>
+</footer>
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

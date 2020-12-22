@@ -161,7 +161,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                63
+                64
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -214,6 +214,161 @@
 
             
             <section id="main">
+    <article id="post-Spring BootDoc第三部分/SpringBoot翻译（二十七）远程应用" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/04/24/Spring BootDoc第三部分/SpringBoot翻译（二十七）远程应用/">SpringBoot官方文档翻译（二十七）：远程应用</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/04/24/Spring BootDoc第三部分/SpringBoot翻译（二十七）远程应用/">
+            <time datetime="2018-04-24T09:25:47.000Z" itemprop="datePublished">2018-04-24</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="20-5-Remote-Applications-远程应用）"><a href="#20-5-Remote-Applications-远程应用）" class="headerlink" title="20.5 Remote Applications(远程应用）"></a>20.5 Remote Applications(远程应用）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">The Spring Boot developer tools are not limited to local development.     </span><br><span class="line">You can also use several features when running applications remotely.     </span><br><span class="line">Remote support is opt-in. To enable it, you need to make sure that     </span><br><span class="line">devtools is included in the repackaged archive, as shown in the following     </span><br><span class="line">listing:</span><br></pre></td></tr></table></figure>
+<p>Spring Boot的开发者工具不仅仅局限于本地开发，您同样可以使用一些远程应用运行时的功能。远程支持为可选项。去开启它，您需要确认devtools已经被引入到重新打包的包中，如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">excludeDevtools</span>&gt;</span>false<span class="tag">&lt;/<span class="name">excludeDevtools</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Then you need to set a spring.devtools.remote.secret property,     </span><br><span class="line">as shown in the following example:</span><br></pre></td></tr></table></figure>
+<p>然后您需要设置<strong>spring.devtools.remote.secret</strong>属性，如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.devtools.remote.secret=mysecret</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enabling spring-boot-devtools on a remote application is a security     </span><br><span class="line">risk. You should never enable support on a production deployment.</span><br></pre></td></tr></table></figure>
+<p>远程开启<strong>spring-boot-devtools</strong>是一项安全风险。您在生产环境应该永远不要开启这项功能。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Remote devtools support is provided in two parts: a server-side     </span><br><span class="line">endpoint that accepts connections and a client application that     </span><br><span class="line">you run in your IDE. The server component is automatically enabled when    </span><br><span class="line"> the spring.devtools.remote.secret property is set. The client component     </span><br><span class="line"> must be launched manually.</span><br></pre></td></tr></table></figure></p>
+<p>远程devtools通过两部分来提供支持：一个是服务端的断点接受连接，一个客户端应用能够运行于您的IDE。<strong>spring.devtools.remote.secret</strong>如果被设置，服务端的组件会自动的开启。客户端组件必须手动启动。</p>
+<h2 id="20-5-1-Running-the-Remote-Client-Application（运行远程客户端应用）"><a href="#20-5-1-Running-the-Remote-Client-Application（运行远程客户端应用）" class="headerlink" title="20.5.1 Running the Remote Client Application（运行远程客户端应用）"></a>20.5.1 Running the Remote Client Application（运行远程客户端应用）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The remote client application is designed to be run from within your IDE.     </span><br><span class="line">You need to run org.springframework.boot.devtools.RemoteSpringApplication with     </span><br><span class="line">the same classpath as the remote project that you connect to. The application’s    </span><br><span class="line">single required argument is the remote URL to which it connects.</span><br></pre></td></tr></table></figure>
+<p>远程客户端的设计是为了能够从您本地IDE运行。您需要设置<strong>org.springframework.boot.devtools.RemoteSpringApplication</strong>与您连接的远程应用同样的类路径。您连接应用唯一需要的参数即远程URL。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">For example, if you are using Eclipse or STS and you have a project     </span><br><span class="line">named my-app that you have deployed to Cloud Foundry, you would do the following:</span><br></pre></td></tr></table></figure></p>
+<p>举个例子，如果您使用Eclipse或者STS并且您有一个名为<strong>my-app</strong>的工程，您部署在云端，您需要做如下的操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">•	Select Run Configurations…  from the Run menu.</span><br><span class="line">•	Create a new Java Application “launch configuration”.</span><br><span class="line">•	Browse for the my-app project.</span><br><span class="line">•	Use org.springframework.boot.devtools.RemoteSpringApplication as the main class.</span><br><span class="line">•	Add https://myapp.cfapps.io to the Program arguments (or whatever your remote URL is).</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>从Run菜单选择Run Configurations… </li>
+<li>从“launch configuration”中创建一个新的java应用</li>
+<li>浏览my-app项目</li>
+<li>使用<strong>org.springframework.boot.devtools.RemoteSpringApplication</strong>作为主class</li>
+<li>增加<a href="https://myapp.cfapps.io作为程序运行参数（或者您的远程URL）" target="_blank" rel="noopener">https://myapp.cfapps.io作为程序运行参数（或者您的远程URL）</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A running remote client might resemble the following listing:</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>一个运行成功的远程客户端应用应该如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> .   ____          _                                              __ _ _</span><br><span class="line"> /\\ / ___<span class="string">'_ __ _ _(_)_ __  __ _          ___               _      \ \ \ \</span></span><br><span class="line"><span class="string">( ( )\___ | '</span>_ | <span class="string">'_| | '</span>_ \/ _` |        | _ \___ _ __  ___| |_ ___ \ \ \ \</span><br><span class="line"> \\/  ___)| |_)| | | | | || (_| []::::::[]   / -_) <span class="string">'  \/ _ \  _/ -_) ) ) ) )</span></span><br><span class="line"><span class="string">  '</span>  |____| .__|_| |_|_| |_\__, |        |_|_\___|_|_|_\___/\__\___|/ / / /</span><br><span class="line"> =========|_|==============|___/===================================/_/_/_/</span><br><span class="line"> :: Spring Boot Remote :: 2.1.0.BUILD-SNAPSHOT</span><br><span class="line"></span><br><span class="line">2015-06-10 18:25:06.632  INFO 14938 --- [           main] o.s.b.devtools.RemoteSpringApplication   : Starting RemoteSpringApplication on pwmbp with PID 14938 (/Users/pwebb/projects/spring-boot/code/spring-boot-devtools/target/classes started by pwebb <span class="keyword">in</span> /Users/pwebb/projects/spring-boot/code/spring-boot-samples/spring-boot-sample-devtools)</span><br><span class="line">2015-06-10 18:25:06.671  INFO 14938 --- [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2a17b7b6: startup date [Wed Jun 10 18:25:06 PDT 2015]; root of context hierarchy</span><br><span class="line">2015-06-10 18:25:07.043  WARN 14938 --- [           main] o.s.b.d.r.c.RemoteClientConfiguration    : The connection to http://localhost:8080 is insecure. You should use a URL starting with <span class="string">'https://'</span>.</span><br><span class="line">2015-06-10 18:25:07.074  INFO 14938 --- [           main] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729</span><br><span class="line">2015-06-10 18:25:07.130  INFO 14938 --- [           main] o.s.b.devtools.RemoteSpringApplication   : Started RemoteSpringApplication <span class="keyword">in</span> 0.74 seconds (JVM running <span class="keyword">for</span> 1.105)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Because the remote client is using the same classpath as the real     </span><br><span class="line">application it can directly read application properties. This is how     </span><br><span class="line">the spring.devtools.remote.secret property is read and passed to the     </span><br><span class="line">server for authentication.</span><br></pre></td></tr></table></figure>
+<p>因为远程客户端正在使用与实际相同的类路径,它可以直接读取应用程序的属性.这是<strong>spring.devtools.remote.secret</strong>如何被服务端读取并通过的授权的方式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">It is always advisable to use https:// as the connection protocol,      </span><br><span class="line">so that traffic is encrypted and passwords cannot be intercepted.</span><br></pre></td></tr></table></figure></p>
+<p>应用一直是以<a href="https://作为连接协议，所以报文是被加密并且密码不能够被拦截的。" target="_blank" rel="noopener">https://作为连接协议，所以报文是被加密并且密码不能够被拦截的。</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If you need to use a proxy to access the remote application,configure    </span><br><span class="line">the spring.devtools.remote.proxy.host and spring.devtools.remote.proxy.port     </span><br><span class="line">properties.</span><br></pre></td></tr></table></figure></p>
+<p>如果您需要使用代理进入远程应用，配置<strong>spring.devtools.remote.proxy.host</strong>和<strong>spring.devtools.remote.proxy.port</strong>属性。</p>
+<h2 id="20-5-2-Remote-Update（远程更新）"><a href="#20-5-2-Remote-Update（远程更新）" class="headerlink" title="20.5.2 Remote Update（远程更新）"></a>20.5.2 Remote Update（远程更新）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">The remote client monitors your application classpath for changes in the     </span><br><span class="line">same way as the local restart. Any updated resource is pushed to the     </span><br><span class="line">remote application and (if required) triggers a restart. This can be     </span><br><span class="line">helpful if you iterate on a feature that uses a cloud service that you     </span><br><span class="line">do not have locally. Generally, remote updates and restarts are much quicker     </span><br><span class="line">than a full rebuild and deploy cycle.</span><br></pre></td></tr></table></figure>
+<p>远程客户端监视您的类路径下的改变与本地重启相似。任何资源的额更新将会被推到远程应用中，并且（如果需要的话0触发重启。这个对于您本地没有，而在云服务端运行的服务很有帮助。通常，远程更新和重启比整个重新编译部署生命周期更短。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Files are only monitored when the remote client is running. If you     </span><br><span class="line">change a file before starting the remote client, it is not pushed     </span><br><span class="line">to the remote server.</span><br></pre></td></tr></table></figure></p>
+<p>文件仅在远程客户端运行的时候才会被监控到。如果您在启动远程客户端之前改变文件，它将不会被推送到远程服务器上。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2018/04/24/Spring BootDoc第三部分/SpringBoot翻译（二十七）远程应用/" data-id="ckd9w9j5m002sq678kkli6su9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-Spring BootDoc第三部分/SpringBoot翻译（二十六）已知限制&amp;LiveReload&amp;全局设置" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -277,7 +432,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/24/Spring BootDoc第三部分/SpringBoot翻译（二十六）已知限制&LiveReload&全局设置/" data-id="ckd8m0s4e0018ph78927c3rq8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/24/Spring BootDoc第三部分/SpringBoot翻译（二十六）已知限制&LiveReload&全局设置/" data-id="ckd9w9j5p002zq678zwqjvlju" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -417,141 +572,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/24/Spring BootDoc第三部分/SpringBoot翻译（二十五）使用触发文件&定制“重启”类加载器/" data-id="ckd8m0s4g001dph78to300uof" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-Spring BootDoc第三部分/SpringBoot翻译（二十四）监控额外的路径&amp;禁用重启md" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十四）监控额外的路径&禁用重启md/">SpringBoot官方文档翻译（二十四）：监控额外的路径&amp;禁用重启</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十四）监控额外的路径&禁用重启md/">
-            <time datetime="2018-04-23T09:24:47.000Z" itemprop="datePublished">2018-04-23</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="20-2-3-Watching-Additional-Paths（监控额外的路径）"><a href="#20-2-3-Watching-Additional-Paths（监控额外的路径）" class="headerlink" title="20.2.3 Watching Additional Paths（监控额外的路径）"></a>20.2.3 Watching Additional Paths（监控额外的路径）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">You may want your application to be restarted or reloaded when you make     </span><br><span class="line">changes to files that are not on the classpath. To do so, use     </span><br><span class="line">the spring.devtools.restart.additional-paths property to configure     </span><br><span class="line">additional paths to watch for changes. You can use     </span><br><span class="line">the spring.devtools.restart.exclude property described earlier to     </span><br><span class="line">control whether changes beneath the additional paths trigger a full     </span><br><span class="line">restart or a live reload.</span><br></pre></td></tr></table></figure>
-<p>有时候，当您修改的文件不在类路径下的时候，您可能也需要您的应用重启或者重载。这样做，使用<strong>spring.devtools.restart.additional-paths</strong>属性去配置额外的路径去监控它是否发生了改变，并根据这个改变去重启。您可以使用<strong>spring.devtools.restart.exclude</strong>属性，如前所述<br>控制额外路径下的更改是否触发完整重新启动或实时重新加载。</p>
-<h2 id="20-2-4-Disabling-Restart（禁用重启）"><a href="#20-2-4-Disabling-Restart（禁用重启）" class="headerlink" title="20.2.4 Disabling Restart（禁用重启）"></a>20.2.4 Disabling Restart（禁用重启）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">If you do not want to use the restart feature, you can disable     </span><br><span class="line">it by using the spring.devtools.restart.enabled property. In     </span><br><span class="line">most cases, you can set this property in your application.properties     </span><br><span class="line">(doing so still initializes the restart classloader, but it does not     </span><br><span class="line">watch for file changes).</span><br></pre></td></tr></table></figure>
-<p>如果您不喜欢用重启功能，您可以通过<strong>spring.devtools.restart.enabled</strong>属性禁用它。在大部分情况下，您可以在您的application.properties中设置它。（如果设置了它，始终会初始化“重启”类加载器，但是不监控文件的修改）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If you need to completely disable restart support (for example,     </span><br><span class="line">because it does not work with a specific library), you need to set    </span><br><span class="line">the spring.devtools.restart.enabled System property to false before    </span><br><span class="line">calling SpringApplication.run(… ), as shown in the following example:</span><br></pre></td></tr></table></figure></p>
-<p>如果您想完全禁止重启功能（举个例子，它不能用于某个特殊的库），您需要在调用<strong>SpringApplication.run(… )</strong>之前设置<strong>spring.devtools.restart.enabled</strong>系统属性为fasle，如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	System.setProperty(<span class="string">"spring.devtools.restart.enabled"</span>, <span class="string">"false"</span>);</span><br><span class="line">	SpringApplication.run(MyApp.class, args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十四）监控额外的路径&禁用重启md/" data-id="ckd8m0s4c0015ph783l4hsrdn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/24/Spring BootDoc第三部分/SpringBoot翻译（二十五）使用触发文件&定制“重启”类加载器/" data-id="ckd9w9j5r0033q678mzkeetl7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -687,7 +708,141 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十三）条件日志&资源排除/" data-id="ckd8m0s47000sph789t5kclii" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十三）条件日志&资源排除/" data-id="ckd9w9j5h002iq678rg16kioq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-Spring BootDoc第三部分/SpringBoot翻译（二十四）监控额外的路径&amp;禁用重启md" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十四）监控额外的路径&禁用重启md/">SpringBoot官方文档翻译（二十四）：监控额外的路径&amp;禁用重启</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十四）监控额外的路径&禁用重启md/">
+            <time datetime="2018-04-23T09:24:47.000Z" itemprop="datePublished">2018-04-23</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="20-2-3-Watching-Additional-Paths（监控额外的路径）"><a href="#20-2-3-Watching-Additional-Paths（监控额外的路径）" class="headerlink" title="20.2.3 Watching Additional Paths（监控额外的路径）"></a>20.2.3 Watching Additional Paths（监控额外的路径）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">You may want your application to be restarted or reloaded when you make     </span><br><span class="line">changes to files that are not on the classpath. To do so, use     </span><br><span class="line">the spring.devtools.restart.additional-paths property to configure     </span><br><span class="line">additional paths to watch for changes. You can use     </span><br><span class="line">the spring.devtools.restart.exclude property described earlier to     </span><br><span class="line">control whether changes beneath the additional paths trigger a full     </span><br><span class="line">restart or a live reload.</span><br></pre></td></tr></table></figure>
+<p>有时候，当您修改的文件不在类路径下的时候，您可能也需要您的应用重启或者重载。这样做，使用<strong>spring.devtools.restart.additional-paths</strong>属性去配置额外的路径去监控它是否发生了改变，并根据这个改变去重启。您可以使用<strong>spring.devtools.restart.exclude</strong>属性，如前所述<br>控制额外路径下的更改是否触发完整重新启动或实时重新加载。</p>
+<h2 id="20-2-4-Disabling-Restart（禁用重启）"><a href="#20-2-4-Disabling-Restart（禁用重启）" class="headerlink" title="20.2.4 Disabling Restart（禁用重启）"></a>20.2.4 Disabling Restart（禁用重启）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">If you do not want to use the restart feature, you can disable     </span><br><span class="line">it by using the spring.devtools.restart.enabled property. In     </span><br><span class="line">most cases, you can set this property in your application.properties     </span><br><span class="line">(doing so still initializes the restart classloader, but it does not     </span><br><span class="line">watch for file changes).</span><br></pre></td></tr></table></figure>
+<p>如果您不喜欢用重启功能，您可以通过<strong>spring.devtools.restart.enabled</strong>属性禁用它。在大部分情况下，您可以在您的application.properties中设置它。（如果设置了它，始终会初始化“重启”类加载器，但是不监控文件的修改）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If you need to completely disable restart support (for example,     </span><br><span class="line">because it does not work with a specific library), you need to set    </span><br><span class="line">the spring.devtools.restart.enabled System property to false before    </span><br><span class="line">calling SpringApplication.run(… ), as shown in the following example:</span><br></pre></td></tr></table></figure></p>
+<p>如果您想完全禁止重启功能（举个例子，它不能用于某个特殊的库），您需要在调用<strong>SpringApplication.run(… )</strong>之前设置<strong>spring.devtools.restart.enabled</strong>系统属性为fasle，如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	System.setProperty(<span class="string">"spring.devtools.restart.enabled"</span>, <span class="string">"false"</span>);</span><br><span class="line">	SpringApplication.run(MyApp.class, args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十四）监控额外的路径&禁用重启md/" data-id="ckd9w9j5o002wq678900344a4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -826,7 +981,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十二）自动重启/" data-id="ckd8m0s4a0010ph78xba3is8x" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/23/Spring BootDoc第三部分/SpringBoot翻译（二十二）自动重启/" data-id="ckd9w9j5j002lq67842oovmt3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -961,7 +1116,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十）开发者工具/" data-id="ckd8m0s4i001jph783ut9a4mi" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十）开发者工具/" data-id="ckd9w9j5t0036q678cy7d7c5i" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1095,7 +1250,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十一）默认属性/" data-id="ckd8m0s44000kph78xojnp24h" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/21/Spring BootDoc第三部分/SpringBoot翻译（二十一）默认属性/" data-id="ckd9w9j5f002aq678iqebip6v" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1248,7 +1403,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十九）运行您的应用/" data-id="ckd8m0s4m001sph78174ivjm5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十九）运行您的应用/" data-id="ckd9w9j5z003iq678jy6ko40x" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1392,146 +1547,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十八）使用@SpringBootApplication注解/" data-id="ckd8m0s4u002aph780rbkfhe7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入/">SpringBoot官方文档翻译（十七）：Spring Beans和依赖注入</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入/">
-            <time datetime="2018-04-20T06:31:47.000Z" itemprop="datePublished">2018-04-20</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h1 id="17-Spring-Beans-and-Dependency-Injection（Spring-Beans和依赖注入）"><a href="#17-Spring-Beans-and-Dependency-Injection（Spring-Beans和依赖注入）" class="headerlink" title="17. Spring Beans and Dependency Injection（Spring Beans和依赖注入）"></a>17. Spring Beans and Dependency Injection（Spring Beans和依赖注入）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">You are free to use any of the standard Spring Framework     </span><br><span class="line">techniques to define your beans and their injected dependencies.     </span><br><span class="line">For simplicity, we often find that using @ComponentScan     </span><br><span class="line">(to find your beans) and using @Autowired (to do constructor     </span><br><span class="line">injection) works well.</span><br></pre></td></tr></table></figure>
-<p>您可以自由的使用Spring框架标注的一些技术和注解来定义您的注入依赖关系。打个比方，我们经常使用<br><strong>@ComponentScan</strong>（去查找您的beans），用<strong>@Autowired</strong>（去做构造注入）。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">If you structure your code as suggested above (locating your     </span><br><span class="line">application class in a root package), you can add @ComponentScan     </span><br><span class="line">without any arguments. All of your application components     </span><br><span class="line">(@Component, @Service, @Repository, @Controller etc.) are     </span><br><span class="line">automatically registered as Spring Beans.</span><br></pre></td></tr></table></figure>
-<p>如果您按照以上的建议构造您的代码结构（将您的主应用类放在根包下面），您可以增加<strong>@ComponentScan</strong>注解而不需要任何参数。您所有的应用组件（@Component, @Service, @Repository, @Controller 等等）都将被自动注册为Spring Beans。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The following example shows a @Service Bean that uses     </span><br><span class="line">constructor injection to obtain a required RiskAssessor bean:</span><br></pre></td></tr></table></figure>
-<p>接下去的例子展示了<strong>@Service</strong>使用构造注入去获得必要的<strong>RiskAssessor</strong> bean<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DatabaseAccountService</span> <span class="keyword">implements</span> <span class="title">AccountService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> RiskAssessor riskAssessor;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">DatabaseAccountService</span><span class="params">(RiskAssessor riskAssessor)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.riskAssessor = riskAssessor;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">If a bean has one constructor, you can omit the @Autowired,     </span><br><span class="line">as shown in the following example:</span><br></pre></td></tr></table></figure>
-<p>如果一个bean有一个构造函数，您可以省略<strong>@Autowired</strong>注解，如下例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DatabaseAccountService</span> <span class="keyword">implements</span> <span class="title">AccountService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> RiskAssessor riskAssessor;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">DatabaseAccountService</span><span class="params">(RiskAssessor riskAssessor)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.riskAssessor = riskAssessor;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Notice how using constructor injection lets the riskAssessor     </span><br><span class="line">field be marked as final, indicating that it cannot be     </span><br><span class="line">subsequently changed.</span><br></pre></td></tr></table></figure>
-<p>注意介绍如何使用构造注入使riskAssessor字段被标记为final，表明它不可以随后改变。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十七）Spring Beans和依赖注入/" data-id="ckd8m0s4p001yph78e2b3hxrw" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/04/20/Spring BootDoc第三部分/SpringBoot翻译（十八）使用@SpringBootApplication注解/" data-id="ckd9w9j64003uq678cltjl5pq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1681,10 +1697,10 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2020/07/21/Clean Code/错误处理/" class="thumbnail">
+                            <a href="/2020/07/21/Clean Code/注释/" class="thumbnail">
     
     
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="错误处理" class="thumbnail-image"></span>
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="注释" class="thumbnail-image"></span>
     
 </a>
 
@@ -1692,7 +1708,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
-                            <p class="item-title"><a href="/2020/07/21/Clean Code/错误处理/" class="title">错误处理</a></p>
+                            <p class="item-title"><a href="/2020/07/21/Clean Code/注释/" class="title">注释</a></p>
                             <p class="item-date"><time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time></p>
                         </div>
                     </li>
@@ -1700,10 +1716,10 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2020/07/21/Clean Code/有意义的命名/" class="thumbnail">
+                            <a href="/2020/07/21/Clean Code/对象和数据结构/" class="thumbnail">
     
     
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="有意义的命名" class="thumbnail-image"></span>
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="对象和数据结构" class="thumbnail-image"></span>
     
 </a>
 
@@ -1711,7 +1727,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
-                            <p class="item-title"><a href="/2020/07/21/Clean Code/有意义的命名/" class="title">有意义的命名</a></p>
+                            <p class="item-title"><a href="/2020/07/21/Clean Code/对象和数据结构/" class="title">对象和数据结构</a></p>
                             <p class="item-date"><time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time></p>
                         </div>
                     </li>
@@ -1725,7 +1741,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Netty指南/">Netty指南</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/蚂蚁/">蚂蚁</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Netty指南/">Netty指南</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/蚂蚁/">蚂蚁</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -1734,7 +1750,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1743,7 +1759,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Clean-Code/">Clean Code</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netty/">Netty</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微服务设计/">微服务设计</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重构改善既有代码设计/">重构改善既有代码设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Clean-Code/">Clean Code</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netty/">Netty</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微服务设计/">微服务设计</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重构改善既有代码设计/">重构改善既有代码设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1752,7 +1768,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Clean-Code/" style="font-size: 16px;">Clean Code</a> <a href="/tags/Effective-Java/" style="font-size: 14px;">Effective Java</a> <a href="/tags/Netty/" style="font-size: 14px;">Netty</a> <a href="/tags/SpringBoot官方文档翻译第三部分/" style="font-size: 20px;">SpringBoot官方文档翻译第三部分</a> <a href="/tags/SpringBoot官方文档翻译第二部分/" style="font-size: 18px;">SpringBoot官方文档翻译第二部分</a> <a href="/tags/SpringBoot官方文档翻译第四部分/" style="font-size: 16px;">SpringBoot官方文档翻译第四部分</a> <a href="/tags/书籍/" style="font-size: 12px;">书籍</a> <a href="/tags/微服务设计/" style="font-size: 12px;">微服务设计</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/重构改善既有代码设计/" style="font-size: 10px;">重构改善既有代码设计</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+            <a href="/tags/Clean-Code/" style="font-size: 16.67px;">Clean Code</a> <a href="/tags/Effective-Java/" style="font-size: 13.33px;">Effective Java</a> <a href="/tags/Netty/" style="font-size: 15px;">Netty</a> <a href="/tags/SpringBoot官方文档翻译第三部分/" style="font-size: 20px;">SpringBoot官方文档翻译第三部分</a> <a href="/tags/SpringBoot官方文档翻译第二部分/" style="font-size: 18.33px;">SpringBoot官方文档翻译第二部分</a> <a href="/tags/SpringBoot官方文档翻译第四部分/" style="font-size: 16.67px;">SpringBoot官方文档翻译第四部分</a> <a href="/tags/书籍/" style="font-size: 11.67px;">书籍</a> <a href="/tags/微服务设计/" style="font-size: 11.67px;">微服务设计</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/重构改善既有代码设计/" style="font-size: 10px;">重构改善既有代码设计</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
         </div>
     </div>
 

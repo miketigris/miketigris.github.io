@@ -161,7 +161,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                63
+                64
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -214,7 +214,7 @@
 
             
             <section id="main">
-    <article id="post-Clean Code/类和系统" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Clean Code/迭代" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -222,7 +222,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2020/07/21/Clean Code/类和系统/">类和系统</a>
+            <a class="article-title" href="/2020/07/21/Clean Code/迭代/">迭代</a>
         </h1>
     
 
@@ -231,7 +231,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2020/07/21/Clean Code/类和系统/">
+        <a href="/2020/07/21/Clean Code/迭代/">
             <time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time>
         </a>
     </div>
@@ -257,14 +257,11 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><h2 id="类应该短小"><a href="#类应该短小" class="headerlink" title="类应该短小"></a>类应该短小</h2><ul>
-<li>单一权责原则 SRP：系统应该由许多短小的类而不是少量巨大的类组成。每个小类封装一个权责，只有一个修改原因，并与少数其他类一起协同达成期望的系统行为。</li>
-<li>内聚：类应该只有少量的实体变量，类中的每个方法都应该操作一个或多个这种变量。当类失去了内聚性，就应该拆分它。将大函数拆成许多小函数往往也是将类拆分成多个小类的时机。</li>
-<li>OCP开闭原则：类应该对扩展开放，对修改封闭</li>
-<li>隔离修改：需求会改变，所以代码会改变。</li>
-<li>DIP依赖倒置原则：类应该依赖于抽象而不依赖于具体细节。<br>##系统</li>
-<li>依赖注入 IOC  DI</li>
-<li>面向切面编程： AOP</li>
+            <h2 id="通过迭代达到整洁的目的"><a href="#通过迭代达到整洁的目的" class="headerlink" title="通过迭代达到整洁的目的"></a>通过迭代达到整洁的目的</h2><ul>
+<li>运行所有测试</li>
+<li>不可重复</li>
+<li>表达程序员的意图</li>
+<li>尽可能减少类和方法的数量</li>
 </ul>
 
         
@@ -276,7 +273,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2020/07/21/Clean Code/类和系统/" data-id="ckd8m0s4x002gph783z24kpfe" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2020/07/21/Clean Code/迭代/" data-id="ckd9w9j4z0015q678b63yv6oa" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -352,7 +349,7 @@
 
 
 
-    <article id="post-Clean Code/注释" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Clean Code/函数" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -360,7 +357,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2020/07/21/Clean Code/注释/">注释</a>
+            <a class="article-title" href="/2020/07/21/Clean Code/函数/">函数</a>
         </h1>
     
 
@@ -369,7 +366,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2020/07/21/Clean Code/注释/">
+        <a href="/2020/07/21/Clean Code/函数/">
             <time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time>
         </a>
     </div>
@@ -395,12 +392,21 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>最好的代码不需要注释，如果一定要有注释最好只有下面几种吧</p>
+            <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>怎样才能让函数表达其意图？该给函数赋予哪些属性，好让读者一看就明白函数属于怎样的程序？</p>
 <ul>
-<li>法律信息：Copyright</li>
-<li>TODO注释</li>
-<li>公共的API中的Javadoc</li>
-<li>类文件头的作者和时间信息</li>
+<li>短小：短小注意代码块的缩进。</li>
+<li>只做一件事情</li>
+<li>每个函数一个抽象层级：向下规则，每个函数后面都跟着位于下一抽象层级的函数，查看函数时，能够逐层向下阅读了。</li>
+<li>SWITH:这个现在支持枚举了，建议在较低抽象层使用枚举。</li>
+<li>使用描述性名称：不要担心名称长，长而具有描述性的名称比短小费解的名称要好。也比注释要好，命名的方式要保持一致。</li>
+<li>函数的参数之一：最好是零，如果出现3个以上尽量使用对象。不要使用标识参数（true false）</li>
+<li>函数的参数之二：避免使用输出参数，避免将输入参数再作为输出参数使用。</li>
+<li>分隔指令与询问：函数要么做什么事，要么回答什么事，不可二者兼得。函数应该是修改某对象的状态，或者是返回该对象的有关信息。</li>
+<li>使用异常替代返回错误码。</li>
+<li>try catch代码的抽离：这个规则简单而言，如果出现try关键字，应该是这个函数的第一个关键字，错误处理本身就是一件事情，应该符合只做一件事的原则。在springboot中现在有全局异常处理的功能，用起来还是很爽的，实践经验建议统一处理比较好</li>
+<li>不要重复自己：重复是软件中一切邪恶的更远。马丁福勒的重构一书中也提到需要消灭重复，抽象函数。</li>
+<li>不要使用goto</li>
+<li>写函数和写文章一样，不要指望着一开始就写的很好，可以写完后慢慢打磨出你想要的样子。</li>
 </ul>
 
         
@@ -412,7 +418,171 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2020/07/21/Clean Code/注释/" data-id="ckd8m0s4r0024ph78s1u7eguj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2020/07/21/Clean Code/函数/" data-id="ckd9w9j4k000aq678y5l04feq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-蚂蚁搬家/RESTFul风格的接口" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2020/01/22/蚂蚁搬家/RESTFul风格的接口/">RESTFul风格的接口</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2020/01/22/蚂蚁搬家/RESTFul风格的接口/">
+            <time datetime="2020-01-22T03:11:49.000Z" itemprop="datePublished">2020-01-22</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Netty指南/">Netty指南</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Netty/">Netty</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="RESTFul风哥的接口"><a href="#RESTFul风哥的接口" class="headerlink" title="RESTFul风哥的接口"></a>RESTFul风哥的接口</h2><ul>
+<li>网络应用程序，分为前端和后端两个部分。当前的发展趋势，就是前端设备层出不穷（手机、平板、桌面电脑、其他专用设备等等）。</li>
+<li>因此，必须有一种统一的机制，方便不同的前端设备与后端进行通信。这导致API构架的流行，甚至出现”API First”的设计思想。RESTful API是目前比较成熟的一套互联网应用程序的API设计理论。<h3 id="一、协议"><a href="#一、协议" class="headerlink" title="一、协议"></a>一、协议</h3>API与用户的通信协议，总是使用HTTPs协议。</li>
+</ul>
+<h3 id="二、域名"><a href="#二、域名" class="headerlink" title="二、域名"></a>二、域名</h3><p>应该尽量将API部署在专用域名之下。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.example.com</span><br></pre></td></tr></table></figure></p>
+<p>如果确定API很简单，不会有进一步扩展，可以考虑放在主域名下。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://example.org/api/</span><br></pre></td></tr></table></figure></p>
+<h3 id="三、版本（Versioning）"><a href="#三、版本（Versioning）" class="headerlink" title="三、版本（Versioning）"></a>三、版本（Versioning）</h3><p>应该将API的版本号放入URL。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.example.com/v1/</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>另一种做法是，将版本号放在HTTP头信息中，但不如放入URL方便和直观。Github采用这种做法。<h3 id="四、路径（Endpoint）"><a href="#四、路径（Endpoint）" class="headerlink" title="四、路径（Endpoint）"></a>四、路径（Endpoint）</h3></li>
+<li>路径又称”终点”（endpoint），表示API的具体网址。</li>
+<li>在RESTful架构中，每个网址代表一种资源（resource），所以网址中不能有动词，只能有名词，而且所用的名词往往与数据库的表格名对应。一般来说，数据库中的表都是同种记录的”集合”（collection），所以API中的名词也应该使用复数。</li>
+<li>举例来说，有一个API提供动物园（zoo）的信息，还包括各种动物和雇员的信息，则它的路径应该设计成下面这样。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://api.example.com/v1/zoos</span><br><span class="line">https://api.example.com/v1/animals</span><br><span class="line">https://api.example.com/v1/employees</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="五、HTTP动词"><a href="#五、HTTP动词" class="headerlink" title="五、HTTP动词"></a>五、HTTP动词</h3><ul>
+<li>对于资源的具体操作类型，由HTTP动词表示。</li>
+<li><p>常用的HTTP动词有下面五个（括号里是对应的SQL命令）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET（SELECT）：从服务器取出资源（一项或多项）。</span><br><span class="line">POST（CREATE）：在服务器新建一个资源。</span><br><span class="line">PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。</span><br><span class="line">PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。</span><br><span class="line">DELETE（DELETE）：从服务器删除资源。</span><br><span class="line">还有两个不常用的HTTP动词。</span><br><span class="line">HEAD：获取资源的元数据。</span><br><span class="line">OPTIONS：获取信息，关于资源的哪些属性是客户端可以改变的。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下面是一些例子。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">GET /zoos：列出所有动物园</span><br><span class="line">POST /zoos：新建一个动物园</span><br><span class="line">GET /zoos/ID：获取某个指定动物园的信息</span><br><span class="line">PUT /zoos/ID：更新某个指定动物园的信息（提供该动物园的全部信息）</span><br><span class="line">PATCH /zoos/ID：更新某个指定动物园的信息（提供该动物园的部分信息）</span><br><span class="line">DELETE /zoos/ID：删除某个动物园</span><br><span class="line">GET /zoos/ID/animals：列出某个指定动物园的所有动物</span><br><span class="line">DELETE /zoos/ID/animals/ID：删除某个指定动物园的指定动物</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 六、过滤信息（Filtering）</span></span><br><span class="line">* 如果记录数量很多，服务器不可能都将它们返回给用户。API应该提供参数，过滤返回结果。</span><br><span class="line">* 下面是一些常见的参数。</span><br><span class="line">``` bash</span><br><span class="line">?<span class="built_in">limit</span>=10：指定返回记录的数量</span><br><span class="line">?offset=10：指定返回记录的开始位置。</span><br><span class="line">?page=2&amp;per_page=100：指定第几页，以及每页的记录数。</span><br><span class="line">?sortby=name&amp;order=asc：指定返回结果按照哪个属性排序，以及排序顺序。</span><br><span class="line">?animal_type_id=1：指定筛选条件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参数的设计允许存在冗余，即允许API路径和URL参数偶尔有重复。比如，GET /zoo/ID/animals 与 GET /animals?zoo_id=ID 的含义是相同的。</p>
+</li>
+</ul>
+<h3 id="七、状态码（Status-Codes）"><a href="#七、状态码（Status-Codes）" class="headerlink" title="七、状态码（Status Codes）"></a>七、状态码（Status Codes）</h3><ul>
+<li>服务器向用户返回的状态码和提示信息，常见的有以下一些（方括号中是该状态码对应的HTTP动词）。<br><a href="https://www.cnblogs.com/passzhang/articles/9388325.html" target="_blank" rel="noopener">https://www.cnblogs.com/passzhang/articles/9388325.html</a><br>http状态码基本上可以分为5类：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">　　1xx为消息类，该类状态码用于表示服务器临时回应。</span><br><span class="line">　　　　100 <span class="built_in">continue</span> 表示出的请求已经被服务器接收，游览器应当继续发送请求的其余部分（HTTP1.1）</span><br><span class="line"></span><br><span class="line">　　　　101 switching pototcols 服务器将遵从客户的请求转换到另外一种协议（HTTP1.1）。</span><br><span class="line"></span><br><span class="line">　　2xx 表示浏览器端请求被处理成功<span class="comment">#</span></span><br><span class="line">　　　　200 ok 一切正常</span><br><span class="line"></span><br><span class="line">　　　　201 created 服务器已经创建了文档，location 头给出了他的URL。</span><br><span class="line"></span><br><span class="line">　　　　202 accepted 已经接收请求，但是尚未处理完成。</span><br><span class="line"></span><br><span class="line">　　　　203 non-authoritative information 文档已经正常的返回，但一些应答头可能不正确，因为使用的是的文档的拷贝(HTTP 1.1新)。</span><br><span class="line"></span><br><span class="line">　　　　204 no content 没有新文档，游览器应该继续显示原来的文档，这个跟下面的304非常相似。</span><br><span class="line"></span><br><span class="line">　　　　205 Reset content 没有新的内容，到那时游览器应该重置它所显示的内容，用来强制清楚表单输入内容（HTTP1.1 新）</span><br><span class="line"></span><br><span class="line">　　　　206 partial content 客户发送了一个带有range头的GET请求，服务器完成了它（HTTP1.1  新）。注意 通过Range 可以实现断点续传。</span><br><span class="line"></span><br><span class="line">　　3xx 重定向。<span class="comment">#</span></span><br><span class="line">　　　　300 Multiple choices 客户请求的文档可以在多个位置找到，这些位置已经在返回的文档内列出，如果服务器要提出优先选择，则应该在location 应答头指明。</span><br><span class="line"></span><br><span class="line">　　　　301 Mulitiple permanently 客户请求的文档在其他地方，新的url在location 头中给出，浏览器应该自动的访问新的URL。</span><br><span class="line"></span><br><span class="line">　　　　302 Found 类似301，但新的URL应该被视为临时性的替代，而不是永久性的，注意，在HTTP1.0中对应的状态信息moved Temporatily。出现该状态码，浏览器能够给自动访问新的URL，因此他是一个很有用的状态代码。</span><br><span class="line"></span><br><span class="line">　　　　注意这个状态代码有时候可以和301替换使用，例如，如果浏览器错误的请求http：// host/~user（缺少了后面的斜杠，有的服务器返回301，有的返回302）。严格的说，我们只能假定原来的请求是GET时浏览器才会自动重定向。</span><br><span class="line"></span><br><span class="line">　　　　303 see other 类似于301/302，不同之处在于，如果原来的请求是post，location头指定的重定向目标文档应该通过get提取（http 1.1 新）。</span><br><span class="line"></span><br><span class="line">　　　　304 not modified 客户端有缓冲的文档并发出了一个条件性的请求（一般是提供<span class="keyword">if</span> -modified -since 头表示客户端执行比指定日期更新的文档）。服务器告诉客户，原来缓冲的文档还可以继续使用。</span><br><span class="line"></span><br><span class="line">　　　　305 use proxy 客户请求的文档应该通过location 头所指明的代理服务器提取（HTTP 1.1新）。</span><br><span class="line"></span><br><span class="line">　　　　307 temporary redirect 和302（found）相同，许多浏览器会错误的相应302应该进行重定向，即使原来的请求是post，即使它实际上只在post请求的应答是303时，才能重定向。由于这个原因，HTTP1.1新增了307，以便更加清楚的区分几个状态代码，当出现303应答时，浏览器可以跟随重定向的get和post请求，如是307应答，则浏览器只能跟随对get的请求的重定向。</span><br><span class="line"></span><br><span class="line">　　400 错误<span class="comment">#</span></span><br><span class="line">　　　　400 Bad Request 请求出现语法错误。</span><br><span class="line"></span><br><span class="line">　　　　401 unauthorized 客户试图未经授权访问受密码保护的页面。应答中会包含-WWW-Authenticate头，浏览器据此显示用户名字和密码对话框，然后再填写合适的authorization头后再次发送请求。</span><br><span class="line"></span><br><span class="line">　　　　403 Forbidden 资源不可用。服务器理解客户的需求，但是拒绝处理他通常由于服务器上文件或目录的权限设置问题。</span><br><span class="line"></span><br><span class="line">　　　　404 NO Found 无法找到指定位置的资源，也是一个常用的应答。</span><br><span class="line"></span><br><span class="line">　　　　405 Method not allowed 请求方法（GET、POST、HEAD、Delete、put、trace等）对指定的资源不适用。（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　406 not acceptable 指定的资源已经找到，但是mime类型和客户在accpet头中所指定的不兼容（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　407 proxy authentication  reqired 类似于401 ，表示客户必须先经过代理服务器的授权。（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　408 request timeout 在服务器许可的等待时间内，客户一直没有发出任何请求。客户可以在以后重复同一请求。（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　409 conflict 通常和put 请求有关，由于请求和资源的当前状态相冲突，因此请求不能成功（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　410 Gone 所请求的文档已经不在可用，而且服务器不知道应该重新到哪一个地址，他和404的不同在于，返回407表示文档永久的离开了指定的位置，而404表示由于位置的原因文档不可用。（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　411 length required 服务器不能处理请求，除非客户发送一个contene-length头（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　412 preconfition Failed请求头中指定的一些前提条件失败（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　413 request entity too large 目标文档的大小超过服务器当前原意处理的大小。如果服务器认为自己能够稍后再处理请求，则应该提供一个retry-After头（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　414 Request URL Too loog URL太长（ HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　416 required range not satisfiable 服务器不能满足客户在请求中的指定range 头（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　5xx服务器错误<span class="comment">#</span></span><br><span class="line">　　　　500 internal Server Error 服务器遇到了意料不到的情况，不能完成客户的请求</span><br><span class="line"></span><br><span class="line">　　　　501 Not lmplemented 服务器不支持请求所需要的功能。例如，客户发出来了一个服务器不支持的put请求。</span><br><span class="line"></span><br><span class="line">　　　　502Bad Gateway 服务器作为网关或者代理时，为了完成请求访问下一个服务器，但该服务器返回了非法的应答。</span><br><span class="line"></span><br><span class="line">　　　　503 service unavilable 服务器由于维护或者负载过重未能应答。例如，servlet 可能在数据库连接池已满的情况下返回503.服务器返回503时可以提供一个retry-after头。</span><br><span class="line"></span><br><span class="line">　　　　504 gateway timeout 作为代理或网关服务器使用，表示不能及时的从远程服务器获得应答（HTTP 1.1新）</span><br><span class="line"></span><br><span class="line">　　　　505 HTTPversion not supported 服务器不支持请求中所指明的HTTP版本。（HTTP 1.1新）</span><br><span class="line">八、错误处理（Error handling）</span><br><span class="line">如果状态码是4xx，就应该向用户返回出错信息。一般来说，返回的信息中将error作为键名，出错信息作为键值即可。</span><br><span class="line">&#123;error: <span class="string">"Invalid API key"</span> &#125; </span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">### 九、返回结果</span></span><br><span class="line">```  bash</span><br><span class="line">GET /collection：返回资源对象的列表（数组）</span><br><span class="line">GET /collection/resource：返回单个资源对象</span><br><span class="line">POST /collection：返回新生成的资源对象</span><br><span class="line">PUT /collection/resource：返回完整的资源对象</span><br><span class="line">PATCH /collection/resource：返回完整的资源对象</span><br><span class="line">DELETE /collection/resource：返回一个空文档</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 十、Hypermedia API</span></span><br><span class="line">* RESTful API最好做到Hypermedia，即返回结果中提供链接，连向其他API方法，使得用户不查文档，也知道下一步应该做什么。比如，当用户向api.example.com的根目录发出请求，会得到这样一个文档。</span><br><span class="line">``` bash</span><br><span class="line">&#123;<span class="string">"link"</span>: &#123; <span class="string">"rel"</span>: <span class="string">"collection https://www.example.com/zoos"</span>, <span class="string">"href"</span>: <span class="string">"https://api.example.com/zoos"</span>, <span class="string">"title"</span>: <span class="string">"List of zoos"</span>, <span class="string">"type"</span>: <span class="string">"application/vnd.yourformat+json"</span> &#125;&#125; </span><br><span class="line">``` </span><br><span class="line">*上面代码表示，文档中有一个link属性，用户读取这个属性就知道下一步该调用什么API了。rel表示这个API与当前网址的关系（collection关系，并给出该collection的网址），href表示API的路径，title表示API的标题，<span class="built_in">type</span>表示返回类型。Hypermedia API的设计被称为HATEOAS。Github的API就是这种设计，访问api.github.com会得到一个所有可用API的网址列表。</span><br><span class="line">``` bash</span><br><span class="line"> &#123; <span class="string">"current_user_url"</span>: <span class="string">"https://api.github.com/user"</span>, <span class="string">"authorizations_url"</span>: <span class="string">"https://api.github.com/authorizations"</span>,  // ...</span><br><span class="line">&#125; </span><br><span class="line">``` </span><br><span class="line">* 从上面可以看到，如果想获取当前用户的信息，应该去访问api.github.com/user，然后就得到了下面结果</span><br><span class="line">``` bash</span><br><span class="line">&#123; <span class="string">"message"</span>: <span class="string">"Requires authentication"</span>, <span class="string">"documentation_url"</span>: <span class="string">"https://developer.github.com/v3"</span> &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>上面代码表示，服务器给出了提示信息，以及文档的网址。<h3 id="十一、其他"><a href="#十一、其他" class="headerlink" title="十一、其他"></a>十一、其他</h3></li>
+<li>（1）API的身份认证应该使用OAuth 2.0框架。</li>
+<li>（2）服务器返回的数据格式，应该尽量使用JSON，避免使用XML。</li>
+<li>RESTful的优点：<br>  •    可更高效利用缓存来提高响应速度<br>  •    通讯本身的无状态性可以让不同的服务器的处理一系列请求中的不同请求，提高服务器的扩展性<br>  •    浏览器即可作为客户端，简化软件需求<br>  •    相对于其他叠加在HTTP协议之上的机制，REST的软件依赖性更小<br>  •    不需要额外的资源发现机制<br>  •    在软件技术演进中的长期的兼容性更好</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2020/01/22/蚂蚁搬家/RESTFul风格的接口/" data-id="ckd9w9j5a001zq6783tzg7fwn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -563,7 +733,145 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2020/01/21/蚂蚁搬家/Unix的五种网络模型/" data-id="ckd9mcn7q0000dp78pijnuhsb" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2020/01/21/蚂蚁搬家/Unix的五种网络模型/" data-id="ckd9w9j5g002dq6780hsgwi98" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-蚂蚁搬家/同步异步阻塞非阻塞" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2020/01/21/蚂蚁搬家/同步异步阻塞非阻塞/">同步异步阻塞非阻塞</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2020/01/21/蚂蚁搬家/同步异步阻塞非阻塞/">
+            <time datetime="2020-01-21T03:11:47.000Z" itemprop="datePublished">2020-01-21</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Netty指南/">Netty指南</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Netty/">Netty</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>同步：执行一个操作之后，等待结果，然后才继续执行后续的操作。</li>
+<li>异步：执行一个操作后，可以去执行其他的操作，然后等待通知再回来执行刚才没执行完的操作。</li>
+<li>阻塞：进程给CPU传达一个任务之后，一直等待CPU处理完成，然后才执行后面的操作。</li>
+<li>非阻塞：进程给CPU传达任我后，继续处理后续的操作，隔断时间再来询问之前的操作是否完成。这样的过程其实也叫轮询。</li>
+</ul>
+<h2 id="Netty域Mina的关系"><a href="#Netty域Mina的关系" class="headerlink" title="Netty域Mina的关系"></a>Netty域Mina的关系</h2><ul>
+<li>mina与netty都是Trustin Lee的作品，所以在很多方面都十分相似，他们线程模型也是基本一致，采用了Reactors in threads模型，即Main Reactor + Sub Reactors的模式。由main reactor处理连接相关的任务：accept、connect等，当连接处理完毕并建立一个socket连接（称之为session）后，给每个session分配一个sub reactor，之后该session的所有IO、业务逻辑处理均交给了该sub reactor。每个reactor均是一个线程，sub reactor中只靠内核调度，没有任何通信且互不打扰。</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2020/01/21/蚂蚁搬家/同步异步阻塞非阻塞/" data-id="ckd9w9j5b0022q678ukz9lu2x" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -739,7 +1047,138 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2020/01/21/蚂蚁搬家/Spring Validation的用法/" data-id="ckd8m4oq40000tf78un3oeitd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2020/01/21/蚂蚁搬家/Spring Validation的用法/" data-id="ckd9w9j5c0025q678dem8wwea" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-蚂蚁搬家/IO密集型与CPU密集型" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2020/01/21/蚂蚁搬家/IO密集型与CPU密集型/">IO密集型与CPU密集型</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2020/01/21/蚂蚁搬家/IO密集型与CPU密集型/">
+            <time datetime="2020-01-21T03:11:47.000Z" itemprop="datePublished">2020-01-21</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Netty指南/">Netty指南</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Netty/">Netty</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="IO密集型与CPU密集型"><a href="#IO密集型与CPU密集型" class="headerlink" title="IO密集型与CPU密集型"></a>IO密集型与CPU密集型</h2><p>IO是一个通用的概念，即数据从一个地方移动到另一个地方，对一个实体来说，可以看成数据从外部进入，以及从实体输出到外部。<br>具体来说，常见的IO请求有网络IO，磁盘IO。<br>那么因为CPU的工作频率远远快过和其连接的外部硬件，例如磁盘，所以CPU在IO的时候经常会需要等待外部硬件完成当前任务，完成之后，才能进行下一个任务，这种情况常常称为IO阻塞，即CPU直到等待IO操作返回前，不能继续运行。IO阻塞对于CPU强大的运算能力是一个巨大的浪费。<br>所以有了多线程，多线程是同步运行的多个任务。不过由于CPU核数的问题，许多线程实际上并不是真正并行而只是通过快速切分时间片来模拟的。简单来说就是你执行一点，我执行一点，来回切换，创造出一种同时运行任务的假象。（多线程的本质是切换CPU时间片轮流执行，造成多个线程同步执行的假象）<br>多线程的底层机制是由操作系统实现的，当一个线程遇到IO阻塞时，例如读写文件，操作系统可能会暂时挂起该线程，从而让其他线程优先执行，也就是将多出来的时间片切分给其他的线程，直到等待该线程的IO操作返回，再重新调度该线程运行。<br>CPU密集型（CPU-bound）<br>CPU密集型也叫计算密集型，指的是系统的硬盘、内存性能相对CPU要好很多，此时，系统运作大部分的状况是CPU Loading 100%，CPU要读/写I/O(硬盘/内存)，I/O在很短的时间就可以完成，而CPU还有许多运算要处理，CPU Loading很高。<br>在多重程序系统中，大部份时间用来做计算、逻辑判断等CPU动作的程序称之CPU bound。例如一个计算圆周率至小数点一千位以下的程序，在执行的过程当中绝大部份时间用在三角函数和开根号的计算，RSA加解密算法，便是属于CPU bound的程序。<br>CPU bound的程序一般而言CPU占用率相当高。这可能是因为任务本身不太需要访问I/O设备，也可能是因为程序是多线程实现因此屏蔽掉了等待I/O的时间。<br>CPU密集的意思是该任务需要大量的运算，而没有阻塞，CPU一直全速运行。<br>CPU密集任务只有在真正的多核CPU上才可能得到加速(通过多线程)，而在单核CPU上，无论你开几个模拟的多线程，该任务都不可能得到加速，因为CPU总的运算能力就那些。<br>IO密集型（I/O bound）<br>IO密集型指的是系统的CPU性能相对硬盘、内存要好很多，此时，系统运作，大部分的状况是CPU在等I/O (硬盘/内存) 的读/写操作，此时CPU Loading并不高。<br>I/O bound的程序一般在达到性能极限时，CPU占用率仍然较低。这可能是因为任务本身需要大量I/O操作，而pipeline做得不是很好，没有充分利用处理器能力。<br>IO密集型，即该任务需要大量的IO，即大量的阻塞。在单线程上运行IO密集型的任务会导致浪费大量的CPU运算能力浪费在等待。所以在IO密集型任务中使用多线程可以大大的加速程序运行，即使在单核CPU上，这种加速主要就是利用了被浪费掉的阻塞时间。 </p>
+<p>除了同步IO之外，系统可能还支持异步IO，即IO不阻塞，对IO设备发出读写命令之后立即返回执行下一条命令，而IO设备的返回结果则在将来未知的某个时间点通过信号来回调。这也是nodeJS底层的实现机制。<br>CPU密集型 vs IO密集型<br>我们可以把任务分为计算（CPU)密集型和IO密集型。<br>计算密集型任务的特点是要进行大量的计算，消耗CPU资源，比如计算圆周率、对视频进行高清解码等等，全靠CPU的运算能力。这种计算密集型任务虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU执行任务的效率就越低，所以，要最高效地利用CPU，计算密集型任务同时进行的数量应当等于CPU的核心数。<br>计算密集型任务由于主要消耗CPU资源，因此，代码运行效率至关重要。Python这样的脚本语言运行效率很低，完全不适合计算密集型任务。对于计算密集型任务，最好用C语言编写。<br>第二种任务的类型是IO密集型，涉及到网络、磁盘IO的任务都是IO密集型任务，这类任务的特点是CPU消耗很少，任务的大部分时间都在等待IO操作完成（因为IO的速度远远低于CPU和内存的速度）。对于IO密集型任务，任务越多，CPU效率越高，但也有一个限度。常见的大部分任务都是IO密集型任务，比如Web应用。<br>IO密集型任务执行期间，99%的时间都花在IO上，花在CPU上的时间很少，因此，用运行速度极快的C语言替换用Python这样运行速度极低的脚本语言，完全无法提升运行效率。对于IO密集型任务，最合适的语言就是开发效率最高（代码量最少）的语言，脚本语言是首选，C语言最差。<br>总之，计算密集型程序适合C语言多线程，I/O密集型适合脚本语言开发的多线程。<br>参考：<br><a href="https://blog.csdn.net/o83290102o5/article/details/78723329" target="_blank" rel="noopener">https://blog.csdn.net/o83290102o5/article/details/78723329</a><br><a href="https://blog.csdn.net/youanyyou/article/details/78990156" target="_blank" rel="noopener">https://blog.csdn.net/youanyyou/article/details/78990156</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2020/01/21/蚂蚁搬家/IO密集型与CPU密集型/" data-id="ckd9w9j59001uq6787z6if93e" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -878,276 +1317,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2020/01/21/蚂蚁搬家/Java NIO线程模型/" data-id="ckd8m3edz0001s9787zmrwu06" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-蚂蚁搬家/同步异步阻塞非阻塞" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2020/01/21/蚂蚁搬家/同步异步阻塞非阻塞/">同步异步阻塞非阻塞</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2020/01/21/蚂蚁搬家/同步异步阻塞非阻塞/">
-            <time datetime="2020-01-21T03:11:47.000Z" itemprop="datePublished">2020-01-21</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Netty指南/">Netty指南</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Netty/">Netty</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
-<li>同步：执行一个操作之后，等待结果，然后才继续执行后续的操作。</li>
-<li>异步：执行一个操作后，可以去执行其他的操作，然后等待通知再回来执行刚才没执行完的操作。</li>
-<li>阻塞：进程给CPU传达一个任务之后，一直等待CPU处理完成，然后才执行后面的操作。</li>
-<li>非阻塞：进程给CPU传达任我后，继续处理后续的操作，隔断时间再来询问之前的操作是否完成。这样的过程其实也叫轮询。</li>
-</ul>
-<h2 id="Netty域Mina的关系"><a href="#Netty域Mina的关系" class="headerlink" title="Netty域Mina的关系"></a>Netty域Mina的关系</h2><ul>
-<li>mina与netty都是Trustin Lee的作品，所以在很多方面都十分相似，他们线程模型也是基本一致，采用了Reactors in threads模型，即Main Reactor + Sub Reactors的模式。由main reactor处理连接相关的任务：accept、connect等，当连接处理完毕并建立一个socket连接（称之为session）后，给每个session分配一个sub reactor，之后该session的所有IO、业务逻辑处理均交给了该sub reactor。每个reactor均是一个线程，sub reactor中只靠内核调度，没有任何通信且互不打扰。</li>
-</ul>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2020/01/21/蚂蚁搬家/同步异步阻塞非阻塞/" data-id="ckd8m0s7z0051ph78wv9pmyg9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-蚂蚁搬家/IO密集型与CPU密集型" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2020/01/21/蚂蚁搬家/IO密集型与CPU密集型/">IO密集型与CPU密集型</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2020/01/21/蚂蚁搬家/IO密集型与CPU密集型/">
-            <time datetime="2020-01-21T03:11:47.000Z" itemprop="datePublished">2020-01-21</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Netty指南/">Netty指南</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Netty/">Netty</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="IO密集型与CPU密集型"><a href="#IO密集型与CPU密集型" class="headerlink" title="IO密集型与CPU密集型"></a>IO密集型与CPU密集型</h2><p>IO是一个通用的概念，即数据从一个地方移动到另一个地方，对一个实体来说，可以看成数据从外部进入，以及从实体输出到外部。<br>具体来说，常见的IO请求有网络IO，磁盘IO。<br>那么因为CPU的工作频率远远快过和其连接的外部硬件，例如磁盘，所以CPU在IO的时候经常会需要等待外部硬件完成当前任务，完成之后，才能进行下一个任务，这种情况常常称为IO阻塞，即CPU直到等待IO操作返回前，不能继续运行。IO阻塞对于CPU强大的运算能力是一个巨大的浪费。<br>所以有了多线程，多线程是同步运行的多个任务。不过由于CPU核数的问题，许多线程实际上并不是真正并行而只是通过快速切分时间片来模拟的。简单来说就是你执行一点，我执行一点，来回切换，创造出一种同时运行任务的假象。（多线程的本质是切换CPU时间片轮流执行，造成多个线程同步执行的假象）<br>多线程的底层机制是由操作系统实现的，当一个线程遇到IO阻塞时，例如读写文件，操作系统可能会暂时挂起该线程，从而让其他线程优先执行，也就是将多出来的时间片切分给其他的线程，直到等待该线程的IO操作返回，再重新调度该线程运行。<br>CPU密集型（CPU-bound）<br>CPU密集型也叫计算密集型，指的是系统的硬盘、内存性能相对CPU要好很多，此时，系统运作大部分的状况是CPU Loading 100%，CPU要读/写I/O(硬盘/内存)，I/O在很短的时间就可以完成，而CPU还有许多运算要处理，CPU Loading很高。<br>在多重程序系统中，大部份时间用来做计算、逻辑判断等CPU动作的程序称之CPU bound。例如一个计算圆周率至小数点一千位以下的程序，在执行的过程当中绝大部份时间用在三角函数和开根号的计算，RSA加解密算法，便是属于CPU bound的程序。<br>CPU bound的程序一般而言CPU占用率相当高。这可能是因为任务本身不太需要访问I/O设备，也可能是因为程序是多线程实现因此屏蔽掉了等待I/O的时间。<br>CPU密集的意思是该任务需要大量的运算，而没有阻塞，CPU一直全速运行。<br>CPU密集任务只有在真正的多核CPU上才可能得到加速(通过多线程)，而在单核CPU上，无论你开几个模拟的多线程，该任务都不可能得到加速，因为CPU总的运算能力就那些。<br>IO密集型（I/O bound）<br>IO密集型指的是系统的CPU性能相对硬盘、内存要好很多，此时，系统运作，大部分的状况是CPU在等I/O (硬盘/内存) 的读/写操作，此时CPU Loading并不高。<br>I/O bound的程序一般在达到性能极限时，CPU占用率仍然较低。这可能是因为任务本身需要大量I/O操作，而pipeline做得不是很好，没有充分利用处理器能力。<br>IO密集型，即该任务需要大量的IO，即大量的阻塞。在单线程上运行IO密集型的任务会导致浪费大量的CPU运算能力浪费在等待。所以在IO密集型任务中使用多线程可以大大的加速程序运行，即使在单核CPU上，这种加速主要就是利用了被浪费掉的阻塞时间。 </p>
-<p>除了同步IO之外，系统可能还支持异步IO，即IO不阻塞，对IO设备发出读写命令之后立即返回执行下一条命令，而IO设备的返回结果则在将来未知的某个时间点通过信号来回调。这也是nodeJS底层的实现机制。<br>CPU密集型 vs IO密集型<br>我们可以把任务分为计算（CPU)密集型和IO密集型。<br>计算密集型任务的特点是要进行大量的计算，消耗CPU资源，比如计算圆周率、对视频进行高清解码等等，全靠CPU的运算能力。这种计算密集型任务虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU执行任务的效率就越低，所以，要最高效地利用CPU，计算密集型任务同时进行的数量应当等于CPU的核心数。<br>计算密集型任务由于主要消耗CPU资源，因此，代码运行效率至关重要。Python这样的脚本语言运行效率很低，完全不适合计算密集型任务。对于计算密集型任务，最好用C语言编写。<br>第二种任务的类型是IO密集型，涉及到网络、磁盘IO的任务都是IO密集型任务，这类任务的特点是CPU消耗很少，任务的大部分时间都在等待IO操作完成（因为IO的速度远远低于CPU和内存的速度）。对于IO密集型任务，任务越多，CPU效率越高，但也有一个限度。常见的大部分任务都是IO密集型任务，比如Web应用。<br>IO密集型任务执行期间，99%的时间都花在IO上，花在CPU上的时间很少，因此，用运行速度极快的C语言替换用Python这样运行速度极低的脚本语言，完全无法提升运行效率。对于IO密集型任务，最合适的语言就是开发效率最高（代码量最少）的语言，脚本语言是首选，C语言最差。<br>总之，计算密集型程序适合C语言多线程，I/O密集型适合脚本语言开发的多线程。<br>参考：<br><a href="https://blog.csdn.net/o83290102o5/article/details/78723329" target="_blank" rel="noopener">https://blog.csdn.net/o83290102o5/article/details/78723329</a><br><a href="https://blog.csdn.net/youanyyou/article/details/78990156" target="_blank" rel="noopener">https://blog.csdn.net/youanyyou/article/details/78990156</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2020/01/21/蚂蚁搬家/IO密集型与CPU密集型/" data-id="ckd8m0s7w004qph78t5926e8g" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2020/01/21/蚂蚁搬家/Java NIO线程模型/" data-id="ckd9w9j58001rq678vjsvsl9z" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1298,7 +1468,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2019/02/21/面试学习/HashMap&ConcurrentHashMap/" data-id="ckd8m0s89005pph78xbxcbayn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2019/02/21/面试学习/HashMap&ConcurrentHashMap/" data-id="ckd9w9j70005vq678a6jh2b8w" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1427,140 +1597,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2019/02/21/面试学习/蚂蚁金服面试问题/" data-id="ckd8m0s86005fph78v2zfj44q" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-Spring Boot道可道（原创）/（一）SpringApplication解析" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/05/02/Spring Boot道可道（原创）/（一）SpringApplication解析/">SpringBoot官方文档翻译（三十六）：访问应用程序参数</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/05/02/Spring Boot道可道（原创）/（一）SpringApplication解析/">
-            <time datetime="2018-05-02T04:39:47.000Z" itemprop="datePublished">2018-05-02</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="23-6-Accessing-Application-Arguments（访问应用程序参数）"><a href="#23-6-Accessing-Application-Arguments（访问应用程序参数）" class="headerlink" title="23.6 Accessing Application Arguments（访问应用程序参数）"></a>23.6 Accessing Application Arguments（访问应用程序参数）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">If you need to access the application arguments that were passed to SpringApplication.run(… ), you can inject a org.springframework.boot.ApplicationArguments bean. The ApplicationArguments interface provides access to both the raw String[] arguments as well as parsed option and non-option arguments,     </span><br><span class="line">as shown in the following example:</span><br></pre></td></tr></table></figure>
-<p>您可以通过注入一个<strong>org.springframework.boot.ApplicationArguments</strong> bean去获取访问通过<strong>SpringApplication.run(… )</strong>传递的参数。<strong>ApplicationArguments</strong>参数接口即提供了访问原生<strong>String[]</strong>参数的方式，也提供了访问解析option（可选）和non-option（非可选）参数。举个例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBean</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MyBean</span><span class="params">(ApplicationArguments args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">boolean</span> debug = args.containsOption(<span class="string">"debug"</span>);</span><br><span class="line">		List&lt;String&gt; files = args.getNonOptionArgs();</span><br><span class="line">		<span class="comment">// if run with "--debug logfile.txt" debug=true, files=["logfile.txt"]</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Spring Boot also registers a CommandLinePropertySource with the    </span><br><span class="line"> Spring Environment. This lets you also inject single application     </span><br><span class="line"> arguments by using the @Value annotation.</span><br></pre></td></tr></table></figure>
-<p>Spring Boot还向Spring环境注册了一个CommandLinePropertySource。这使您同样能够通过使用注解<strong>@Value</strong>注入单应用参数。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/05/02/Spring Boot道可道（原创）/（一）SpringApplication解析/" data-id="ckd8m0s7u004mph789ew89b4c" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2019/02/21/面试学习/蚂蚁金服面试问题/" data-id="ckd9w9j6z005sq678e789ugsl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1710,10 +1747,10 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2020/07/21/Clean Code/错误处理/" class="thumbnail">
+                            <a href="/2020/07/21/Clean Code/注释/" class="thumbnail">
     
     
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="错误处理" class="thumbnail-image"></span>
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="注释" class="thumbnail-image"></span>
     
 </a>
 
@@ -1721,7 +1758,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
-                            <p class="item-title"><a href="/2020/07/21/Clean Code/错误处理/" class="title">错误处理</a></p>
+                            <p class="item-title"><a href="/2020/07/21/Clean Code/注释/" class="title">注释</a></p>
                             <p class="item-date"><time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time></p>
                         </div>
                     </li>
@@ -1729,10 +1766,10 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2020/07/21/Clean Code/有意义的命名/" class="thumbnail">
+                            <a href="/2020/07/21/Clean Code/对象和数据结构/" class="thumbnail">
     
     
-        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="有意义的命名" class="thumbnail-image"></span>
+        <span style="background-image:url(http://www.wailian.work/images/2018/04/20/1524194203156.jpg)" alt="对象和数据结构" class="thumbnail-image"></span>
     
 </a>
 
@@ -1740,7 +1777,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/读书笔记/">读书笔记</a></p>
-                            <p class="item-title"><a href="/2020/07/21/Clean Code/有意义的命名/" class="title">有意义的命名</a></p>
+                            <p class="item-title"><a href="/2020/07/21/Clean Code/对象和数据结构/" class="title">对象和数据结构</a></p>
                             <p class="item-date"><time datetime="2020-07-21T03:11:47.000Z" itemprop="datePublished">2020-07-21</time></p>
                         </div>
                     </li>
@@ -1754,7 +1791,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Netty指南/">Netty指南</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/蚂蚁/">蚂蚁</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Netty指南/">Netty指南</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot官方文档翻译/">SpringBoot官方文档翻译</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/蚂蚁/">蚂蚁</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -1763,7 +1800,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1772,7 +1809,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Clean-Code/">Clean Code</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netty/">Netty</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微服务设计/">微服务设计</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重构改善既有代码设计/">重构改善既有代码设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Clean-Code/">Clean Code</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Effective-Java/">Effective Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Netty/">Netty</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第三部分/">SpringBoot官方文档翻译第三部分</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第二部分/">SpringBoot官方文档翻译第二部分</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot官方文档翻译第四部分/">SpringBoot官方文档翻译第四部分</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书籍/">书籍</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微服务设计/">微服务设计</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重构改善既有代码设计/">重构改善既有代码设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1781,7 +1818,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Clean-Code/" style="font-size: 16px;">Clean Code</a> <a href="/tags/Effective-Java/" style="font-size: 14px;">Effective Java</a> <a href="/tags/Netty/" style="font-size: 14px;">Netty</a> <a href="/tags/SpringBoot官方文档翻译第三部分/" style="font-size: 20px;">SpringBoot官方文档翻译第三部分</a> <a href="/tags/SpringBoot官方文档翻译第二部分/" style="font-size: 18px;">SpringBoot官方文档翻译第二部分</a> <a href="/tags/SpringBoot官方文档翻译第四部分/" style="font-size: 16px;">SpringBoot官方文档翻译第四部分</a> <a href="/tags/书籍/" style="font-size: 12px;">书籍</a> <a href="/tags/微服务设计/" style="font-size: 12px;">微服务设计</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/重构改善既有代码设计/" style="font-size: 10px;">重构改善既有代码设计</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+            <a href="/tags/Clean-Code/" style="font-size: 16.67px;">Clean Code</a> <a href="/tags/Effective-Java/" style="font-size: 13.33px;">Effective Java</a> <a href="/tags/Netty/" style="font-size: 15px;">Netty</a> <a href="/tags/SpringBoot官方文档翻译第三部分/" style="font-size: 20px;">SpringBoot官方文档翻译第三部分</a> <a href="/tags/SpringBoot官方文档翻译第二部分/" style="font-size: 18.33px;">SpringBoot官方文档翻译第二部分</a> <a href="/tags/SpringBoot官方文档翻译第四部分/" style="font-size: 16.67px;">SpringBoot官方文档翻译第四部分</a> <a href="/tags/书籍/" style="font-size: 11.67px;">书籍</a> <a href="/tags/微服务设计/" style="font-size: 11.67px;">微服务设计</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/重构改善既有代码设计/" style="font-size: 10px;">重构改善既有代码设计</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
         </div>
     </div>
 
